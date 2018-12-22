@@ -2,20 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/photos/index.html</loc>
-    
-    <lastmod>2018-12-22T17:17:07.704Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/photos/data.json</loc>
-    
-    <lastmod>2018-12-22T16:45:51.671Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2018/12/22/Hexo%E5%BC%80%E5%A7%8B%E5%86%99%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</loc>
     
     <lastmod>2018-12-22T15:10:27.691Z</lastmod>
