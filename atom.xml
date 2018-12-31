@@ -84,8 +84,8 @@
   
   <entry>
     <title>Android常见图片处理框架</title>
-    <link href="http://yoursite.com/2018/08/13/%E6%8A%80%E6%9C%AF/Android%E5%B8%B8%E8%A7%81%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%E6%A1%86%E6%9E%B6/"/>
-    <id>http://yoursite.com/2018/08/13/技术/Android常见图片处理框架/</id>
+    <link href="http://yoursite.com/2018/08/13/Android%E6%8A%80%E6%9C%AF/Android%E5%B8%B8%E8%A7%81%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%E6%A1%86%E6%9E%B6/"/>
+    <id>http://yoursite.com/2018/08/13/Android技术/Android常见图片处理框架/</id>
     <published>2018-08-13T11:42:00.000Z</published>
     <updated>2018-12-31T07:15:37.466Z</updated>
     
@@ -98,6 +98,26 @@
         &lt;blockquote&gt;
 &lt;h4 id=&quot;注意：第三方图片处理框架内部都已经封装了LruCatch，用来处理大图的加载，避免了OOM异常，使用了线程池来管理线程，避免了开启多个线程造成的资源的浪费，对于更新UI，内部也已经封装了Handler来进行线程间通信，将数据发送到UI线程
       
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android studio如何用GIF图作为背景</title>
+    <link href="http://yoursite.com/2018/08/08/Android%E6%8A%80%E6%9C%AF/Android%20studio%E5%A6%82%E4%BD%95%E7%94%A8GIF%E5%9B%BE%E4%BD%9C%E4%B8%BA%E8%83%8C%E6%99%AF/"/>
+    <id>http://yoursite.com/2018/08/08/Android技术/Android studio如何用GIF图作为背景/</id>
+    <published>2018-08-08T13:07:00.000Z</published>
+    <updated>2018-12-31T07:34:21.895Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://ws1.sinaimg.cn/large/e3bf8736ly1fypyrvuet2j22lo1qgnpj.jpg" alt=""></p><a id="more"></a><h3 id="引用第三方库"><a href="#引用第三方库" class="headerlink" title="引用第三方库"></a>引用第三方库</h3><p>1、先将你需要的GIF进行压缩，不然有可能会内存溢出</p><p>2、将你的GIF放到drawable当中</p><p>3、引入GIF依赖</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//引入GIF背景动态图实现依赖</span><br><span class="line">compile &apos;pl.droidsonroids.gif:android-gif-drawable:1.1.+&apos;</span><br></pre></td></tr></table></figure><p>4、添加自定义GIF控件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;pl.droidsonroids.gif.GifImageView</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;match_parent&quot;</span><br><span class="line">    android:background=&quot;@drawable/lutos_background&quot; /&gt;</span><br></pre></td></tr></table></figure><p>5、完成</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://ws1.sinaimg.cn/large/e3bf8736ly1fypyrvuet2j22lo1qgnpj.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     
