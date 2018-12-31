@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Linux | 盗计のBlog</title>
+  <title>离线网盘搭建教程 | 盗计のBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我在这里记录我的生活，记录我的学习，知识的积累使我自信和满足，感情的沉积使我成长和强大。我的博客只记录我想记录的东西。">
-<meta name="keywords" content="盗计,Daoji,Java,C#,Shell,Linux,Android">
-<meta property="og:type" content="website">
-<meta property="og:title" content="盗计のBlog">
-<meta property="og:url" content="http://yoursite.com/tags/Linux/index.html">
+  <meta name="keywords" content="Web">
+<meta property="og:type" content="article">
+<meta property="og:title" content="离线网盘搭建教程">
+<meta property="og:url" content="http://yoursite.com/2018/08/01/Linux/离线网盘搭建教程/index.html">
 <meta property="og:site_name" content="盗计のBlog">
-<meta property="og:description" content="我在这里记录我的生活，记录我的学习，知识的积累使我自信和满足，感情的沉积使我成长和强大。我的博客只记录我想记录的东西。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/e3bf8736gy1fyqg7xepfpj21260pgn41.jpg">
+<meta property="og:image" content="https://od.daoji.ml/image/TuChuang/TIM%E5%9B%BE%E7%89%8720180731222054.png">
+<meta property="og:image" content="https://od.daoji.ml/image/TuChuang/TIM%E6%88%AA%E5%9B%BE20180731231439.png">
+<meta property="og:image" content="https://od.daoji.ml/image/TuChuang/%E7%A6%BB%E7%BA%BF%E6%B5%81%E7%A8%8B%E5%9B%BE.png">
+<meta property="og:updated_time" content="2018-12-31T17:37:31.717Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="盗计のBlog">
-<meta name="twitter:description" content="我在这里记录我的生活，记录我的学习，知识的积累使我自信和满足，感情的沉积使我成长和强大。我的博客只记录我想记录的东西。">
+<meta name="twitter:title" content="离线网盘搭建教程">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/e3bf8736gy1fyqg7xepfpj21260pgn41.jpg">
   
     <link rel="alternative" href="/atom.xml" title="盗计のBlog" type="application/atom+xml">
   
@@ -166,326 +169,256 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Linux/离线网盘搭建教程" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      离线网盘搭建教程
+    </h1>
+  
+
+      
+      <a href="/2018/08/01/Linux/离线网盘搭建教程/" class="archive-article-date">
+  	<time datetime="2018-08-01T03:04:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
+</a>
+      
+    </header>
     
+    <!-- 目录内容 -->
+    
+    <!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+      <p><img src="https://ws1.sinaimg.cn/large/e3bf8736gy1fyqg7xepfpj21260pgn41.jpg" alt=""><br><a id="more"></a></p>
+<h3 id="Aria2-AriaNg-OneIndex-rclone-示例"><a href="#Aria2-AriaNg-OneIndex-rclone-示例" class="headerlink" title="Aria2+AriaNg+OneIndex(+rclone)示例"></a>Aria2+AriaNg+OneIndex(+rclone)<a href="https://od.daoji.ml" target="_blank" rel="noopener">示例</a><hr></h3><p><a href="https://im.from.io/" title="免费临时邮箱过office365" target="_blank" rel="noopener">免费临时邮箱过office365</a></p>
+<hr>
+
+<p><img src="https://od.daoji.ml/image/TuChuang/TIM%E5%9B%BE%E7%89%8720180731222054.png" alt=""><br></p>
+<h3 id="一、获得5T的OneDrive网盘账号"><a href="#一、获得5T的OneDrive网盘账号" class="headerlink" title="一、获得5T的OneDrive网盘账号 "></a>一、获得5T的OneDrive网盘账号 <hr></h3><p>点击上面的链接获取临时邮箱，然后按照图片的超链接去注册一个账号，直接就是OneDrive网盘教育版了，直接就有5T容量了。<br>（或者去<a href="http://az.pl" target="_blank" rel="noopener">http://az.pl</a>申请一个免费的edu.pl后缀的域名，自己搭建邮箱也能过office365教育版）<br><br></p>
+<h3 id="二、安装Aria2"><a href="#二、安装Aria2" class="headerlink" title="二、安装Aria2"></a>二、安装Aria2</h3><p><hr><br><strong>习惯了用CentOS，这里全程用CentOS 7来演示。</strong><br>安装Aria2这里推荐doub.io的一键脚本，方便快捷又好用。<br>执行下面的代码下载并运行脚本。    </p>
+<pre><code>wget -N --no-check-certificate https://softs.loan/Bash/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; bash aria2.sh
+
+# 如果上面这个脚本无法下载，尝试使用备用下载：
+wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; bash aria2.sh
+</code></pre><p><br></p>
+<blockquote>
+<p>启动：/etc/init.d/aria2 start</p>
+<p>停止：/etc/init.d/aria2 stop</p>
+<p>重启：/etc/init.d/aria2 restart</p>
+<p>查看状态：/etc/init.d/aria2 status</p>
+<p>配置文件：/root/.aria2/aria2.conf （配置文件包含中文注释，但是一些系统可能不支持显示中文）</p>
+<p>令牌密匙：随机生成（可以自己修改 6. 修改 配置文件）</p>
+<p>下载目录：/usr/local/caddy/www/aria2/Download</p>
+</blockquote>
+<p><br></p>
+<h3 id="三、部署AriaNg"><a href="#三、部署AriaNg" class="headerlink" title="三、部署AriaNg"></a>三、部署AriaNg</h3><hr>
+
+<p>Aria2用Linux指令来操作的话太麻烦，为了简化操作就用GUI面板来操作。<br></p>
+<p><a href="https://github.com/mayswind/AriaNg/releases/download/0.4.0/aria-ng-0.4.0.zip" target="_blank" rel="noopener">AriaNg下载</a><br><a href="https://github.com/mayswind/AriaNg/releases/latest" title="https://github.com/mayswind/AriaNg/releases/latest" target="_blank" rel="noopener">Github最新版下载地址</a><br>​<br>AriaNg可以像网站一样部署在服务器上，这里介绍最简单的用法。<br>下载解压，找到文件夹里面的<code>index.html</code>双击打开。</p>
+<p><img src="https://od.daoji.ml/image/TuChuang/TIM%E6%88%AA%E5%9B%BE20180731231439.png" alt=""></p>
+<p>设置好之后就能远程下载种子磁力了。</p>
+<h3 id="四、部署OneIndex"><a href="#四、部署OneIndex" class="headerlink" title="四、部署OneIndex"></a>四、部署OneIndex</h3><hr>
+
+<p>部署OneIndex之前先安装运行环境。新手用<a href="https://www.bt.cn/" title="https://www.bt.cn/" target="_blank" rel="noopener">宝塔https://www.bt.cn/</a>非常方便。     </p>
+<p>然后就部署Oneindex网站源码，可以参照这篇文章<a href="https://www.sabia.cc/oneindex-onedrive-file-downloads.html" title="https://www.sabia.cc/oneindex-onedrive-file-downloads.html" target="_blank" rel="noopener">部署OndeIndex</a>。</p>
+<blockquote>
+<p>OneIndex是通过OneDrive的API管理的程序，既能做使用OneDrive做外链，又能快速上传文件到OneDrive，达到做离线下载，文件备份的目的。</p>
+</blockquote>
+<h3 id="五、安装Rclone"><a href="#五、安装Rclone" class="headerlink" title="五、安装Rclone"></a>五、安装Rclone</h3><hr>
+
+<blockquote>
+<p>Rclone是将OneDrive作为一个储存空间挂载在本地分区上，也就是将一个本地文件夹，关联OneDrive上的一个文件夹上，当本地文件移动到本地文件夹中，将会自动上传到OneDrive上。<br>如果需求不大，可以选<code>Oneindex</code>或<code>Rclone</code>中的一个安装就行了。  </p>
+</blockquote>
+<p>安装方法可以参照这两篇文章<a href="https://www.moerats.com/archives/491/" title="https://www.moerats.com/archives/491/" target="_blank" rel="noopener">《在于Debian / Ubuntu上使用rclone挂载OneDrive网盘》</a>和<a href="http://www.liuwe.com/archives/1196.html" title="http://www.liuwe.com/archives/1196.html" target="_blank" rel="noopener">《Centos7使用RCLONE挂载OneDrive搭建离线下载，在线播放》</a>。</p>
+<h3 id="六、一键上传脚本"><a href="#六、一键上传脚本" class="headerlink" title="六、一键上传脚本"></a>六、一键上传脚本</h3><hr>
+
+<p><a href="http://www.liuwe.com/archives/1196.html" target="_blank" rel="noopener"><a href="http://www.liuwe.com/archives/1196.html" target="_blank" rel="noopener">Centos7使用RCLONE挂载OneDrive搭建离线下载，在线播放</a></a>  </p>
+<p><a href="https://lala.im/2982.html" target="_blank" rel="noopener">荒岛的自动上传</a></p>
+<p><a href="https://www.234du.com/1171.html" target="_blank" rel="noopener">使用Aria2 + ARIANG + oneindex + onedrive建立离线BT下载/在线播放</a></p>
+<p><a href="http://sysu.edu.pl/" target="_blank" rel="noopener">临时邮箱地址</a></p>
+<p><a href="https://www.sabia.cc/category/%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC" target="_blank" rel="noopener">一键脚本</a></p>
+<p><img src="https://od.daoji.ml/image/TuChuang/%E7%A6%BB%E7%BA%BF%E6%B5%81%E7%A8%8B%E5%9B%BE.png"></p>
+
+      
+
+      
+      <div class="page-reward">
+        <a href="javascript:;" class="page-reward-btn tooltip-top">
+          <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>
+                    谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/AliPay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/WePay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+        </a>
+      </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/09/Linux/Linux通过ps -ef过滤进程获得行数/" class="archive-article-date">
-  	<time datetime="2018-10-09T08:08:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/09/Linux/Linux通过ps -ef过滤进程获得行数/">CentOS 7安装SSH</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Web</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+      
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/01/Linux/离线网盘搭建教程/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+
+<nav id="article-nav">
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/17/Linux/Linux抓出背后的木马程序并处理/" class="archive-article-date">
-  	<time datetime="2018-07-17T00:49:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-17</time>
-</a>
+    <a href="/2018/08/08/Android技术/Android studio如何用GIF图作为背景/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Android studio如何用GIF图作为背景
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/21/《她和她的猫》/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《她和她的猫》</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/17/Linux/Linux抓出背后的木马程序并处理/">Linux抓出背后的木马程序并处理</a>
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/17/Linux/自家Linux/" class="archive-article-date">
-  	<time datetime="2018-07-17T00:49:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/17/Linux/自家Linux/">自家Linux</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/28/Linux/Linux Crontab 安装使用详细说明/" class="archive-article-date">
-  	<time datetime="2018-06-28T13:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/28/Linux/Linux Crontab 安装使用详细说明/">Linux Crontab 安装使用详细说明</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/28/Linux/Linux在CLI下连接WiFi/" class="archive-article-date">
-  	<time datetime="2018-06-28T11:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/28/Linux/Linux在CLI下连接WiFi/">Linux在CLI下连接WiFi</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/28/Linux/Linux安装SSH/" class="archive-article-date">
-  	<time datetime="2018-06-28T11:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/28/Linux/Linux安装SSH/">CentOS 7安装SSH</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/15/Linux/使用Speedtest进行带宽测速/" class="archive-article-date">
-  	<time datetime="2018-04-15T10:33:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/15/Linux/使用Speedtest进行带宽测速/">使用Speedtest进行带宽测速</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/15/Android技术/DenyHosts安装及配置/" class="archive-article-date">
-  	<time datetime="2018-04-15T10:27:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/15/Android技术/DenyHosts安装及配置/">DenyHosts安装及配置</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
+<div id="gitment-ctn"></div> 
+<!-- <link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script> -->
+<link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
+<script src="https://billts.site/js/gitment.js"></script>
+<!-- 汉化 -->
+<script>
+var gitment = new Gitment({
+  id: '离线网盘搭建教程',
+  owner: 'daojiAnime',
+  repo: 'daojiAnime.github.io',
+  oauth: {
+    client_id: '448174ff6856204aa731',
+    client_secret: '8518b25b88412e53cb1b98be5de7352a4b6c826c',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
 
 
           </div>
@@ -508,9 +441,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
