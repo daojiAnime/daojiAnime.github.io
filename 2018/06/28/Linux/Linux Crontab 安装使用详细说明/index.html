@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>淡定是一头猪 | 盗计のBlog</title>
+  <title>Linux Crontab 安装使用详细说明 | 盗计のBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="他是 肥猪大肥猪一点点大">
-<meta name="keywords" content="随笔">
+  <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="淡定是一头猪">
-<meta property="og:url" content="http://yoursite.com/2018/12/22/淡定是一头猪/index.html">
+<meta property="og:title" content="Linux Crontab 安装使用详细说明">
+<meta property="og:url" content="http://yoursite.com/2018/06/28/Linux/Linux Crontab 安装使用详细说明/index.html">
 <meta property="og:site_name" content="盗计のBlog">
-<meta property="og:description" content="他是 肥猪大肥猪一点点大">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-23T02:34:21.843Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/e3bf8736ly1fypzllrsn1j21250pfhdt.jpg">
+<meta property="og:updated_time" content="2018-12-31T08:08:20.566Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="淡定是一头猪">
-<meta name="twitter:description" content="他是 肥猪大肥猪一点点大">
+<meta name="twitter:title" content="Linux Crontab 安装使用详细说明">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/e3bf8736ly1fypzllrsn1j21250pfhdt.jpg">
   
     <link rel="alternative" href="/atom.xml" title="盗计のBlog" type="application/atom+xml">
   
@@ -167,55 +166,42 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-淡定是一头猪" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Linux/Linux Crontab 安装使用详细说明" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     <header class="article-header">
       
   
     <h1 class="article-title" itemprop="name">
-      淡定是一头猪
+      Linux Crontab 安装使用详细说明
     </h1>
   
 
       
-      <a href="/2018/12/22/淡定是一头猪/" class="archive-article-date">
-  	<time datetime="2018-12-22T12:58:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-22</time>
+      <a href="/2018/06/28/Linux/Linux Crontab 安装使用详细说明/" class="archive-article-date">
+  	<time datetime="2018-06-28T13:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-28</time>
 </a>
       
     </header>
     
     <!-- 目录内容 -->
     
-    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-      <span class="btn-bg"></span>
-      <span class="btn-text">文章导航</span>
-    </p>
-    <div id="toc-article" class="toc-article">
-      <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-      <strong class="toc-title">文章目录</strong>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#他是-肥猪"><span class="toc-number">1.</span> <span class="toc-text">他是 肥猪</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#大肥猪"><span class="toc-number">2.</span> <span class="toc-text">大肥猪</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一点点大"><span class="toc-number">2.1.</span> <span class="toc-text">一点点大</span></a></li></ol></li></ol>
-    </div>
-    <script type="text/javascript">
-      function showToc() {
-        var toc_article = document.getElementById("toc-article");
-        var show_toc_btn = document.getElementById("show-toc-btn");
-        toc_article.setAttribute("style", "display:block");
-        show_toc_btn.setAttribute("style", "display:none");
-      };
-
-      function showBtn() {
-        var toc_article = document.getElementById("toc-article");
-        var show_toc_btn = document.getElementById("show-toc-btn");
-        toc_article.setAttribute("style", "display:none");
-        show_toc_btn.setAttribute("style", "display:block");
-      };
-    </script>
-    
     <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-      <h1 id="他是-肥猪"><a href="#他是-肥猪" class="headerlink" title="他是 肥猪"></a>他是 肥猪</h1><h1 id="大肥猪"><a href="#大肥猪" class="headerlink" title="大肥猪"></a>大肥猪</h1><h2 id="一点点大"><a href="#一点点大" class="headerlink" title="一点点大"></a>一点点大</h2>
+      <p><img src="https://ws1.sinaimg.cn/large/e3bf8736ly1fypzllrsn1j21250pfhdt.jpg" alt=""></p>
+<a id="more"></a>
+<blockquote>
+<p>&emsp;&emsp;crontab命令常见于Unix和Linux的操作系统之中，用于设置周期性被执行的指令。该命令从标准输入设备读取指令，并将其存放于“crontab”文件中，以供之后读取和执行。通常，crontab储存的指令被守护进程激活。crond 常常在后台运行，每一分钟检查是否有预定的作业需要执行。这类作业一般称为cron jobs。</p>
+</blockquote>
+<p><br></p>
+<h3 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install vixie-cron</span><br><span class="line">yum -y install crontabs</span><br></pre></td></tr></table></figure>
+<h4 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：<br></h4><p>vixie-cron 软件包是 cron 的主程序；<br>crontabs 软件包是用来安装、卸装、或列举用来驱动 cron 守护进程的表格的程序。</p>
+<h3 id="二、配置"><a href="#二、配置" class="headerlink" title="二、配置"></a>二、配置</h3><p>cron 是 linux 的内置服务，但它不自动起来，可以用以下的方法启动、关闭这个服务： </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">service crond start     //启动服务</span><br><span class="line">service crond stop      //关闭服务</span><br><span class="line">service crond restart   //重启服务</span><br><span class="line">service crond reload    //重新载入配置</span><br><span class="line">service crond status    //查看crontab服务状态</span><br></pre></td></tr></table></figure>
+<p> 在CentOS系统中加入开机自动启动:  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chkconfig --level 345 crond on</span><br></pre></td></tr></table></figure>
+<h4 id="列子："><a href="#列子：" class="headerlink" title="列子："></a>列子：</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">01 * * * * root run-parts /etc/cron.hourly</span><br><span class="line">02 4 * * * root run-parts /etc/cron.daily</span><br><span class="line">22 4 * * 0 root run-parts /etc/cron.weekly</span><br><span class="line">42 4 1 * * root run-parts /etc/cron.monthly</span><br></pre></td></tr></table></figure>
       
 
       
@@ -260,7 +246,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -316,7 +302,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/12/22/淡定是一头猪/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/28/Linux/Linux Crontab 安装使用详细说明/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -330,17 +316,17 @@
 
 <nav id="article-nav">
   
-    <a href="/2018/12/22/Hexo开始写的第一篇文章/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/07/17/Linux/Linux抓出背后的木马程序并处理/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Hexo开始写的第一篇文章
+          Linux抓出背后的木马程序并处理
         
       </div>
     </a>
   
   
-    <a href="/2018/10/09/Linux/Linux通过ps -ef过滤进程获得行数/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/06/28/Linux/Linux安装SSH/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">CentOS 7安装SSH</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -360,19 +346,6 @@
             </div>
         </div>
         
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#他是-肥猪"><span class="toc-number">1.</span> <span class="toc-text">他是 肥猪</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#大肥猪"><span class="toc-number">2.</span> <span class="toc-text">大肥猪</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一点点大"><span class="toc-number">2.1.</span> <span class="toc-text">一点点大</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
         
     </div>
 </aside>
@@ -396,7 +369,7 @@
 <!-- 汉化 -->
 <script>
 var gitment = new Gitment({
-  id: '淡定是一头猪',
+  id: 'Linux Crontab 安装使用详细说明',
   owner: 'daojiAnime',
   repo: 'daojiAnime.github.io',
   oauth: {

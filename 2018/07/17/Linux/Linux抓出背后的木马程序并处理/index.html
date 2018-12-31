@@ -6,19 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>CentOS 7安装SSH | 盗计のBlog</title>
+  <title>Linux抓出背后的木马程序并处理 | 盗计のBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CentOS 7安装SSH">
-<meta property="og:url" content="http://yoursite.com/2018/06/28/Android技术/Linux安装SSH/index.html">
+<meta property="og:title" content="Linux抓出背后的木马程序并处理">
+<meta property="og:url" content="http://yoursite.com/2018/07/17/Linux/Linux抓出背后的木马程序并处理/index.html">
 <meta property="og:site_name" content="盗计のBlog">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/e3bf8736ly1fypzqdtamej21l8123qv7.jpg">
-<meta property="og:updated_time" content="2018-12-31T08:11:44.682Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/e3bf8736gy1fyqcp6wozhj225r1fux6s.jpg">
+<meta property="og:image" content="https://yqfile.alicdn.com/3fc0dc0046bf64d22c788b86063c20378756710b.png">
+<meta property="og:image" content="https://yqfile.alicdn.com/249ac3353c4e4dc8482f1df07e1b059cb420d78a.png">
+<meta property="og:image" content="https://yqfile.alicdn.com/add7471c149fe18e39d9048bc65caace21701c25.png">
+<meta property="og:image" content="https://yqfile.alicdn.com/d89bc571d8ba01a1f9eab99af0112674c67196aa.png">
+<meta property="og:image" content="https://yqfile.alicdn.com/38ba3d1db70e742993f16bd8c0cf155422fc58a8.png">
+<meta property="og:image" content="https://yqfile.alicdn.com/72eede7da7d1bfb0c1c32f8c1e99993408a0cb70.png">
+<meta property="og:image" content="https://yqfile.alicdn.com/ade809df30ef7d688b551b2b0b559149a5800571.png">
+<meta property="og:image" content="https://yqfile.alicdn.com/1199403d7e19bd225e5c65525a6ed8ce6bc1100f.png">
+<meta property="og:image" content="https://yqfile.alicdn.com/091056648e466a2f53301188b13de33b86039709.png">
+<meta property="og:image" content="https://yqfile.alicdn.com/c92e1ee20ba41c253bb6c3786919e5439e469edc.png">
+<meta property="og:updated_time" content="2018-12-31T15:38:49.190Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CentOS 7安装SSH">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/e3bf8736ly1fypzqdtamej21l8123qv7.jpg">
+<meta name="twitter:title" content="Linux抓出背后的木马程序并处理">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/e3bf8736gy1fyqcp6wozhj225r1fux6s.jpg">
   
     <link rel="alternative" href="/atom.xml" title="盗计のBlog" type="application/atom+xml">
   
@@ -166,20 +176,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Android技术/Linux安装SSH" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Linux/Linux抓出背后的木马程序并处理" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     <header class="article-header">
       
   
     <h1 class="article-title" itemprop="name">
-      CentOS 7安装SSH
+      Linux抓出背后的木马程序并处理
     </h1>
   
 
       
-      <a href="/2018/06/28/Android技术/Linux安装SSH/" class="archive-article-date">
-  	<time datetime="2018-06-28T11:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-28</time>
+      <a href="/2018/07/17/Linux/Linux抓出背后的木马程序并处理/" class="archive-article-date">
+  	<time datetime="2018-07-17T00:49:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-17</time>
 </a>
       
     </header>
@@ -189,26 +199,32 @@
     <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-      <p><img src="https://ws1.sinaimg.cn/large/e3bf8736ly1fypzqdtamej21l8123qv7.jpg" alt=""><br><a id="more"></a></p>
-<h3 id="VPS上可能没有安装桌面，但一般来说都会安装ssh，并且防火墙默认开放22端口。"><a href="#VPS上可能没有安装桌面，但一般来说都会安装ssh，并且防火墙默认开放22端口。" class="headerlink" title="VPS上可能没有安装桌面，但一般来说都会安装ssh，并且防火墙默认开放22端口。"></a>VPS上可能没有安装桌面，但一般来说都会安装ssh，并且防火墙默认开放22端口。</h3><p>那就从ssh开始。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 安装ssh，默认已安装好</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> yum install ssh</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 启动ssh服务器端</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> service sshd start</span><br></pre></td></tr></table></figure>
-<h3 id="ssh登陆"><a href="#ssh登陆" class="headerlink" title="ssh登陆"></a>ssh登陆</h3><p>如果本地端是Linux</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> ssh root@192.168.1.1</span><br></pre></td></tr></table></figure>
-<p>其中root表示的是登录用户名，192.168.1.1为主机的IP地址，当然也可以使用主机名、域名来指代IP地址。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> ssh 192.168.1.1</span><br></pre></td></tr></table></figure>
-<p>则会以当前客户端的用户名进行登录。</p>
-<h3 id="ssh无密码登录"><a href="#ssh无密码登录" class="headerlink" title="ssh无密码登录"></a>ssh无密码登录</h3><p>但是每次输入密码登录十分麻烦，有没有一种方式可以让服务器能够确定我的身份，无需输入密码可以直接通过认证？</p>
-<p>ssh除了使用密码验证外，还提供了一种公私密钥的验证方式。客户端生成一个私钥，并生成一个与之对应的公钥，然后将公钥上传到服务器上。下面是Linux示例。</p>
-<h4 id="在客户端生成私钥、公钥（注意，在客户端完成）："><a href="#在客户端生成私钥、公钥（注意，在客户端完成）：" class="headerlink" title="在客户端生成私钥、公钥（注意，在客户端完成）："></a>在客户端生成私钥、公钥（注意，在客户端完成）：</h4><pre><code># ssh-keygen -t rsa
-</code></pre><p><code>-t</code> 指定要创建的密钥类型，默认就是rsa了，所以只执行ssh-keygen是一样的。</p>
-<p>期间会提示你输入你私钥的加密密码。如果需要完全脱离密码，此处可留空，直接回车，否则以后每次连接需要本地解锁。</p>
-<p>完成后，会当前用户的主目录下的<code>~/.ssh/</code>路径下生成两个文件<code>id_rsa</code>与<code>id_rsa.pub</code>分别是私钥与公钥。</p>
-<p>接下来，要把生成的公钥上传到服务器上，同样还是在客户端执行以下的代码。</p>
-<pre><code># ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.1.1
-</code></pre><p>其中root可以修改为你想要自动登录的服务器端用户名，192.168.1.1修改为你的VPS主机名或IP地址。</p>
-<h3 id="最后，ssh登录远程服务器。"><a href="#最后，ssh登录远程服务器。" class="headerlink" title="最后，ssh登录远程服务器。"></a>最后，ssh登录远程服务器。</h3><pre><code># ssh root@192.168.1.1
-</code></pre><p>此时就不需要密码就可以登录了。</p>
-
+      <p><img src="https://ws1.sinaimg.cn/large/e3bf8736gy1fyqcp6wozhj225r1fux6s.jpg" alt=""><br><a id="more"></a></p>
+<h3 id="·通过top命令查看进程情况"><a href="#·通过top命令查看进程情况" class="headerlink" title="·通过top命令查看进程情况"></a>·通过top命令查看进程情况</h3><pre><code>top  
+</code></pre><p><img src="https://yqfile.alicdn.com/3fc0dc0046bf64d22c788b86063c20378756710b.png" alt=""><br>获取<code>pid</code>后可以用<code>kill [PID]</code>来关闭进程<br>​    </p>
+<h3 id="·通过进程查询异常程序所在目录"><a href="#·通过进程查询异常程序所在目录" class="headerlink" title="·通过进程查询异常程序所在目录"></a>·通过进程查询异常程序所在目录</h3><p>通过执行<code>ll /proc/$PID/exe</code>，($PID即进程ID)可获得异常进程的目录    </p>
+<p><img src="https://yqfile.alicdn.com/249ac3353c4e4dc8482f1df07e1b059cb420d78a.png" alt="">    </p>
+<p>此程序一般是由计划任务产生的，Linux系统中默认创建了计划任务后会在/var/spool/cron目录下创建对应用户的计划任务脚本，执行ls /var/spool/cron 查询一下系统中是否有异常的计划任务脚本程序。<br>可以看到，在此目录下有1个root的计划任务脚本和一个异常的目录crontabs（默认情况下不会有此目录，用户创建计划任务也不会产生此目录） </p>
+<p><img src="https://yqfile.alicdn.com/add7471c149fe18e39d9048bc65caace21701c25.png" alt="">  </p>
+<p>查看脚本内容，有一个每隔10分钟便会通过curl下载执行的脚本程序（crontabs目录下为同样内容的计划任务）  </p>
+<p><img src="https://yqfile.alicdn.com/d89bc571d8ba01a1f9eab99af0112674c67196aa.png" alt=""></p>
+<p>手动将脚本内容下载到本地，脚本内容如下</p>
+<p><img src="https://yqfile.alicdn.com/38ba3d1db70e742993f16bd8c0cf155422fc58a8.png" alt=""></p>
+<h4 id="分析此脚本，主要进行了如下修改"><a href="#分析此脚本，主要进行了如下修改" class="headerlink" title="分析此脚本，主要进行了如下修改"></a>分析此脚本，主要进行了如下修改</h4><p>1、创建了上述查看到的两个计划任务脚本<br>2、创建了密钥认证文件，导入到了/root/.ssh目录下（当前脚本的密钥文件名是KHK75NEOiq，此名称可能会有所变化，要根据具体情况进行核实）<br>3、修改ssh配置文件允许了root远程登录，允许了密钥认证，修改默认的密钥认证文件名<br>4、重启了sshd服务使配置生效<br>5、创建了伪装程序ntp，并运行了ntp程序<br>6、查询系统中是否有正常运行的计划任务，杀死正在运行的计划任务进程。  </p>
+<h4 id="【处理方法】"><a href="#【处理方法】" class="headerlink" title="【处理方法】"></a>【处理方法】</h4><p>根据以上分析，提供以下处理方法<br>1、删除计划任务脚本中异常配置项，如果当前系统之前并未配置过计划任务，可以直接执行rm -rf /var/spool/cron/<em> 情况计划脚本目录即可。<br>2、删除黑客创建的密钥认证文件，如果当前系统之前并未配置过密钥认证，可以直接执行rm -rf /root/.ssh/</em> 清空认证存放目录即可。如果有配置过密钥认证，需要删除指定的黑客创建的认证文件即可，当前脚本的密钥文件名是KHK75NEOiq，此名称可能会有所变化，要根据具体情况进行核实。<br>3、修复ssh配置项，根据个人需求进行修改，一般默认脚本中进行修改的PermitRootLogin、RSAAuthentication、PubkeyAuthentication为开启状态，需要修改的是密钥认证文件名，建议修改成默认值AuthorizedKeysFile .ssh/authorized_keys即可。修改完成后重启sshd服务，使配置生效即可。<br>4、删除黑客创建的伪装程序ntp<br>执行ls /etc/init.d/可以看到系统中是由对应的伪装程序的  </p>
+<p><img src="https://yqfile.alicdn.com/72eede7da7d1bfb0c1c32f8c1e99993408a0cb70.png" alt=""></p>
+<p>通过chkconfig –list ntp 可以看到此程序默认设置的是开机自动启动</p>
+<p><img src="https://yqfile.alicdn.com/ade809df30ef7d688b551b2b0b559149a5800571.png" alt=""></p>
+<p>如果此程序不进行清除，即使删除了minerd程序并且杀死了对应的进程，过一会系统还会重新创建minerd程序，并产生新的进程<br>查询一下当前系统中是否有ntp进程，可以看到ntp进程是通过/usr/sbin/ntp程序产生，因此需要把对应的执行程序也进行删除</p>
+<p><img src="https://yqfile.alicdn.com/1199403d7e19bd225e5c65525a6ed8ce6bc1100f.png" alt=""></p>
+<p>总结一下删除伪装程序的操作步骤  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kill -9 $PID 杀死查询到的ntp进程  </span><br><span class="line">rm -rf /etc/init.d/ntp  </span><br><span class="line">rm -rf /usr/sbin/ntp （此路径要根据具体的查询数据确定，实际情况可能会有所变化）</span><br></pre></td></tr></table></figure>
+<h3 id="·删除异常程序并关闭异常进程"><a href="#·删除异常程序并关闭异常进程" class="headerlink" title="·删除异常程序并关闭异常进程"></a>·删除异常程序并关闭异常进程</h3><p>根据之前的查询minerd程序所在路径为<code>/opt</code>，在执行的脚本中同时也在<code>/opt</code>目录下创建了一个<code>KHK75NEOiq33</code>的程序文件</p>
+<p>因此要删除这两个文件，执行<code>rm -rf KHK75NEOiq33 minerd</code> 即可</p>
+<p><img src="https://yqfile.alicdn.com/091056648e466a2f53301188b13de33b86039709.png" alt=""></p>
+<p><code>kill -9 $PID</code> 杀死对应的进程ID </p>
+<p>通过ps命令查询一下minerd对应的进程详细情况<br>​    ps -aux|grep minerd<br><img src="https://yqfile.alicdn.com/c92e1ee20ba41c253bb6c3786919e5439e469edc.png" alt=""></p>
+<h3 id="·修改SSH端口以及采用（字母-符号-数字-密码）的方式登录"><a href="#·修改SSH端口以及采用（字母-符号-数字-密码）的方式登录" class="headerlink" title="·修改SSH端口以及采用（字母+符号+数字=密码）的方式登录"></a>·修改SSH端口以及采用（字母+符号+数字=密码）的方式登录</h3><h3 id="·适当时可以考虑一下网上的防爆破SSH脚本或程序"><a href="#·适当时可以考虑一下网上的防爆破SSH脚本或程序" class="headerlink" title="·适当时可以考虑一下网上的防爆破SSH脚本或程序"></a>·适当时可以考虑一下网上的防爆破SSH脚本或程序</h3>
       
 
       
@@ -309,7 +325,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/28/Android技术/Linux安装SSH/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/17/Linux/Linux抓出背后的木马程序并处理/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -323,18 +339,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2018/06/28/Android技术/Linux Crontab 安装使用详细说明/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/07/21/《她和她的猫》/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Linux Crontab 安装使用详细说明
+          《她和她的猫》
         
       </div>
     </a>
   
   
-    <a href="/2018/04/15/Android技术/DenyHosts安装及配置/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">DenyHosts安装及配置</div>
+    <a href="/2018/06/28/Linux/Linux Crontab 安装使用详细说明/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux Crontab 安装使用详细说明</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -376,7 +392,7 @@
 <!-- 汉化 -->
 <script>
 var gitment = new Gitment({
-  id: 'CentOS 7安装SSH',
+  id: 'Linux抓出背后的木马程序并处理',
   owner: 'daojiAnime',
   repo: 'daojiAnime.github.io',
   oauth: {
@@ -395,7 +411,7 @@ gitment.render('gitment-ctn')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 Daoji
+    		&copy; 2019 Daoji
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -478,7 +494,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -486,7 +502,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -495,6 +511,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">不为人知</a>
               </li>
             
             <div class="clearfix"></div>

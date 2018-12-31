@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Linux Crontab 安装使用详细说明 | 盗计のBlog</title>
+  <title>Linux在CLI下连接WiFi | 盗计のBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux Crontab 安装使用详细说明">
-<meta property="og:url" content="http://yoursite.com/2018/06/28/Android技术/Linux Crontab 安装使用详细说明/index.html">
+<meta property="og:title" content="Linux在CLI下连接WiFi">
+<meta property="og:url" content="http://yoursite.com/2018/06/28/Linux/Linux在CLI下连接WiFi/index.html">
 <meta property="og:site_name" content="盗计のBlog">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/e3bf8736ly1fypzllrsn1j21250pfhdt.jpg">
-<meta property="og:updated_time" content="2018-12-31T08:08:20.566Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/e3bf8736gy1fyqcfaxx0dj22801hcb2e.jpg">
+<meta property="og:updated_time" content="2018-12-31T15:33:16.488Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux Crontab 安装使用详细说明">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/e3bf8736ly1fypzllrsn1j21250pfhdt.jpg">
+<meta name="twitter:title" content="Linux在CLI下连接WiFi">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/e3bf8736gy1fyqcfaxx0dj22801hcb2e.jpg">
   
     <link rel="alternative" href="/atom.xml" title="盗计のBlog" type="application/atom+xml">
   
@@ -166,20 +166,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Android技术/Linux Crontab 安装使用详细说明" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Linux/Linux在CLI下连接WiFi" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     <header class="article-header">
       
   
     <h1 class="article-title" itemprop="name">
-      Linux Crontab 安装使用详细说明
+      Linux在CLI下连接WiFi
     </h1>
   
 
       
-      <a href="/2018/06/28/Android技术/Linux Crontab 安装使用详细说明/" class="archive-article-date">
-  	<time datetime="2018-06-28T13:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-28</time>
+      <a href="/2018/06/28/Linux/Linux在CLI下连接WiFi/" class="archive-article-date">
+  	<time datetime="2018-06-28T11:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-28</time>
 </a>
       
     </header>
@@ -189,19 +189,19 @@
     <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-      <p><img src="https://ws1.sinaimg.cn/large/e3bf8736ly1fypzllrsn1j21250pfhdt.jpg" alt=""></p>
-<a id="more"></a>
-<blockquote>
-<p>&emsp;&emsp;crontab命令常见于Unix和Linux的操作系统之中，用于设置周期性被执行的指令。该命令从标准输入设备读取指令，并将其存放于“crontab”文件中，以供之后读取和执行。通常，crontab储存的指令被守护进程激活。crond 常常在后台运行，每一分钟检查是否有预定的作业需要执行。这类作业一般称为cron jobs。</p>
-</blockquote>
-<p><br></p>
-<h3 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install vixie-cron</span><br><span class="line">yum -y install crontabs</span><br></pre></td></tr></table></figure>
-<h4 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：<br></h4><p>vixie-cron 软件包是 cron 的主程序；<br>crontabs 软件包是用来安装、卸装、或列举用来驱动 cron 守护进程的表格的程序。</p>
-<h3 id="二、配置"><a href="#二、配置" class="headerlink" title="二、配置"></a>二、配置</h3><p>cron 是 linux 的内置服务，但它不自动起来，可以用以下的方法启动、关闭这个服务： </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">service crond start     //启动服务</span><br><span class="line">service crond stop      //关闭服务</span><br><span class="line">service crond restart   //重启服务</span><br><span class="line">service crond reload    //重新载入配置</span><br><span class="line">service crond status    //查看crontab服务状态</span><br></pre></td></tr></table></figure>
-<p> 在CentOS系统中加入开机自动启动:  </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chkconfig --level 345 crond on</span><br></pre></td></tr></table></figure>
-<h4 id="列子："><a href="#列子：" class="headerlink" title="列子："></a>列子：</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">01 * * * * root run-parts /etc/cron.hourly</span><br><span class="line">02 4 * * * root run-parts /etc/cron.daily</span><br><span class="line">22 4 * * 0 root run-parts /etc/cron.weekly</span><br><span class="line">42 4 1 * * root run-parts /etc/cron.monthly</span><br></pre></td></tr></table></figure>
+      <p><img src="https://ws1.sinaimg.cn/large/e3bf8736gy1fyqcfaxx0dj22801hcb2e.jpg" alt=""><br><a id="more"></a></p>
+<p>系统安装好后，有线与线连接都可以使用， 切换联网方式执行要使用“<code>ifdown 对应的网卡名称</code>”或者“<code>ifup 对应的网卡名称</code>”这两条命令即可。</p>
+<p>使用 nmcli命令，查看各网卡的状态。得知无线网卡已经被驱动起来，并且已经纳入NetworkManager的管理。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# nmcli dev status</span><br><span class="line">DEVICE      TYPE      STATE   CONNECTION   </span><br><span class="line">wlp3s0b1    wifi      连接的  Daoji_Studio </span><br><span class="line">virbr0      bridge    连接的  virbr0       </span><br><span class="line">enp2s0      ethernet  不可用  --           </span><br><span class="line">lo          loopback  未托管  --           </span><br><span class="line">virbr0-nic  tun       未托管  --</span><br></pre></td></tr></table></figure>
+<p>这是我的WiFi连接情况 </p>
+<p>如果无线网卡没有被纳入NetworkManager的管理，则可以安装”NetworkManager-wifi” ，命令如下。 </p>
+<p>1.设置NetworkManager自动启动 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chkconfig NetworkManager on</span><br></pre></td></tr></table></figure>
+<p>2.安装NetworkManager-wifi </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install NetworkManager-wifi</span><br></pre></td></tr></table></figure>
+<p>运行这条命令后重启centos。进入系统后，打开NetworkManager，设置好WiFi后，就可以连接到WiFi了。<br>上述步骤进行完以后，若WIFI仍然没开启，或者启动后无法自动连接WiFi，可以这样开启WIFI: </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nmcli r wifi on // 开启WIFI</span><br><span class="line">nmcli dev wifi //扫描可用WIFI</span><br><span class="line">nmcli dev wifi connect password // 连接WIFI</span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -302,7 +302,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/28/Android技术/Linux Crontab 安装使用详细说明/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/28/Linux/Linux在CLI下连接WiFi/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -316,18 +316,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2018/07/21/《她和她的猫》/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/06/28/Linux/Linux安装SSH/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          《她和她的猫》
+          CentOS 7安装SSH
         
       </div>
     </a>
   
   
-    <a href="/2018/06/28/Android技术/Linux安装SSH/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CentOS 7安装SSH</div>
+    <a href="/2018/04/15/Android技术/DenyHosts安装及配置/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">DenyHosts安装及配置</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -369,7 +369,7 @@
 <!-- 汉化 -->
 <script>
 var gitment = new Gitment({
-  id: 'Linux Crontab 安装使用详细说明',
+  id: 'Linux在CLI下连接WiFi',
   owner: 'daojiAnime',
   repo: 'daojiAnime.github.io',
   oauth: {
@@ -388,7 +388,7 @@ gitment.render('gitment-ctn')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 Daoji
+    		&copy; 2019 Daoji
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -471,7 +471,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -479,7 +479,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -488,6 +488,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">不为人知</a>
               </li>
             
             <div class="clearfix"></div>
