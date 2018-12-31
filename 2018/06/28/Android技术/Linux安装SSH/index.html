@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Android studio如何用GIF图作为背景 | 盗计のBlog</title>
+  <title>CentOS 7安装SSH | 盗计のBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="Android">
+  <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android studio如何用GIF图作为背景">
-<meta property="og:url" content="http://yoursite.com/2018/08/08/Android技术/Android studio如何用GIF图作为背景/index.html">
+<meta property="og:title" content="CentOS 7安装SSH">
+<meta property="og:url" content="http://yoursite.com/2018/06/28/Android技术/Linux安装SSH/index.html">
 <meta property="og:site_name" content="盗计のBlog">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/e3bf8736ly1fypyrvuet2j22lo1qgnpj.jpg">
-<meta property="og:updated_time" content="2018-12-31T07:34:21.895Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/e3bf8736ly1fypzqdtamej21l8123qv7.jpg">
+<meta property="og:updated_time" content="2018-12-31T08:11:44.682Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android studio如何用GIF图作为背景">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/e3bf8736ly1fypyrvuet2j22lo1qgnpj.jpg">
+<meta name="twitter:title" content="CentOS 7安装SSH">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/e3bf8736ly1fypzqdtamej21l8123qv7.jpg">
   
     <link rel="alternative" href="/atom.xml" title="盗计のBlog" type="application/atom+xml">
   
@@ -166,20 +166,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Android技术/Android studio如何用GIF图作为背景" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Android技术/Linux安装SSH" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     <header class="article-header">
       
   
     <h1 class="article-title" itemprop="name">
-      Android studio如何用GIF图作为背景
+      CentOS 7安装SSH
     </h1>
   
 
       
-      <a href="/2018/08/08/Android技术/Android studio如何用GIF图作为背景/" class="archive-article-date">
-  	<time datetime="2018-08-08T13:07:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-08</time>
+      <a href="/2018/06/28/Android技术/Linux安装SSH/" class="archive-article-date">
+  	<time datetime="2018-06-28T11:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-28</time>
 </a>
       
     </header>
@@ -189,15 +189,25 @@
     <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-      <p><img src="https://ws1.sinaimg.cn/large/e3bf8736ly1fypyrvuet2j22lo1qgnpj.jpg" alt=""></p>
-<a id="more"></a>
-<h3 id="引用第三方库"><a href="#引用第三方库" class="headerlink" title="引用第三方库"></a>引用第三方库</h3><p>1、先将你需要的GIF进行压缩，不然有可能会内存溢出</p>
-<p>2、将你的GIF放到drawable当中</p>
-<p>3、引入GIF依赖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//引入GIF背景动态图实现依赖</span><br><span class="line">compile &apos;pl.droidsonroids.gif:android-gif-drawable:1.1.+&apos;</span><br></pre></td></tr></table></figure>
-<p>4、添加自定义GIF控件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;pl.droidsonroids.gif.GifImageView</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;match_parent&quot;</span><br><span class="line">    android:background=&quot;@drawable/lutos_background&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<p>5、完成</p>
+      <p><img src="https://ws1.sinaimg.cn/large/e3bf8736ly1fypzqdtamej21l8123qv7.jpg" alt=""><br><a id="more"></a></p>
+<h3 id="VPS上可能没有安装桌面，但一般来说都会安装ssh，并且防火墙默认开放22端口。"><a href="#VPS上可能没有安装桌面，但一般来说都会安装ssh，并且防火墙默认开放22端口。" class="headerlink" title="VPS上可能没有安装桌面，但一般来说都会安装ssh，并且防火墙默认开放22端口。"></a>VPS上可能没有安装桌面，但一般来说都会安装ssh，并且防火墙默认开放22端口。</h3><p>那就从ssh开始。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 安装ssh，默认已安装好</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> yum install ssh</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 启动ssh服务器端</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> service sshd start</span><br></pre></td></tr></table></figure>
+<h3 id="ssh登陆"><a href="#ssh登陆" class="headerlink" title="ssh登陆"></a>ssh登陆</h3><p>如果本地端是Linux</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> ssh root@192.168.1.1</span><br></pre></td></tr></table></figure>
+<p>其中root表示的是登录用户名，192.168.1.1为主机的IP地址，当然也可以使用主机名、域名来指代IP地址。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> ssh 192.168.1.1</span><br></pre></td></tr></table></figure>
+<p>则会以当前客户端的用户名进行登录。</p>
+<h3 id="ssh无密码登录"><a href="#ssh无密码登录" class="headerlink" title="ssh无密码登录"></a>ssh无密码登录</h3><p>但是每次输入密码登录十分麻烦，有没有一种方式可以让服务器能够确定我的身份，无需输入密码可以直接通过认证？</p>
+<p>ssh除了使用密码验证外，还提供了一种公私密钥的验证方式。客户端生成一个私钥，并生成一个与之对应的公钥，然后将公钥上传到服务器上。下面是Linux示例。</p>
+<h4 id="在客户端生成私钥、公钥（注意，在客户端完成）："><a href="#在客户端生成私钥、公钥（注意，在客户端完成）：" class="headerlink" title="在客户端生成私钥、公钥（注意，在客户端完成）："></a>在客户端生成私钥、公钥（注意，在客户端完成）：</h4><pre><code># ssh-keygen -t rsa
+</code></pre><p><code>-t</code> 指定要创建的密钥类型，默认就是rsa了，所以只执行ssh-keygen是一样的。</p>
+<p>期间会提示你输入你私钥的加密密码。如果需要完全脱离密码，此处可留空，直接回车，否则以后每次连接需要本地解锁。</p>
+<p>完成后，会当前用户的主目录下的<code>~/.ssh/</code>路径下生成两个文件<code>id_rsa</code>与<code>id_rsa.pub</code>分别是私钥与公钥。</p>
+<p>接下来，要把生成的公钥上传到服务器上，同样还是在客户端执行以下的代码。</p>
+<pre><code># ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.1.1
+</code></pre><p>其中root可以修改为你想要自动登录的服务器端用户名，192.168.1.1修改为你的VPS主机名或IP地址。</p>
+<h3 id="最后，ssh登录远程服务器。"><a href="#最后，ssh登录远程服务器。" class="headerlink" title="最后，ssh登录远程服务器。"></a>最后，ssh登录远程服务器。</h3><pre><code># ssh root@192.168.1.1
+</code></pre><p>此时就不需要密码就可以登录了。</p>
 
       
 
@@ -243,7 +253,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -299,7 +309,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/08/Android技术/Android studio如何用GIF图作为背景/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/28/Android技术/Linux安装SSH/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -313,18 +323,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2018/08/13/Android技术/Android常见图片处理框架/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/06/28/Android技术/Linux Crontab 安装使用详细说明/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Android常见图片处理框架
+          Linux Crontab 安装使用详细说明
         
       </div>
     </a>
   
   
-    <a href="/2018/07/21/《她和她的猫》/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">《她和她的猫》</div>
+    <a href="/2018/04/15/Android技术/DenyHosts安装及配置/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">DenyHosts安装及配置</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -366,7 +376,7 @@
 <!-- 汉化 -->
 <script>
 var gitment = new Gitment({
-  id: 'Android studio如何用GIF图作为背景',
+  id: 'CentOS 7安装SSH',
   owner: 'daojiAnime',
   repo: 'daojiAnime.github.io',
   oauth: {

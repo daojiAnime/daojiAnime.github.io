@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Android studio如何用GIF图作为背景 | 盗计のBlog</title>
+  <title>Archives: 2018/6 | 盗计のBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="Android">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Android studio如何用GIF图作为背景">
-<meta property="og:url" content="http://yoursite.com/2018/08/08/Android技术/Android studio如何用GIF图作为背景/index.html">
+  <meta name="description" content="我在这里记录我的生活，记录我的学习，知识的积累使我自信和满足，感情的沉积使我成长和强大。我的博客只记录我想记录的东西。">
+<meta name="keywords" content="盗计,Daoji,Java,C#,Shell,Linux,Android">
+<meta property="og:type" content="website">
+<meta property="og:title" content="盗计のBlog">
+<meta property="og:url" content="http://yoursite.com/archives/2018/06/index.html">
 <meta property="og:site_name" content="盗计のBlog">
+<meta property="og:description" content="我在这里记录我的生活，记录我的学习，知识的积累使我自信和满足，感情的沉积使我成长和强大。我的博客只记录我想记录的东西。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/e3bf8736ly1fypyrvuet2j22lo1qgnpj.jpg">
-<meta property="og:updated_time" content="2018-12-31T07:34:21.895Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android studio如何用GIF图作为背景">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/e3bf8736ly1fypyrvuet2j22lo1qgnpj.jpg">
+<meta name="twitter:title" content="盗计のBlog">
+<meta name="twitter:description" content="我在这里记录我的生活，记录我的学习，知识的积累使我自信和满足，感情的沉积使我成长和强大。我的博客只记录我想记录的东西。">
   
     <link rel="alternative" href="/atom.xml" title="盗计のBlog" type="application/atom+xml">
   
@@ -166,216 +166,98 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Android技术/Android studio如何用GIF图作为背景" class="article article-type-post " itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-    <header class="article-header">
-      
+            
   
-    <h1 class="article-title" itemprop="name">
-      Android studio如何用GIF图作为背景
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/06/28/Android技术/Linux Crontab 安装使用详细说明/" class="archive-article-date">
+  	<time datetime="2018-06-28T13:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-28</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/06/28/Android技术/Linux Crontab 安装使用详细说明/">Linux Crontab 安装使用详细说明</a>
     </h1>
   
 
-      
-      <a href="/2018/08/08/Android技术/Android studio如何用GIF图作为背景/" class="archive-article-date">
-  	<time datetime="2018-08-08T13:07:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-08</time>
-</a>
-      
-    </header>
-    
-    <!-- 目录内容 -->
-    
-    <!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-      <p><img src="https://ws1.sinaimg.cn/large/e3bf8736ly1fypyrvuet2j22lo1qgnpj.jpg" alt=""></p>
-<a id="more"></a>
-<h3 id="引用第三方库"><a href="#引用第三方库" class="headerlink" title="引用第三方库"></a>引用第三方库</h3><p>1、先将你需要的GIF进行压缩，不然有可能会内存溢出</p>
-<p>2、将你的GIF放到drawable当中</p>
-<p>3、引入GIF依赖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//引入GIF背景动态图实现依赖</span><br><span class="line">compile &apos;pl.droidsonroids.gif:android-gif-drawable:1.1.+&apos;</span><br></pre></td></tr></table></figure>
-<p>4、添加自定义GIF控件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;pl.droidsonroids.gif.GifImageView</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;match_parent&quot;</span><br><span class="line">    android:background=&quot;@drawable/lutos_background&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<p>5、完成</p>
-
-      
-
-      
-      <div class="page-reward">
-        <a href="javascript:;" class="page-reward-btn tooltip-top">
-          <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>
-                    谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/AliPay.png">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/WePay.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-        </a>
-      </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-      
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/08/Android技术/Android studio如何用GIF图作为背景/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-<nav id="article-nav">
   
-    <a href="/2018/08/13/Android技术/Android常见图片处理框架/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Android常见图片处理框架
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/07/21/《她和她的猫》/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">《她和她的猫》</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/06/28/Android技术/Linux安装SSH/" class="archive-article-date">
+  	<time datetime="2018-06-28T11:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-28</time>
+</a>
         </div>
-        
-        
-    </div>
-</aside>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/06/28/Android技术/Linux安装SSH/">CentOS 7安装SSH</a>
+    </h1>
+  
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
+          
 
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
+  
 
-
-
-
-
-
-
-
-
-<div id="gitment-ctn"></div> 
-<!-- <link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
-<script src="https://jjeejj.github.io/js/gitment.js"></script> -->
-<link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
-<script src="https://billts.site/js/gitment.js"></script>
-<!-- 汉化 -->
-<script>
-var gitment = new Gitment({
-  id: 'Android studio如何用GIF图作为背景',
-  owner: 'daojiAnime',
-  repo: 'daojiAnime.github.io',
-  oauth: {
-    client_id: '448174ff6856204aa731',
-    client_secret: '8518b25b88412e53cb1b98be5de7352a4b6c826c',
-  },
-})
-gitment.render('gitment-ctn')
-</script>
+    
 
 
           </div>
@@ -398,8 +280,8 @@ gitment.render('gitment-ctn')
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
