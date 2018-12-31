@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 随笔 | 盗计のBlog</title>
+  <title>Android常见图片处理框架 | 盗计のBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我在这里记录我的生活，记录我的学习，知识的积累使我自信和满足，感情的沉积使我成长和强大。我的博客只记录我想记录的东西。">
-<meta name="keywords" content="盗计,Daoji,Java,C#,Shell,Linux,Android">
-<meta property="og:type" content="website">
-<meta property="og:title" content="盗计のBlog">
-<meta property="og:url" content="http://yoursite.com/tags/随笔/index.html">
+  <meta name="description" content="注意：第三方图片处理框架内部都已经封装了LruCatch，用来处理大图的加载，避免了OOM异常，使用了线程池来管理线程，避免了开启多个线程造成的资源的浪费，对于更新UI，内部也已经封装了Handler来进行线程间通信，将数据发送到UI线程来进行更新UI线程 Glide：&amp;emsp;&amp;emsp;默认使用Hurlconnection加载图片，一个比较轻量级的图片加载框架，通过配合图片加载库的使用，可">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android常见图片处理框架">
+<meta property="og:url" content="http://yoursite.com/2018/08/13/技术/Android常见图片处理框架/index.html">
 <meta property="og:site_name" content="盗计のBlog">
-<meta property="og:description" content="我在这里记录我的生活，记录我的学习，知识的积累使我自信和满足，感情的沉积使我成长和强大。我的博客只记录我想记录的东西。">
+<meta property="og:description" content="注意：第三方图片处理框架内部都已经封装了LruCatch，用来处理大图的加载，避免了OOM异常，使用了线程池来管理线程，避免了开启多个线程造成的资源的浪费，对于更新UI，内部也已经封装了Handler来进行线程间通信，将数据发送到UI线程来进行更新UI线程 Glide：&amp;emsp;&amp;emsp;默认使用Hurlconnection加载图片，一个比较轻量级的图片加载框架，通过配合图片加载库的使用，可">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-31T07:15:37.466Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="盗计のBlog">
-<meta name="twitter:description" content="我在这里记录我的生活，记录我的学习，知识的积累使我自信和满足，感情的沉积使我成长和强大。我的博客只记录我想记录的东西。">
+<meta name="twitter:title" content="Android常见图片处理框架">
+<meta name="twitter:description" content="注意：第三方图片处理框架内部都已经封装了LruCatch，用来处理大图的加载，避免了OOM异常，使用了线程池来管理线程，避免了开启多个线程造成的资源的浪费，对于更新UI，内部也已经封装了Handler来进行线程间通信，将数据发送到UI线程来进行更新UI线程 Glide：&amp;emsp;&amp;emsp;默认使用Hurlconnection加载图片，一个比较轻量级的图片加载框架，通过配合图片加载库的使用，可">
   
     <link rel="alternative" href="/atom.xml" title="盗计のBlog" type="application/atom+xml">
   
@@ -166,98 +167,212 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-技术/Android常见图片处理框架" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <header class="article-header">
       
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/22/淡定是一头猪/" class="archive-article-date">
-  	<time datetime="2018-12-22T12:58:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-22</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/22/淡定是一头猪/">淡定是一头猪</a>
+    <h1 class="article-title" itemprop="name">
+      Android常见图片处理框架
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      
+      <a href="/2018/08/13/技术/Android常见图片处理框架/" class="archive-article-date">
+  	<time datetime="2018-08-13T11:42:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-13</time>
+</a>
+      
+    </header>
+    
+    <!-- 目录内容 -->
+    
+    <!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+      <blockquote>
+<h4 id="注意：第三方图片处理框架内部都已经封装了LruCatch，用来处理大图的加载，避免了OOM异常，使用了线程池来管理线程，避免了开启多个线程造成的资源的浪费，对于更新UI，内部也已经封装了Handler来进行线程间通信，将数据发送到UI线程来进行更新UI线程"><a href="#注意：第三方图片处理框架内部都已经封装了LruCatch，用来处理大图的加载，避免了OOM异常，使用了线程池来管理线程，避免了开启多个线程造成的资源的浪费，对于更新UI，内部也已经封装了Handler来进行线程间通信，将数据发送到UI线程来进行更新UI线程" class="headerlink" title="注意：第三方图片处理框架内部都已经封装了LruCatch，用来处理大图的加载，避免了OOM异常，使用了线程池来管理线程，避免了开启多个线程造成的资源的浪费，对于更新UI，内部也已经封装了Handler来进行线程间通信，将数据发送到UI线程来进行更新UI线程"></a>注意：第三方图片处理框架内部都已经封装了LruCatch，用来处理大图的加载，避免了OOM异常，使用了线程池来管理线程，避免了开启多个线程造成的资源的浪费，对于更新UI，内部也已经封装了Handler来进行线程间通信，将数据发送到UI线程来进行更新UI线程</h4></blockquote>
+<h3 id="Glide："><a href="#Glide：" class="headerlink" title="Glide："></a>Glide：</h3><p>&emsp;&emsp;默认使用Hurlconnection加载图片，一个比较轻量级的图片加载框架，通过配合图片加载库的使用，可以做出多种图片加载特效：如可以自定义各种形状的图片，和图片加载的样式，另外还可以设置默认图片等等</p>
+<h3 id="Picasso："><a href="#Picasso：" class="headerlink" title="Picasso："></a>Picasso：</h3><p>&emsp;&emsp;使用okHttp加载图片，使用方式与Glide类似，而且使用的类库和Glide是相同的，实现效果是基本上一样的，也可以设置默认图片，但是Picasso这个框架默认的颜色模式是ARGB8888，Glide的颜色模式是RGB565，Glide会根据图片的宽高压缩图片，Picasso不会</p>
+<h3 id="Fresco："><a href="#Fresco：" class="headerlink" title="Fresco："></a>Fresco：</h3><p>&emsp;&emsp;把图片加载后放在了供JVM使用的内存区域，提高了应用可以使用的内存大小，不会出现OOM异常，支持渐进的图片加载，内部封装了图片加载控件，相比较其他两个加载图片的框架，他的内存占用就比较小，同时他可以配合SVG图片，呈现出多种多样的样式，加载原型图片更是小意思</p>
+
+      
+
+      
+      <div class="page-reward">
+        <a href="javascript:;" class="page-reward-btn tooltip-top">
+          <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>
+                    谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/AliPay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/WePay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+        </a>
+      </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+      
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/13/技术/Android常见图片处理框架/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+
+<nav id="article-nav">
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/21/《她和她的猫》/" class="archive-article-date">
-  	<time datetime="2018-07-21T02:26:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-21</time>
-</a>
+    <a href="/2018/12/22/淡定是一头猪/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          淡定是一头猪
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/21/《她和她的猫》/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《她和她的猫》</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/21/《她和她的猫》/">《她和她的猫》</a>
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
+
+
+
+
+
+
+
+<div id="gitment-ctn"></div> 
+<!-- <link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script> -->
+<link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
+<script src="https://billts.site/js/gitment.js"></script>
+<!-- 汉化 -->
+<script>
+var gitment = new Gitment({
+  id: 'Android常见图片处理框架',
+  owner: 'daojiAnime',
+  repo: 'daojiAnime.github.io',
+  oauth: {
+    client_id: '448174ff6856204aa731',
+    client_secret: '8518b25b88412e53cb1b98be5de7352a4b6c826c',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
 
 
           </div>
@@ -280,9 +395,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

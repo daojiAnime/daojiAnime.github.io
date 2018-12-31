@@ -83,6 +83,30 @@
   </entry>
   
   <entry>
+    <title>Android常见图片处理框架</title>
+    <link href="http://yoursite.com/2018/08/13/%E6%8A%80%E6%9C%AF/Android%E5%B8%B8%E8%A7%81%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%E6%A1%86%E6%9E%B6/"/>
+    <id>http://yoursite.com/2018/08/13/技术/Android常见图片处理框架/</id>
+    <published>2018-08-13T11:42:00.000Z</published>
+    <updated>2018-12-31T07:15:37.466Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><h4 id="注意：第三方图片处理框架内部都已经封装了LruCatch，用来处理大图的加载，避免了OOM异常，使用了线程池来管理线程，避免了开启多个线程造成的资源的浪费，对于更新UI，内部也已经封装了Handler来进行线程间通信，将数据发送到UI线程来进行更新UI线程"><a href="#注意：第三方图片处理框架内部都已经封装了LruCatch，用来处理大图的加载，避免了OOM异常，使用了线程池来管理线程，避免了开启多个线程造成的资源的浪费，对于更新UI，内部也已经封装了Handler来进行线程间通信，将数据发送到UI线程来进行更新UI线程" class="headerlink" title="注意：第三方图片处理框架内部都已经封装了LruCatch，用来处理大图的加载，避免了OOM异常，使用了线程池来管理线程，避免了开启多个线程造成的资源的浪费，对于更新UI，内部也已经封装了Handler来进行线程间通信，将数据发送到UI线程来进行更新UI线程"></a>注意：第三方图片处理框架内部都已经封装了LruCatch，用来处理大图的加载，避免了OOM异常，使用了线程池来管理线程，避免了开启多个线程造成的资源的浪费，对于更新UI，内部也已经封装了Handler来进行线程间通信，将数据发送到UI线程来进行更新UI线程</h4></blockquote><h3 id="Glide："><a href="#Glide：" class="headerlink" title="Glide："></a>Glide：</h3><p>&emsp;&emsp;默认使用Hurlconnection加载图片，一个比较轻量级的图片加载框架，通过配合图片加载库的使用，可以做出多种图片加载特效：如可以自定义各种形状的图片，和图片加载的样式，另外还可以设置默认图片等等</p><h3 id="Picasso："><a href="#Picasso：" class="headerlink" title="Picasso："></a>Picasso：</h3><p>&emsp;&emsp;使用okHttp加载图片，使用方式与Glide类似，而且使用的类库和Glide是相同的，实现效果是基本上一样的，也可以设置默认图片，但是Picasso这个框架默认的颜色模式是ARGB8888，Glide的颜色模式是RGB565，Glide会根据图片的宽高压缩图片，Picasso不会</p><h3 id="Fresco："><a href="#Fresco：" class="headerlink" title="Fresco："></a>Fresco：</h3><p>&emsp;&emsp;把图片加载后放在了供JVM使用的内存区域，提高了应用可以使用的内存大小，不会出现OOM异常，支持渐进的图片加载，内部封装了图片加载控件，相比较其他两个加载图片的框架，他的内存占用就比较小，同时他可以配合SVG图片，呈现出多种多样的样式，加载原型图片更是小意思</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;h4 id=&quot;注意：第三方图片处理框架内部都已经封装了LruCatch，用来处理大图的加载，避免了OOM异常，使用了线程池来管理线程，避免了开启多个线程造成的资源的浪费，对于更新UI，内部也已经封装了Handler来进行线程间通信，将数据发送到UI线程
+      
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
     <title>《她和她的猫》</title>
     <link href="http://yoursite.com/2018/07/21/%E3%80%8A%E5%A5%B9%E5%92%8C%E5%A5%B9%E7%9A%84%E7%8C%AB%E3%80%8B/"/>
     <id>http://yoursite.com/2018/07/21/《她和她的猫》/</id>
