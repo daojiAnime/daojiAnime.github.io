@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>淡定是一头猪 | 盗计のBlog</title>
+  <title>少量数据使用SharedPreferences存储 | 盗计のBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="他是 肥猪大肥猪一点点大">
-<meta name="keywords" content="随笔">
+  <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
-<meta property="og:title" content="淡定是一头猪">
-<meta property="og:url" content="http://yoursite.com/2018/12/22/淡定是一头猪/index.html">
+<meta property="og:title" content="少量数据使用SharedPreferences存储">
+<meta property="og:url" content="http://yoursite.com/2019/01/23/Android技术/少量数据使用SharedPreferences存储/index.html">
 <meta property="og:site_name" content="盗计のBlog">
-<meta property="og:description" content="他是 肥猪大肥猪一点点大">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-23T02:34:21.843Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/e3bf8736gy1fzge2oqg5hj20mi0f07sx.jpg">
+<meta property="og:updated_time" content="2019-01-23T04:10:24.492Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="淡定是一头猪">
-<meta name="twitter:description" content="他是 肥猪大肥猪一点点大">
+<meta name="twitter:title" content="少量数据使用SharedPreferences存储">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/e3bf8736gy1fzge2oqg5hj20mi0f07sx.jpg">
   
     <link rel="alternative" href="/atom.xml" title="盗计のBlog" type="application/atom+xml">
   
@@ -167,55 +166,57 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-淡定是一头猪" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Android技术/少量数据使用SharedPreferences存储" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     <header class="article-header">
       
   
     <h1 class="article-title" itemprop="name">
-      淡定是一头猪
+      少量数据使用SharedPreferences存储
     </h1>
   
 
       
-      <a href="/2018/12/22/淡定是一头猪/" class="archive-article-date">
-  	<time datetime="2018-12-22T12:58:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-22</time>
+      <a href="/2019/01/23/Android技术/少量数据使用SharedPreferences存储/" class="archive-article-date">
+  	<time datetime="2019-01-23T01:42:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-23</time>
 </a>
       
     </header>
     
     <!-- 目录内容 -->
     
-    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-      <span class="btn-bg"></span>
-      <span class="btn-text">文章导航</span>
-    </p>
-    <div id="toc-article" class="toc-article">
-      <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-      <strong class="toc-title">文章目录</strong>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#他是-肥猪"><span class="toc-number">1.</span> <span class="toc-text">他是 肥猪</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#大肥猪"><span class="toc-number">2.</span> <span class="toc-text">大肥猪</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一点点大"><span class="toc-number">2.1.</span> <span class="toc-text">一点点大</span></a></li></ol></li></ol>
-    </div>
-    <script type="text/javascript">
-      function showToc() {
-        var toc_article = document.getElementById("toc-article");
-        var show_toc_btn = document.getElementById("show-toc-btn");
-        toc_article.setAttribute("style", "display:block");
-        show_toc_btn.setAttribute("style", "display:none");
-      };
-
-      function showBtn() {
-        var toc_article = document.getElementById("toc-article");
-        var show_toc_btn = document.getElementById("show-toc-btn");
-        toc_article.setAttribute("style", "display:none");
-        show_toc_btn.setAttribute("style", "display:block");
-      };
-    </script>
-    
     <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-      <h1 id="他是-肥猪"><a href="#他是-肥猪" class="headerlink" title="他是 肥猪"></a>他是 肥猪</h1><h1 id="大肥猪"><a href="#大肥猪" class="headerlink" title="大肥猪"></a>大肥猪</h1><h2 id="一点点大"><a href="#一点点大" class="headerlink" title="一点点大"></a>一点点大</h2>
+      <p><img src="https://ws1.sinaimg.cn/large/e3bf8736gy1fzge2oqg5hj20mi0f07sx.jpg" alt=""></p>
+<a id="more"></a>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>&emsp;&emsp;SharedPreferences是使用<strong>键值对</strong>来存储数据的，所以每当保存和取出一条数据，需要给这条数据提供一个对应的键。而且SharedPreferences是支持多种不同的数据类型存储，也就是当存入的数据类型是什么样，取出来就是什么样的。SharedPreferences进行数据持久化要比使用文件方便的多。</p>
+<h3 id="将数据存进SharedPreferences"><a href="#将数据存进SharedPreferences" class="headerlink" title="将数据存进SharedPreferences"></a>将数据存进SharedPreferences</h3><p>&emsp;&emsp;要使用SharedPreferences存储数据，首先要获取SharedPreferences对象，Android提供的三种获取SharedPreferences对象的方法。</p>
+<ol>
+<li><p>Context类中的<code>getSharedPreferences()</code>方法</p>
+<p>此方法接收两个参数。</p>
+<blockquote>
+<p>①用于指定SharedPreferences文件名称  //不存在则创建一个，存放<code>/data/data/&lt;packge name&gt;/shared_prefs/</code>目录下</p>
+<p>②用于指定操作模式  //目前只有<code>MODE_PRIVATE</code>可选，传入0值相同，其他模式均被抛弃</p>
+</blockquote>
+</li>
+<li><p>Activity类中的<code>getPreferences()</code>方法</p>
+<p>该方法只接收操作模式<code>MODE_PRIVATE</code>，该方法被调用的时候自动以当前活动的类名作为SharedPerferences的文件名。</p>
+</li>
+<li><p>PreferenceManager类中的<code>getDefaultSharedPreferences()</code>方法</p>
+<p>这是一个静态的方法，它接收一个Context参数，并自动使用当前程序的包名为前缀命名SharedPerferences文件。</p>
+</li>
+</ol>
+<p>获取SharedPerferences对象后，就能向SharedPreferences中添加数据了，分3步实现</p>
+<blockquote>
+<p>⑴调用SharedPerferences对象的edit()方法来获取一个SharedPerferences.Editor对象。</p>
+<p>⑵向SharedPerferences.Editor对象中添加数据，比如添加一个布尔型数据就使用putBoolean()方法，添加一个字符串就使用putString()方法，以此类推。</p>
+<p>⑶调用apply()方法将添加的数据提交，从而完成数据存储操作。</p>
+</blockquote>
+<h3 id="从SharedPreferences中取出数据"><a href="#从SharedPreferences中取出数据" class="headerlink" title="从SharedPreferences中取出数据"></a>从SharedPreferences中取出数据</h3><p>&emsp;&emsp;SharedPerferences对象提供了<code>getString（）</code>等方法对数据进行读取，get方法均要传入两个参数，第一个为键，第二个为默认值，例如<code>getSharedPreferences(&quot;data&quot;,MODE_PRIVATE).getString(&quot;name&quot;,&quot;&quot;)</code>、<code>getSharedPreferences(&quot;data&quot;,MODE_PRIVATE).getBoolean(&quot;eated&quot;,false)</code>。读取的SharedPreferences对象创建方法，应该和存储的SharedPreferences对象一样，否则会找不到SharedPreferences文件。</p>
+<p>注：<code>Ctrl + P</code>可以查看一个方法的参数类型，规范的代码会带有注释说明。自动补全在类名后加点可以查看该类可以被外部引用的方法。<code>Ctrl+点击</code>进去代码查看也可以。</p>
+
       
 
       
@@ -260,7 +261,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
         		</li>
       		
 		</ul>
@@ -316,7 +317,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/12/22/淡定是一头猪/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/01/23/Android技术/少量数据使用SharedPreferences存储/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -330,18 +331,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2018/12/22/Hexo开始写的第一篇文章/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Hexo开始写的第一篇文章
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/10/09/Linux/Linux通过ps -ef过滤进程获得行数/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CentOS 7安装SSH</div>
+    <a href="/2019/01/04/没有收获到预期的成果只能怪我还不够努力/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">没有收获到预期的成果只能怪我还不够努力</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -360,19 +352,6 @@
             </div>
         </div>
         
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#他是-肥猪"><span class="toc-number">1.</span> <span class="toc-text">他是 肥猪</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#大肥猪"><span class="toc-number">2.</span> <span class="toc-text">大肥猪</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一点点大"><span class="toc-number">2.1.</span> <span class="toc-text">一点点大</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
         
     </div>
 </aside>
@@ -396,7 +375,7 @@
 <!-- 汉化 -->
 <script>
 var gitment = new Gitment({
-  id: '淡定是一头猪',
+  id: '少量数据使用SharedPreferences存储',
   owner: 'daojiAnime',
   repo: 'daojiAnime.github.io',
   oauth: {
@@ -522,11 +501,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color5">不为人知</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">不为人知</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
             
             <div class="clearfix"></div>
