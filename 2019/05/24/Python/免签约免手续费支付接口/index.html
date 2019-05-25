@@ -7,20 +7,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="referrer" content="no-referrer">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>CentOS 7安装SSH | 盗计のBlog</title>
+  <title>免签约免手续费支付接口 | 盗计のBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Linux通过ps -ef过滤进程获得行数 1count=`ps -fe |grep &quot;one.php&quot; | grep -v &quot;grep&quot; | wc -l` 获取行数并赋值给count。">
-<meta name="keywords" content="Linux">
+  <meta name="keywords" content="支付接口">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CentOS 7安装SSH">
-<meta property="og:url" content="http://yoursite.com/2018/10/09/Linux/Linux通过ps -ef过滤进程获得行数/index.html">
+<meta property="og:title" content="免签约免手续费支付接口">
+<meta property="og:url" content="http://yoursite.com/2019/05/24/Python/免签约免手续费支付接口/index.html">
 <meta property="og:site_name" content="盗计のBlog">
-<meta property="og:description" content="Linux通过ps -ef过滤进程获得行数 1count=`ps -fe |grep &quot;one.php&quot; | grep -v &quot;grep&quot; | wc -l` 获取行数并赋值给count。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-31T15:28:06.908Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/e3bf8736gy1g3d7pu2m8xj21900u0x6p.jpg">
+<meta property="og:updated_time" content="2019-05-25T00:35:14.097Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CentOS 7安装SSH">
-<meta name="twitter:description" content="Linux通过ps -ef过滤进程获得行数 1count=`ps -fe |grep &quot;one.php&quot; | grep -v &quot;grep&quot; | wc -l` 获取行数并赋值给count。">
+<meta name="twitter:title" content="免签约免手续费支付接口">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/e3bf8736gy1g3d7pu2m8xj21900u0x6p.jpg">
   
     <link rel="alternative" href="/atom.xml" title="盗计のBlog" type="application/atom+xml">
   
@@ -168,20 +167,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Linux/Linux通过ps -ef过滤进程获得行数" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Python/免签约免手续费支付接口" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     <header class="article-header">
       
   
     <h1 class="article-title" itemprop="name">
-      CentOS 7安装SSH
+      免签约免手续费支付接口
     </h1>
   
 
       
-      <a href="/2018/10/09/Linux/Linux通过ps -ef过滤进程获得行数/" class="archive-article-date">
-  	<time datetime="2018-10-09T08:08:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-09</time>
+      <a href="/2019/05/24/Python/免签约免手续费支付接口/" class="archive-article-date">
+  	<time datetime="2019-05-24T07:29:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-24</time>
 </a>
       
     </header>
@@ -191,9 +190,14 @@
     <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-      <h1 id="Linux通过ps-ef过滤进程获得行数"><a href="#Linux通过ps-ef过滤进程获得行数" class="headerlink" title="Linux通过ps -ef过滤进程获得行数"></a>Linux通过ps -ef过滤进程获得行数</h1><hr>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">count=`ps -fe |grep "one.php" | grep -v "grep" | wc -l`</span><br></pre></td></tr></table></figure>
-<p>获取行数并赋值给count。</p>
+      <p><img src="https://ws1.sinaimg.cn/large/e3bf8736gy1g3d7pu2m8xj21900u0x6p.jpg" alt=""></p>
+<a id="more"></a>
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>&emsp;&emsp;这是一套微信 + 支付宝的免签约免手续费的接口集成核心代码，实现方式主要是web协议的分析，然后写爬虫进行轮询，要想准确的分辨出来支付的是谁，应当采用备注的方式，微信需要客户手动备注，支付宝有一个超链接可以不进行手动备注，直接生成二维码就行。<strong>这是提供给开发者使用的，无基础者不提供技术支持。</strong>早期我的网站想要对接一下支付接口，微信、支付宝官方手续费太高，已达到<code>0.6</code>个百分点，且要签约。第三方的例如码支付，黛支付，支付通等存在信息不安全，以及不稳定，难接入，收取手续费等问题。通过我前几年做过的Android App的机器人，可判断出第三方均使用抓取协议实现的，所以我用Python实现了一个。</p>
+<h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><blockquote>
+<p>如果需要商业合作，请加群找我，我可以把这套代码集成成一个系统，提供开发接口的支付接口系统。</p>
+</blockquote>
+<p>Python源码：<a href="http://od.daoji.ml/" target="_blank" rel="noopener">地址</a> </p>
+<p>PHP源码：<a href="https://github.com/ChenSee/ChenPay" target="_blank" rel="noopener">github</a></p>
 
       
 
@@ -239,7 +243,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">支付接口</a>
         		</li>
       		
 		</ul>
@@ -295,7 +299,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/10/09/Linux/Linux通过ps -ef过滤进程获得行数/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/05/24/Python/免签约免手续费支付接口/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -309,18 +313,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2018/12/22/Hexo开始写的第一篇文章/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/05/24/Python/Python实现可扩展微信机器人和黑科技/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Hexo开始写的第一篇文章
+          Python实现可扩展微信机器人和黑科技
         
       </div>
     </a>
   
   
-    <a href="/2018/10/06/见不得人/二合一：番号站+资源站/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">二合一：番号站+资源站</div>
+    <a href="/2019/01/23/Android技术/Android-Studio-3-4-0利用Modelu生成Jar依赖包/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android Studio 3.4.0利用Modelu生成Jar依赖包</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -362,7 +366,7 @@
 <!-- 汉化 -->
 <script>
 var gitment = new Gitment({
-  id: 'CentOS 7安装SSH',
+  id: '免签约免手续费支付接口',
   owner: 'daojiAnime',
   repo: 'daojiAnime.github.io',
   oauth: {
