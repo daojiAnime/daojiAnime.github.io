@@ -167,6 +167,257 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-史上最全python字符串操作指南" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/28/史上最全python字符串操作指南/">史上最全python字符串操作指南</a>
+    </h1>
+  
+
+      
+      <a href="/2020/04/28/史上最全python字符串操作指南/" class="archive-article-date">
+  	<time datetime="2020-04-28T15:16:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-28</time>
+</a>
+      
+    </header>
+    
+    <!-- 目录内容 -->
+    
+    <!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+      <h3 id="字符串的定义"><a href="#字符串的定义" class="headerlink" title="字符串的定义"></a><strong>字符串的定义</strong></h3><p>日常编码中，大家会发现，太多时候我们需要对数据进行处理，而这数据不管是数组、列表、字典，最终都逃不开字符串的处理。<br>所以今天要来跟大家发散的聊聊<strong>字符串</strong>！<br>估计很多人看到是将字符串肯定觉得索然无味(老子都会)，可大佬们不妨再往下看看？</p>
+<p><img src="https://gitee.com/djgzs_admin/ArticleImg/raw/master/2020/04/28/2020/04/28/20200428221803" alt="img"></p>
+<p>python定义字符、字符串没有java那样的严格，不管是单引号、双引号、甚至是三个单引号和双引号都可以用来定义字符(串)，只要成对出现即可。比如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 单个字符</span></span><br><span class="line">a=<span class="string">'a'</span></span><br><span class="line"><span class="comment"># 使用单引号定义字符串</span></span><br><span class="line">name=<span class="string">'Uranus'</span></span><br><span class="line"><span class="comment"># 使用双引号定义字符串</span></span><br><span class="line">code = <span class="string">"Hello World ..."</span></span><br><span class="line"><span class="comment"># 既然说到了string，怎么能不点开源码看看呢？</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">str</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    str(object='') -&gt; str</span></span><br><span class="line"><span class="string">    str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</span></span><br><span class="line"><span class="string">    Create a new string object from the given object. If encoding or</span></span><br><span class="line"><span class="string">    errors is specified, then the object must expose a data buffer</span></span><br><span class="line"><span class="string">    that will be decoded using the given encoding and error handler.</span></span><br><span class="line"><span class="string">    Otherwise, returns the result of object.__str__() (if defined)</span></span><br><span class="line"><span class="string">    or repr(object).</span></span><br><span class="line"><span class="string">    encoding defaults to sys.getdefaultencoding().</span></span><br><span class="line"><span class="string">    errors defaults to 'strict'.</span></span><br><span class="line"><span class="string">    """</span></span><br></pre></td></tr></table></figure>
+<p>虽然这些不是主要说的，但还是简单提下，三个单引号或者双引号，主要是用来作为文档注释的，请不要拿来定义字符串(虽然这样并不会出现语法错误)。<br>今天主要说下关于打段的字符串应该如何定义，PEP8有规定，一行代码的长度请勿超过120个字符。那么如果遇到这种情况，该怎么办？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 不推荐的使用方式：</span></span><br><span class="line">line = <span class="string">"""</span></span><br><span class="line"><span class="string">Create a new string object from the given object.</span></span><br><span class="line"><span class="string">If encoding or errors is specified,</span></span><br><span class="line"><span class="string">then the object must expose a data buffer that will be</span></span><br><span class="line"><span class="string">decoded using the given encoding and error handler.</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="comment"># 或者这样</span></span><br><span class="line">line = <span class="string">"Create a new string object from the given object. "</span> \</span><br><span class="line">       <span class="string">"If encoding or errors is specified,"</span> \</span><br><span class="line">       <span class="string">"then the object must expose a data buffer that will be"</span> \</span><br><span class="line">       <span class="string">" decoded using the given encoding and error handler."</span></span><br><span class="line"><span class="comment"># 更好的实现方式：</span></span><br><span class="line">line = (<span class="string">"Create a new string object from the given object."</span></span><br><span class="line">        <span class="string">"If encoding or errors is specified,"</span></span><br><span class="line">        <span class="string">"then the object must expose a data buffer that will be "</span></span><br><span class="line">        <span class="string">"decoded using the given encoding and error handler."</span></span><br><span class="line">        )</span><br></pre></td></tr></table></figure>
+<h3 id="字符串中-is-的用法"><a href="#字符串中-is-的用法" class="headerlink" title="字符串中.is()的用法"></a><strong>字符串中.is()的用法</strong></h3><p><strong>.is*()</strong>, 既然是is，那么它返回的结果只有两种，True or False<br><strong>先来对比一下数字：</strong></p>
+<blockquote>
+<p>isdigit()<br>True: Unicode数字，byte数字（单字节），全角数字（双字节），罗马数字<br>False: 汉字数字<br>Error: 无</p>
+<p>isdecimal()<br>True: Unicode数字，全角数字（双字节）<br>False: 罗马数字，汉字数字<br>Error: byte数字（单字节）</p>
+<p>isnumeric()<br>True: Unicode数字，全角数字（双字节），罗马数字，汉字数字<br>False: 无<br>Error: byte数字（单字节)</p>
+</blockquote>
+<p>总结几个偏门知识点：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="string">'①②③④⑤'</span></span><br><span class="line">isdigit()、isnumeric() 为<span class="keyword">True</span> isdecimal()为<span class="keyword">False</span></span><br><span class="line">b=<span class="string">'一壹'</span></span><br><span class="line">isnumeric()会认为是<span class="keyword">True</span>的哦！</span><br></pre></td></tr></table></figure>
+<p><strong>再来看一个等式：</strong></p>
+<blockquote>
+<p>isalnum() = isdigit() + isalpha() + isspace()<br>isdigit()表示字符串内全部为数字<br>isalpha()表示字符串内全部为字符<br>isspace()表示字符串有一个或多个空格组成<br>isalnum()表示字符串内全部为数字和字符</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="string">'12345'</span></span><br><span class="line">b=<span class="string">'①②③④⑤'</span></span><br><span class="line">c=<span class="string">'abc123'</span></span><br><span class="line"></span><br><span class="line">print(a.isdigit()) <span class="comment"># True</span></span><br><span class="line">print(b.isalpha()) <span class="comment"># True</span></span><br><span class="line">print(c.isalnum()) <span class="comment"># True</span></span><br></pre></td></tr></table></figure>
+<p><strong>针对字符串大小写的方法：</strong></p>
+<blockquote>
+<p>.isupper() 字符串全部由大写组成<br>.islower() 字符串全部由小写组成<br>.istitle() 字符串形式为驼峰命名，eg:”Hello World”</p>
+</blockquote>
+<p>以上这些用法去掉is，则变为了对应的字符串转发方法。学一套会两套，买一送一….</p>
+<p>最后说一个不带.的is* — isinstance(obj,type)</p>
+<blockquote>
+<p>判断一个object是什么类型…<br>type可选类型为：int，float，bool，complex，str，bytes，unicode，list，dict，set，tuple<br>并且type可以为一个原组：isinstance(obj, (str, int))</p>
+</blockquote>
+<h3 id="判断字符串中的内容"><a href="#判断字符串中的内容" class="headerlink" title="判断字符串中的内容"></a><strong>判断字符串中的内容</strong></h3><p>.*with() starts ends 不仅支持开头结尾的匹配，还支持start和end两个参数来动态定义字符串的index位置</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">long_string = <span class="string">"To live is to learn，to learn is to better live"</span></span><br><span class="line">long_string.startswith(<span class="string">'To'</span>)</span><br><span class="line">long_string.startswith(<span class="string">'li'</span>, <span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line">long_string.endswith(<span class="string">'live'</span>)</span><br><span class="line">long_string.endswith(<span class="string">'live'</span>, <span class="number">0</span>, <span class="number">7</span>)</span><br></pre></td></tr></table></figure>
+<p>同样支持start、end来判断字符串的还有 .find()、.rfind()和 .index()、.rindex()<br>这两类字符串寻址方法均支持从左到右、从右至左两种寻址方式，不同的是：<br>find在未找到时，返回-1，而index在未找到时，会抛出ValueError的异常…</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">long_string.index(<span class="string">'live'</span>) <span class="comment"># 3</span></span><br><span class="line">long_string.rindex(<span class="string">'live'</span>) <span class="comment"># 42</span></span><br></pre></td></tr></table></figure>
+<h3 id="字符串的内容变更"><a href="#字符串的内容变更" class="headerlink" title="字符串的内容变更"></a><strong>字符串的内容变更</strong></h3><p>狭义来说使用，字符串的替换使用.replace()即可，那为什么还要单独说呢？因为它有一个可选参数<strong>count</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">long_string = <span class="string">"To live is to learn，to learn is to better live"</span></span><br><span class="line">long_string.count(<span class="string">'live'</span>) <span class="comment"># 2</span></span><br><span class="line">long_string.replace(<span class="string">'live'</span>,<span class="string">'Live'</span>,<span class="number">1</span>)</span><br><span class="line">output:</span><br><span class="line"><span class="string">'To Live is to learn，to learn is to better live'</span></span><br><span class="line"><span class="comment"># 可以看到，第二个live并未进行替换</span></span><br></pre></td></tr></table></figure>
+<p><strong>刚才说了狭义，那么广义呢？</strong></p>
+<ol>
+<li><p><strong>(l/r)strip()</strong></p>
+<p>将字符串左、右、两端的特定字符过滤掉，默认为空格…<br>strip()要注意的地方是，strip(‘TolLive’) 中的字符并非完整匹配，而是针对每一个字符进行匹配，说起来混，直接上例子：</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">long_string = <span class="string">"To live is to learn，to learn is to better live"</span></span><br><span class="line">long_string.strip(<span class="string">'TolLive'</span>)</span><br><span class="line"><span class="string">'s to learn，to learn is to better'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>字符串切片</strong></p>
+<p>字符串的切片分为long_string[start:end;step] start、end区间为左闭右开…这个网上说的太多了，再拉出来详细讲就要挨打了…</p>
+<p><strong>(l/r)just(width,[fillchar])、center(width, [fillchar])、zfill(width)</strong><br>这些均为填充固定长度的字符，默认使用空格(zfill为左补0，z是zero的意思…),看意思就明白了，不用多讲了….</p>
+</li>
+</ol>
+<h3 id="字符串格式化输出"><a href="#字符串格式化输出" class="headerlink" title="字符串格式化输出"></a><strong>字符串格式化输出</strong></h3><p>本来fill和center等可以放在这里，但是他们使用频率和重量级不够格，就丢在上面了。<br>Python格式化输出分为<strong>两类</strong>，那是在pyton2的时代，即 % 和 format。这两种网上的资料太多了，说的太多显得没逼格…<br>但，还是要简单说说其中特殊的地方</p>
+<ol>
+<li><p><strong>% 格式化输出：</strong></p>
+<ul>
+<li>如何在%的格式输出中，输出用来看做标记为的%符号呢？使用两个百分号（%%）</li>
+<li>%(-)(width) width为设置长度，默认左填充空格，添加-号为右填充</li>
+<li>.width代表字符串截断，保留多少长度的字符串</li>
+<li>type %s字符串 %d十进制整数  %f小数 …</li>
+<li>多个参数是，后面的参数需要使用括号包裹起来</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'姓名：%-5s 年龄：%4d 爱好： %.8s'</span> % (<span class="string">'王大锤'</span>,<span class="number">30</span>,<span class="string">'python、Java'</span>)</span><br><span class="line">output：</span><br><span class="line"><span class="string">'姓名：王大锤   年龄：  30 爱好：python、J'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>format格式输出：</strong></p>
+<p>format在python3开始官方就表示为替换%的输出方式，之所以还保留着%，主要是为了兼容性考虑…</p>
+<ul>
+<li>对比%，format使用花括号{}表示变量</li>
+<li>&lt; &gt; ^ 代表了format的对齐方式</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'&#123;:-^40s&#125;'</span>.format(<span class="string">'华丽的分割线'</span>)</span><br><span class="line">output:</span><br><span class="line"><span class="string">'-----------------华丽的分割线-----------------'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>f-string</strong></p>
+<p>Python3.6的版本更新时，新增了f-string，英文好的可以去看官方解释PEP 498 – Literal String Interpolation 。<br>f-string是字符串引号前以f/F开头，并使用{}标注替换位置的使用形式。<br>之所以官方推出f-string，主要是因为它的更高的性能、更强的功能。例子走起：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">'Uranus'</span></span><br><span class="line"><span class="string">f'Hello,<span class="subst">&#123;name&#125;</span>'</span></span><br><span class="line"><span class="string">f'Hello,<span class="subst">&#123;name.lower()&#125;</span>'</span></span><br><span class="line"><span class="string">f'Hello,<span class="subst">&#123;name:^<span class="number">10</span>s&#125;</span>'</span></span><br><span class="line"><span class="string">f'Hello,<span class="subst">&#123;(<span class="keyword">lambda</span> x: x*<span class="number">2</span>) (name)&#125;</span>'</span></span><br><span class="line"></span><br><span class="line">output:</span><br><span class="line"><span class="string">'Hello,Uranus'</span></span><br><span class="line"><span class="string">'Hello,uranus'</span></span><br><span class="line"><span class="string">'Hello,  Uranus  '</span></span><br><span class="line"><span class="string">'Hello,UranusUranus'</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+      <p class="article-more-link">
+        <a class="article-more-a" href="/2020/04/28/史上最全python字符串操作指南/">
+          展开全文 >></a>
+      </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-Python/Python中lambda的使用，与它的三个好基友介绍！" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/28/Python/Python中lambda的使用，与它的三个好基友介绍！/">Python中lambda的使用，与它的三个好基友介绍！</a>
+    </h1>
+  
+
+      
+      <a href="/2020/04/28/Python/Python中lambda的使用，与它的三个好基友介绍！/" class="archive-article-date">
+  	<time datetime="2020-04-28T13:56:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-28</time>
+</a>
+      
+    </header>
+    
+    <!-- 目录内容 -->
+    
+    <!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+      <h3 id="匿名函数lambda"><a href="#匿名函数lambda" class="headerlink" title="匿名函数lambda"></a>匿名函数lambda</h3><p>除了def语句，python还提供了一种生成函数对象的表达式形式。由于它与LISP语言中的一个工具类似，所以称为lambda。<br>就像def一样，这个表达式创建了一个之后能够调用的函数，但是它返回一个函数而不是将这个函数赋值给一个变量。这些就是lambda叫做匿名函数的原因。实际上，他常常以一种行内进行函数定义的方式使用，或者用作推迟执行一些代码。<br>lambda的一般形式是关键字lambda之后跟着一个或多个参数（与一个def头部内用括号括起来的参数列表类似），紧跟着是一个<strong>冒号</strong>，之后是表达式</p>
+<blockquote>
+<p>lambda arg1，arg2,argn:expression using arguments</p>
+</blockquote>
+<p>由lambda表达式所返回的函数对象与由def创建并复制后的函数对象工作起来是完全一致的，但lambda有一些不同之处，让其扮演特定的角色时更有用：</p>
+<h6 id="lambda是一个表达式，而不是一个语句"><a href="#lambda是一个表达式，而不是一个语句" class="headerlink" title="lambda是一个表达式，而不是一个语句"></a>lambda是一个表达式，而不是一个语句</h6><p>因为这一点，lambda可以出现在python语法不允许def出现的地方。<br>此外，作为一个表达式，lambda返回一个值（一个新的函数），可以选择性的赋值给一个变量<br>相反，def语句总是得在头部将一个新的函数赋值给一个变量，而不是将这个函数作为结果返回。</p>
+<h6 id="lambda的主题是单个表达式，而不是一个代码块"><a href="#lambda的主题是单个表达式，而不是一个代码块" class="headerlink" title="lambda的主题是单个表达式，而不是一个代码块"></a>lambda的主题是单个表达式，而不是一个代码块</h6><p>这个lambda的主题简单的就好像放在def主体return语句中的代码一样。<br>简单的将结果写成一个顺畅的表达式，而不是明确的返回。<br>但由于它仅限于表达式，故lambda通常要比def功能少…你仅能够在lambda主体中封装有限的逻辑进去，因为他是一个为编写简单函数而设计的。<br>除了上述这些差别，def和lambda都能过做同样种类的工作</p>
+<p>def与lambda的相同用法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="keyword">lambda</span> x, y, z: x + y + z</span><br><span class="line">x(<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">9</span></span><br><span class="line"></span><br><span class="line">y = (<span class="keyword">lambda</span> a=<span class="string">'hello'</span>, b=<span class="string">'world'</span>: a + b)</span><br><span class="line">y(b=<span class="string">'清风'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'hello清风'</span></span><br></pre></td></tr></table></figure>
+<h3 id="为什么使用lambda"><a href="#为什么使用lambda" class="headerlink" title="为什么使用lambda"></a>为什么使用lambda</h3><p>看过上面的两个小例子，很多人会说这个和def没什么差别，我们又为什么要使用lambda呢？通常来说，lambda起到一种函数的速写作用，允许在使用的代码内嵌一个函数的定义，他完全是可选的(是可以使用def代替他们)，但是在你仅需要切入一段可执行代码的情况下，它会带来一个更简洁的书写效果。</p>
+<p>lambda通常用来编写跳转表，也就是行为的列表或者字典，能够按照需求执行操作，比如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">l = [<span class="keyword">lambda</span> x: x ** <span class="number">2</span>, <span class="keyword">lambda</span> x: x ** <span class="number">3</span>, <span class="keyword">lambda</span> x: x ** <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> f <span class="keyword">in</span> l:</span><br><span class="line">    print(f(<span class="number">2</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">4</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">8</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">16</span></span><br><span class="line">print(l[<span class="number">0</span>](<span class="number">3</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">9</span></span><br></pre></td></tr></table></figure>
+<p>当需要把小段的可执行代码编写进def语句从语法上不能实现的地方是，lambda表达式作为def的一种速写来说，是最为有用的，如果上面的代码用def编写，则变为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f1</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x ** <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f2</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x ** <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f3</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x ** <span class="number">4</span></span><br><span class="line"></span><br><span class="line">l = [f1, f2, f3]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> f <span class="keyword">in</span> l:</span><br><span class="line">    print(f(<span class="number">2</span>))</span><br><span class="line">print(l[<span class="number">0</span>](<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
+<p>实际上，我们可以用python中的字典或者其他的数据结构来构建更多种类的行为表，从而做同样的事情。</p>
+<h3 id="lambda中实现if-else"><a href="#lambda中实现if-else" class="headerlink" title="lambda中实现if-else"></a>lambda中实现if-else</h3><p>Python中具备的单行表达式：<strong><code>if a:b else c</code></strong>语法在lambda中同样适用：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lower = <span class="keyword">lambda</span> x,y:x <span class="keyword">if</span> x&lt;y <span class="keyword">else</span> y</span><br><span class="line">lower(<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">4</span></span><br></pre></td></tr></table></figure>
+<p>看了半天，大家可能也并未觉得lambda在python中到底比def优越与便利在哪里，那么说到lambda，就必须要提及三个函数<strong><code>map、filter、reduce</code></strong>，当你接触了这三个函数，那么你才能感受到lambda真实的方便之处</p>
+<h3 id="map-函数"><a href="#map-函数" class="headerlink" title="map 函数"></a>map 函数</h3><p>程序对列表或者其他序列常常要做的一件事就是对每个元素进行一个操作，并把其结果集合起来。<br>python提供了一个工具map，它会对一个序列对象中的每一个元素应用该的函数，并返回一个包含了所有函数调用结果的列表。<br>举个栗子，我们有一个列表，需要将列表的每一个字段+10，我们该如何操作？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">list_show = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"><span class="comment"># 方式1</span></span><br><span class="line">new_list_show = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> list_show:</span><br><span class="line">    new_list_show.append(i + <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">print(new_list_show)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式2</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">adds</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x + <span class="number">10</span></span><br><span class="line"></span><br><span class="line">print(list(map(adds, list_show)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更优雅的方式3：</span></span><br><span class="line">print(list(map(<span class="keyword">lambda</span> x: x + <span class="number">10</span>, list_show)))</span><br></pre></td></tr></table></figure>
+<p>看看上面三个实现方式，你觉得那种更加Pythonic？<br>eg:需要注意一点，map在python3中是一个可迭代对象，引入需要使用列表调用来使它生成所有的结果用于显示，python2不必如此。<br>当然map的阐述函数，不仅仅支持自己编写的，同样也支持python自带的多种函数，比如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list_show = [<span class="number">1</span>, <span class="number">-2</span>, <span class="number">3</span>, <span class="number">-4</span>, <span class="number">5</span>, <span class="number">-6</span>]</span><br><span class="line">print(list(map(abs, list_show)))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="filter函数"><a href="#filter函数" class="headerlink" title="filter函数"></a>filter函数</h3><p>filter通过字面意思，大家就知道它的用处了，用于数据的过滤操作，它也是lambda的一个好基友，举个栗子。<br>我们需要过滤0-9中，能被2整除的数字组成一个列表，我们该如何操作？只需要一行代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(list(filter(<span class="keyword">lambda</span> x: x % <span class="number">2</span> == <span class="number">0</span>, range(<span class="number">10</span>))))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[<span class="number">0</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>]</span><br></pre></td></tr></table></figure>
+<p>没错，filter就是这么的简单实用….</p>
+<h3 id="reduce的妙用"><a href="#reduce的妙用" class="headerlink" title="reduce的妙用"></a>reduce的妙用</h3><blockquote>
+<p>reduce在python2中是一个简单的函数，但在python3中它责备收录与functools中。<br>它接收一个迭代器来处理并返回一个单个的结果。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">list_show = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">print(reduce(<span class="keyword">lambda</span> x, y: x + y, list_show))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">10</span></span><br><span class="line">print(reduce(<span class="keyword">lambda</span> x, y: x * y, list_show))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">24</span></span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+      <p class="article-more-link">
+        <a class="article-more-a" href="/2020/04/28/Python/Python中lambda的使用，与它的三个好基友介绍！/">
+          展开全文 >></a>
+      </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
     <article id="post-Python/30个Python极简代码，10分钟get常用技巧！" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -381,6 +632,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -882,161 +1137,6 @@
 
 
   
-    <article id="post-Hexo开始写的第一篇文章" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/22/Hexo开始写的第一篇文章/">Hexo开始写的第一篇文章</a>
-    </h1>
-  
-
-      
-      <a href="/2018/12/22/Hexo开始写的第一篇文章/" class="archive-article-date">
-  	<time datetime="2018-12-22T15:02:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-22</time>
-</a>
-      
-    </header>
-    
-    <!-- 目录内容 -->
-    
-    <!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-      <h3 id="Hexo部署了两个多小时，还不是很会写出格式很规整的文章，但是这个学习是值得的。"><a href="#Hexo部署了两个多小时，还不是很会写出格式很规整的文章，但是这个学习是值得的。" class="headerlink" title="Hexo部署了两个多小时，还不是很会写出格式很规整的文章，但是这个学习是值得的。"></a>Hexo部署了两个多小时，还不是很会写出格式很规整的文章，但是这个学习是值得的。</h3>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-      <p class="article-more-link">
-        <a class="article-more-a" href="/2018/12/22/Hexo开始写的第一篇文章/">
-          展开全文 >></a>
-      </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-Linux/Linux通过ps -ef过滤进程获得行数" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/09/Linux/Linux通过ps -ef过滤进程获得行数/">CentOS 7安装SSH</a>
-    </h1>
-  
-
-      
-      <a href="/2018/10/09/Linux/Linux通过ps -ef过滤进程获得行数/" class="archive-article-date">
-  	<time datetime="2018-10-09T08:08:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-09</time>
-</a>
-      
-    </header>
-    
-    <!-- 目录内容 -->
-    
-    <!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-      <h1 id="Linux通过ps-ef过滤进程获得行数"><a href="#Linux通过ps-ef过滤进程获得行数" class="headerlink" title="Linux通过ps -ef过滤进程获得行数"></a>Linux通过ps -ef过滤进程获得行数</h1><hr>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">count=`ps -fe |grep "one.php" | grep -v "grep" | wc -l`</span><br></pre></td></tr></table></figure>
-<p>获取行数并赋值给count。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-      <p class="article-more-link">
-        <a class="article-more-a" href="/2018/10/09/Linux/Linux通过ps -ef过滤进程获得行数/">
-          展开全文 >></a>
-      </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1138,11 +1238,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">情感思绪</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">情感思绪</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1158,15 +1262,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">支付接口</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Web</a>
               </li>
              
               <li class="article-tag-list-item">
