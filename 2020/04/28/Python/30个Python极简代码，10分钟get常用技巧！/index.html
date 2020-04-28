@@ -7,19 +7,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="referrer" content="no-referrer">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/6 | 盗计のBlog</title>
+  <title>30个Python极简代码，10分钟get常用技巧！ | 盗计のBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我在这里记录我的生活，记录我的学习，知识的积累使我自信和满足，感情的沉积使我成长和强大。我的博客只记录我想记录的东西。">
-<meta name="keywords" content="盗计,Daoji,Java,C#,Shell,Linux,Android">
-<meta property="og:type" content="website">
-<meta property="og:title" content="盗计のBlog">
-<meta property="og:url" content="http://yoursite.com/archives/2018/06/index.html">
+  <meta name="description" content="1. 重复元素判定以下方法可以检查给定列表是不是存在重复元素，它会使用 set() 函数来移除所有重复元素。 12345678def all_unique(lst):    return len(lst) == len(set(lst))x = [1,1,2,2,3,2,3,4,5,6]y = [1,2,3,4,5]all_unique(x) # Falseall_unique(y) # True">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="30个Python极简代码，10分钟get常用技巧！">
+<meta property="og:url" content="http://yoursite.com/2020/04/28/Python/30个Python极简代码，10分钟get常用技巧！/index.html">
 <meta property="og:site_name" content="盗计のBlog">
-<meta property="og:description" content="我在这里记录我的生活，记录我的学习，知识的积累使我自信和满足，感情的沉积使我成长和强大。我的博客只记录我想记录的东西。">
+<meta property="og:description" content="1. 重复元素判定以下方法可以检查给定列表是不是存在重复元素，它会使用 set() 函数来移除所有重复元素。 12345678def all_unique(lst):    return len(lst) == len(set(lst))x = [1,1,2,2,3,2,3,4,5,6]y = [1,2,3,4,5]all_unique(x) # Falseall_unique(y) # True">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-04-28T13:45:11.206Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="盗计のBlog">
-<meta name="twitter:description" content="我在这里记录我的生活，记录我的学习，知识的积累使我自信和满足，感情的沉积使我成长和强大。我的博客只记录我想记录的东西。">
+<meta name="twitter:title" content="30个Python极简代码，10分钟get常用技巧！">
+<meta name="twitter:description" content="1. 重复元素判定以下方法可以检查给定列表是不是存在重复元素，它会使用 set() 函数来移除所有重复元素。 12345678def all_unique(lst):    return len(lst) == len(set(lst))x = [1,1,2,2,3,2,3,4,5,6]y = [1,2,3,4,5]all_unique(x) # Falseall_unique(y) # True">
   
     <link rel="alternative" href="/atom.xml" title="盗计のBlog" type="application/atom+xml">
   
@@ -165,136 +166,297 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Python/30个Python极简代码，10分钟get常用技巧！" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      30个Python极简代码，10分钟get常用技巧！
+    </h1>
+  
+
+      
+      <a href="/2020/04/28/Python/30个Python极简代码，10分钟get常用技巧！/" class="archive-article-date">
+  	<time datetime="2020-04-28T13:43:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-28</time>
+</a>
+      
+    </header>
     
+    <!-- 目录内容 -->
+    
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+      <span class="btn-bg"></span>
+      <span class="btn-text">文章导航</span>
+    </p>
+    <div id="toc-article" class="toc-article">
+      <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+      <strong class="toc-title">文章目录</strong>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-重复元素判定"><span class="toc-number">1.</span> <span class="toc-text">1. 重复元素判定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-字符元素组成判定"><span class="toc-number">2.</span> <span class="toc-text">2. 字符元素组成判定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-内存占用"><span class="toc-number">3.</span> <span class="toc-text">3. 内存占用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-字节占用"><span class="toc-number">4.</span> <span class="toc-text">4. 字节占用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-打印-N-次字符串"><span class="toc-number">5.</span> <span class="toc-text">5. 打印 N 次字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-大写第一个字母"><span class="toc-number">6.</span> <span class="toc-text">6. 大写第一个字母</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-分块"><span class="toc-number">7.</span> <span class="toc-text">7. 分块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-压缩"><span class="toc-number">8.</span> <span class="toc-text">8. 压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-解包"><span class="toc-number">9.</span> <span class="toc-text">9. 解包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-链式对比"><span class="toc-number">10.</span> <span class="toc-text">10. 链式对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-逗号连接"><span class="toc-number">11.</span> <span class="toc-text">11. 逗号连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-元音统计"><span class="toc-number">12.</span> <span class="toc-text">12. 元音统计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-首字母小写"><span class="toc-number">13.</span> <span class="toc-text">13. 首字母小写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-展开列表"><span class="toc-number">14.</span> <span class="toc-text">14. 展开列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-列表的差"><span class="toc-number">15.</span> <span class="toc-text">15. 列表的差</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16-通过函数取差"><span class="toc-number">16.</span> <span class="toc-text">16. 通过函数取差</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#17-链式函数调用"><span class="toc-number">17.</span> <span class="toc-text">17. 链式函数调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#18-检查重复项"><span class="toc-number">18.</span> <span class="toc-text">18. 检查重复项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#19-合并两个字典"><span class="toc-number">19.</span> <span class="toc-text">19. 合并两个字典</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#20-将两个列表转化为字典"><span class="toc-number">20.</span> <span class="toc-text">20. 将两个列表转化为字典</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#21-使用枚举"><span class="toc-number">21.</span> <span class="toc-text">21. 使用枚举</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#22-执行时间"><span class="toc-number">22.</span> <span class="toc-text">22. 执行时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23-Try-else"><span class="toc-number">23.</span> <span class="toc-text">23.Try else</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24-元素频率"><span class="toc-number">24.</span> <span class="toc-text">24. 元素频率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#25-回文序列"><span class="toc-number">25.</span> <span class="toc-text">25. 回文序列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#26-不使用-if-else-的计算子"><span class="toc-number">26.</span> <span class="toc-text">26. 不使用 if-else 的计算子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#27-Shuffle"><span class="toc-number">27.</span> <span class="toc-text">27.Shuffle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#28-展开列表"><span class="toc-number">28.</span> <span class="toc-text">28. 展开列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#29-交换值"><span class="toc-number">29.</span> <span class="toc-text">29. 交换值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#30-字典默认值"><span class="toc-number">30.</span> <span class="toc-text">30. 字典默认值</span></a></li></ol>
+    </div>
+    <script type="text/javascript">
+      function showToc() {
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style", "display:block");
+        show_toc_btn.setAttribute("style", "display:none");
+      };
+
+      function showBtn() {
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style", "display:none");
+        show_toc_btn.setAttribute("style", "display:block");
+      };
+    </script>
+    
+    <!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+      <h3 id="1-重复元素判定"><a href="#1-重复元素判定" class="headerlink" title="1. 重复元素判定"></a><strong>1. 重复元素判定</strong></h3><p>以下方法可以检查给定列表是不是存在重复元素，它会使用 set() 函数来移除所有重复元素。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">all_unique</span><span class="params">(lst)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> len(lst) == len(set(lst))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">x = [<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line">y = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">all_unique(x) <span class="comment"># False</span></span><br><span class="line">all_unique(y) <span class="comment"># True</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-字符元素组成判定"><a href="#2-字符元素组成判定" class="headerlink" title="2. 字符元素组成判定"></a><strong>2. 字符元素组成判定</strong></h3><p>检查两个字符串的组成元素是不是一样的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">anagram</span><span class="params">(first, second)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> Counter(first) == Counter(second)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">anagram(<span class="string">"abcd3"</span>, <span class="string">"3acdb"</span>) <span class="comment"># True</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-内存占用"><a href="#3-内存占用" class="headerlink" title="3. 内存占用"></a><strong>3. 内存占用</strong></h3><p>下面的代码块可以检查变量 variable 所占用的内存。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys </span><br><span class="line"></span><br><span class="line">variable = <span class="number">30</span> </span><br><span class="line">print(sys.getsizeof(variable)) <span class="comment"># 24</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-字节占用"><a href="#4-字节占用" class="headerlink" title="4. 字节占用"></a><strong>4. 字节占用</strong></h3><p>下面的代码块可以检查字符串占用的字节数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">byte_size</span><span class="params">(string)</span>:</span></span><br><span class="line">    <span class="keyword">return</span>(len(string.encode(<span class="string">'utf-8'</span>)))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">byte_size(<span class="string">'😀'</span>) <span class="comment"># 4</span></span><br><span class="line">byte_size(<span class="string">'Hello World'</span>) <span class="comment"># 11</span></span><br></pre></td></tr></table></figure>
+<h3 id="5-打印-N-次字符串"><a href="#5-打印-N-次字符串" class="headerlink" title="5. 打印 N 次字符串"></a><strong>5. 打印 N 次字符串</strong></h3><p>该代码块不需要循环语句就能打印 N 次字符串。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="number">2</span>; </span><br><span class="line">s =<span class="string">"Programming"</span>; </span><br><span class="line"></span><br><span class="line">print(s * n);</span><br><span class="line"><span class="comment"># ProgrammingProgramming</span></span><br></pre></td></tr></table></figure>
+<h3 id="6-大写第一个字母"><a href="#6-大写第一个字母" class="headerlink" title="6. 大写第一个字母"></a><strong>6. 大写第一个字母</strong></h3><p>以下代码块会使用 title() 方法，从而大写字符串中每一个单词的首字母。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">"programming is awesome"</span></span><br><span class="line"></span><br><span class="line">print(s.title())</span><br><span class="line"><span class="comment"># Programming Is Awesome</span></span><br></pre></td></tr></table></figure>
+<h3 id="7-分块"><a href="#7-分块" class="headerlink" title="7. 分块"></a><strong>7. 分块</strong></h3><p>给定具体的大小，定义一个函数以按照这个大小切割列表。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> ceil</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">chunk</span><span class="params">(lst, size)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> list(</span><br><span class="line">        map(<span class="keyword">lambda</span> x: lst[x * size:x * size + size],</span><br><span class="line">            list(range(<span class="number">0</span>, ceil(len(lst) / size)))))</span><br><span class="line"></span><br><span class="line">chunk([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>],<span class="number">2</span>)</span><br><span class="line"><span class="comment"># [[1,2],[3,4],5]</span></span><br></pre></td></tr></table></figure>
+<h3 id="8-压缩"><a href="#8-压缩" class="headerlink" title="8. 压缩"></a><strong>8. 压缩</strong></h3><p>这个方法可以将布尔型的值去掉，例如（False，None，0，“”），它使用 filter() 函数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compact</span><span class="params">(lst)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> list(filter(bool, lst))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">compact([<span class="number">0</span>, <span class="number">1</span>, <span class="keyword">False</span>, <span class="number">2</span>, <span class="string">''</span>, <span class="number">3</span>, <span class="string">'a'</span>, <span class="string">'s'</span>, <span class="number">34</span>])</span><br><span class="line"><span class="comment"># [ 1, 2, 3, 'a', 's', 34 ]</span></span><br></pre></td></tr></table></figure>
+<h3 id="9-解包"><a href="#9-解包" class="headerlink" title="9. 解包"></a><strong>9. 解包</strong></h3><p>如下代码段可以将打包好的成对列表解开成两组不同的元组。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">array = [[<span class="string">'a'</span>, <span class="string">'b'</span>], [<span class="string">'c'</span>, <span class="string">'d'</span>], [<span class="string">'e'</span>, <span class="string">'f'</span>]]</span><br><span class="line">transposed = zip(*array)</span><br><span class="line">print(transposed)</span><br><span class="line"><span class="comment"># [('a', 'c', 'e'), ('b', 'd', 'f')]</span></span><br></pre></td></tr></table></figure>
+<h3 id="10-链式对比"><a href="#10-链式对比" class="headerlink" title="10. 链式对比"></a><strong>10. 链式对比</strong></h3><p>我们可以在一行代码中使用不同的运算符对比多个不同的元素。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">3</span></span><br><span class="line">print( <span class="number">2</span> &lt; a &lt; <span class="number">8</span>) <span class="comment"># True</span></span><br><span class="line">print(<span class="number">1</span> == a &lt; <span class="number">2</span>) <span class="comment"># False</span></span><br></pre></td></tr></table></figure>
+<h3 id="11-逗号连接"><a href="#11-逗号连接" class="headerlink" title="11. 逗号连接"></a><strong>11. 逗号连接</strong></h3><p>下面的代码可以将列表连接成单个字符串，且每一个元素间的分隔方式设置为了逗号。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hobbies = [<span class="string">"basketball"</span>, <span class="string">"football"</span>, <span class="string">"swimming"</span>]</span><br><span class="line"></span><br><span class="line">print(<span class="string">"My hobbies are: "</span> + <span class="string">", "</span>.join(hobbies))</span><br><span class="line"><span class="comment"># My hobbies are: basketball, football, swimming</span></span><br></pre></td></tr></table></figure>
+<h3 id="12-元音统计"><a href="#12-元音统计" class="headerlink" title="12. 元音统计"></a><strong>12. 元音统计</strong></h3><p>以下方法将统计字符串中的元音 (‘a’, ‘e’, ‘i’, ‘o’, ‘u’) 的个数，它是通过正则表达式做的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">count_vowels</span><span class="params">(str)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> len(len(re.findall(<span class="string">r'[aeiou]'</span>, str, re.IGNORECASE)))</span><br><span class="line"></span><br><span class="line">count_vowels(<span class="string">'foobar'</span>) <span class="comment"># 3</span></span><br><span class="line">count_vowels(<span class="string">'gym'</span>) <span class="comment"># 0</span></span><br></pre></td></tr></table></figure>
+<h3 id="13-首字母小写"><a href="#13-首字母小写" class="headerlink" title="13. 首字母小写"></a><strong>13. 首字母小写</strong></h3><p>如下方法将令给定字符串的第一个字符统一为小写。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decapitalize</span><span class="params">(string)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> str[:<span class="number">1</span>].lower() + str[<span class="number">1</span>:]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">decapitalize(<span class="string">'FooBar'</span>) <span class="comment"># 'fooBar'</span></span><br><span class="line">decapitalize(<span class="string">'FooBar'</span>) <span class="comment"># 'fooBar'</span></span><br></pre></td></tr></table></figure>
+<h3 id="14-展开列表"><a href="#14-展开列表" class="headerlink" title="14. 展开列表"></a><strong>14. 展开列表</strong></h3><p>该方法将通过递归的方式将列表的嵌套展开为单个列表。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">spread</span><span class="params">(arg)</span>:</span></span><br><span class="line">    ret = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> arg:</span><br><span class="line">        <span class="keyword">if</span> isinstance(i, list):</span><br><span class="line">            ret.extend(i)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            ret.append(i)</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">deep_flatten</span><span class="params">(lst)</span>:</span></span><br><span class="line">    result = []</span><br><span class="line">    result.extend(</span><br><span class="line">        spread(list(map(<span class="keyword">lambda</span> x: deep_flatten(x) <span class="keyword">if</span> type(x) == list <span class="keyword">else</span> x, lst))))</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">deep_flatten([<span class="number">1</span>, [<span class="number">2</span>], [[<span class="number">3</span>], <span class="number">4</span>], <span class="number">5</span>]) <span class="comment"># [1,2,3,4,5]</span></span><br></pre></td></tr></table></figure>
+<h3 id="15-列表的差"><a href="#15-列表的差" class="headerlink" title="15. 列表的差"></a><strong>15. 列表的差</strong></h3><p>该方法将返回第一个列表的元素，其不在第二个列表内。如果同时要反馈第二个列表独有的元素，还需要加一句 set_b.difference(set_a)。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">difference</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    set_a = set(a)</span><br><span class="line">    set_b = set(b)</span><br><span class="line">    comparison = set_a.difference(set_b)</span><br><span class="line">    <span class="keyword">return</span> list(comparison)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">difference([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>]) <span class="comment"># [3]</span></span><br></pre></td></tr></table></figure>
+<h3 id="16-通过函数取差"><a href="#16-通过函数取差" class="headerlink" title="16. 通过函数取差"></a><strong>16. 通过函数取差</strong></h3><p>如下方法首先会应用一个给定的函数，然后再返回应用函数后结果有差别的列表元素。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">difference_by</span><span class="params">(a, b, fn)</span>:</span></span><br><span class="line">    b = set(map(fn, b))</span><br><span class="line">    <span class="keyword">return</span> [item <span class="keyword">for</span> item <span class="keyword">in</span> a <span class="keyword">if</span> fn(item) <span class="keyword">not</span> <span class="keyword">in</span> b]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> floor</span><br><span class="line">difference_by([<span class="number">2.1</span>, <span class="number">1.2</span>], [<span class="number">2.3</span>, <span class="number">3.4</span>],floor) <span class="comment"># [1.2]</span></span><br><span class="line">difference_by([&#123; <span class="string">'x'</span>: <span class="number">2</span> &#125;, &#123; <span class="string">'x'</span>: <span class="number">1</span> &#125;], [&#123; <span class="string">'x'</span>: <span class="number">1</span> &#125;], <span class="keyword">lambda</span> v : v[<span class="string">'x'</span>])</span><br><span class="line"><span class="comment"># [ &#123; x: 2 &#125; ]</span></span><br></pre></td></tr></table></figure>
+<h3 id="17-链式函数调用"><a href="#17-链式函数调用" class="headerlink" title="17. 链式函数调用"></a><strong>17. 链式函数调用</strong></h3><p>你可以在一行代码内调用多个函数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> a + b</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">subtract</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> a - b</span><br><span class="line"></span><br><span class="line">a, b = <span class="number">4</span>, <span class="number">5</span></span><br><span class="line">print((subtract <span class="keyword">if</span> a &gt; b <span class="keyword">else</span> add)(a, b)) <span class="comment"># 9</span></span><br></pre></td></tr></table></figure>
+<h3 id="18-检查重复项"><a href="#18-检查重复项" class="headerlink" title="18. 检查重复项"></a><strong>18. 检查重复项</strong></h3><p>如下代码将检查两个列表是不是有重复项。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">has_duplicates</span><span class="params">(lst)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> len(lst) != len(set(lst))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">x = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">5</span>]</span><br><span class="line">y = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">has_duplicates(x) <span class="comment"># True</span></span><br><span class="line">has_duplicates(y) <span class="comment"># False</span></span><br></pre></td></tr></table></figure>
+<h3 id="19-合并两个字典"><a href="#19-合并两个字典" class="headerlink" title="19. 合并两个字典"></a><strong>19. 合并两个字典</strong></h3><p>下面的方法将用于合并两个字典。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge_two_dicts</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    c = a.copy()   <span class="comment"># make a copy of a </span></span><br><span class="line">    c.update(b)    <span class="comment"># modify keys and values of a with the ones from b</span></span><br><span class="line">    <span class="keyword">return</span> c</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = &#123; <span class="string">'x'</span>: <span class="number">1</span>, <span class="string">'y'</span>: <span class="number">2</span>&#125;</span><br><span class="line">b = &#123; <span class="string">'y'</span>: <span class="number">3</span>, <span class="string">'z'</span>: <span class="number">4</span>&#125;</span><br><span class="line">print(merge_two_dicts(a, b))</span><br><span class="line"><span class="comment"># &#123;'y': 3, 'x': 1, 'z': 4&#125;</span></span><br></pre></td></tr></table></figure>
+<p>在 Python 3.5 或更高版本中，我们也可以用以下方式合并字典：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge_dictionaries</span><span class="params">(a, b)</span></span></span><br><span class="line">   return &#123;**a, **b&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = &#123; <span class="string">'x'</span>: <span class="number">1</span>, <span class="string">'y'</span>: <span class="number">2</span>&#125;</span><br><span class="line">b = &#123; <span class="string">'y'</span>: <span class="number">3</span>, <span class="string">'z'</span>: <span class="number">4</span>&#125;</span><br><span class="line">print(merge_dictionaries(a, b))</span><br><span class="line"><span class="comment"># &#123;'y': 3, 'x': 1, 'z': 4&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="20-将两个列表转化为字典"><a href="#20-将两个列表转化为字典" class="headerlink" title="20. 将两个列表转化为字典"></a><strong>20. 将两个列表转化为字典</strong></h3><p>如下方法将会把两个列表转化为单个字典。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">to_dictionary</span><span class="params">(keys, values)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> dict(zip(keys, values))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">keys = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>]    </span><br><span class="line">values = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">print(to_dictionary(keys, values))</span><br><span class="line"><span class="comment"># &#123;'a': 2, 'c': 4, 'b': 3&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="21-使用枚举"><a href="#21-使用枚举" class="headerlink" title="21. 使用枚举"></a><strong>21. 使用枚举</strong></h3><p>我们常用 For 循环来遍历某个列表，同样我们也能枚举列表的索引与值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">list = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, <span class="string">"d"</span>]</span><br><span class="line"><span class="keyword">for</span> index, element <span class="keyword">in</span> enumerate(list): </span><br><span class="line">    print(<span class="string">"Value"</span>, element, <span class="string">"Index "</span>, index, )</span><br><span class="line"></span><br><span class="line"><span class="comment"># ('Value', 'a', 'Index ', 0)</span></span><br><span class="line"><span class="comment"># ('Value', 'b', 'Index ', 1)</span></span><br><span class="line"><span class="comment">#('Value', 'c', 'Index ', 2)</span></span><br><span class="line"><span class="comment"># ('Value', 'd', 'Index ', 3)</span></span><br></pre></td></tr></table></figure>
+<h3 id="22-执行时间"><a href="#22-执行时间" class="headerlink" title="22. 执行时间"></a><strong>22. 执行时间</strong></h3><p>如下代码块可以用来计算执行特定代码所花费的时间。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">start_time = time.time()</span><br><span class="line"></span><br><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line">c = a + b</span><br><span class="line">print(c) <span class="comment">#3</span></span><br><span class="line"></span><br><span class="line">end_time = time.time()</span><br><span class="line">total_time = end_time - start_time</span><br><span class="line">print(<span class="string">"Time: "</span>, total_time)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ('Time: ', 1.1205673217773438e-05)</span></span><br></pre></td></tr></table></figure>
+<h3 id="23-Try-else"><a href="#23-Try-else" class="headerlink" title="23.Try else"></a><strong>23.Try else</strong></h3><p>我们在使用 try/except 语句的时候也可以加一个 else 子句，如果没有触发错误的话，这个子句就会被运行。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="number">2</span>*<span class="number">3</span></span><br><span class="line"><span class="keyword">except</span> TypeError:</span><br><span class="line">    print(<span class="string">"An exception was raised"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"Thank God, no exceptions were raised."</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Thank God, no exceptions were raised.</span></span><br></pre></td></tr></table></figure>
+<h3 id="24-元素频率"><a href="#24-元素频率" class="headerlink" title="24. 元素频率"></a><strong>24. 元素频率</strong></h3><p>下面的方法会根据元素频率取列表中最常见的元素。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">most_frequent</span><span class="params">(list)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> max(set(list), key = list.count)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">list = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">2</span>]</span><br><span class="line">most_frequent(list)</span><br></pre></td></tr></table></figure>
+<h3 id="25-回文序列"><a href="#25-回文序列" class="headerlink" title="25. 回文序列"></a><strong>25. 回文序列</strong></h3><p>以下方法会检查给定的字符串是不是回文序列，它首先会把所有字母转化为小写，并移除非英文字母符号。最后，它会对比字符串与反向字符串是否相等，相等则表示为回文序列。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">palindrome</span><span class="params">(string)</span>:</span></span><br><span class="line">    <span class="keyword">from</span> re <span class="keyword">import</span> sub</span><br><span class="line">    s = sub(<span class="string">'[\W_]'</span>, <span class="string">''</span>, string.lower())</span><br><span class="line">    <span class="keyword">return</span> s == s[::<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">palindrome(<span class="string">'taco cat'</span>) <span class="comment"># True</span></span><br></pre></td></tr></table></figure>
+<h3 id="26-不使用-if-else-的计算子"><a href="#26-不使用-if-else-的计算子" class="headerlink" title="26. 不使用 if-else 的计算子"></a><strong>26. 不使用 if-else 的计算子</strong></h3><p>这一段代码可以不使用条件语句就实现加减乘除、求幂操作，它通过字典这一数据结构实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> operator</span><br><span class="line">action = &#123;</span><br><span class="line">    <span class="string">"+"</span>: operator.add,</span><br><span class="line">    <span class="string">"-"</span>: operator.sub,</span><br><span class="line">    <span class="string">"/"</span>: operator.truediv,</span><br><span class="line">    <span class="string">"*"</span>: operator.mul,</span><br><span class="line">    <span class="string">"**"</span>: pow</span><br><span class="line">&#125;</span><br><span class="line">print(action[<span class="string">'-'</span>](<span class="number">50</span>, <span class="number">25</span>)) <span class="comment"># 25</span></span><br></pre></td></tr></table></figure>
+<h3 id="27-Shuffle"><a href="#27-Shuffle" class="headerlink" title="27.Shuffle"></a><strong>27.Shuffle</strong></h3><p>该算法会打乱列表元素的顺序，它主要会通过 Fisher-Yates 算法对新列表进行排序：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> copy <span class="keyword">import</span> deepcopy</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">shuffle</span><span class="params">(lst)</span>:</span></span><br><span class="line">    temp_lst = deepcopy(lst)</span><br><span class="line">    m = len(temp_lst)</span><br><span class="line">    <span class="keyword">while</span> (m):</span><br><span class="line">        m -= <span class="number">1</span></span><br><span class="line">        i = randint(<span class="number">0</span>, m)</span><br><span class="line">        temp_lst[m], temp_lst[i] = temp_lst[i], temp_lst[m]</span><br><span class="line">    <span class="keyword">return</span> temp_lst</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">foo = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">shuffle(foo) <span class="comment"># [2,3,1] , foo = [1,2,3]</span></span><br></pre></td></tr></table></figure>
+<h3 id="28-展开列表"><a href="#28-展开列表" class="headerlink" title="28. 展开列表"></a><strong>28. 展开列表</strong></h3><p>将列表内的所有元素，包括子列表，都展开成一个列表。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">spread</span><span class="params">(arg)</span>:</span></span><br><span class="line">    ret = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> arg:</span><br><span class="line">        <span class="keyword">if</span> isinstance(i, list):</span><br><span class="line">            ret.extend(i)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            ret.append(i)</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spread([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>],<span class="number">8</span>,<span class="number">9</span>]) <span class="comment"># [1,2,3,4,5,6,7,8,9]</span></span><br></pre></td></tr></table></figure>
+<h3 id="29-交换值"><a href="#29-交换值" class="headerlink" title="29. 交换值"></a><strong>29. 交换值</strong></h3><p>不需要额外的操作就能交换两个变量的值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">swap</span><span class="params">(a, b)</span>:</span></span><br><span class="line">  <span class="keyword">return</span> b, a</span><br><span class="line"></span><br><span class="line">a, b = <span class="number">-1</span>, <span class="number">14</span></span><br><span class="line">swap(a, b) <span class="comment"># (14, -1)</span></span><br><span class="line">spread([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>],<span class="number">8</span>,<span class="number">9</span>]) <span class="comment"># [1,2,3,4,5,6,7,8,9]</span></span><br></pre></td></tr></table></figure>
+<h3 id="30-字典默认值"><a href="#30-字典默认值" class="headerlink" title="30. 字典默认值"></a><strong>30. 字典默认值</strong></h3><p>通过 Key 取对应的 Value 值，可以通过以下方式设置默认值。如果 get() 方法没有设置默认值，那么如果遇到不存在的 Key，则会返回 None。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">d = &#123;<span class="string">'a'</span>: <span class="number">1</span>, <span class="string">'b'</span>: <span class="number">2</span>&#125;</span><br><span class="line"></span><br><span class="line">print(d.get(<span class="string">'c'</span>, <span class="number">3</span>)) <span class="comment"># 3</span></span><br></pre></td></tr></table></figure>
+      
+
+      
+      <div class="page-reward">
+        <a href="javascript:;" class="page-reward-btn tooltip-top">
+          <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>
+                    谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/AliPay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/WePay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+        </a>
+      </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/28/Linux/Linux Crontab 安装使用详细说明/" class="archive-article-date">
-  	<time datetime="2018-06-28T13:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/28/Linux/Linux Crontab 安装使用详细说明/">Linux Crontab 安装使用详细说明</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+      
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/28/Python/30个Python极简代码，10分钟get常用技巧！/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+
+<nav id="article-nav">
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/28/Linux/Linux安装SSH/" class="archive-article-date">
-  	<time datetime="2018-06-28T11:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-28</time>
-</a>
+  
+    <a href="/2020/04/28/Python/编译安装Python/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">编译安装Python</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/28/Linux/Linux安装SSH/">CentOS 7安装SSH</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-重复元素判定"><span class="toc-number">1.</span> <span class="toc-text">1. 重复元素判定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-字符元素组成判定"><span class="toc-number">2.</span> <span class="toc-text">2. 字符元素组成判定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-内存占用"><span class="toc-number">3.</span> <span class="toc-text">3. 内存占用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-字节占用"><span class="toc-number">4.</span> <span class="toc-text">4. 字节占用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-打印-N-次字符串"><span class="toc-number">5.</span> <span class="toc-text">5. 打印 N 次字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-大写第一个字母"><span class="toc-number">6.</span> <span class="toc-text">6. 大写第一个字母</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-分块"><span class="toc-number">7.</span> <span class="toc-text">7. 分块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-压缩"><span class="toc-number">8.</span> <span class="toc-text">8. 压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-解包"><span class="toc-number">9.</span> <span class="toc-text">9. 解包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-链式对比"><span class="toc-number">10.</span> <span class="toc-text">10. 链式对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-逗号连接"><span class="toc-number">11.</span> <span class="toc-text">11. 逗号连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-元音统计"><span class="toc-number">12.</span> <span class="toc-text">12. 元音统计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-首字母小写"><span class="toc-number">13.</span> <span class="toc-text">13. 首字母小写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-展开列表"><span class="toc-number">14.</span> <span class="toc-text">14. 展开列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-列表的差"><span class="toc-number">15.</span> <span class="toc-text">15. 列表的差</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16-通过函数取差"><span class="toc-number">16.</span> <span class="toc-text">16. 通过函数取差</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#17-链式函数调用"><span class="toc-number">17.</span> <span class="toc-text">17. 链式函数调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#18-检查重复项"><span class="toc-number">18.</span> <span class="toc-text">18. 检查重复项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#19-合并两个字典"><span class="toc-number">19.</span> <span class="toc-text">19. 合并两个字典</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#20-将两个列表转化为字典"><span class="toc-number">20.</span> <span class="toc-text">20. 将两个列表转化为字典</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#21-使用枚举"><span class="toc-number">21.</span> <span class="toc-text">21. 使用枚举</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#22-执行时间"><span class="toc-number">22.</span> <span class="toc-text">22. 执行时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23-Try-else"><span class="toc-number">23.</span> <span class="toc-text">23.Try else</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24-元素频率"><span class="toc-number">24.</span> <span class="toc-text">24. 元素频率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#25-回文序列"><span class="toc-number">25.</span> <span class="toc-text">25. 回文序列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#26-不使用-if-else-的计算子"><span class="toc-number">26.</span> <span class="toc-text">26. 不使用 if-else 的计算子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#27-Shuffle"><span class="toc-number">27.</span> <span class="toc-text">27.Shuffle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#28-展开列表"><span class="toc-number">28.</span> <span class="toc-text">28. 展开列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#29-交换值"><span class="toc-number">29.</span> <span class="toc-text">29. 交换值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#30-字典默认值"><span class="toc-number">30.</span> <span class="toc-text">30. 字典默认值</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/28/Linux/Linux在CLI下连接WiFi/" class="archive-article-date">
-  	<time datetime="2018-06-28T11:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/28/Linux/Linux在CLI下连接WiFi/">Linux在CLI下连接WiFi</a>
-    </h1>
-  
+        
+    </div>
+</aside>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
+
+
+
+
+
+
+
+<div id="gitment-ctn"></div> 
+<!-- <link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script> -->
+<link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
+<script src="https://billts.site/js/gitment.js"></script>
+<!-- 汉化 -->
+<script>
+var gitment = new Gitment({
+  id: '30个Python极简代码，10分钟get常用技巧！',
+  owner: 'daojiAnime',
+  repo: 'daojiAnime.github.io',
+  oauth: {
+    client_id: '448174ff6856204aa731',
+    client_secret: '8518b25b88412e53cb1b98be5de7352a4b6c826c',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
 
 
           </div>
@@ -317,8 +479,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
