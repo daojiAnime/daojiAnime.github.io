@@ -7,19 +7,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="referrer" content="no-referrer">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>自家Linux | 盗计のBlog</title>
+  <title>编译安装Python | 盗计のBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="Linux">
+  <meta name="description" content="Linux系统安装Python最新版一般都是要编译安装">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自家Linux">
-<meta property="og:url" content="http://yoursite.com/2018/07/17/Linux/自家Linux/index.html">
+<meta property="og:title" content="编译安装Python">
+<meta property="og:url" content="http://yoursite.com/2020/04/28/Python/编译安装Python/index.html">
 <meta property="og:site_name" content="盗计のBlog">
+<meta property="og:description" content="Linux系统安装Python最新版一般都是要编译安装">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/e3bf8736gy1fyqgf924gsj21z81bhx6u.jpg">
-<meta property="og:updated_time" content="2018-12-31T17:44:34.091Z">
+<meta property="og:updated_time" content="2020-04-28T12:01:34.238Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自家Linux">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/e3bf8736gy1fyqgf924gsj21z81bhx6u.jpg">
+<meta name="twitter:title" content="编译安装Python">
+<meta name="twitter:description" content="Linux系统安装Python最新版一般都是要编译安装">
   
     <link rel="alternative" href="/atom.xml" title="盗计のBlog" type="application/atom+xml">
   
@@ -165,40 +166,94 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Linux/自家Linux" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Python/编译安装Python" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     <header class="article-header">
       
   
     <h1 class="article-title" itemprop="name">
-      自家Linux
+      编译安装Python
     </h1>
   
 
       
-      <a href="/2018/07/17/Linux/自家Linux/" class="archive-article-date">
-  	<time datetime="2018-07-17T00:49:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-17</time>
+      <a href="/2020/04/28/Python/编译安装Python/" class="archive-article-date">
+  	<time datetime="2020-04-28T11:58:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-28</time>
 </a>
       
     </header>
     
     <!-- 目录内容 -->
     
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+      <span class="btn-bg"></span>
+      <span class="btn-text">文章导航</span>
+    </p>
+    <div id="toc-article" class="toc-article">
+      <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+      <strong class="toc-title">文章目录</strong>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#准备："><span class="toc-number">1.</span> <span class="toc-text">准备：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开始安装："><span class="toc-number">2.</span> <span class="toc-text">开始安装：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装最新版pip"><span class="toc-number">3.</span> <span class="toc-text">安装最新版pip :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改pypi镜像源："><span class="toc-number">4.</span> <span class="toc-text">修改pypi镜像源：</span></a></li></ol>
+    </div>
+    <script type="text/javascript">
+      function showToc() {
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style", "display:block");
+        show_toc_btn.setAttribute("style", "display:none");
+      };
+
+      function showBtn() {
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style", "display:none");
+        show_toc_btn.setAttribute("style", "display:block");
+      };
+    </script>
+    
     <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-      <p><img src="https://ws1.sinaimg.cn/large/e3bf8736gy1fyqgf924gsj21z81bhx6u.jpg" alt=""><br><a id="more"></a></p>
-<h3 id="centos7配置第一篇"><a href="#centos7配置第一篇" class="headerlink" title="#centos7配置第一篇"></a>#centos7配置第一篇</h3><p>##GUI界面锁屏解除</p>
-<pre><code>#设置-&gt;隐私-&gt;锁屏和通知  都关闭
-</code></pre><p>##CLI界面合盖休眠解除</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/systemd/logind.conf</span><br></pre></td></tr></table></figure>
-<p>#HandlePowerKey       //按下电源键后的行为，默认 <code>=poweroff</code></p>
-<p>#HandleSuspendKey     //按下挂起键后的行为，默认 <code>=suspend</code></p>
-<p>#HandleHibernateKey   //按下休眠键的行为，默认 <code>=hibernate</code></p>
-<p>#HandleLidSwitch      //合上笔记本盖后的行为，默认 <code>=suspend</code>，应该改为 <code>=lock</code>，并且在文件中去除前面的<code>#</code></p>
-<p>运行配置文件使其生效 ###</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart systemd-logind</span><br></pre></td></tr></table></figure>
+      <h3 id="准备："><a href="#准备：" class="headerlink" title="准备："></a>准备：</h3><ul>
+<li><p>安装<code>gcc</code> <code>g++</code>编译器和<code>make</code> :</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install gcc g++ make</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装依赖：</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install zlib1g-dev libssl-dev libffi-dev libsqlite3-dev uuid-dev libbz2-dev libreadline-dev liblzma-dev libncurses5-dev libmysqlclient-dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解压Python安装包</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.python.org/ftp/python/3.7.6/Python-3.7.6.tgz</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="开始安装："><a href="#开始安装：" class="headerlink" title="开始安装："></a><strong>开始安装</strong>：</h3><ul>
+<li><p><code>cd</code>到刚刚解压的Python路径中，然后运行 <code>./configure</code>命令:</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd Python-3.7.6</span><br><span class="line">./configure --enable-optimizations</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行以下命令进行安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看安装版本：</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -V</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="安装最新版pip"><a href="#安装最新版pip" class="headerlink" title="安装最新版pip :"></a><strong>安装最新版</strong><code>pip</code> :</h3><ul>
+<li><p>下载</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py</span><br><span class="line">sudo python3 get-pip.py -i  https://mirrors.aliyun.com/pypi/simple/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看安装版本：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip -V</span><br><span class="line"><span class="meta">#</span> 或者</span><br><span class="line">pip3 -V</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="修改pypi镜像源："><a href="#修改pypi镜像源：" class="headerlink" title="修改pypi镜像源："></a><strong>修改pypi镜像源</strong>：</h3><ul>
+<li><p>清华：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>阿里云：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 config set global.index-url https://mirrors.aliyun.com/pypi/simple/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装第三方库时可能还需要：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python3-dev    # 可以暂时不安装</span><br></pre></td></tr></table></figure></li>
+</ul>
 
       
 
@@ -244,7 +299,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
         		</li>
       		
 		</ul>
@@ -300,7 +355,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/17/Linux/自家Linux/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/28/Python/编译安装Python/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -314,18 +369,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2018/07/17/Linux/Linux抓出背后的木马程序并处理/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Linux抓出背后的木马程序并处理
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/06/28/Linux/Linux Crontab 安装使用详细说明/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Linux Crontab 安装使用详细说明</div>
+    <a href="/2019/05/24/Python/Python实现可扩展微信机器人和黑科技/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python实现可扩展微信机器人和黑科技</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -344,6 +390,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#准备："><span class="toc-number">1.</span> <span class="toc-text">准备：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开始安装："><span class="toc-number">2.</span> <span class="toc-text">开始安装：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装最新版pip"><span class="toc-number">3.</span> <span class="toc-text">安装最新版pip :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改pypi镜像源："><span class="toc-number">4.</span> <span class="toc-text">修改pypi镜像源：</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -367,7 +426,7 @@
 <!-- 汉化 -->
 <script>
 var gitment = new Gitment({
-  id: '自家Linux',
+  id: '编译安装Python',
   owner: 'daojiAnime',
   repo: 'daojiAnime.github.io',
   oauth: {
