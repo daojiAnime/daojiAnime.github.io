@@ -7,23 +7,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="referrer" content="no-referrer">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>HTML网页调用网易云音乐播放器代码 | 盗计のBlog</title>
+  <title>手动编译安装nginx | 盗计のBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="表现形式一：单曲播放调用代码： 1&amp;lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=100% height=86 src=&quot;http://music.163.com/outchain/player?type=2&amp;amp;id=299757&amp;amp;auto=1&amp;amp;height=66&quot;&amp;g">
-<meta name="keywords" content="盗计,Daoji,Java,C#,Shell,Linux,Android">
+  <meta name="description" content="前言&amp;emsp;这里采用的是CentOS 7系统演示。安装工具有些差别，但是原理流程是一样的。 更新系统软件1yum update -y 安装编译工具1yum install gcc -y 安装pcre、pcre-devel&amp;emsp;pcre是一个perl库，包括perl兼容的正则表达式库，nginx的http模块使用pcre来解析正则表达式，所以需要安装pcre库。 1yum install">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTML网页调用网易云音乐播放器代码">
-<meta property="og:url" content="http://yoursite.com/2020/05/02/HTML网页调用网易云音乐播放器代码/index.html">
+<meta property="og:title" content="手动编译安装nginx">
+<meta property="og:url" content="http://yoursite.com/2020/05/03/Python/手动编译安装nginx/index.html">
 <meta property="og:site_name" content="盗计のBlog">
-<meta property="og:description" content="表现形式一：单曲播放调用代码： 1&amp;lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=100% height=86 src=&quot;http://music.163.com/outchain/player?type=2&amp;amp;id=299757&amp;amp;auto=1&amp;amp;height=66&quot;&amp;g">
+<meta property="og:description" content="前言&amp;emsp;这里采用的是CentOS 7系统演示。安装工具有些差别，但是原理流程是一样的。 更新系统软件1yum update -y 安装编译工具1yum install gcc -y 安装pcre、pcre-devel&amp;emsp;pcre是一个perl库，包括perl兼容的正则表达式库，nginx的http模块使用pcre来解析正则表达式，所以需要安装pcre库。 1yum install">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://gitee.com/djgzs_admin/ArticleImg/raw/master/2020/05/02/2020/05/02/20200502102248.png">
-<meta property="og:image" content="https://gitee.com/djgzs_admin/ArticleImg/raw/master/2020/05/02/2020/05/02/20200502102327.png">
-<meta property="og:updated_time" content="2020-05-02T02:32:54.579Z">
+<meta property="og:updated_time" content="2020-05-03T07:57:42.366Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTML网页调用网易云音乐播放器代码">
-<meta name="twitter:description" content="表现形式一：单曲播放调用代码： 1&amp;lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=100% height=86 src=&quot;http://music.163.com/outchain/player?type=2&amp;amp;id=299757&amp;amp;auto=1&amp;amp;height=66&quot;&amp;g">
-<meta name="twitter:image" content="https://gitee.com/djgzs_admin/ArticleImg/raw/master/2020/05/02/2020/05/02/20200502102248.png">
+<meta name="twitter:title" content="手动编译安装nginx">
+<meta name="twitter:description" content="前言&amp;emsp;这里采用的是CentOS 7系统演示。安装工具有些差别，但是原理流程是一样的。 更新系统软件1yum update -y 安装编译工具1yum install gcc -y 安装pcre、pcre-devel&amp;emsp;pcre是一个perl库，包括perl兼容的正则表达式库，nginx的http模块使用pcre来解析正则表达式，所以需要安装pcre库。 1yum install">
   
     <link rel="alternative" href="/atom.xml" title="盗计のBlog" type="application/atom+xml">
   
@@ -169,20 +166,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-HTML网页调用网易云音乐播放器代码" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Python/手动编译安装nginx" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     <header class="article-header">
       
   
     <h1 class="article-title" itemprop="name">
-      HTML网页调用网易云音乐播放器代码
+      手动编译安装nginx
     </h1>
   
 
       
-      <a href="/2020/05/02/HTML网页调用网易云音乐播放器代码/" class="archive-article-date">
-  	<time datetime="2020-05-02T02:22:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
+      <a href="/2020/05/03/Python/手动编译安装nginx/" class="archive-article-date">
+  	<time datetime="2020-05-03T07:42:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-03</time>
 </a>
       
     </header>
@@ -192,31 +189,19 @@
     <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-      <h3 id="表现形式一：单曲播放"><a href="#表现形式一：单曲播放" class="headerlink" title="表现形式一：单曲播放"></a>表现形式一：单曲播放</h3><p><strong>调用代码：</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">"no"</span> <span class="attr">border</span>=<span class="string">"0"</span> <span class="attr">marginwidth</span>=<span class="string">"0"</span> <span class="attr">marginheight</span>=<span class="string">"0"</span> <span class="attr">width</span>=<span class="string">100%</span> <span class="attr">height</span>=<span class="string">86</span> <span class="attr">src</span>=<span class="string">"http://music.163.com/outchain/player?type=2&amp;id=299757&amp;auto=1&amp;height=66"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>参数说明：</strong></p>
-<blockquote>
-<p><strong>播放器可修改参数：</strong></p>
-<p><strong>width=100% #自适应宽度</strong></p>
-<p><strong>height=86 #根据自己喜好修改</strong></p>
-<p><strong>id=299757 #为歌曲的ID <a href="http://music.163.com/#/song?id=299757" target="_blank" rel="noopener">http://music.163.com/#/song?id=299757</a></strong></p>
-<p><strong>auto=0 #0为不自动播放，1为自动播放</strong></p>
-</blockquote>
-<p><strong>效果图：</strong></p>
-<p><img src="https://gitee.com/djgzs_admin/ArticleImg/raw/master/2020/05/02/2020/05/02/20200502102248.png" alt="img"></p>
-<h3 id="表现形式二：列表播放"><a href="#表现形式二：列表播放" class="headerlink" title="表现形式二：列表播放"></a>表现形式二：列表播放</h3><p>*<em>调用代码：</em></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"http://music.163.com/outchain/player?type=0&amp;amp;id=34238509&amp;amp;auto=0&amp;amp;height=430"</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"450"</span> <span class="attr">frameborder</span>=<span class="string">"no"</span> <span class="attr">marginwidth</span>=<span class="string">"0"</span> <span class="attr">marginheight</span>=<span class="string">"0"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>参数说明：</strong></p>
-<blockquote>
-<p><strong>播放器可修改参数：</strong></p>
-<p><strong>width=100% #自适应宽度</strong></p>
-<p><strong>height=450#根据自己喜好修改</strong></p>
-<p><strong>id=34238509#为歌曲列表页的ID ,例如：<a href="http://music.163.com/#/playlist?id=34238509" target="_blank" rel="noopener">http://music.163.com/#/playlist?id=34238509</a></strong></p>
-<p><strong>auto=0 #0为不自动播放，1为自动播放</strong></p>
-</blockquote>
-<p><strong>效果图：</strong></p>
-<p><img src="https://gitee.com/djgzs_admin/ArticleImg/raw/master/2020/05/02/2020/05/02/20200502102327.png" alt="img"></p>
-<p><strong><em>fds</em></strong></p>
+      <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>&emsp;这里采用的是<code>CentOS 7</code>系统演示。安装工具有些差别，但是原理流程是一样的。</p>
+<h3 id="更新系统软件"><a href="#更新系统软件" class="headerlink" title="更新系统软件"></a>更新系统软件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum update -y</span><br></pre></td></tr></table></figure>
+<h3 id="安装编译工具"><a href="#安装编译工具" class="headerlink" title="安装编译工具"></a>安装编译工具</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc -y</span><br></pre></td></tr></table></figure>
+<h3 id="安装pcre、pcre-devel"><a href="#安装pcre、pcre-devel" class="headerlink" title="安装pcre、pcre-devel"></a>安装pcre、pcre-devel</h3><p>&emsp;pcre是一个perl库，包括perl兼容的正则表达式库，nginx的http模块使用pcre来解析正则表达式，所以需要安装pcre库。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y pcre pcre-devel</span><br></pre></td></tr></table></figure>
+<h3 id="安装zlib"><a href="#安装zlib" class="headerlink" title="安装zlib"></a>安装zlib</h3><p>&emsp;zlib库提供了很多种压缩和解压缩方式nginx使用zlib对http包的内容进行gzip，所以需要安装。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y zlib zlib-devel</span><br></pre></td></tr></table></figure>
+<h3 id="安装openssl"><a href="#安装openssl" class="headerlink" title="安装openssl"></a>安装openssl</h3><p>&emsp;OpenSSL是http通信加密的库。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y openssl openssl-devel</span><br></pre></td></tr></table></figure>
+<h3 id="下载官方源码"><a href="#下载官方源码" class="headerlink" title="下载官方源码"></a>下载官方源码</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://nginx.org/download/nginx-1.9.9.tar.gz</span><br></pre></td></tr></table></figure>
+<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf  nginx-1.9.9.tar.gz</span><br></pre></td></tr></table></figure>
+<h3 id="配置编译安装"><a href="#配置编译安装" class="headerlink" title="配置编译安装"></a>配置编译安装</h3><p>&emsp;在解压目录下执行。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br><span class="line"> </span><br><span class="line">make</span><br><span class="line"> </span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
 
       
 
@@ -257,6 +242,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -307,7 +303,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/02/HTML网页调用网易云音乐播放器代码/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/03/Python/手动编译安装nginx/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -321,9 +317,18 @@
 
 <nav id="article-nav">
   
+    <a href="/2020/05/13/Linux/通过shell脚本查看python版本并比较/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          通过shell脚本查看python版本并比较
+        
+      </div>
+    </a>
   
-    <a href="/2020/05/02/认真就能打动人：273篇干货资料汇总/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">认真就能打动人：273篇干货资料汇总</div>
+  
+    <a href="/2020/05/02/前端/HTML网页调用网易云音乐播放器代码/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HTML网页调用网易云音乐播放器代码</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -365,7 +370,7 @@
 <!-- 汉化 -->
 <script>
 var gitment = new Gitment({
-  id: 'HTML网页调用网易云音乐播放器代码',
+  id: '手动编译安装nginx',
   owner: 'daojiAnime',
   repo: 'daojiAnime.github.io',
   oauth: {
@@ -467,23 +472,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">情感思绪</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">人工智能</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -491,11 +480,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Android</a>
+                <a href="javascript:void(0)" class="js-tag color4">Web</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Web</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -503,11 +492,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">支付接口</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂项</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">人工智能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">不为人知</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">情感思绪</a>
               </li>
             
             <div class="clearfix"></div>

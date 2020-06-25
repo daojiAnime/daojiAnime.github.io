@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-02T02:32:54.579Z</updated>
+  <updated>2020-06-25T23:24:35.562Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,84 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>解决git/github下载速度缓慢的问题总汇</title>
+    <link href="http://yoursite.com/2020/06/26/%E6%9D%82%E9%A1%B9/%E8%A7%A3%E5%86%B3git-github%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E7%BC%93%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98%E6%80%BB%E6%B1%87/"/>
+    <id>http://yoursite.com/2020/06/26/杂项/解决git-github下载速度缓慢的问题总汇/</id>
+    <published>2020-06-25T23:23:26.000Z</published>
+    <updated>2020-06-25T23:24:35.562Z</updated>
+    
+    <content type="html"><![CDATA[<p>官网下载Git时，速度几乎是超不过20KB，解决方法有很多，这里介绍几个简单粗暴的方法。这里使用windows系统作为演示，其他系统对号入座即可。</p><h2 id="方法一：淘宝镜像"><a href="#方法一：淘宝镜像" class="headerlink" title="方法一：淘宝镜像"></a>方法一：淘宝镜像</h2><p>淘宝有一个镜像的网站 可以提供下载：<a href="https://npm.taobao.org/mirrors/git-for-windows/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/git-for-windows/</a><br>点击上方链接，往下拉就会看到相应的版本，第一个最新版本，后面的是历史版本。 </p><h2 id="方法二：利用码云来克隆GitHub项目，操作简单而且有效"><a href="#方法二：利用码云来克隆GitHub项目，操作简单而且有效" class="headerlink" title="方法二：利用码云来克隆GitHub项目，操作简单而且有效"></a>方法二：利用码云来克隆GitHub项目，操作简单而且有效</h2><p>1、首先需要一个码云账户，如果你没有，这个是官网地址——<a href="https://gitee.com/" target="_blank" rel="noopener">https://gitee.com/</a> 。<br>2、如果没有账户,需要注册一个账户。注册使用手机号就可以，一分钟的事。<br>3、新建一个仓库,选择导入已有仓库。<br>4、找到你的GitHub网站，选择clone下的网址，复制。<br>5、在上面链接中输入我们刚刚复制的要导入的github项目地址，然后点击创建。<br>6、等待码云克隆项目，大概1-3分钟（由你的网络和要克隆项目大小决定）。<br>7、克隆完成，下载我们码云上的项目（这个就是你正常下载速度了）。<br>8、正常下载项目（原谅我的超级慢校园网速）。<br>9、最后下载完成后，如果不需要这个项目了可以在码云上删除，我们只是想解决下载慢和下载不下来的问题而已，不要过多的创建无用项目。<br>10、选择删除仓库，复制黑色验证信息到相应位置，点击确认删除，然后验证你的密码，就可以删除了。</p><h2 id="方法三：修改hosts"><a href="#方法三：修改hosts" class="headerlink" title="方法三：修改hosts"></a>方法三：修改hosts</h2><p>第一步：去这个网站查询3个域名对应的IP地址，不能用ping来获取IP地址哦</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.ipaddress.com/</span><br></pre></td></tr></table></figure><p>第二步：在/etc/hosts文件中添加类似下面的3行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">192.30.253.113  github.com</span><br><span class="line">151.101.185.194 github.global.ssl.fastly.net</span><br><span class="line">192.30.253.120  codeload.github.com</span><br></pre></td></tr></table></figure><p>第三步：重启网络</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/networking restart</span><br></pre></td></tr></table></figure><p>现在可以飞快的下载Github上的代码了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;官网下载Git时，速度几乎是超不过20KB，解决方法有很多，这里介绍几个简单粗暴的方法。这里使用windows系统作为演示，其他系统对号入座即可。&lt;/p&gt;
+&lt;h2 id=&quot;方法一：淘宝镜像&quot;&gt;&lt;a href=&quot;#方法一：淘宝镜像&quot; class=&quot;headerlink&quot; ti
+      
+    
+    </summary>
+    
+    
+      <category term="杂项" scheme="http://yoursite.com/tags/%E6%9D%82%E9%A1%B9/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>通过shell脚本查看python版本并比较</title>
+    <link href="http://yoursite.com/2020/05/13/Linux/%E9%80%9A%E8%BF%87shell%E8%84%9A%E6%9C%AC%E6%9F%A5%E7%9C%8Bpython%E7%89%88%E6%9C%AC%E5%B9%B6%E6%AF%94%E8%BE%83/"/>
+    <id>http://yoursite.com/2020/05/13/Linux/通过shell脚本查看python版本并比较/</id>
+    <published>2020-05-13T13:35:23.000Z</published>
+    <updated>2020-05-13T13:36:53.912Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/sh  </span><br><span class="line">checkPython()</span><br><span class="line">&#123;</span><br><span class="line">    #推荐版本V2.6.5</span><br><span class="line">    V1=2</span><br><span class="line">    V2=6</span><br><span class="line">    V3=5</span><br><span class="line"></span><br><span class="line">    echo need python version is : $V1.$V2.$V3</span><br><span class="line">    </span><br><span class="line">    #获取本机python版本号。这里2&gt;&amp;1是必须的，python -V这个是标准错误输出的，需要转换</span><br><span class="line">    U_V1=`python -V 2&gt;&amp;1|awk '&#123;print $2&#125;'|awk -F '.' '&#123;print $1&#125;'`</span><br><span class="line">    U_V2=`python -V 2&gt;&amp;1|awk '&#123;print $2&#125;'|awk -F '.' '&#123;print $2&#125;'`</span><br><span class="line">    U_V3=`python -V 2&gt;&amp;1|awk '&#123;print $2&#125;'|awk -F '.' '&#123;print $3&#125;'`</span><br><span class="line">    </span><br><span class="line">    echo your python version is : $U_V1.$U_V2.$U_V3</span><br><span class="line">    </span><br><span class="line">    if [ $U_V1 -lt $V1 ];then</span><br><span class="line">        echo 'Your python version is not OK!(1)'</span><br><span class="line">        exit 1</span><br><span class="line">    elif [ $U_V1 -eq $V1 ];then     </span><br><span class="line">        if [ $U_V2 -lt $V2 ];then </span><br><span class="line">            echo 'Your python version is not OK!(2)'</span><br><span class="line">            exit 1</span><br><span class="line">        elif [ $U_V2 -eq $V2 ];then</span><br><span class="line">            if [ $U_V3 -lt $V3 ];then </span><br><span class="line">                echo 'Your python version is not OK!(3)'</span><br><span class="line">                exit 1</span><br><span class="line">            fi</span><br><span class="line">        fi    </span><br><span class="line">    fi</span><br><span class="line"></span><br><span class="line">    echo Your python version is OK!</span><br><span class="line">&#125;</span><br><span class="line">checkPython</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>手动编译安装nginx</title>
+    <link href="http://yoursite.com/2020/05/03/Python/%E6%89%8B%E5%8A%A8%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85nginx/"/>
+    <id>http://yoursite.com/2020/05/03/Python/手动编译安装nginx/</id>
+    <published>2020-05-03T07:42:42.000Z</published>
+    <updated>2020-05-03T07:57:42.366Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>&emsp;这里采用的是<code>CentOS 7</code>系统演示。安装工具有些差别，但是原理流程是一样的。</p><h3 id="更新系统软件"><a href="#更新系统软件" class="headerlink" title="更新系统软件"></a>更新系统软件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum update -y</span><br></pre></td></tr></table></figure><h3 id="安装编译工具"><a href="#安装编译工具" class="headerlink" title="安装编译工具"></a>安装编译工具</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc -y</span><br></pre></td></tr></table></figure><h3 id="安装pcre、pcre-devel"><a href="#安装pcre、pcre-devel" class="headerlink" title="安装pcre、pcre-devel"></a>安装pcre、pcre-devel</h3><p>&emsp;pcre是一个perl库，包括perl兼容的正则表达式库，nginx的http模块使用pcre来解析正则表达式，所以需要安装pcre库。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y pcre pcre-devel</span><br></pre></td></tr></table></figure><h3 id="安装zlib"><a href="#安装zlib" class="headerlink" title="安装zlib"></a>安装zlib</h3><p>&emsp;zlib库提供了很多种压缩和解压缩方式nginx使用zlib对http包的内容进行gzip，所以需要安装。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y zlib zlib-devel</span><br></pre></td></tr></table></figure><h3 id="安装openssl"><a href="#安装openssl" class="headerlink" title="安装openssl"></a>安装openssl</h3><p>&emsp;OpenSSL是http通信加密的库。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y openssl openssl-devel</span><br></pre></td></tr></table></figure><h3 id="下载官方源码"><a href="#下载官方源码" class="headerlink" title="下载官方源码"></a>下载官方源码</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://nginx.org/download/nginx-1.9.9.tar.gz</span><br></pre></td></tr></table></figure><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf  nginx-1.9.9.tar.gz</span><br></pre></td></tr></table></figure><h3 id="配置编译安装"><a href="#配置编译安装" class="headerlink" title="配置编译安装"></a>配置编译安装</h3><p>&emsp;在解压目录下执行。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br><span class="line"> </span><br><span class="line">make</span><br><span class="line"> </span><br><span class="line">make install</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;&amp;emsp;这里采用的是&lt;code&gt;CentOS 7&lt;/code&gt;系统演示。安装工具有些差别，但是原理流程是一样的。&lt;/p&gt;
+&lt;h3 id=
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>HTML网页调用网易云音乐播放器代码</title>
-    <link href="http://yoursite.com/2020/05/02/HTML%E7%BD%91%E9%A1%B5%E8%B0%83%E7%94%A8%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E4%BB%A3%E7%A0%81/"/>
-    <id>http://yoursite.com/2020/05/02/HTML网页调用网易云音乐播放器代码/</id>
+    <link href="http://yoursite.com/2020/05/02/%E5%89%8D%E7%AB%AF/HTML%E7%BD%91%E9%A1%B5%E8%B0%83%E7%94%A8%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E4%BB%A3%E7%A0%81/"/>
+    <id>http://yoursite.com/2020/05/02/前端/HTML网页调用网易云音乐播放器代码/</id>
     <published>2020-05-02T02:22:06.000Z</published>
-    <updated>2020-05-02T02:32:54.579Z</updated>
+    <updated>2020-06-25T23:26:11.200Z</updated>
     
     <content type="html"><![CDATA[<h3 id="表现形式一：单曲播放"><a href="#表现形式一：单曲播放" class="headerlink" title="表现形式一：单曲播放"></a>表现形式一：单曲播放</h3><p><strong>调用代码：</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">"no"</span> <span class="attr">border</span>=<span class="string">"0"</span> <span class="attr">marginwidth</span>=<span class="string">"0"</span> <span class="attr">marginheight</span>=<span class="string">"0"</span> <span class="attr">width</span>=<span class="string">100%</span> <span class="attr">height</span>=<span class="string">86</span> <span class="attr">src</span>=<span class="string">"http://music.163.com/outchain/player?type=2&amp;id=299757&amp;auto=1&amp;height=66"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure><p><strong>参数说明：</strong></p><blockquote><p><strong>播放器可修改参数：</strong></p><p><strong>width=100% #自适应宽度</strong></p><p><strong>height=86 #根据自己喜好修改</strong></p><p><strong>id=299757 #为歌曲的ID <a href="http://music.163.com/#/song?id=299757" target="_blank" rel="noopener">http://music.163.com/#/song?id=299757</a></strong></p><p><strong>auto=0 #0为不自动播放，1为自动播放</strong></p></blockquote><p><strong>效果图：</strong></p><p><img src="https://gitee.com/djgzs_admin/ArticleImg/raw/master/2020/05/02/2020/05/02/20200502102248.png" alt="img"></p><h3 id="表现形式二：列表播放"><a href="#表现形式二：列表播放" class="headerlink" title="表现形式二：列表播放"></a>表现形式二：列表播放</h3><p>*<em>调用代码：</em></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"http://music.163.com/outchain/player?type=0&amp;amp;id=34238509&amp;amp;auto=0&amp;amp;height=430"</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"450"</span> <span class="attr">frameborder</span>=<span class="string">"no"</span> <span class="attr">marginwidth</span>=<span class="string">"0"</span> <span class="attr">marginheight</span>=<span class="string">"0"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure><p><strong>参数说明：</strong></p><blockquote><p><strong>播放器可修改参数：</strong></p><p><strong>width=100% #自适应宽度</strong></p><p><strong>height=450#根据自己喜好修改</strong></p><p><strong>id=34238509#为歌曲列表页的ID ,例如：<a href="http://music.163.com/#/playlist?id=34238509" target="_blank" rel="noopener">http://music.163.com/#/playlist?id=34238509</a></strong></p><p><strong>auto=0 #0为不自动播放，1为自动播放</strong></p></blockquote><p><strong>效果图：</strong></p><p><img src="https://gitee.com/djgzs_admin/ArticleImg/raw/master/2020/05/02/2020/05/02/20200502102327.png" alt="img"></p><p><strong><em>fds</em></strong></p>]]></content>
     
@@ -36,30 +109,7 @@
     </summary>
     
     
-  </entry>
-  
-  <entry>
-    <title>认真就能打动人：273篇干货资料汇总</title>
-    <link href="http://yoursite.com/2020/05/02/%E8%AE%A4%E7%9C%9F%E5%B0%B1%E8%83%BD%E6%89%93%E5%8A%A8%E4%BA%BA%EF%BC%9A273%E7%AF%87%E5%B9%B2%E8%B4%A7%E8%B5%84%E6%96%99%E6%B1%87%E6%80%BB/"/>
-    <id>http://yoursite.com/2020/05/02/认真就能打动人：273篇干货资料汇总/</id>
-    <published>2020-05-02T01:57:26.000Z</published>
-    <updated>2020-05-02T02:00:50.022Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://mp.weixin.qq.com/s?__biz=MzI3NTkyMjA4NA==&amp;mid=2247487719&amp;idx=1&amp;sn=02c33949aa2f8be8d6ac5e3b6279fe44&amp;chksm=eb7c3d2cdc0bb43a9f656e79d2a902b9d39513aae1532d89b2a6ecef164257fb2c631db073cc&amp;mpshare=1&amp;scene=1&amp;srcid=0502pO3makVd4vdah1L13UMx&amp;sharer_sharetime=1588384593555&amp;sharer_shareid=45d96db5978f8a44ca2d42c3688b3746&amp;exportkey=AbyjySuR6mLhi%2F1dLgBWKbI%3D&amp;pass_ticket=F7dMBwLK0lNnF3j62KhbYXB7%2BrwDXX04gSQeoyOdXT4Xbn8rreZhj%2FcRw2Acz8P4#rd" target="_blank" rel="noopener">来自公众号Python与算法社区的汇总</a></p><p><img src="https://gitee.com/djgzs_admin/ArticleImg/raw/master/2020/05/02/2020/05/02/20200502095937.png" alt="image-20200502095911844"></p><p><img src="https://gitee.com/djgzs_admin/ArticleImg/raw/master/2020/05/02/2020/05/02/20200502095932.png" alt="image-20200502095923854"></p><p><img src="https://gitee.com/djgzs_admin/ArticleImg/raw/master/2020/05/02/2020/05/02/20200502100016.png" alt="image-20200502095955976"></p><p><img src="https://gitee.com/djgzs_admin/ArticleImg/raw/master/2020/05/02/2020/05/02/20200502100012.png" alt="image-20200502100006513"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=MzI3NTkyMjA4NA==&amp;amp;mid=2247487719&amp;amp;idx=1&amp;amp;sn=02c33949aa2f8be8d6ac5e3b6279fe44&amp;amp;chksm
-      
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="人工智能" scheme="http://yoursite.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+      <category term="前端" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
@@ -165,10 +215,10 @@
   
   <entry>
     <title>Linux中实用但很小众的11个炫酷终端命令</title>
-    <link href="http://yoursite.com/2020/04/29/Linux%E4%B8%AD%E5%AE%9E%E7%94%A8%E4%BD%86%E5%BE%88%E5%B0%8F%E4%BC%97%E7%9A%8411%E4%B8%AA%E7%82%AB%E9%85%B7%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/"/>
-    <id>http://yoursite.com/2020/04/29/Linux中实用但很小众的11个炫酷终端命令/</id>
+    <link href="http://yoursite.com/2020/04/29/Linux/Linux%E4%B8%AD%E5%AE%9E%E7%94%A8%E4%BD%86%E5%BE%88%E5%B0%8F%E4%BC%97%E7%9A%8411%E4%B8%AA%E7%82%AB%E9%85%B7%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/"/>
+    <id>http://yoursite.com/2020/04/29/Linux/Linux中实用但很小众的11个炫酷终端命令/</id>
     <published>2020-04-29T03:34:45.000Z</published>
-    <updated>2020-04-29T03:42:46.539Z</updated>
+    <updated>2020-06-25T23:26:36.818Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;今天给大家分享Linux总结出来的11个炫酷的Linux终端命令大全，通过今天这篇文章将向大家展示一系列的Linux命令、工具和技巧，我希望一开始就有人告诉我这些，而不是曾在我成长道路上绊住我。</p><h3 id="命令行日常系快捷键"><a href="#命令行日常系快捷键" class="headerlink" title="命令行日常系快捷键"></a>命令行日常系快捷键</h3><p>如下的快捷方式非常有用，能够极大的提升你的工作效率：</p><p>CTRL + U -剪切光标前的内容</p><p>CTRL + K -剪切光标至行末的内容</p><p>CTRL + Y -粘贴</p><p>CTRL + E -移动光标到行末</p><p>CTRL + A -移动光标到行首</p><p>ALT + F -跳向下一个空格</p><p>ALT + B -跳回上一个空格</p><p>ALT + Backspace -删除前一个单词</p><p>CTRL + W -剪切光标后一个单词</p><p>Shift + Insert -向终端内粘贴文本</p><p>那么为了让上述内容更易理解来看下面的这行命令。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get intall programname</span><br></pre></td></tr></table></figure><p>如你所见，命令中存在拼写错误，为了正常执行需要把“intall”替换成“install”。</p><p>想象现在光标正在行末，我们有很多的方法将她退回单词install并替换它。</p><p>我可以按两次ALT+B这样光标就会在如下的位置(这里用指代光标的位置)。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get^intall programname</span><br></pre></td></tr></table></figure><p>现在你可以按两下方向键并将“s”插入到install中去了。</p><p>如果你想将浏览器中的文本复制到终端，可以使用快捷键”shift + insert”。</p><h3 id="SUDO"><a href="#SUDO" class="headerlink" title="SUDO !!"></a>SUDO !!</h3><p>如果你还不知道这个命令，我觉得你应该好好感谢我，因为如果你不知道的话，那每次你在输入长串命令后看到“permission denied”后一定会痛苦不堪。</p><p>sudo !!</p><p>如何使用sudo !!?很简单。试想你刚输入了如下命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install ranger</span><br></pre></td></tr></table></figure><p>一定会出现“Permission denied”，除非你已经登录了足够高权限的账户。</p><p>sudo !!就会用sudo的形式运行上一条命令。所以上一条命令就变成了这样：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ranger</span><br></pre></td></tr></table></figure><p>如果你不知道什么是sudo，戳这里。</p><h3 id="暂停并在后台运行命令"><a href="#暂停并在后台运行命令" class="headerlink" title="暂停并在后台运行命令"></a>暂停并在后台运行命令</h3><p>我曾经写过一篇如何在终端后台运行命令的指南。</p><p>CTRL + Z -暂停应用程序</p><p>fg -重新将程序唤到前台</p><p>如何使用这个技巧呢?</p><p>试想你正用nano编辑一个文件：</p><p>sudo nano abc.txt文件编辑到一半你意识到你需要马上在终端输入些命令，但是nano在前台运行让你不能输入。</p><p>你可能觉得唯一的方法就是保存文件，退出nano，运行命令以后在重新打开nano。</p><p>其实你只要按CTRL + Z，前台的命令就会暂停，画面就切回到命令行了。然后你就能运行你想要运行命令，等命令运行完后在终端窗口输入“fg”就可以回到先前暂停的任务。</p><p>有一个尝试非常有趣就是用nano打开文件，输入一些东西然后暂停会话。再用nano打开另一个文件，输入一些什么后再暂停会话。如果你输入“fg”你将回到第二个用nano打开的文件。只有退出nano再输入“fg”，你才会回到***个用nano打开的文件。</p><h3 id="使用nohup在登出SSH会话后仍运行命令"><a href="#使用nohup在登出SSH会话后仍运行命令" class="headerlink" title="使用nohup在登出SSH会话后仍运行命令"></a>使用nohup在登出SSH会话后仍运行命令</h3><p>如果你用ssh登录别的机器时，nohup命令真的非常有用。</p><p>那么怎么使用nohup呢?</p><p>想象一下你使用ssh远程登录到另一台电脑上，你运行了一条非常耗时的命令然后退出了ssh会话，不过命令仍在执行。而nohup可以将这一场景变成现实。</p><p>举个例子，因为测试的需要，我用我的树莓派来下载发行版。我绝对不会给我的树莓派外接显示器、键盘或鼠标。</p><p>一般我总是用SSH从笔记本电脑连接到树莓派。如果我在不用nohup的情况下使用树莓派下载大型文件，那我就必须等待到下载完成后，才能登出ssh会话关掉笔记本。可如果是这样，那我为什么要使用树莓派下文件呢?</p><p>使用nohup的方法也很简单，只需如下例中在nohup后输入要执行的命令即可：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup wget http://mirror.is.co.za/mirrors/linuxmint.com/iso//stable/17.1/linuxmint-17.1-cinnamon-64bit.iso &amp;</span><br></pre></td></tr></table></figure><h3 id="‘在’特定的时间运行Linux命令"><a href="#‘在’特定的时间运行Linux命令" class="headerlink" title="‘在’特定的时间运行Linux命令"></a>‘在’特定的时间运行Linux命令</h3><p>‘nohup’命令在你用SSH连接到服务器，并在上面保持执行SSH登出前任务的时候十分有用。</p><p>想一下如果你需要在特定的时间执行相同的命令，这种情况该怎么办呢?</p><p>命令‘at’就能妥善解决这一情况。以下是‘at’使用示例。</p><p>at 10:38 PM Friat&gt; cowsay ‘hello’ at&gt; CTRL + D上面的命令能在周五下午10时38分运行程序cowsay。</p><p>使用的语法就是‘at’后追加日期时间。当at&gt;提示符出现后就可以输入你想在那个时间运行的命令了。</p><p>CTRL + D返回终端。</p><p>还有许多日期和时间的格式，都需要你好好翻一翻‘at’的man手册来找到更多的使用方式。</p><h3 id="Man手册"><a href="#Man手册" class="headerlink" title="Man手册"></a>Man手册</h3><p>Man手册会为你列出命令和参数的使用大纲，教你如何使用她们。Man手册看起来沉闷呆板。(我思忖她们也不是被设计来娱乐我们的)。</p><p>不过这不代表你不能做些什么来使她们变得漂亮些。</p><p>export PAGER=most你需要安装‘most’;她会使你的你的man手册的色彩更加绚丽。</p><p>你可以用以下命令给man手册设定指定的行长：</p><p>export MANWIDTH=80 ***，如果你有一个可用的浏览器，你可以使用-H在默认浏览器中打开任意的man页。</p><p>man -H 注意啦，以上的命令只有在你将默认的浏览器设置到环境变量$BROWSER中了之后才效果哟。</p><h3 id="使用htop查看和管理进程"><a href="#使用htop查看和管理进程" class="headerlink" title="使用htop查看和管理进程"></a>使用htop查看和管理进程</h3><p>你用哪个命令找出电脑上正在运行的进程的呢?我敢打赌是‘ps’并在其后加不同的参数来得到你所想要的不同输出。</p><p>安装‘htop’吧!绝对让你相见恨晚。</p><p>htop在终端中将进程以列表的方式呈现，有点类似于Windows中的任务管理器。你可以使用功能键的组合来切换排列的方式和展示出来的项。你也可以在htop中直接杀死进程。</p><p>在终端中简单的输入htop即可运行。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">htop</span><br></pre></td></tr></table></figure><h3 id="使用ranger浏览文件系统"><a href="#使用ranger浏览文件系统" class="headerlink" title="使用ranger浏览文件系统"></a>使用ranger浏览文件系统</h3><p>如果说htop是命令行进程控制的好帮手，那么ranger就是命令行浏览文件系统的好帮手。</p><p>你在用之前可能需要先安装，不过一旦安装了以后就可以在命令行输入以下命令启动她：</p><p>ranger在命令行窗口中ranger和一些别的文件管理器很像，但是相比上下结构布局，她是左右结构的，这意味着你按左方向键你将前进到上一个文件夹，而右方向键则会切换到下一个。</p><p>在使用前ranger的man手册还是值得一读的，这样你就可以用快捷键操作ranger了。</p><h3 id="取消关机"><a href="#取消关机" class="headerlink" title="取消关机"></a>取消关机</h3><p>无论是在命令行还是图形用户界面关机后，才发现自己不是真的想要关机。</p><p>shutdown -c需要注意的是，如果关机已经开始则有可能来不及停止关机。</p><p>以下是另一个可以尝试命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkill shutdown</span><br></pre></td></tr></table></figure><h3 id="杀死挂起进程的简单方法"><a href="#杀死挂起进程的简单方法" class="headerlink" title="杀死挂起进程的简单方法"></a>杀死挂起进程的简单方法</h3><p>想象一下，你正在运行的应用程序不明原因的僵死了。</p><p>你可以使用‘ps -ef’来找到该进程后杀掉或者使用‘htop’。</p><p>有一个更快、更容易的命令叫做xkill。</p><p>简单的在终端中输入以下命令并在窗口中点击你想杀死的应用程序。</p><p>xkill那如果整个系统挂掉了怎么办呢?</p><p>按住键盘上的‘alt’和‘sysrq’不放，然后慢慢输入以下键：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REISUB</span><br></pre></td></tr></table></figure><p>这样不按电源键你的计算机也能重启了。</p><h3 id="下载Youtube视频"><a href="#下载Youtube视频" class="headerlink" title="下载Youtube视频"></a>下载Youtube视频</h3><p>一般来说我们大多数人都喜欢看Youtube的视频，也会通过钟爱的播放器播放Youtube的流媒体。</p><p>如果你需要离线一段时间(比如：从苏格兰南部坐飞机到英格兰南部旅游的这段时间)那么你可能希望下载一些视频到存储设备中，到闲暇时观看。</p><p>你所要做的就是从包管理器中安装youtube-dl。</p><p>你可以用以下命令使用youtube-dl：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">youtube-dl url-to-video</span><br></pre></td></tr></table></figure><p>你可以在Youtubu视频页面点击分享链接得到视频的url。只要简单的复制链接在粘帖到命令行就行了(要用shift + insert快捷键哟)。</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p>希望你在这篇文章中得到帮助，并且在这11条中找到至少一条让你惊叹“原来可以这样”的技巧。</p>]]></content>
     
@@ -296,9 +346,9 @@
     </summary>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
       <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
   </entry>
   
@@ -404,8 +454,8 @@
   
   <entry>
     <title>写给我的兄弟</title>
-    <link href="http://yoursite.com/2018/12/30/%E5%86%99%E7%BB%99%E6%88%91%E7%9A%84%E5%85%84%E5%BC%9F/"/>
-    <id>http://yoursite.com/2018/12/30/写给我的兄弟/</id>
+    <link href="http://yoursite.com/2018/12/30/%E9%9A%8F%E7%AC%94/%E5%86%99%E7%BB%99%E6%88%91%E7%9A%84%E5%85%84%E5%BC%9F/"/>
+    <id>http://yoursite.com/2018/12/30/随笔/写给我的兄弟/</id>
     <published>2018-12-29T16:26:55.000Z</published>
     <updated>2019-01-23T04:36:31.681Z</updated>
     
@@ -419,52 +469,6 @@
     
     
       <category term="情感思绪" scheme="http://yoursite.com/tags/%E6%83%85%E6%84%9F%E6%80%9D%E7%BB%AA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo开始写的第一篇文章</title>
-    <link href="http://yoursite.com/2018/12/22/Hexo%E5%BC%80%E5%A7%8B%E5%86%99%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
-    <id>http://yoursite.com/2018/12/22/Hexo开始写的第一篇文章/</id>
-    <published>2018-12-22T15:02:42.000Z</published>
-    <updated>2018-12-22T15:10:27.691Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="Hexo部署了两个多小时，还不是很会写出格式很规整的文章，但是这个学习是值得的。"><a href="#Hexo部署了两个多小时，还不是很会写出格式很规整的文章，但是这个学习是值得的。" class="headerlink" title="Hexo部署了两个多小时，还不是很会写出格式很规整的文章，但是这个学习是值得的。"></a>Hexo部署了两个多小时，还不是很会写出格式很规整的文章，但是这个学习是值得的。</h3>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;Hexo部署了两个多小时，还不是很会写出格式很规整的文章，但是这个学习是值得的。&quot;&gt;&lt;a href=&quot;#Hexo部署了两个多小时，还不是很会写出格式很规整的文章，但是这个学习是值得的。&quot; class=&quot;headerlink&quot; title=&quot;Hexo部署了两个多小时
-      
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS 7安装SSH</title>
-    <link href="http://yoursite.com/2018/10/09/Linux/Linux%E9%80%9A%E8%BF%87ps%20-ef%E8%BF%87%E6%BB%A4%E8%BF%9B%E7%A8%8B%E8%8E%B7%E5%BE%97%E8%A1%8C%E6%95%B0/"/>
-    <id>http://yoursite.com/2018/10/09/Linux/Linux通过ps -ef过滤进程获得行数/</id>
-    <published>2018-10-09T08:08:00.000Z</published>
-    <updated>2018-12-31T15:28:06.908Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Linux通过ps-ef过滤进程获得行数"><a href="#Linux通过ps-ef过滤进程获得行数" class="headerlink" title="Linux通过ps -ef过滤进程获得行数"></a>Linux通过ps -ef过滤进程获得行数</h1><hr><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">count=`ps -fe |grep "one.php" | grep -v "grep" | wc -l`</span><br></pre></td></tr></table></figure><p>获取行数并赋值给count。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Linux通过ps-ef过滤进程获得行数&quot;&gt;&lt;a href=&quot;#Linux通过ps-ef过滤进程获得行数&quot; class=&quot;headerlink&quot; title=&quot;Linux通过ps -ef过滤进程获得行数&quot;&gt;&lt;/a&gt;Linux通过ps -ef过滤进程获得行数&lt;/h1
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
   </entry>
   
