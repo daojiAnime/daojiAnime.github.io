@@ -9,4 +9,3 @@ Disallow: /vendors/
 Disallow: /fancybox/
 
 Sitemap: https://daojianime.github.io/sitemap.xml
-# Sitemap: http://lancelot_lewis.coding.me/baidusitemap.xml
