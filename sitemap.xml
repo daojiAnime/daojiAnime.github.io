@@ -424,27 +424,6 @@
   </url>
   
   <url>
-    <loc>https://www.yunjiguan.com/tags/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2022-11-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yunjiguan.com/tags/Web/</loc>
-    <lastmod>2022-11-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yunjiguan.com/tags/Java/</loc>
-    <lastmod>2022-11-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.yunjiguan.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
     <lastmod>2022-11-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -459,7 +438,14 @@
   </url>
   
   <url>
-    <loc>https://www.yunjiguan.com/tags/Hexo/</loc>
+    <loc>https://www.yunjiguan.com/tags/%E9%9A%8F%E7%AC%94/</loc>
+    <lastmod>2022-11-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yunjiguan.com/tags/Web/</loc>
     <lastmod>2022-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -473,7 +459,7 @@
   </url>
   
   <url>
-    <loc>https://www.yunjiguan.com/tags/%E6%9D%82%E9%A1%B9/</loc>
+    <loc>https://www.yunjiguan.com/tags/Java/</loc>
     <lastmod>2022-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -481,6 +467,20 @@
   
   <url>
     <loc>https://www.yunjiguan.com/tags/%E6%83%85%E6%84%9F%E6%80%9D%E7%BB%AA/</loc>
+    <lastmod>2022-11-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yunjiguan.com/tags/Hexo/</loc>
+    <lastmod>2022-11-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yunjiguan.com/tags/%E6%9D%82%E9%A1%B9/</loc>
     <lastmod>2022-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
