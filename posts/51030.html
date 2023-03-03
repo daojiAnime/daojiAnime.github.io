@@ -1,0 +1,384 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Python使用gRPC协议通信 | 盗计のBlog</title><meta name="author" content="Daoji,daoji.chang@gmail.com"><meta name="copyright" content="Daoji"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="简单介绍gRPC是谷歌开源的通信协议，支持多开发语言，可以实现跨语言调用，函数调用的形式非常直观，需要编写Protobuf 文件，生成对应开发语言的模块文件。Protobuf 数据序列化传输是二进制协议传输，相对json、xml等格式要更加轻量。是目前微服务最流行使用的协议。 gRPC官网 安装12pip install grpcio #安装grpcpip install grpcio-tools">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python使用gRPC协议通信">
+<meta property="og:url" content="https://www.yunjiguan.com/posts/51030.html">
+<meta property="og:site_name" content="盗计のBlog">
+<meta property="og:description" content="简单介绍gRPC是谷歌开源的通信协议，支持多开发语言，可以实现跨语言调用，函数调用的形式非常直观，需要编写Protobuf 文件，生成对应开发语言的模块文件。Protobuf 数据序列化传输是二进制协议传输，相对json、xml等格式要更加轻量。是目前微服务最流行使用的协议。 gRPC官网 安装12pip install grpcio #安装grpcpip install grpcio-tools">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/share_766i.svg">
+<meta property="article:published_time" content="2022-11-25T00:45:08.000Z">
+<meta property="article:modified_time" content="2023-02-28T09:03:32.039Z">
+<meta property="article:author" content="Daoji">
+<meta property="article:tag" content="blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/share_766i.svg"><link rel="shortcut icon" href="/assets/favicon.ico"><link rel="canonical" href="https://www.yunjiguan.com/posts/51030"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":250},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Daoji","link":"链接: ","source":"来源: 盗计のBlog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-right"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Python使用gRPC协议通信',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-02-28 17:03:32'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/daojiAnime/cdn/css/blog/background.css"><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="盗计のBlog" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "/img/loading.gif" data-lazy-src="https://i.imgur.com/6DEulXU.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-video"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://daojianime.github.io/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/share_766i.svg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">盗计のBlog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-video"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://daojianime.github.io/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Python使用gRPC协议通信</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-11-25T00:45:08.000Z" title="发表于 2022-11-25 08:45:08">2022-11-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-02-28T09:03:32.039Z" title="更新于 2023-02-28 17:03:32">2023-02-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Python使用gRPC协议通信"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h2><p><code>gRPC</code>是谷歌开源的通信协议，支持多开发语言，可以实现跨语言调用，函数调用的形式非常直观，需要编写<code>Protobuf </code>文件，生成对应开发语言的模块文件。<code>Protobuf </code>数据序列化传输是二进制协议传输，相对<code>json、xml</code>等格式要更加轻量。是目前<font title="blue">微服务</font>最流行使用的协议。</p>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://grpc.io/">gRPC官网</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install grpcio #安装grpc</span><br><span class="line">pip install grpcio-tools #安装grpc tools</span><br></pre></td></tr></table></figure>
+
+<h2 id="gRPC模式"><a href="#gRPC模式" class="headerlink" title="gRPC模式"></a>gRPC模式</h2><p><code>gRPC</code>提供了四种服务模式：</p>
+<ol>
+<li><p>一元 <code>RPC</code>，其中客户端向服务端发送单个请求并获得 单响应返回，就像正常的函数调用一样。</p>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">rpc</span> SayHello(HelloRequest) <span class="keyword">returns</span> (HelloResponse)</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>服务端流式 <code>RPC</code>，其中客户端向服务端发送请求，并获得一个流来读取一系列消息。客户端从返回的流中读取，直到没有更多消息为止。<code>gRPC</code> 保证在单个 <code>RPC</code> 调用中进行消息排序。</p>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">rpc</span> LotsOfReplies(HelloRequest) <span class="keyword">returns</span> (stream HelloResponse)</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>客户端流式 <code>RPC</code>，其中客户端写入一系列消息并将其发送到服务端，同样使用提供的流。一旦客户端完成了消息的写入，它将等待服务端读取它们并返回其响应。同样，<code>gRPC</code> 保证单个 <code>RPC</code> 调用中的消息顺序。</p>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">rpc</span> LotsOfGreetings(stream HelloRequest) <span class="keyword">returns</span> (HelloResponse)</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>双向流式 <code>RPC</code>，其中双方使用读写流发送一系列消息。这两个流是独立运行的，因此客户端和服务端可以按照他们喜欢的顺序读写: 例如，服务端可以在写响应之前等待接收所有客户端消息，或者它可以交替读消息然后写消息，或者其他读写组合。保留了每个流中消息的顺序</p>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">rpc</span> BidiHello(stream HelloRequest) <span class="keyword">returns</span> (stream HelloResponse)</span>;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="Protobuf文件格式"><a href="#Protobuf文件格式" class="headerlink" title="Protobuf文件格式"></a>Protobuf文件格式</h2><table>
+<thead>
+<tr>
+<th>常见关键字</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>syntax</td>
+<td>指定protobuf版本</td>
+</tr>
+<tr>
+<td>package</td>
+<td>包名，可以不填</td>
+</tr>
+<tr>
+<td>import</td>
+<td>导入一些插件，一般go用的比较多</td>
+</tr>
+<tr>
+<td>message</td>
+<td>定义传输的数据结构</td>
+</tr>
+<tr>
+<td>service</td>
+<td>定义服务</td>
+</tr>
+<tr>
+<td>rpc</td>
+<td>定义服务中的方法</td>
+</tr>
+<tr>
+<td>stream</td>
+<td>定义方法中数据的传输方式为流传输</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>常见数据类型</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>string</td>
+<td>默认值为空白字符， 字符串必须始终包含UTF-8编码或7位ASCII文本。</td>
+</tr>
+<tr>
+<td>int32/int64</td>
+<td>对应长短整型，默认值是0</td>
+</tr>
+<tr>
+<td>bool</td>
+<td>bool类型</td>
+</tr>
+<tr>
+<td>float</td>
+<td>浮点型</td>
+</tr>
+<tr>
+<td>repeated</td>
+<td>对应于python列表类型，但不完全一样，数据类型只能为一种，不能动态变换</td>
+</tr>
+<tr>
+<td>map</td>
+<td>对应于python字典类型，但不完全一样，数据类型只能为一种，不能动态变换</td>
+</tr>
+<tr>
+<td>bytes</td>
+<td>比特类型，默认值是空白字节，可能包含任何字节序列</td>
+</tr>
+</tbody></table>
+<h2 id="一元模式"><a href="#一元模式" class="headerlink" title="一元模式"></a>一元模式</h2><h3 id="编写Protobuf文件"><a href="#编写Protobuf文件" class="headerlink" title="编写Protobuf文件"></a>编写Protobuf文件</h3><p>首先定义<code>Protobuf</code>文件，通常以<code>.proto</code>文件名结尾。如下<code>example.proto</code></p>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">syntax = <span class="string">&quot;proto3&quot;</span>;   <span class="comment">// protobuf版本</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> example;   <span class="comment">// 此文件的标识符,不添加也可以,以防止协议消息类型之间的名称冲突</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义请求消息结构</span></span><br><span class="line"><span class="keyword">message </span><span class="title class_">request</span> &#123;</span><br><span class="line">	<span class="type">int32</span> age = <span class="number">1</span>;</span><br><span class="line">	<span class="type">string</span> name = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义响应消息结构，字段编号不能相同，无特别意义</span></span><br><span class="line"><span class="keyword">message </span><span class="title class_">response</span> &#123;</span><br><span class="line">	<span class="type">string</span> message = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义服务，一元模式协议，类似普通的HTTP请求，客户端发起请求，服务端返回结果，即完成一次通信</span></span><br><span class="line"><span class="keyword">service </span><span class="title class_">UserInfo</span> &#123;</span><br><span class="line">	<span class="function"><span class="keyword">rpc</span> Info (request) <span class="keyword">returns</span> (response) </span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编写完<code>Protobuf</code>文件，需要使用<code>grpc-tools</code>生成对应的<code>python</code>代码，生成的代码供客户端和服务端调用。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">python -m grpc_tools.protoc -I./protos/ --python_out=. --pyi_out=. --grpc_python_out=. example.proto  </span><br><span class="line"></span><br><span class="line">python_out：指定xxx_pb2.py的输出路径，编译生成处理protobuf相关的代码路径。传入.，则生成到当前目录。</span><br><span class="line">grpc_python_out：指定xxx_pb2_grpc.py的输出路径，编译生成处理grpc相关的代码路径，传入.，则生成到当前目录。</span><br><span class="line">grpc_tools.protoc：工具包，由安装的grpc-tools提供。</span><br><span class="line">-I：指定Protobuf协议文件的查找目录。</span><br></pre></td></tr></table></figure>
+
+<h3 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h3><p><code>gRPC</code>常用于异步编程中，这里介绍异步和同步版本的调用分别如何使用。缩进代码预留，这里去除掉了导入<code>Protobuf</code>文件生成的模块。</p>
+<ol>
+<li><p>异步</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Greeter</span>(example_pb2_grpc.UserInfoServicer):</span><br><span class="line"></span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">Info</span>(<span class="params">self, request, context</span>):</span><br><span class="line">        <span class="keyword">return</span> example_pb2.Info(message=<span class="string">&#x27;Hello, %s!&#x27;</span> % request.name)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">serve</span>(<span class="params">port</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">    <span class="comment"># port = &#x27;50051&#x27;</span></span><br><span class="line">    server = grpc.aio.server()</span><br><span class="line">    example_pb2_grpc.add_UserInfoServicer_to_server(UserInfo(), server)</span><br><span class="line">    listen_addr = <span class="string">&#x27;[::]:&#x27;</span> + <span class="built_in">str</span>(port)</span><br><span class="line">    server.add_insecure_port(listen_addr)</span><br><span class="line">    logging.info(<span class="string">&quot;Starting server on %s&quot;</span>, listen_addr)</span><br><span class="line">    <span class="keyword">await</span> server.start()</span><br><span class="line">    <span class="keyword">await</span> server.wait_for_termination()</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    logging.basicConfig(level=logging.INFO)</span><br><span class="line">    asyncio.run(serve(<span class="number">50051</span>))</span><br></pre></td></tr></table></figure></li>
+<li><p>同步</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Greeter</span>(example_pb2_grpc.UserInfoServicer):</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">Info</span>(<span class="params">self, request, context</span>):</span><br><span class="line">        <span class="keyword">return</span> example_pb2.Info(message=<span class="string">&#x27;Hello, %s!&#x27;</span> % request.name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">serve</span>():</span><br><span class="line">    port = <span class="string">&#x27;50051&#x27;</span></span><br><span class="line">    server = grpc.server(futures.ThreadPoolExecutor(max_workers=<span class="number">10</span>))</span><br><span class="line">    example_pb2_grpc.add_UserInfoServicer_to_server(UserInfo(), server)</span><br><span class="line">    server.add_insecure_port(<span class="string">&#x27;[::]:&#x27;</span> + port)</span><br><span class="line">    server.start()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Server started, listening on &quot;</span> + port)</span><br><span class="line">    server.wait_for_termination()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    logging.basicConfig()</span><br><span class="line">    serve()</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><ol>
+<li><p>异步</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">run</span>() -&gt; <span class="literal">None</span>:</span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">with</span> grpc.aio.insecure_channel(<span class="string">&#x27;localhost:50051&#x27;</span>) <span class="keyword">as</span> channel:</span><br><span class="line">        stub = example_pb2_grpc.UserInfoStub(channel)</span><br><span class="line">        response: example_pb2.response = <span class="keyword">await</span> stub.Info(example_pb2.request(</span><br><span class="line">            age=<span class="number">18</span>,</span><br><span class="line">            name=<span class="string">&quot;daoji&quot;</span></span><br><span class="line">        ))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Greeter client received: &quot;</span> + response.message)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    logging.basicConfig()</span><br><span class="line">    asyncio.run(run())</span><br></pre></td></tr></table></figure></li>
+<li><p>同步</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">run</span>():</span><br><span class="line">    <span class="comment"># NOTE(gRPC Python Team): .close() is possible on a channel and should be</span></span><br><span class="line">    <span class="comment"># used in circumstances in which the with statement does not fit the needs</span></span><br><span class="line">    <span class="comment"># of the code.</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Will try to greet world ...&quot;</span>)</span><br><span class="line">    <span class="keyword">with</span> grpc.insecure_channel(<span class="string">&#x27;localhost:50051&#x27;</span>) <span class="keyword">as</span> channel:</span><br><span class="line">        stub = example_pb2_grpc.UserInfoStub(channel)</span><br><span class="line">        response = stub.Info(example_pb2.request(name=<span class="string">&#x27;you&#x27;</span>))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Greeter client received: &quot;</span> + response.message)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    logging.basicConfig()</span><br><span class="line">    run()</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="服务端流式"><a href="#服务端流式" class="headerlink" title="服务端流式"></a>服务端流式</h2><h3 id="Protobuf文件"><a href="#Protobuf文件" class="headerlink" title="Protobuf文件"></a>Protobuf文件</h3><figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// .proto</span></span><br><span class="line">syntax = <span class="string">&quot;proto3&quot;</span>;</span><br><span class="line"><span class="keyword">package</span> example;</span><br><span class="line"></span><br><span class="line"><span class="keyword">message </span><span class="title class_">request</span> &#123;</span><br><span class="line">	<span class="type">string</span> message = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">message </span><span class="title class_">response</span> &#123;</span><br><span class="line">	<span class="type">string</span> message = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//定义服务，下面定义的这种为最简单的rpc服务，客户端发起请求，服务端返回结果,stream关键字用来定义流式传输</span></span><br><span class="line"><span class="keyword">service </span><span class="title class_">StreamTest</span> &#123;</span><br><span class="line">	<span class="function"><span class="keyword">rpc</span> ClientStream (stream request) <span class="keyword">returns</span> (response) </span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="服务端-1"><a href="#服务端-1" class="headerlink" title="服务端"></a>服务端</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">StreamTest</span>(example_pb2_grpc.StreamTestServicer):</span><br><span class="line"></span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">ClientStream</span>(<span class="params">self, request_iterator: AsyncIterable[example_pb2.request],</span></span><br><span class="line"><span class="params">                           context: grpc.aio.ServicerContext</span>) -&gt; example_pb2.response:</span><br><span class="line">        <span class="keyword">async</span> <span class="keyword">for</span> i <span class="keyword">in</span> request_iterator:</span><br><span class="line">            <span class="built_in">print</span>(i.message)</span><br><span class="line">            <span class="keyword">if</span> i.message == <span class="string">&#x27;close&#x27;</span>:</span><br><span class="line">                <span class="keyword">return</span> example_pb2.response(message=<span class="string">&#x27;close!😢&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> example_pb2.response(message=<span class="string">&#x27;ok!🐧&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">serve</span>() -&gt; <span class="literal">None</span>:</span><br><span class="line">    port = <span class="string">&#x27;50051&#x27;</span></span><br><span class="line">    server = grpc.aio.server()</span><br><span class="line">    example_pb2_grpc.add_StreamTestServicer_to_server(StreamTest(), server)</span><br><span class="line">    listen_addr = <span class="string">&#x27;[::]:&#x27;</span> + <span class="built_in">str</span>(port)</span><br><span class="line">    server.add_insecure_port(listen_addr)</span><br><span class="line">    logging.info(<span class="string">&quot;Starting server on %s&quot;</span>, listen_addr)</span><br><span class="line">    <span class="keyword">await</span> server.start()</span><br><span class="line">    <span class="keyword">await</span> server.wait_for_termination()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    logging.basicConfig()</span><br><span class="line">    asyncio.run(serve())</span><br></pre></td></tr></table></figure>
+
+<h3 id="客户端-1"><a href="#客户端-1" class="headerlink" title="客户端"></a>客户端</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">client_stram</span>(<span class="params">stub: example_pb2_grpc.StreamTestStub</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">    route_iterator = [example_pb2.request(message=<span class="string">&#x27;close&#x27;</span>)]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># gRPC AsyncIO client-streaming RPC API accepts both synchronous iterables</span></span><br><span class="line">    <span class="comment"># and async iterables.</span></span><br><span class="line">    route_summary = <span class="keyword">await</span> stub.ClientStream(route_iterator)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">main</span>() -&gt; <span class="literal">None</span>:</span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">with</span> grpc.aio.insecure_channel(<span class="string">&#x27;localhost:50051&#x27;</span>) <span class="keyword">as</span> channel:</span><br><span class="line">        stub = example_pb2_grpc.StreamTestStub(channel)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;-------------- RecordRoute --------------&quot;</span>)</span><br><span class="line">        <span class="keyword">await</span> client_stram(stub)</span><br><span class="line">        </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    logging.basicConfig(level=logging.INFO)</span><br><span class="line">    asyncio.get_event_loop().run_until_complete(main())</span><br></pre></td></tr></table></figure>
+
+<h2 id="客户端流式"><a href="#客户端流式" class="headerlink" title="客户端流式"></a>客户端流式</h2><h2 id="双向流式"><a href="#双向流式" class="headerlink" title="双向流式"></a>双向流式</h2></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://www.yunjiguan.com">Daoji</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.yunjiguan.com/posts/51030.html">https://www.yunjiguan.com/posts/51030.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.yunjiguan.com" target="_blank">盗计のBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/blog/">blog</a></div><div class="post_share"><div class="social-share" data-image="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/share_766i.svg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/assets/WePay.png" target="_blank"><img class="post-qr-code-img" src= "/img/loading.gif" data-lazy-src="/assets/WePay.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/assets/AliPay.png" target="_blank"><img class="post-qr-code-img" src= "/img/loading.gif" data-lazy-src="/assets/AliPay.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/19522.html"><img class="prev-cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/woman_mevk.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Python使用ETCD3</div></div></a></div><div class="next-post pull-right"><a href="/posts/31580.html"><img class="next-cover" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/photo-1668009358366-a09c5ab0da81.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Swarm集群系统搭建和管理技巧</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/19522.html" title="Python使用ETCD3"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/woman_mevk.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-25</div><div class="title">Python使用ETCD3</div></div></a></div><div><a href="/posts/15671.html" title="Vue3+TS+vite+pinia"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/shopping_eii3.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-20</div><div class="title">Vue3+TS+vite+pinia</div></div></a></div><div><a href="/posts/91.html" title="Vue3优秀库"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/chasing_love_3v98.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-24</div><div class="title">Vue3优秀库</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "/img/loading.gif" data-lazy-src="https://i.imgur.com/6DEulXU.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Daoji</div><div class="author-info__description">我在这里记录我的生活，记录我的学习，知识的积累使我自信和满足，感情的沉积使我成长和强大。我的博客只记录我想记录的东西。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/daojiAnime"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/daojiAnime" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="tencent://message/?uin=133397418" rel="external nofollow noreferrer" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="/assets/img/weixin.jpg" target="_blank" title="微信"><i class="fab fa-weixin"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">简单介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gRPC%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">gRPC模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Protobuf%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">Protobuf文件格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E5%85%83%E6%A8%A1%E5%BC%8F"><span class="toc-number">5.</span> <span class="toc-text">一元模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E5%86%99Protobuf%E6%96%87%E4%BB%B6"><span class="toc-number">5.1.</span> <span class="toc-text">编写Protobuf文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="toc-number">5.2.</span> <span class="toc-text">服务端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">5.3.</span> <span class="toc-text">客户端</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B5%81%E5%BC%8F"><span class="toc-number">6.</span> <span class="toc-text">服务端流式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Protobuf%E6%96%87%E4%BB%B6"><span class="toc-number">6.1.</span> <span class="toc-text">Protobuf文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF-1"><span class="toc-number">6.2.</span> <span class="toc-text">服务端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF-1"><span class="toc-number">6.3.</span> <span class="toc-text">客户端</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B5%81%E5%BC%8F"><span class="toc-number">7.</span> <span class="toc-text">客户端流式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E5%90%91%E6%B5%81%E5%BC%8F"><span class="toc-number">8.</span> <span class="toc-text">双向流式</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/35158.html" title="WebRTC实时音视频通话技术(基础篇)"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/instant_support_elxh.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WebRTC实时音视频通话技术(基础篇)"/></a><div class="content"><a class="title" href="/posts/35158.html" title="WebRTC实时音视频通话技术(基础篇)">WebRTC实时音视频通话技术(基础篇)</a><time datetime="2023-02-28T09:00:32.000Z" title="发表于 2023-02-28 17:00:32">2023-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/91.html" title="Vue3优秀库"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/chasing_love_3v98.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue3优秀库"/></a><div class="content"><a class="title" href="/posts/91.html" title="Vue3优秀库">Vue3优秀库</a><time datetime="2023-02-24T13:34:58.000Z" title="发表于 2023-02-24 21:34:58">2023-02-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/15671.html" title="Vue3+TS+vite+pinia"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/shopping_eii3.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue3+TS+vite+pinia"/></a><div class="content"><a class="title" href="/posts/15671.html" title="Vue3+TS+vite+pinia">Vue3+TS+vite+pinia</a><time datetime="2023-02-19T22:56:34.000Z" title="发表于 2023-02-20 06:56:34">2023-02-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/19522.html" title="Python使用ETCD3"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/woman_mevk.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python使用ETCD3"/></a><div class="content"><a class="title" href="/posts/19522.html" title="Python使用ETCD3">Python使用ETCD3</a><time datetime="2022-11-25T00:45:25.000Z" title="发表于 2022-11-25 08:45:25">2022-11-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/51030.html" title="Python使用gRPC协议通信"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/share_766i.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python使用gRPC协议通信"/></a><div class="content"><a class="title" href="/posts/51030.html" title="Python使用gRPC协议通信">Python使用gRPC协议通信</a><time datetime="2022-11-25T00:45:08.000Z" title="发表于 2022-11-25 08:45:08">2022-11-25</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Daoji</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a target="_blank" rel="noopener external nofollow noreferrer" href="https://beian.miit.gov.cn/"><img class="icp-icon" src= "/img/loading.gif" data-lazy-src="/assets/img/icp.png"><span>粤ICP备2022022565号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="聊天"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'ggnTNsMZqoZmO71zFQSBRvXU-gzGzoHsz',
+      appKey: 'RcfOwfsooIPcZptZDVOX8sDy',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/music/"]):not([href="/photos/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
