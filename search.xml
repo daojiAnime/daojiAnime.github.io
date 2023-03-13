@@ -4,6 +4,126 @@
   
     
     <entry>
+      <title>FastAPI中文教程（一）</title>
+      <link href="/posts/180.html"/>
+      <url>/posts/180.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="FastAPI系列教程（一）"><a href="#FastAPI系列教程（一）" class="headerlink" title="FastAPI系列教程（一）"></a>FastAPI系列教程（一）</h1><h2 id="教程资源"><a href="#教程资源" class="headerlink" title="教程资源"></a>教程资源</h2><p><a href="https://christophergs.com/tutorials/ultimate-fastapi-tutorial-pt-1-hello-world/">ChristopherGS的英文教程</a></p><p><a href="https://github.com/pyb4430/full-stack-fastapi-postgresql">pyb4430/full-stack-fastapi-postgresql: Full stack, modern web application generator. Using FastAPI, PostgreSQL as database, Docker, automatic HTTPS and more. (github.com)</a></p><blockquote><p>上面的教程是根据FastAPI全栈生成的项目模板进行讲解的，对于有一定基础、熟悉容器化技术、熟悉部署细节的同学，可以快速的掌握FastAPI的用法，进行生产项目的开发。</p><p>[pyb4430/full-stack-fastapi-postgresql]仓库是fork的官方并进行积极维护的一个仓库，至该文章编写时间2023/3/12官方仓库对于旧模块失效出现多处bug仍未进行修复，推荐根据该全栈仓库学习全栈部署。</p></blockquote><blockquote><p>官方文档是最好的学习教程，FastAPI作者Tangolo比较忙，经常开坑，FastAPI的文档更新也不是很完善，部分章节内容没有进行更新（例如没有详细讲解依赖注入的异步写法，或者大多代码使用的都是非异步写法，SQLalchemy也没详细讲解异步写法），这部分虽然不是很重要，可以在模块官方和Python进阶教程里面学习到，但是对于初学者就不是很友好，无法系统的学习，会感觉到混乱。</p></blockquote><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>至文章编写时间，目前Python Web框架从性能上来讲，FastAPI基于Starlette开发，处于Python Web开发框架的最优选。据调查（根据目前数个Web<a href="https://www.techempower.com/benchmarks/#section=data-r21">框架基准测试排行网站</a>），从基准测试来说，FastAPI能达到同时13000并发请求时，同为Python框架的Django、Flask只能达到1k-2k。但是如果要同Golang的GoFrame、Gin、Echo、Iris等框架轻松实现10W+请求数相比，不足为论。如果用Golang，非常推荐GoFrame框架，文档齐全、社区活跃、性能优秀，并且是国人开源并积极维护。</p><p><img src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/20230312224716.png"><img src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/20230312224755.png"></p><blockquote><p>注：该调查虽然不严谨，但是有大概的参考价值，Web开发细节复杂，性能高低可根据开发者经验和技术进行优化，但是框架的基准测试则比较稳定。</p></blockquote><blockquote><p>Django-Ninja框架目前也备受关注，经过试用，确实是能够与普通的django程序比有极大的性能提升。但是考虑到仍然基于django框架开发，数据库对异步的支持不高，社区开源项目不丰富，称不上是一个优秀的选择。</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/20230312225035.png"></p><p><img src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/20230312225257.png"></p><p>Swoole框架是由C语言编写的高性能请求框架，单论请求数来说，能够实现同比30w+的并发请求数。但是真正运营于web开发，需要编写路由功能、请求解析、数据校验、数据库交互等，如laravel-swoole也才16000并发请求数。</p><p>所以同学们讨论这个问题不能太片面，像本文重点FastAPI web开发框架是基于Starlette请求框架开发的，Startlette请求框架又是基于Uvicorn异步框架（Python高性能ASGI异步协议库）开发的，尽快其性能再强大，web开发中需要编写路由功能、请求解析、数据校验、数据库交互、安全验证等，最终也会和FastAPI框架差不多，甚至不如。而直接使用FastAPI框架，能够快速开发web网站，其自带Pydantic数据校验（Python数据校验和解析库，备受关注，非常推荐开发自己的项目时使用）等功能，有不少的开源项目和示例，<a href="https://github.com/tiangolo/fastapi/issues">github issue</a>容易查找你开发时遇见的常见问题。</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>官方项目使用Poetry这个Python环境管理工具，所以官方项目里面是没有requirement.txt文件的，笔者初步尝试，感觉不错，后面讲解一下这个工具的简单使用。<a href="https://fastapi.tiangolo.com/zh/">官方文档地址</a>有部分中文翻译章节，可以参考。</p><p>首先安装<code>FastAPI</code>模块：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install fastapi</span><br></pre></td></tr></table></figure><p>还需要安装ASGI服务器，笔者这里使用<a href="https://www.uvicorn.org/">Uvicorn</a>，官方文档中 <a href="https://gitlab.com/pgjones/hypercorn">Hypercorn</a>也是支持的。</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install uvicorn[standard] <span class="comment"># 最小安装</span></span><br></pre></td></tr></table></figure><p>这样就能编写最简单的FastAPI项目了。</p><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> <span class="type">Union</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> fastapi <span class="keyword">import</span> FastAPI</span><br><span class="line"></span><br><span class="line">app = FastAPI()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.get(<span class="params"><span class="string">&quot;/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">read_root</span>():</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&quot;Hello&quot;</span>: <span class="string">&quot;World&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.get(<span class="params"><span class="string">&quot;/items/&#123;item_id&#125;&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">read_item</span>(<span class="params">item_id: <span class="built_in">int</span>, q: <span class="type">Union</span>[<span class="built_in">str</span>, <span class="literal">None</span>] = <span class="literal">None</span></span>):</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&quot;item_id&quot;</span>: item_id, <span class="string">&quot;q&quot;</span>: q&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> uvicorn</span><br><span class="line">uvicorn.run(app)</span><br></pre></td></tr></table></figure><p>运行代码可以简单访问并获取响应了，<code>http://127.0.0.1:8000</code>可以获取返回内容。</p><h2 id="API文档"><a href="#API文档" class="headerlink" title="API文档"></a>API文档</h2><p>FastAPI自带API文档，<strong>通过路由映射自动生成OpenAPI文件</strong>（一种接口协议规格文件），并提供两种UI界面展示，分别是<strong>Swagger UI和ReDoc</strong>。对于后端API开发来说，能够更加便捷的进行接口调试（一旦尝试过这种体验就回不去了，类似DRF框架），对于前端来说，能够提供一份严格的API文档，方便同步开发（为了接口规范，最好还是开发之前设计好架构，商议确定接口路径和参数，开发中的API总是和结果不一样的）。</p><h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><h3 id="校验和解析"><a href="#校验和解析" class="headerlink" title="校验和解析"></a>校验和解析</h3><p>FastAPI最为突出的还是<strong>请求参数的校验和解析</strong>，在Python中数据类型是动态的、自动推断的，我们不否认这是一个很好的特性，但是在Web开发中我们需要协调多个模块，通常这些模块是由不同人员或组完成的，开发语言和规范很难统一，尤其在微服务领域里，这些甚至来自不同组织来完成。因为在后端中能够进行严格参数校验和快速解析，这是非常重要的功能（确保参数类型错误，参数不齐这些低级错误不是来源自身，怼人有自信）。这个功能在Springboot、GoFrame、Laravel中都存在，但是在Python传统web框架Django、Flask中却没有，django有名的扩展插件DRF也不过具有参数校验功能，但是却不具备高效的解析和清晰且便捷的文档。</p><p>Type Hints——<a href="https://peps.python.org/pep-0484/">Python PEP 484提案</a>和Pydantic这个库的出现才改变这个局面，加上Pycharm对Type Hints的完美支持（其实对于生成器和旧模块还没很好支持）使得开发效率有进一步的提升。他强大之处只有体验过才能理解，只需要像静态语言一样对属性名添加类型注释，既可以对输入参数校验，对输出参数进行解析。</p><p>没有开发经验的同学可能没法很好理解，例如Json数据结构目前仍是前后端最流行数据结构体，但是Json数据中对浮点数不支持，因此传输过程Python需要将浮点数float转成字符str，再传到前端，从前端接收同样需要由str转float，如果前端传输数据不规范，传过来的整数非字符类型，而是数字类型，类型转换就会出错。又或者是前端传输参数缺少的情况。</p><p>虽然通过繁琐且复杂的校验和解析能够避免这些情况（为了推卸责任，不能不写😘），但是同Pydantic（Cython实现）实现的功能对比，还是不要重复造轮子了，有那时间同学们不想打游戏吗？或者学习？</p><h4 id="在IDE中"><a href="#在IDE中" class="headerlink" title="在IDE中"></a>在IDE中</h4><ul><li>自动补全</li><li>类型检查</li></ul><h4 id="数据校验"><a href="#数据校验" class="headerlink" title="数据校验"></a>数据校验</h4><ul><li>在校验失败时自动生成清晰的错误信息</li><li>对多层嵌套的 JSON 对象依然执行校验</li></ul><h4 id="转换-来自网络请求的输入数据为-Python-数据类型。包括以下数据"><a href="#转换-来自网络请求的输入数据为-Python-数据类型。包括以下数据" class="headerlink" title="转换 来自网络请求的输入数据为 Python 数据类型。包括以下数据"></a>转换 来自网络请求的输入数据为 Python 数据类型。包括以下数据</h4><ul><li>JSON</li><li>路径参数</li><li>查询参数</li><li>Cookies</li><li>请求头</li><li>表单</li><li>文件</li></ul><h4 id="转换-输出的数据：转换-Python-数据类型为供网络传输的-JSON-数据"><a href="#转换-输出的数据：转换-Python-数据类型为供网络传输的-JSON-数据" class="headerlink" title="转换 输出的数据：转换 Python 数据类型为供网络传输的 JSON 数据"></a>转换 输出的数据：转换 Python 数据类型为供网络传输的 JSON 数据</h4><ul><li>转换 Python 基础类型 （<code>str</code>、 <code>int</code>、 <code>float</code>、 <code>bool</code>、 <code>list</code> 等）</li><li><code>datetime</code> 对象</li><li><code>UUID</code> 对象</li><li>数据库模型</li><li>……以及更多其他类型</li></ul><h4 id="自动生成的交互式-API-文档，包括两种可选的用户界面"><a href="#自动生成的交互式-API-文档，包括两种可选的用户界面" class="headerlink" title="自动生成的交互式 API 文档，包括两种可选的用户界面"></a>自动生成的交互式 API 文档，包括两种可选的用户界面</h4><ul><li>Swagger UI</li><li>ReDoc</li></ul><h3 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h3><p>Python是动态语言，轻易修改运行时变量对象，即依赖注入。不同于静态语言预编译程序有严格检查，且编译和运行时处于不同内容，Python则能够轻松修改。FastAPI框架自身提供了依赖注入的方式实现数据库连接获取，身份认证，Session和Cookie解析等中间件功能。这里不推荐传统中间件实现方式的理由是，中间件会在每个请求时都执行，消耗内存高，对于不需要的请求增加多余代码运行，降低效率，而依赖注入可以在需要使用的请求上执行，提供很好的解耦，更加优雅。</p><p>依赖注入的实现原理和代码，笔者会在后面的文章中介绍，此处不做讲解。</p><h3 id="安全性及身份验证"><a href="#安全性及身份验证" class="headerlink" title="安全性及身份验证"></a>安全性及身份验证</h3><p>集成了安全性和身份认证。杜绝数据库或者数据模型的渗透风险。</p><p>OpenAPI 中定义的安全模式，包括：</p><ul><li>HTTP 基本认证。</li><li><strong>OAuth2</strong> (也使用 <strong>JWT tokens</strong>)。在 <a href="https://fastapi.tiangolo.com/zh/tutorial/security/oauth2-jwt/">OAuth2 with JWT</a>查看教程。</li><li>API 密钥，在:<ul><li>请求头。</li><li>查询参数。</li><li>Cookies, 等等。</li></ul></li></ul><p>加上来自 Starlette（包括 <strong>session cookie</strong>）的所有安全特性。</p><p>所有的这些都是可复用的工具和组件，可以轻松与你的系统，数据仓库，关系型以及 NoSQL 数据库等等集成。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+          <category> fastapi </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> fastapi </tag>
+            
+            <tag> pydantic </tag>
+            
+            <tag> python </tag>
+            
+            <tag> SQLAlchemy </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Python Django连接WebRTC</title>
+      <link href="/posts/56655.html"/>
+      <url>/posts/56655.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="Python使用WebRTC"><a href="#Python使用WebRTC" class="headerlink" title="Python使用WebRTC"></a>Python使用WebRTC</h1><h2 id="异步RTC库"><a href="#异步RTC库" class="headerlink" title="异步RTC库"></a>异步RTC库</h2><p>aiortc</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> webrtc </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Logging用法</title>
+      <link href="/posts/56655.html"/>
+      <url>/posts/56655.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="Logging用法"><a href="#Logging用法" class="headerlink" title="Logging用法"></a>Logging用法</h1><h2 id="打印所有Logger对象"><a href="#打印所有Logger对象" class="headerlink" title="打印所有Logger对象"></a>打印所有Logger对象</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> logging.Logger.manager.loggerDict.keys():</span><br><span class="line">       logger = logging.getLogger(name)</span><br><span class="line">       <span class="built_in">print</span>(<span class="string">&#x27;name = %s, logger = %s&#x27;</span> % (name, logger))</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+          <category> logging </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> log </tag>
+            
+            <tag> logging </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>alembic教程</title>
+      <link href="/posts/56655.html"/>
+      <url>/posts/56655.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="alembic教程"><a href="#alembic教程" class="headerlink" title="alembic教程"></a>alembic教程</h1><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="数据库升级到最新版本"><a href="#数据库升级到最新版本" class="headerlink" title="数据库升级到最新版本"></a>数据库升级到最新版本</h3><p><code>alembic upgrade head</code></p><h3 id="生成版本文件"><a href="#生成版本文件" class="headerlink" title="生成版本文件"></a>生成版本文件</h3><p><code>alembic revision --autogenerate -m &quot;操作注释&quot;</code></p><h3 id="降级到最初版本"><a href="#降级到最初版本" class="headerlink" title="降级到最初版本"></a>降级到最初版本</h3><p><code>base</code>是代表最初版本号，也可以降级指定版本号<code>1234567890</code></p><p><code>alembic downgrade base</code></p><h3 id="查询当前版本号"><a href="#查询当前版本号" class="headerlink" title="查询当前版本号"></a>查询当前版本号</h3><p>在数据库中有一个alembic_version的字段，表示的是最后一个版本的版本号</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">alembic命令和参数解释：</span><br><span class="line"></span><br><span class="line">1. init：创建一个alembic仓库。</span><br><span class="line"></span><br><span class="line">2. revision：创建一个新的版本文件。</span><br><span class="line"></span><br><span class="line">3. --autogenerate：自动将当前模型的修改，生成迁移脚本。</span><br><span class="line"></span><br><span class="line">4. -m：本次迁移做了哪些修改，用户可以指定这个参数，方便回顾。</span><br><span class="line"></span><br><span class="line">5. upgrade：将指定版本的迁移文件映射到数据库中，会执行版本文件中的upgrade函数。</span><br><span class="line"></span><br><span class="line">如果有多个迁移脚本没有被映射到数据库中，那么会执行多个迁移脚本。</span><br><span class="line"></span><br><span class="line">6. [head]：代表最新的迁移脚本的版本号。</span><br><span class="line"></span><br><span class="line">7. downgrade：会执行指定版本的迁移文件中的downgrade函数。</span><br><span class="line"></span><br><span class="line">8. heads：展示head指向的脚本文件版本号。</span><br><span class="line"></span><br><span class="line">9. history：列出所有的迁移版本及其信息。</span><br><span class="line"></span><br><span class="line">10. current：展示当前数据库中的版本号。</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> alembic </tag>
+            
+            <tag> SQLAlchemy </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>WebRTC实时音视频通话技术(基础篇)</title>
       <link href="/posts/35158.html"/>
       <url>/posts/35158.html</url>

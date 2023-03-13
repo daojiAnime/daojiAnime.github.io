@@ -6,7 +6,7 @@
   <link href="https://www.yunjiguan.com/atom.xml" rel="self"/>
   
   <link href="https://www.yunjiguan.com/"/>
-  <updated>2023-03-03T00:30:55.537Z</updated>
+  <updated>2023-03-13T00:16:54.234Z</updated>
   <id>https://www.yunjiguan.com/</id>
   
   <author>
@@ -15,6 +15,126 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FastAPI中文教程（一）</title>
+    <link href="https://www.yunjiguan.com/posts/180.html"/>
+    <id>https://www.yunjiguan.com/posts/180.html</id>
+    <published>2023-03-12T14:13:58.000Z</published>
+    <updated>2023-03-13T00:16:54.234Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;FastAPI系列教程（一）&quot;&gt;&lt;a href=&quot;#FastAPI系列教程（一）&quot; class=&quot;headerlink&quot; title=&quot;FastAPI系列教程（一）&quot;&gt;&lt;/a&gt;FastAPI系列教程（一）&lt;/h1&gt;&lt;h2 id=&quot;教程资源&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://www.yunjiguan.com/categories/python/"/>
+    
+    <category term="fastapi" scheme="https://www.yunjiguan.com/categories/python/fastapi/"/>
+    
+    
+    <category term="fastapi" scheme="https://www.yunjiguan.com/tags/fastapi/"/>
+    
+    <category term="pydantic" scheme="https://www.yunjiguan.com/tags/pydantic/"/>
+    
+    <category term="python" scheme="https://www.yunjiguan.com/tags/python/"/>
+    
+    <category term="SQLAlchemy" scheme="https://www.yunjiguan.com/tags/SQLAlchemy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python Django连接WebRTC</title>
+    <link href="https://www.yunjiguan.com/posts/56655.html"/>
+    <id>https://www.yunjiguan.com/posts/56655.html</id>
+    <published>2023-03-03T03:14:02.000Z</published>
+    <updated>2023-03-13T00:16:00.872Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Python使用WebRTC&quot;&gt;&lt;a href=&quot;#Python使用WebRTC&quot; class=&quot;headerlink&quot; title=&quot;Python使用WebRTC&quot;&gt;&lt;/a&gt;Python使用WebRTC&lt;/h1&gt;&lt;h2 id=&quot;异步RTC库&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://www.yunjiguan.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="前端" scheme="https://www.yunjiguan.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="webrtc" scheme="https://www.yunjiguan.com/tags/webrtc/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Logging用法</title>
+    <link href="https://www.yunjiguan.com/posts/56655.html"/>
+    <id>https://www.yunjiguan.com/posts/56655.html</id>
+    <published>2023-03-03T03:14:02.000Z</published>
+    <updated>2023-03-13T00:16:18.327Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Logging用法&quot;&gt;&lt;a href=&quot;#Logging用法&quot; class=&quot;headerlink&quot; title=&quot;Logging用法&quot;&gt;&lt;/a&gt;Logging用法&lt;/h1&gt;&lt;h2 id=&quot;打印所有Logger对象&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://www.yunjiguan.com/categories/python/"/>
+    
+    <category term="logging" scheme="https://www.yunjiguan.com/categories/python/logging/"/>
+    
+    
+    <category term="python" scheme="https://www.yunjiguan.com/tags/python/"/>
+    
+    <category term="log" scheme="https://www.yunjiguan.com/tags/log/"/>
+    
+    <category term="logging" scheme="https://www.yunjiguan.com/tags/logging/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>alembic教程</title>
+    <link href="https://www.yunjiguan.com/posts/56655.html"/>
+    <id>https://www.yunjiguan.com/posts/56655.html</id>
+    <published>2023-03-03T03:14:02.000Z</published>
+    <updated>2023-03-13T00:17:00.171Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;alembic教程&quot;&gt;&lt;a href=&quot;#alembic教程&quot; class=&quot;headerlink&quot; title=&quot;alembic教程&quot;&gt;&lt;/a&gt;alembic教程&lt;/h1&gt;&lt;h2 id=&quot;常用命令&quot;&gt;&lt;a href=&quot;#常用命令&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://www.yunjiguan.com/categories/python/"/>
+    
+    
+    <category term="python" scheme="https://www.yunjiguan.com/tags/python/"/>
+    
+    <category term="alembic" scheme="https://www.yunjiguan.com/tags/alembic/"/>
+    
+    <category term="SQLAlchemy" scheme="https://www.yunjiguan.com/tags/SQLAlchemy/"/>
+    
+  </entry>
   
   <entry>
     <title>WebRTC实时音视频通话技术(基础篇)</title>
@@ -399,103 +519,6 @@
     <summary type="html">&lt;p&gt;Numpy提供了大量用数组操作的函数，其中不乏常见的排序函数。&lt;/p&gt;
 &lt;p&gt;这里讲下&lt;code&gt;numpy.sort&lt;/code&gt;、&lt;code&gt;numpy.argsort&lt;/code&gt;、&lt;code&gt;numpy.lexsort&lt;/code&gt;三种排序函数的用法。&lt;/p&gt;
 &lt;h</summary>
-        
-      
-    
-    
-    
-    
-    <category term="Python" scheme="https://www.yunjiguan.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据处理的3个小技巧，都很实用</title>
-    <link href="https://www.yunjiguan.com/posts/24269.html"/>
-    <id>https://www.yunjiguan.com/posts/24269.html</id>
-    <published>2020-05-02T01:16:54.000Z</published>
-    <updated>2022-11-04T08:02:34.890Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;数据处理无所不在，掌握常用技巧，事半功倍。&lt;/p&gt;
-&lt;p&gt;此系列使用 Pandas 开展数据处理分析，总结其中常用、好用的数据分析技巧。&lt;/p&gt;
-&lt;p&gt;我使用的 Pandas 版本如下，顺便也导入 Pandas 库。&lt;/p&gt;
-&lt;figure</summary>
-        
-      
-    
-    
-    
-    
-    <category term="Python" scheme="https://www.yunjiguan.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux中实用但很小众的11个炫酷终端命令</title>
-    <link href="https://www.yunjiguan.com/posts/44609.html"/>
-    <id>https://www.yunjiguan.com/posts/44609.html</id>
-    <published>2020-04-29T03:34:45.000Z</published>
-    <updated>2022-11-04T08:02:34.860Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&amp;emsp;今天给大家分享Linux总结出来的11个炫酷的Linux终端命令大全，通过今天这篇文章将向大家展示一系列的Linux命令、工具和技巧，我希望一开始就有人告诉我这些，而不是曾在我成长道路上绊住我。&lt;/p&gt;
-&lt;h3 id=&quot;命令行日常系快捷键&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    
-    <category term="Linux" scheme="https://www.yunjiguan.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>来说说__init__.py文件</title>
-    <link href="https://www.yunjiguan.com/posts/22682.html"/>
-    <id>https://www.yunjiguan.com/posts/22682.html</id>
-    <published>2020-04-29T01:52:09.000Z</published>
-    <updated>2022-11-04T08:02:34.892Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;当你去看一些 Python 相关的项目时，常常会看到 &lt;strong&gt;init&lt;/strong&gt;.py，当你使用某些编辑器创建 Python Package 的时候，它也会自动给你生成一个 &lt;strong&gt;init&lt;/strong&gt;.py 文件。&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    
-    <category term="Python" scheme="https://www.yunjiguan.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>史上最全python字符串操作指南</title>
-    <link href="https://www.yunjiguan.com/posts/50672.html"/>
-    <id>https://www.yunjiguan.com/posts/50672.html</id>
-    <published>2020-04-28T15:16:12.000Z</published>
-    <updated>2022-11-04T08:02:34.891Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;字符串的定义&quot;&gt;&lt;a href=&quot;#字符串的定义&quot; class=&quot;headerlink&quot;</summary>
         
       
     
