@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>操作系统题库（一）</title>
+      <link href="/posts/52412.html"/>
+      <url>/posts/52412.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="操作系统题库"><a href="#操作系统题库" class="headerlink" title="操作系统题库"></a>操作系统题库</h1><h2 id="1-Linux常用命令"><a href="#1-Linux常用命令" class="headerlink" title="1.Linux常用命令"></a>1.Linux常用命令</h2><p><font style="background-color: #8bc34a">作答</font></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ls top free df du awk sed vi zip/unzip tar gzip cp mv rm grep cat echo export ssh</span><br></pre></td></tr></table></figure><p>这些都是我比较常用的命令。</p><p><font style="background-color:#e91e64">答案</font></p><p>常用命令</p><ol><li>目录相关<ol><li>find 命令</li><li>ls 命令</li><li>pwd 命令</li><li>cd 命令</li></ol></li><li>mkdir 命令<ol><li>df 命令</li><li>rm 命令</li><li>mv 命令</li><li>cp 命令</li><li>mount 命令</li><li>cat 命令</li><li>tail 命令</li><li>less 命令</li></ol></li><li>通用命令<ol><li>grep 命令</li><li>sed 命令</li><li>awk 命令</li><li>vim 命令</li><li>diff 命令</li><li>sort 命令</li><li>xargs 命令</li></ol></li><li>压缩相关<ol><li>tar 命令</li><li>gzip 命令</li><li>bzip2 命令</li><li>unzip 命令</li></ol></li><li>系统命令<ol><li>export 命令</li><li>kill 命令</li><li>passwd 命令</li><li>su 命令</li><li>yum 命令</li><li>rpm 命令</li><li>shutdown 命令</li><li>crontab 命令</li><li>service 命令</li><li>chmod 命令</li><li>chown 命令</li><li>uname 命令</li><li>whereis 命令</li><li>locate 命令</li><li>man 命令</li></ol></li><li>网络相关<ol><li>ifconfig 命令</li><li>ping 命令</li><li>curl 命令</li><li>wget 命令</li><li>ftp 命令</li><li>ssh 命令</li><li>ps 命令</li><li>uptime 命令</li><li>dmesg 命令</li><li>vmstat 命令</li><li>mpstat 命令</li><li>pidstat 命令</li><li>iostat 命令</li><li>free 命令</li><li>sar 命令</li><li>top 命令</li><li>netstat 命令</li></ol></li></ol><h2 id="2-Linux体系结构"><a href="#2-Linux体系结构" class="headerlink" title="2.Linux体系结构"></a>2.Linux体系结构</h2><p><font style="background-color: #8bc34a">作答</font></p><p><font style="background-color:#e91e64">答案</font></p><p>从大的方面讲，Linux 体系结构可以分为两块：<a href="https://img-blog.csdn.net/20170401170616835?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzM2Mzk3MTQx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">Linux 体系结构</a></p><ul><li>用户空间(User Space) ：用户空间又包括用户的应用程序(User Applications)、C 库(C Library) 。</li><li>内核空间(Kernel Space) ：内核空间又包括系统调用接口(System Call Interface)、内核(Kernel)、平台架构相关的代码(Architecture-Dependent Kernel Code) 。</li></ul><h2 id="3-为什么-Linux-体系结构要分为用户空间和内核空间的原因？"><a href="#3-为什么-Linux-体系结构要分为用户空间和内核空间的原因？" class="headerlink" title="3.为什么 Linux 体系结构要分为用户空间和内核空间的原因？"></a>3.为什么 Linux 体系结构要分为用户空间和内核空间的原因？</h2><p><font style="background-color: #8bc34a">作答</font></p><p><font style="background-color:#e91e64">答案</font></p><ol><li>现代 CPU 实现了不同的工作模式，不同模式下 CPU 可以执行的指令和访问的寄存器不同。</li><li>Linux 从 CPU 的角度出发，为了保护内核的安全，把系统分成了两部分。</li></ol><p>用户空间和内核空间是程序执行的<strong>两种不同的状态</strong>，我们可以通过两种方式完成用户空间到内核空间的转移：</p><ol><li>系统{调用；</li><li>硬件中断。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面试题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> 面试题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>FastAPI中文教程（一）</title>
       <link href="/posts/180.html"/>
       <url>/posts/180.html</url>

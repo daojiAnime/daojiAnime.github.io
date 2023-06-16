@@ -6,7 +6,7 @@
   <link href="https://www.yunjiguan.com/atom.xml" rel="self"/>
   
   <link href="https://www.yunjiguan.com/"/>
-  <updated>2023-03-13T00:16:54.234Z</updated>
+  <updated>2023-06-16T14:24:31.083Z</updated>
   <id>https://www.yunjiguan.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>操作系统题库（一）</title>
+    <link href="https://www.yunjiguan.com/posts/52412.html"/>
+    <id>https://www.yunjiguan.com/posts/52412.html</id>
+    <published>2023-06-16T13:22:32.000Z</published>
+    <updated>2023-06-16T14:24:31.083Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;操作系统题库&quot;&gt;&lt;a href=&quot;#操作系统题库&quot; class=&quot;headerlink&quot; title=&quot;操作系统题库&quot;&gt;&lt;/a&gt;操作系统题库&lt;/h1&gt;&lt;h2 id=&quot;1-Linux常用命令&quot;&gt;&lt;a href=&quot;#1-Linux常用命令&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+    <category term="Linux" scheme="https://www.yunjiguan.com/tags/Linux/"/>
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>FastAPI中文教程（一）</title>
@@ -494,31 +521,6 @@
         
     <summary type="html">&lt;p&gt;我们继续聊聊 Python 任务自动化的话题。&lt;/p&gt;
 &lt;p&gt;nox 的作者在去年的 Pycon US 上，做了一场题为《Break the Cycle: Three excellent Python tools to automate repetitive</summary>
-        
-      
-    
-    
-    
-    
-    <category term="Python" scheme="https://www.yunjiguan.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一日一技：Numpy进阶之排序小技巧</title>
-    <link href="https://www.yunjiguan.com/posts/14916.html"/>
-    <id>https://www.yunjiguan.com/posts/14916.html</id>
-    <published>2020-05-02T01:44:29.000Z</published>
-    <updated>2022-11-04T08:02:34.883Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Numpy提供了大量用数组操作的函数，其中不乏常见的排序函数。&lt;/p&gt;
-&lt;p&gt;这里讲下&lt;code&gt;numpy.sort&lt;/code&gt;、&lt;code&gt;numpy.argsort&lt;/code&gt;、&lt;code&gt;numpy.lexsort&lt;/code&gt;三种排序函数的用法。&lt;/p&gt;
-&lt;h</summary>
         
       
     
