@@ -6,7 +6,7 @@
   <link href="https://www.yunjiguan.com/atom.xml" rel="self"/>
   
   <link href="https://www.yunjiguan.com/"/>
-  <updated>2023-06-16T14:24:31.083Z</updated>
+  <updated>2023-06-17T13:22:48.471Z</updated>
   <id>https://www.yunjiguan.com/</id>
   
   <author>
@@ -17,18 +17,45 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>操作系统题库（二）</title>
+    <link href="https://www.yunjiguan.com/posts/23750.html"/>
+    <id>https://www.yunjiguan.com/posts/23750.html</id>
+    <published>2023-06-17T11:23:22.000Z</published>
+    <updated>2023-06-17T13:22:48.471Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;操作系统题库（二）&quot;&gt;&lt;a href=&quot;#操作系统题库（二）&quot; class=&quot;headerlink&quot; title=&quot;操作系统题库（二）&quot;&gt;&lt;/a&gt;操作系统题库（二）&lt;/h1&gt;&lt;h2 id=&quot;4-什么是-Linux-内核？&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+    <category term="Linux" scheme="https://www.yunjiguan.com/tags/Linux/"/>
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
     <title>操作系统题库（一）</title>
     <link href="https://www.yunjiguan.com/posts/52412.html"/>
     <id>https://www.yunjiguan.com/posts/52412.html</id>
     <published>2023-06-16T13:22:32.000Z</published>
-    <updated>2023-06-16T14:24:31.083Z</updated>
+    <updated>2023-06-17T11:29:04.019Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;操作系统题库&quot;&gt;&lt;a href=&quot;#操作系统题库&quot; class=&quot;headerlink&quot; title=&quot;操作系统题库&quot;&gt;&lt;/a&gt;操作系统题库&lt;/h1&gt;&lt;h2 id=&quot;1-Linux常用命令&quot;&gt;&lt;a href=&quot;#1-Linux常用命令&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;操作系统题库（一）&quot;&gt;&lt;a href=&quot;#操作系统题库（一）&quot; class=&quot;headerlink&quot; title=&quot;操作系统题库（一）&quot;&gt;&lt;/a&gt;操作系统题库（一）&lt;/h1&gt;&lt;h2 id=&quot;1-Linux常用命令&quot;&gt;&lt;a href=&quot;#1-Linux常用命令&quot;</summary>
         
       
     
@@ -504,30 +531,6 @@
     <category term="Python" scheme="https://www.yunjiguan.com/tags/Python/"/>
     
     <category term="人工智能" scheme="https://www.yunjiguan.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>强大的 Python 任务自动化工具！invoke 十分钟入门指南[转自公众号Python猫]</title>
-    <link href="https://www.yunjiguan.com/posts/22812.html"/>
-    <id>https://www.yunjiguan.com/posts/22812.html</id>
-    <published>2020-05-02T01:46:55.000Z</published>
-    <updated>2022-11-24T09:29:04.775Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;我们继续聊聊 Python 任务自动化的话题。&lt;/p&gt;
-&lt;p&gt;nox 的作者在去年的 Pycon US 上，做了一场题为《Break the Cycle: Three excellent Python tools to automate repetitive</summary>
-        
-      
-    
-    
-    
-    
-    <category term="Python" scheme="https://www.yunjiguan.com/tags/Python/"/>
     
   </entry>
   
