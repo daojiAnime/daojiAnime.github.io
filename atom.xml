@@ -6,7 +6,7 @@
   <link href="https://www.yunjiguan.com/atom.xml" rel="self"/>
   
   <link href="https://www.yunjiguan.com/"/>
-  <updated>2023-06-17T13:22:48.471Z</updated>
+  <updated>2023-06-18T12:26:26.437Z</updated>
   <id>https://www.yunjiguan.com/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>操作系统题库（三）</title>
+    <link href="https://www.yunjiguan.com/posts/20671.html"/>
+    <id>https://www.yunjiguan.com/posts/20671.html</id>
+    <published>2023-06-18T09:18:25.000Z</published>
+    <updated>2023-06-18T12:26:26.437Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;操作系统题库（三）&quot;&gt;&lt;a href=&quot;#操作系统题库（三）&quot; class=&quot;headerlink&quot; title=&quot;操作系统题库（三）&quot;&gt;&lt;/a&gt;操作系统题库（三）&lt;/h1&gt;&lt;h2 id=&quot;16-如何选择-Linux-操作系统版本？&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+    <category term="Linux" scheme="https://www.yunjiguan.com/tags/Linux/"/>
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
     <title>操作系统题库（二）</title>
     <link href="https://www.yunjiguan.com/posts/23750.html"/>
     <id>https://www.yunjiguan.com/posts/23750.html</id>
     <published>2023-06-17T11:23:22.000Z</published>
-    <updated>2023-06-17T13:22:48.471Z</updated>
+    <updated>2023-06-17T13:23:17.231Z</updated>
     
     
       
@@ -506,31 +533,6 @@
     
     
     <category term="前端" scheme="https://www.yunjiguan.com/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>认真就能打动人：273篇干货资料汇总</title>
-    <link href="https://www.yunjiguan.com/posts/2352.html"/>
-    <id>https://www.yunjiguan.com/posts/2352.html</id>
-    <published>2020-05-02T01:57:26.000Z</published>
-    <updated>2022-11-04T08:02:34.878Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    
-    <category term="Python" scheme="https://www.yunjiguan.com/tags/Python/"/>
-    
-    <category term="人工智能" scheme="https://www.yunjiguan.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
   </entry>
   
