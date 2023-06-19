@@ -6,7 +6,7 @@
   <link href="https://www.yunjiguan.com/atom.xml" rel="self"/>
   
   <link href="https://www.yunjiguan.com/"/>
-  <updated>2023-06-18T12:26:26.437Z</updated>
+  <updated>2023-06-19T13:37:43.285Z</updated>
   <id>https://www.yunjiguan.com/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Golang题库（一）</title>
+    <link href="https://www.yunjiguan.com/posts/59343.html"/>
+    <id>https://www.yunjiguan.com/posts/59343.html</id>
+    <published>2023-06-19T12:15:43.000Z</published>
+    <updated>2023-06-19T13:37:43.285Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Golang题库（一）&quot;&gt;&lt;a href=&quot;#Golang题库（一）&quot; class=&quot;headerlink&quot; title=&quot;Golang题库（一）&quot;&gt;&lt;/a&gt;Golang题库（一）&lt;/h1&gt;&lt;h2 id=&quot;golang里的数组和切片有了解过吗？&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="面试题hexo" scheme="https://www.yunjiguan.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98hexo/"/>
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="Go" scheme="https://www.yunjiguan.com/tags/Go/"/>
+    
+  </entry>
+  
+  <entry>
     <title>操作系统题库（三）</title>
     <link href="https://www.yunjiguan.com/posts/20671.html"/>
     <id>https://www.yunjiguan.com/posts/20671.html</id>
     <published>2023-06-18T09:18:25.000Z</published>
-    <updated>2023-06-18T12:26:26.437Z</updated>
+    <updated>2023-06-19T12:16:38.024Z</updated>
     
     
       
@@ -34,7 +61,7 @@
     
     
     
-    <category term="面试题" scheme="https://www.yunjiguan.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="面试题hexo" scheme="https://www.yunjiguan.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98hexo/"/>
     
     
     <category term="Linux" scheme="https://www.yunjiguan.com/tags/Linux/"/>
@@ -509,30 +536,6 @@
     
     
     <category term="Python" scheme="https://www.yunjiguan.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTML网页调用网易云音乐播放器代码</title>
-    <link href="https://www.yunjiguan.com/posts/2893.html"/>
-    <id>https://www.yunjiguan.com/posts/2893.html</id>
-    <published>2020-05-02T02:22:06.000Z</published>
-    <updated>2022-11-04T08:02:34.893Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;表现形式一：单曲播放&quot;&gt;&lt;a href=&quot;#表现形式一：单曲播放&quot; class=&quot;headerlink&quot; title=&quot;表现形式一：单曲播放&quot;&gt;&lt;/a&gt;表现形式一：单曲播放&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;调用代码：&lt;/strong&gt;&lt;/p&gt;
-&lt;figure</summary>
-        
-      
-    
-    
-    
-    
-    <category term="前端" scheme="https://www.yunjiguan.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
