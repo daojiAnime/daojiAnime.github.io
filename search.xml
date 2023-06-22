@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Golang题库（三）</title>
+      <link href="/posts/31692.html"/>
+      <url>/posts/31692.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="Golang题库（三）"><a href="#Golang题库（三）" class="headerlink" title="Golang题库（三）"></a>Golang题库（三）</h1><h2 id="同一个协程里面，对无缓冲channel同时发送和接收数据有什么问题"><a href="#同一个协程里面，对无缓冲channel同时发送和接收数据有什么问题" class="headerlink" title="同一个协程里面，对无缓冲channel同时发送和接收数据有什么问题"></a>同一个协程里面，对无缓冲channel同时发送和接收数据有什么问题</h2><p> 同一个协程里，不能对无缓冲channel同时发送和接收数据，如果这么做会直接报错死锁。</p><p>对于一个无缓冲的channel而言，只有不同的协程之间一方发送数据一方接受数据才不会阻塞。channel无缓冲时，发送阻塞直到数据被接收，接收阻塞直到读到数据。</p><h2 id="channel和锁的对比"><a href="#channel和锁的对比" class="headerlink" title="channel和锁的对比"></a>channel和锁的对比</h2><div class="tabs" id="tags"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tags-1">作用</button></li><li class="tab"><button type="button" data-href="#tags-2">区别</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tags-1"><ul><li><code>Channel</code>是用于处理协程中的数据通信问题的，通过编程逻辑设计，可以实现<code>锁</code>的效果。</li><li><code>Mutex</code>是用于控制原子性操作数据安全性，通过<code>加锁</code>和<code>释放</code>确保区间内数据只能有单一协程访问。数据一致性。</li></ul><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tags-2"><ul><li>两者的用途不同</li><li>两者内存占用也不同</li></ul><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div><h2 id="channel的应用场景"><a href="#channel的应用场景" class="headerlink" title="channel的应用场景"></a>channel的应用场景</h2><div class="note info simple"><p><code>channel</code>用于协程之间数据通信，根据设计能够实现多种功能。</p></div><h3 id="任务超时与取消"><a href="#任务超时与取消" class="headerlink" title="任务超时与取消"></a>任务超时与取消</h3><p>通过在通道中传递信号，可以实现任务的超时和取消机制。例如，一个 goroutine 可以在执行耗时操作时启动一个定时器，如果操作在指定时间内未完成，可以通过通道发送取消信号给其他 goroutine，从而取消操作。</p><p>比如超时处理：</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> &lt;-time.After(time.Second):</span><br></pre></td></tr></table></figure><p>定时任务</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> &lt;- time.Tick(time.Second)</span><br></pre></td></tr></table></figure><h3 id="事件发布与订阅（事件驱动编程）"><a href="#事件发布与订阅（事件驱动编程）" class="headerlink" title="事件发布与订阅（事件驱动编程）"></a>事件发布与订阅（事件驱动编程）</h3><p>通道可以用作发布者和订阅者之间的消息传递机制。发布者将事件发送到通道，订阅者从通道接收事件并进行相应的处理。这种模式可以用于实现观察者模式或消息队列等场景。</p><h3 id="控制并发数"><a href="#控制并发数" class="headerlink" title="控制并发数"></a>控制并发数</h3><p>通道可以用于限制并发任务的数量，控制并发度。通过<strong>创建有缓冲的通道</strong>，可以限制通道中可以放入的元素数量，从而控制并发任务的数量。例如控制并发为5个协程：</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="type">int</span>, <span class="number">5</span>)</span><br><span class="line"><span class="keyword">for</span> _, url := <span class="keyword">range</span> urls &#123;</span><br><span class="line">    <span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">        ch &lt;- <span class="number">1</span></span><br><span class="line">        worker(url)</span><br><span class="line">        &lt;- ch</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="数据流处理"><a href="#数据流处理" class="headerlink" title="数据流处理"></a>数据流处理</h3><p>通道在处理数据流时非常有用。一个 goroutine 可以负责生成数据，并将数据发送到通道中，而另一个或多个 goroutine 可以从通道中接收数据并进行处理，实现数据的流动和处理。</p><h3 id="并发任务的协调"><a href="#并发任务的协调" class="headerlink" title="并发任务的协调"></a>并发任务的协调</h3><p>通道可以用于在不同的 goroutine 之间传递数据，实现并发任务的协调和通信。例如，一个主 goroutine 可以将任务分发给多个工作 goroutine，通过通道发送任务并接收结果。</p><h3 id="多个-goroutine-的结果汇总"><a href="#多个-goroutine-的结果汇总" class="headerlink" title="多个 goroutine 的结果汇总"></a>多个 goroutine 的结果汇总</h3><p>当有多个 goroutine 并行执行任务时，可以使用通道将它们的结果汇总。每个 goroutine 将结果发送到通道，然后另一个 goroutine 从通道中接收并处理这些结果。</p><h3 id="线程安全的数据传递与共享"><a href="#线程安全的数据传递与共享" class="headerlink" title="线程安全的数据传递与共享"></a>线程安全的数据传递与共享</h3><p>通道提供了一种线程安全的数据传递方式，避免了显式的锁操作。多个 goroutine 可以通过通道进行数据传递和共享，保证数据访问的原子性和一致性。</p><h2 id="slice和array区别"><a href="#slice和array区别" class="headerlink" title="slice和array区别"></a>slice和array区别</h2><p>在Go语言中，Slice（切片）和Array（数组）是两种不同的数据类型，它们之间有以下区别：</p><ol><li>大小固定 vs. 大小可变：数组的长度是固定的，在声明时就需要指定其长度，并且长度不可变。而切片的长度是可变的，可以根据需要进行动态扩容或缩减。</li><li>值传递 vs. 引用传递：数组在赋值或传递给函数时是按值传递的，即会复制整个数组的内容。切片则是引用传递的，赋值或传递切片时只会复制切片的指针、长度和容量，并不会复制底层数据。</li><li>内存分配方式：数组在声明时会直接在内存中分配连续的空间来存储元素，因此数组的内存布局是连续的。切片则是建立在数组之上的动态数据结构，底层依赖于数组，并且可以自动进行内存扩容。</li><li>初始化方式：数组可以使用字面量或初始化表达式进行初始化，需要指定固定长度。切片可以通过使用字面量或通过 make() 函数进行初始化，并且可以根据需要动态改变长度。</li><li>传递性：数组作为函数参数传递时，会进行一次完整的复制，传递的是数组的副本。而切片作为函数参数传递时，只是传递了指向底层数组的指针、长度和容量，不会进行复制。</li><li>长度信息：数组的长度是固定的，可以通过 len() 函数获取数组的长度。切片则可以使用 len() 函数获取当前切片的长度，可以通过 cap() 函数获取切片的容量。</li></ol><p>总的来说，数组适用于固定长度且不需要频繁扩容的情况，而切片则更加灵活，适用于需要动态改变长度或进行大量操作的场景。在实际开发中，切片更常用，因为它提供了更多的便利和功能，而数组则更适合特定需求的场景。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面试题hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+            <tag> Go </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Golang题库（二）</title>
       <link href="/posts/30645.html"/>
       <url>/posts/30645.html</url>
@@ -172,33 +199,6 @@
     
     
     <entry>
-      <title>Python Django连接WebRTC</title>
-      <link href="/posts/56655.html"/>
-      <url>/posts/56655.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="Python使用WebRTC"><a href="#Python使用WebRTC" class="headerlink" title="Python使用WebRTC"></a>Python使用WebRTC</h1><h2 id="异步RTC库"><a href="#异步RTC库" class="headerlink" title="异步RTC库"></a>异步RTC库</h2><p>aiortc</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 前端 </tag>
-            
-            <tag> webrtc </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Logging用法</title>
       <link href="/posts/56655.html"/>
       <url>/posts/56655.html</url>
@@ -248,9 +248,36 @@
             
             <tag> python </tag>
             
+            <tag> SQLAlchemy </tag>
+            
             <tag> alembic </tag>
             
-            <tag> SQLAlchemy </tag>
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Python Django连接WebRTC</title>
+      <link href="/posts/56655.html"/>
+      <url>/posts/56655.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="Python使用WebRTC"><a href="#Python使用WebRTC" class="headerlink" title="Python使用WebRTC"></a>Python使用WebRTC</h1><h2 id="异步RTC库"><a href="#异步RTC库" class="headerlink" title="异步RTC库"></a>异步RTC库</h2><p>aiortc</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> webrtc </tag>
+            
+            <tag> 前端 </tag>
             
         </tags>
       
