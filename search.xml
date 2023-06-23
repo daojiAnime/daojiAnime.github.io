@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Golang题库（四）</title>
+      <link href="/posts/5389.html"/>
+      <url>/posts/5389.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="Golang题库（四）"><a href="#Golang题库（四）" class="headerlink" title="Golang题库（四）"></a>Golang题库（四）</h1><h2 id="map取一个key，然后修改这个值，原map数据的值会不会变化？"><a href="#map取一个key，然后修改这个值，原map数据的值会不会变化？" class="headerlink" title="map取一个key，然后修改这个值，原map数据的值会不会变化？"></a>map取一个key，然后修改这个值，原map数据的值会不会变化？</h2><p>map属于引用类型，所以取一个key，然后修改这个值，原map数据的值会发生变化</p><h2 id="向为nil的channel发送数据会怎么样"><a href="#向为nil的channel发送数据会怎么样" class="headerlink" title="向为nil的channel发送数据会怎么样"></a>向为nil的channel发送数据会怎么样</h2><p><strong>空通道即无缓冲通道</strong>。无缓冲通道上的发送操作将会阻塞，直到另一个goroutine在对应的通道上执行接收操作，这时值传送完成，两个goroutine都可以继续执行。相反，如果接收操作先执行，接收方gorountine将阻塞，直到另一个goroutine在同一个通道上发送一个值。</p><p>使用无缓冲通道进行的通信导致发送和接收goroutine同步化。因此，无缓冲通道也称为<em>同步通道</em>。当一个值在无缓冲通道上传递时，接收值后发送方goroutine才被再次唤醒。</p><h2 id="WaitGroup的坑"><a href="#WaitGroup的坑" class="headerlink" title="WaitGroup的坑"></a>WaitGroup的坑</h2><ol><li><p>Add一个负数<br>如果计数器的值小于0会直接panic</p></li><li><p>Add在Wait之后调用<br>比如一些子协程开头调用Add结束调用Wait，这些 Wait无法阻塞子协程。正确做法是在开启子协程之前先Add特定的值。</p></li><li><p>未置为0就重用<br>WaitGroup可以完成一次编排任务，计数值降为0后可以继续被其他任务所用，但是不要在还没使用完的时候就用于其他任务，这样由于带着计数值，很可能出问题。</p></li><li><p>复制waitgroup<br>WaitGroup有nocopy字段，不能被复制。也意味着WaitGroup不能作为函数的参数。</p></li></ol><h2 id="go-struct-能不能比较"><a href="#go-struct-能不能比较" class="headerlink" title="go struct 能不能比较"></a>go struct 能不能比较</h2><p>需要具体情况具体分析，如果struct中含有不能被比较的字段类型，就不能被比较，如果struct中所有的字段类型都支持比较，那么就可以被比较。</p><p>不可被比较的类型:<br>① slice，因为slice是引用类型，除非是和nil比较<br>② map，和slice同理，如果要比较两个map只能通过循环遍历实现<br>③ 函数类型</p><p>其他的类型都可以比较。</p><p>还有两点值得注意：</p><ul><li>结构体之间只能比较它们是否相等，而不能比较它们的大小。</li><li>只有所有属性都相等而属性顺序都一致的结构体才能进行比较。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面试题hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+            <tag> Go </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Golang题库（三）</title>
       <link href="/posts/31692.html"/>
       <url>/posts/31692.html</url>

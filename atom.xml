@@ -6,7 +6,7 @@
   <link href="https://www.yunjiguan.com/atom.xml" rel="self"/>
   
   <link href="https://www.yunjiguan.com/"/>
-  <updated>2023-06-22T14:08:13.364Z</updated>
+  <updated>2023-06-23T13:57:51.852Z</updated>
   <id>https://www.yunjiguan.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Golang题库（四）</title>
+    <link href="https://www.yunjiguan.com/posts/5389.html"/>
+    <id>https://www.yunjiguan.com/posts/5389.html</id>
+    <published>2023-06-23T12:55:21.000Z</published>
+    <updated>2023-06-23T13:57:51.852Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Golang题库（四）&quot;&gt;&lt;a href=&quot;#Golang题库（四）&quot; class=&quot;headerlink&quot; title=&quot;Golang题库（四）&quot;&gt;&lt;/a&gt;Golang题库（四）&lt;/h1&gt;&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="面试题hexo" scheme="https://www.yunjiguan.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98hexo/"/>
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="Go" scheme="https://www.yunjiguan.com/tags/Go/"/>
+    
+  </entry>
   
   <entry>
     <title>Golang题库（三）</title>
@@ -517,30 +544,6 @@
     
     
     <category term="Vue" scheme="https://www.yunjiguan.com/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决git/github下载速度缓慢的问题总汇</title>
-    <link href="https://www.yunjiguan.com/posts/30418.html"/>
-    <id>https://www.yunjiguan.com/posts/30418.html</id>
-    <published>2020-06-25T23:23:26.000Z</published>
-    <updated>2022-11-04T12:21:04.351Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;官网下载 Git 时，速度几乎是超不过 20KB，解决方法有很多，这里介绍几个简单粗暴的方法。这里使用 windows 系统作为演示，其他系统对号入座即可。&lt;/p&gt;
-&lt;h2 id=&quot;方法一：淘宝镜像&quot;&gt;&lt;a href=&quot;#方法一：淘宝镜像&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="杂项" scheme="https://www.yunjiguan.com/tags/%E6%9D%82%E9%A1%B9/"/>
     
   </entry>
   
