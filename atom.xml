@@ -6,7 +6,7 @@
   <link href="https://www.yunjiguan.com/atom.xml" rel="self"/>
   
   <link href="https://www.yunjiguan.com/"/>
-  <updated>2023-06-26T13:15:12.168Z</updated>
+  <updated>2023-06-28T14:32:34.289Z</updated>
   <id>https://www.yunjiguan.com/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Golang题库（七）</title>
+    <link href="https://www.yunjiguan.com/posts/41935.html"/>
+    <id>https://www.yunjiguan.com/posts/41935.html</id>
+    <published>2023-06-27T12:14:45.000Z</published>
+    <updated>2023-06-28T14:32:34.289Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Golang题库（七）&quot;&gt;&lt;a href=&quot;#Golang题库（七）&quot; class=&quot;headerlink&quot; title=&quot;Golang题库（七）&quot;&gt;&lt;/a&gt;Golang题库（七）&lt;/h1&gt;&lt;h2 id=&quot;Slice-与-Array-Append&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="Go" scheme="https://www.yunjiguan.com/tags/Go/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Golang题库（六）</title>
     <link href="https://www.yunjiguan.com/posts/40874.html"/>
     <id>https://www.yunjiguan.com/posts/40874.html</id>
     <published>2023-06-26T11:17:17.000Z</published>
-    <updated>2023-06-26T13:15:12.168Z</updated>
+    <updated>2023-06-26T13:15:52.378Z</updated>
     
     
       
@@ -520,31 +547,6 @@
     <category term="Swarm" scheme="https://www.yunjiguan.com/tags/Swarm/"/>
     
     <category term="Docker" scheme="https://www.yunjiguan.com/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python获取系统类型</title>
-    <link href="https://www.yunjiguan.com/posts/32717.html"/>
-    <id>https://www.yunjiguan.com/posts/32717.html</id>
-    <published>2022-11-06T01:30:27.000Z</published>
-    <updated>2022-11-24T12:29:26.085Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;通过platform模块可以获取系统信息&quot;&gt;&lt;a href=&quot;#通过platform模块可以获取系统信息&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Python" scheme="https://www.yunjiguan.com/categories/Python/"/>
-    
-    
-    <category term="Python" scheme="https://www.yunjiguan.com/tags/Python/"/>
     
   </entry>
   
