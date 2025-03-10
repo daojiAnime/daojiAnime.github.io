@@ -6,7 +6,7 @@
   <link href="https://www.yunjiguan.com/atom.xml" rel="self"/>
   
   <link href="https://www.yunjiguan.com/"/>
-  <updated>2025-02-25T02:34:41.681Z</updated>
+  <updated>2025-03-10T08:02:55.424Z</updated>
   <id>https://www.yunjiguan.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AI断片了吗？探秘大模型在超长对话中的理解能力</title>
+    <link href="https://www.yunjiguan.com/posts/25614.html"/>
+    <id>https://www.yunjiguan.com/posts/25614.html</id>
+    <published>2025-03-10T00:02:00.000Z</published>
+    <updated>2025-03-10T08:02:55.424Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;AI断片了吗？探秘大模型在超长对话中的理解能力&quot;&gt;&lt;a href=&quot;#AI断片了吗？探秘大模型在超长对话中的理解能力&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="AI" scheme="https://www.yunjiguan.com/categories/AI/"/>
+    
+    
+    <category term="人工智能" scheme="https://www.yunjiguan.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+  </entry>
   
   <entry>
     <title>个人免签方案</title>
@@ -39,9 +64,9 @@
     
     <category term="fastapi" scheme="https://www.yunjiguan.com/tags/fastapi/"/>
     
-    <category term="支付接口" scheme="https://www.yunjiguan.com/tags/%E6%94%AF%E4%BB%98%E6%8E%A5%E5%8F%A3/"/>
-    
     <category term="Python" scheme="https://www.yunjiguan.com/tags/Python/"/>
+    
+    <category term="支付接口" scheme="https://www.yunjiguan.com/tags/%E6%94%AF%E4%BB%98%E6%8E%A5%E5%8F%A3/"/>
     
   </entry>
   
@@ -462,7 +487,7 @@
     <link href="https://www.yunjiguan.com/posts/180.html"/>
     <id>https://www.yunjiguan.com/posts/180.html</id>
     <published>2023-03-12T14:13:58.000Z</published>
-    <updated>2024-10-29T00:51:49.226Z</updated>
+    <updated>2025-02-25T02:38:29.587Z</updated>
     
     
       
@@ -475,16 +500,16 @@
     
     
     
-    <category term="python" scheme="https://www.yunjiguan.com/categories/python/"/>
+    <category term="Python" scheme="https://www.yunjiguan.com/categories/Python/"/>
     
-    <category term="fastapi" scheme="https://www.yunjiguan.com/categories/python/fastapi/"/>
+    <category term="fastapi" scheme="https://www.yunjiguan.com/categories/Python/fastapi/"/>
     
     
     <category term="fastapi" scheme="https://www.yunjiguan.com/tags/fastapi/"/>
     
     <category term="pydantic" scheme="https://www.yunjiguan.com/tags/pydantic/"/>
     
-    <category term="python" scheme="https://www.yunjiguan.com/tags/python/"/>
+    <category term="Python" scheme="https://www.yunjiguan.com/tags/Python/"/>
     
     <category term="SQLAlchemy" scheme="https://www.yunjiguan.com/tags/SQLAlchemy/"/>
     
@@ -495,7 +520,7 @@
     <link href="https://www.yunjiguan.com/posts/56655.html"/>
     <id>https://www.yunjiguan.com/posts/56655.html</id>
     <published>2023-03-03T03:14:02.000Z</published>
-    <updated>2024-10-29T00:51:49.234Z</updated>
+    <updated>2025-02-25T02:38:30.575Z</updated>
     
     
       
@@ -508,43 +533,16 @@
     
     
     
-    <category term="python" scheme="https://www.yunjiguan.com/categories/python/"/>
+    <category term="Python" scheme="https://www.yunjiguan.com/categories/Python/"/>
     
-    <category term="logging" scheme="https://www.yunjiguan.com/categories/python/logging/"/>
+    <category term="logging" scheme="https://www.yunjiguan.com/categories/Python/logging/"/>
     
     
-    <category term="python" scheme="https://www.yunjiguan.com/tags/python/"/>
+    <category term="Python" scheme="https://www.yunjiguan.com/tags/Python/"/>
     
     <category term="log" scheme="https://www.yunjiguan.com/tags/log/"/>
     
     <category term="logging" scheme="https://www.yunjiguan.com/tags/logging/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python Django连接WebRTC</title>
-    <link href="https://www.yunjiguan.com/posts/56655.html"/>
-    <id>https://www.yunjiguan.com/posts/56655.html</id>
-    <published>2023-03-03T03:14:02.000Z</published>
-    <updated>2024-10-29T00:51:49.234Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Python使用WebRTC&quot;&gt;&lt;a href=&quot;#Python使用WebRTC&quot; class=&quot;headerlink&quot; title=&quot;Python使用WebRTC&quot;&gt;&lt;/a&gt;Python使用WebRTC&lt;/h1&gt;&lt;h2 id=&quot;异步RTC库&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="前端" scheme="https://www.yunjiguan.com/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-    <category term="webrtc" scheme="https://www.yunjiguan.com/tags/webrtc/"/>
-    
-    <category term="前端" scheme="https://www.yunjiguan.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   

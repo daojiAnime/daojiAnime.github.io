@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>AI断片了吗？探秘大模型在超长对话中的理解能力</title>
+      <link href="/posts/25614.html"/>
+      <url>/posts/25614.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="AI断片了吗？探秘大模型在超长对话中的理解能力"><a href="#AI断片了吗？探秘大模型在超长对话中的理解能力" class="headerlink" title="AI断片了吗？探秘大模型在超长对话中的理解能力"></a>AI断片了吗？探秘大模型在超长对话中的理解能力</h1><p>我们经常需要跟大模型进行反复、冗长的对话，才能令大模型给到我们一个满意的答复。像在写作、代码补全等长上下文的创作场景，需要不断的修正大模型的回答，对未完成内容进行续写，很容易就<strong>超出了目前大模型能够支持的上下文长度</strong>。</p><h2 id="断片原因"><a href="#断片原因" class="headerlink" title="断片原因"></a>断片原因</h2><p>大模型断片是可以追溯的，这里需要讲解一下大模型的前置知识。关于大模型的 token 长度，这边有一篇文章讲如何构建 GPT 模型<a href="https://daojianime.github.io/posts/60917.html%EF%BC%8C%E9%98%85%E8%AF%BB%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%AF%B9">https://daojianime.github.io/posts/60917.html，阅读这篇文章可以对</a> <code>token</code>有更深一步的理解。</p><p><code>token</code>简单来说就是我们跟大模型的对话<strong>文字在多维空间</strong>的一个表达，这里 <code>token</code>是模型训练、推理中使用的<code>tokenizer</code>将文字转换成的向量，token 数量跟文字数量并不是一一对应的，因为在多维空间的表达经常会将一个词作为一个<code>token</code>这种操作。</p><p>在我们理解何为 <code>token</code> 的基础上，我们再看看为什么 <code>token</code> 数有限。</p><p>首先在大模型的训练中，动辄是 TB 级的训练语料，需要用到的算力目前都是 H100、A100 这种昂贵的显卡，其次训练的时间也是一两周起步、甚至到数月一轮。所以在模型训练中设计的 <code>token</code> 数量就有必要做限制了，这样才能在有限的资源下，确保可以产出有效的成果。在超长上下文中，确保语料的质量也是一个难题，通常的对话内容没有那么长的上下文。</p><p>结合上述原因，我们理解了大模型的上下文限制，那么超出限制的上下文怎么样了？答案是截断。</p><p>这又引申出来了一个问题，大模型怎么做截断的？要知道超出限制的上下文模型无法处理了，无脑截断会导致我们的对话崩溃，模型胡言乱语。这里给出答案，其实是截断前面的对话内容，但并非无脑截断。具体怎么截断的，就需要讲到大模型中的 system、human、assistant 标签和截断后处理的策略了，笼统讲就是会渐渐遗忘之前的对话内容。</p><h2 id="修复-AI-断片"><a href="#修复-AI-断片" class="headerlink" title="修复 AI 断片"></a>修复 AI 断片</h2><p>虽然现在大模型的上下文长度能够达到非常长的一个能力，但是部署资源也是有限的，随着大模型出现截断，作为大模型应用工程师我们需要考虑如何降低对话崩溃的出现。</p><p>目前流行的方案基本上是对前面的 human 和 assistant 上下文做摘要提取，然后再加回上下文记忆中。但是这个处理能力，终究是有上限的，根据具体的场景可以做方案适配，完全由大模型做摘要提取并不是一个很好的做法。举例子，如 FIM 场景，超出上下文限制的代码，可以将与此次 query 无关的文件屏蔽掉，针对相关的文件可以做摘要提取，将与调用链相关的代码作为上下文给到模型做补全，这时候作为一个 ReAct Agent 就可以非常不错的完成代码补全了。</p><h2 id="关注大模型发展方向"><a href="#关注大模型发展方向" class="headerlink" title="关注大模型发展方向"></a>关注大模型发展方向</h2><p>是推理大模型还是标准大模型？</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> AI </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 人工智能 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>个人免签方案</title>
       <link href="/posts/33210.html"/>
       <url>/posts/33210.html</url>
@@ -22,9 +47,9 @@
             
             <tag> fastapi </tag>
             
-            <tag> 支付接口 </tag>
-            
             <tag> Python </tag>
+            
+            <tag> 支付接口 </tag>
             
         </tags>
       
@@ -468,7 +493,7 @@
       
       <categories>
           
-          <category> python </category>
+          <category> Python </category>
           
           <category> fastapi </category>
           
@@ -481,7 +506,7 @@
             
             <tag> pydantic </tag>
             
-            <tag> python </tag>
+            <tag> Python </tag>
             
             <tag> SQLAlchemy </tag>
             
@@ -501,7 +526,7 @@
       
       <categories>
           
-          <category> python </category>
+          <category> Python </category>
           
           <category> logging </category>
           
@@ -510,7 +535,7 @@
       
         <tags>
             
-            <tag> python </tag>
+            <tag> Python </tag>
             
             <tag> log </tag>
             
@@ -559,14 +584,14 @@
       
       <categories>
           
-          <category> python </category>
+          <category> Python </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> python </tag>
+            <tag> Python </tag>
             
             <tag> SQLAlchemy </tag>
             
@@ -898,9 +923,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> 人工智能 </tag>
+            
+            <tag> Python </tag>
             
         </tags>
       
