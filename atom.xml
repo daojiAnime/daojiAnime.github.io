@@ -6,7 +6,7 @@
   <link href="https://www.yunjiguan.com/atom.xml" rel="self"/>
   
   <link href="https://www.yunjiguan.com/"/>
-  <updated>2025-03-10T08:02:55.424Z</updated>
+  <updated>2025-03-26T07:08:49.868Z</updated>
   <id>https://www.yunjiguan.com/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>beartype 运行时入参校验</title>
+    <link href="https://www.yunjiguan.com/posts/35873.html"/>
+    <id>https://www.yunjiguan.com/posts/35873.html</id>
+    <published>2025-03-25T23:08:07.000Z</published>
+    <updated>2025-03-26T07:08:49.868Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;code&gt;beartype&lt;/code&gt; 和 &lt;code&gt;pydantic&lt;/code&gt; 都是 Python 中用于类型检查和数据验证的工具，但它们的设计理念和应用场景有所不同。我们来详细对比一下它们的区别，以便你根据需求选择合适的工具。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="Python" scheme="https://www.yunjiguan.com/categories/Python/"/>
+    
+    
+    <category term="Python" scheme="https://www.yunjiguan.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>AI断片了吗？探秘大模型在超长对话中的理解能力</title>
     <link href="https://www.yunjiguan.com/posts/25614.html"/>
     <id>https://www.yunjiguan.com/posts/25614.html</id>
     <published>2025-03-10T00:02:00.000Z</published>
-    <updated>2025-03-10T08:02:55.424Z</updated>
+    <updated>2025-03-10T08:04:27.645Z</updated>
     
     
       
@@ -512,37 +539,6 @@
     <category term="Python" scheme="https://www.yunjiguan.com/tags/Python/"/>
     
     <category term="SQLAlchemy" scheme="https://www.yunjiguan.com/tags/SQLAlchemy/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Logging用法</title>
-    <link href="https://www.yunjiguan.com/posts/56655.html"/>
-    <id>https://www.yunjiguan.com/posts/56655.html</id>
-    <published>2023-03-03T03:14:02.000Z</published>
-    <updated>2025-02-25T02:38:30.575Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Logging用法&quot;&gt;&lt;a href=&quot;#Logging用法&quot; class=&quot;headerlink&quot; title=&quot;Logging用法&quot;&gt;&lt;/a&gt;Logging用法&lt;/h1&gt;&lt;h2 id=&quot;打印所有Logger对象&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Python" scheme="https://www.yunjiguan.com/categories/Python/"/>
-    
-    <category term="logging" scheme="https://www.yunjiguan.com/categories/Python/logging/"/>
-    
-    
-    <category term="Python" scheme="https://www.yunjiguan.com/tags/Python/"/>
-    
-    <category term="log" scheme="https://www.yunjiguan.com/tags/log/"/>
-    
-    <category term="logging" scheme="https://www.yunjiguan.com/tags/logging/"/>
     
   </entry>
   
