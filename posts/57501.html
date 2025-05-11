@@ -1,0 +1,255 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>自家Linux | 盗计のBlog</title><meta name="author" content="Daoji,daoji.chang@gmail.com"><meta name="copyright" content="Daoji"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="article">
+<meta property="og:title" content="自家Linux">
+<meta property="og:url" content="https://www.yunjiguan.com/posts/57501.html">
+<meta property="og:site_name" content="盗计のBlog">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/different_love_a3rg.svg">
+<meta property="article:published_time" content="2018-07-17T00:49:00.000Z">
+<meta property="article:modified_time" content="2025-05-11T14:41:24.548Z">
+<meta property="article:author" content="Daoji">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/different_love_a3rg.svg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "自家Linux",
+  "url": "https://www.yunjiguan.com/posts/57501.html",
+  "image": "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/different_love_a3rg.svg",
+  "datePublished": "2018-07-17T00:49:00.000Z",
+  "dateModified": "2025-05-11T14:41:24.548Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Daoji",
+      "url": "https://www.yunjiguan.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/assets/favicon.ico"><link rel="canonical" href="https://www.yunjiguan.com/posts/57501.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '自家Linux',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/daojiAnime/cdn/css/blog/background.css"><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="盗计のBlog" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load', preloader.endLoading)
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="web_bg" style="background-color: rgb(255, 255, 255);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "/img/loading.gif" data-lazy-src="https://i.imgur.com/6DEulXU.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-video"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://daojianime.github.io/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/different_love_a3rg.svg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">盗计のBlog</span></a><a class="nav-page-title" href="/"><span class="site-name">自家Linux</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-video"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://daojianime.github.io/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">自家Linux</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-07-17T00:49:00.000Z" title="发表于 2018-07-17 08:49:00">2018-07-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-05-11T14:41:24.548Z" title="更新于 2025-05-11 22:41:24">2025-05-11</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p><img src= "/img/loading.gif" data-lazy-src="https://ws1.sinaimg.cn/large/e3bf8736gy1fyqgf924gsj21z81bhx6u.jpg"></p>
+<span id="more"></span>
+<h3 id="centos7配置第一篇"><a href="#centos7配置第一篇" class="headerlink" title="#centos7配置第一篇"></a>#centos7配置第一篇</h3><p>##GUI界面锁屏解除</p>
+<pre><code>#设置-&gt;隐私-&gt;锁屏和通知  都关闭
+</code></pre>
+<p>##CLI界面合盖休眠解除</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/systemd/logind.conf</span><br></pre></td></tr></table></figure>
+<p>#HandlePowerKey       //按下电源键后的行为，默认 <code>=poweroff</code></p>
+<p>#HandleSuspendKey     //按下挂起键后的行为，默认 <code>=suspend</code></p>
+<p>#HandleHibernateKey   //按下休眠键的行为，默认 <code>=hibernate</code></p>
+<p>#HandleLidSwitch      //合上笔记本盖后的行为，默认 <code>=suspend</code>，应该改为 <code>=lock</code>，并且在文件中去除前面的<code>#</code></p>
+<p>运行配置文件使其生效 ###</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart systemd-logind</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.yunjiguan.com">Daoji</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.yunjiguan.com/posts/57501.html">https://www.yunjiguan.com/posts/57501.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://www.yunjiguan.com" target="_blank">盗计のBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a></div><div class="post-share"><div class="social-share" data-image="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/different_love_a3rg.svg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/19424.html" title="Linux抓出背后的木马程序并处理"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/back_home_nl5c.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Linux抓出背后的木马程序并处理</div></div><div class="info-2"><div class="info-item-1">   ·通过top命令查看进程情况top    获取pid后可以用kill [PID]来关闭进程​     ·通过进程查询异常程序所在目录通过执行ll /proc/$PID/exe，($PID即进程ID)可获得异常进程的目录          此程序一般是由计划任务产生的，Linux系统中默认创建了计划任务后会在/var/spool/cron目录下创建对应用户的计划任务脚本，执行ls /var/spool/cron 查询一下系统中是否有异常的计划任务脚本程序。可以看到，在此目录下有1个root的计划任务脚本和一个异常的目录crontabs（默认情况下不会有此目录，用户创建计划任务也不会产生此目录）     查看脚本内容，有一个每隔10分钟便会通过curl下载执行的脚本程序（crontabs目录下为同样内容的计划任务） ...</div></div></div></a><a class="pagination-related" href="/posts/44241.html" title="《她和她的猫》"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://tva1.sinaimg.com/large/e3bf8736ly1fypxn1l2ndj21630no7hi.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">《她和她的猫》</div></div><div class="info-2"><div class="info-item-1">     如果说《如果猫从世界上消失》中的猫是与母亲的羁绊，那么《她和她的猫》中的猫就是无言的陪伴，是对她的关爱的报恩。 远处的事物小而模糊，近处的事物清晰可见，回忆也是一样。往昔的回忆模模糊糊，最近的事情则记得清清楚楚。尽管如此，近来总觉得，遥远的往昔，也像刚刚发生过的一样历历在目。      </div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/7680.html" title="DenyHosts安装及配置"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/newsletter_vovu.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2018-04-15</div><div class="info-item-2">DenyHosts安装及配置</div></div><div class="info-2"><div class="info-item-1">    DenyHosts（项目主页：http://denyhosts.sourceforge.net/）是运行于Linux上的一款预防SSH暴力破解的软件，可以从http://sourceforge.net/projects/denyhosts/files/进行下载，然后将下载回来的DenyHosts-2.6.tar.gz源码包上传到Linux系统中。  下面是安装过程 12345678910wget https://www.cubecloud.net/DenyHosts-2.6.tar.gz           #下载安装包tar zxvf DenyHosts-2.6.tar.gz 		     #解压源码包cd DenyHosts-2.6						 #进入安装解压目录python setup.py install					 #安装DenyHostscd /usr/share/denyhosts/				 #默认安装路径cp denyhosts.cfg-dist denyhosts.cfg      #denyhosts.cfg为配置文件cp...</div></div></div></a><a class="pagination-related" href="/posts/56521.html" title="Linux Crontab 安装使用详细说明"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/social_strategy_1wuq.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2018-06-28</div><div class="info-item-2">Linux Crontab 安装使用详细说明</div></div><div class="info-2"><div class="info-item-1">    &emsp;&emsp;crontab命令常见于Unix和Linux的操作系统之中，用于设置周期性被执行的指令。该命令从标准输入设备读取指令，并将其存放于“crontab”文件中，以供之后读取和执行。通常，crontab储存的指令被守护进程激活。crond 常常在后台运行，每一分钟检查是否有预定的作业需要执行。这类作业一般称为cron jobs。    一、安装12yum -y install vixie-cronyum -y install crontabs  说明：vixie-cron 软件包是 cron 的主程序；crontabs 软件包是用来安装、卸装、或列举用来驱动 cron 守护进程的表格的程序。 二、配置cron 是 linux 的内置服务，但它不自动起来，可以用以下的方法启动、关闭这个服务：  12345service crond start     //启动服务service crond stop      //关闭服务service crond restart   //重启服务service crond reload   ...</div></div></div></a><a class="pagination-related" href="/posts/44609.html" title="Linux中实用但很小众的11个炫酷终端命令"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/processing_qj6a.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-29</div><div class="info-item-2">Linux中实用但很小众的11个炫酷终端命令</div></div><div class="info-2"><div class="info-item-1">&emsp;今天给大家分享Linux总结出来的11个炫酷的Linux终端命令大全，通过今天这篇文章将向大家展示一系列的Linux命令、工具和技巧，我希望一开始就有人告诉我这些，而不是曾在我成长道路上绊住我。 命令行日常系快捷键如下的快捷方式非常有用，能够极大的提升你的工作效率： CTRL + U -剪切光标前的内容 CTRL + K -剪切光标至行末的内容 CTRL + Y -粘贴 CTRL + E -移动光标到行末 CTRL + A -移动光标到行首 ALT + F -跳向下一个空格 ALT + B -跳回上一个空格 ALT + Backspace -删除前一个单词 CTRL + W -剪切光标后一个单词 Shift + Insert -向终端内粘贴文本 那么为了让上述内容更易理解来看下面的这行命令。 1sudo apt-get intall programname...</div></div></div></a><a class="pagination-related" href="/posts/58864.html" title="Linux在CLI下连接WiFi"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Savings_dwkw.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2018-06-28</div><div class="info-item-2">Linux在CLI下连接WiFi</div></div><div class="info-2"><div class="info-item-1">   系统安装好后，有线与线连接都可以使用， 切换联网方式执行要使用“ifdown 对应的网卡名称”或者“ifup 对应的网卡名称”这两条命令即可。 使用 nmcli命令，查看各网卡的状态。得知无线网卡已经被驱动起来，并且已经纳入NetworkManager的管理。 1234567[root@localhost ~]# nmcli dev statusDEVICE      TYPE      STATE   CONNECTION   wlp3s0b1    wifi      连接的  Daoji_Studio virbr0      bridge    连接的  virbr0       enp2s0      ethernet  不可用  --           lo          loopback  未托管  --           virbr0-nic  tun       未托管  --             这是我的WiFi连接情况  如果无线网卡没有被纳入NetworkManager的管理，则可以安装”NetworkManager-wifi”...</div></div></div></a><a class="pagination-related" href="/posts/43991.html" title="CentOS 7安装SSH"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Group_chat_unwm.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2018-06-28</div><div class="info-item-2">CentOS 7安装SSH</div></div><div class="info-2"><div class="info-item-1">   VPS上可能没有安装桌面，但一般来说都会安装ssh，并且防火墙默认开放22端口。那就从ssh开始。 1234567# 安装ssh，默认已安装好# yum install ssh# 启动ssh服务器端# service sshd start  ssh登陆如果本地端是Linux 1# ssh root@192.168.1.1  其中root表示的是登录用户名，192.168.1.1为主机的IP地址，当然也可以使用主机名、域名来指代IP地址。 1# ssh 192.168.1.1  则会以当前客户端的用户名进行登录。 ssh无密码登录但是每次输入密码登录十分麻烦，有没有一种方式可以让服务器能够确定我的身份，无需输入密码可以直接通过认证？ ssh除了使用密码验证外，还提供了一种公私密钥的验证方式。客户端生成一个私钥，并生成一个与之对应的公钥，然后将公钥上传到服务器上。下面是Linux示例。 在客户端生成私钥、公钥（注意，在客户端完成）：# ssh-keygen -t rsa  -t...</div></div></div></a><a class="pagination-related" href="/posts/19424.html" title="Linux抓出背后的木马程序并处理"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/back_home_nl5c.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2018-07-17</div><div class="info-item-2">Linux抓出背后的木马程序并处理</div></div><div class="info-2"><div class="info-item-1">   ·通过top命令查看进程情况top    获取pid后可以用kill [PID]来关闭进程​     ·通过进程查询异常程序所在目录通过执行ll /proc/$PID/exe，($PID即进程ID)可获得异常进程的目录          此程序一般是由计划任务产生的，Linux系统中默认创建了计划任务后会在/var/spool/cron目录下创建对应用户的计划任务脚本，执行ls /var/spool/cron 查询一下系统中是否有异常的计划任务脚本程序。可以看到，在此目录下有1个root的计划任务脚本和一个异常的目录crontabs（默认情况下不会有此目录，用户创建计划任务也不会产生此目录）     查看脚本内容，有一个每隔10分钟便会通过curl下载执行的脚本程序（crontabs目录下为同样内容的计划任务） ...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "/img/loading.gif" data-lazy-src="https://i.imgur.com/6DEulXU.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Daoji</div><div class="author-info-description">我在这里记录我的生活，记录我的学习，知识的积累使我自信和满足，感情的沉积使我成长和强大。我的博客只记录我想记录的东西。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/daojiAnime" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="tencent://message/?uin=133397418" rel="external nofollow noreferrer" target="_blank" title="QQ"><i class="fab fa-qq" style="color: #12B7F5;"></i></a><a class="social-icon" href="/assets/img/weixin.jpg" target="_blank" title="微信"><i class="fab fa-weixin" style="color: #07C160;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-rss" style="color: #FFA500;"></i></a><a class="social-icon" href="mailto:daoji.chang@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/252.html" title="Agent多工具超长上下文处理方案"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Bus_stop_8ib0.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Agent多工具超长上下文处理方案"/></a><div class="content"><a class="title" href="/posts/252.html" title="Agent多工具超长上下文处理方案">Agent多工具超长上下文处理方案</a><time datetime="2025-05-11T14:43:15.000Z" title="发表于 2025-05-11 22:43:15">2025-05-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/35873.html" title="beartype 运行时入参校验"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/reminders_697p.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="beartype 运行时入参校验"/></a><div class="content"><a class="title" href="/posts/35873.html" title="beartype 运行时入参校验">beartype 运行时入参校验</a><time datetime="2025-03-25T23:08:07.000Z" title="发表于 2025-03-26 07:08:07">2025-03-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/25614.html" title="AI断片了吗？探秘大模型在超长对话中的理解能力"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/fingerprint_swrc.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI断片了吗？探秘大模型在超长对话中的理解能力"/></a><div class="content"><a class="title" href="/posts/25614.html" title="AI断片了吗？探秘大模型在超长对话中的理解能力">AI断片了吗？探秘大模型在超长对话中的理解能力</a><time datetime="2025-03-10T00:02:00.000Z" title="发表于 2025-03-10 08:02:00">2025-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/33210.html" title="个人免签方案"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/creative_thinking_b3bc.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="个人免签方案"/></a><div class="content"><a class="title" href="/posts/33210.html" title="个人免签方案">个人免签方案</a><time datetime="2025-01-16T02:33:24.000Z" title="发表于 2025-01-16 10:33:24">2025-01-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/60917.html" title="GPT学习分享"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/High_five_u364.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GPT学习分享"/></a><div class="content"><a class="title" href="/posts/60917.html" title="GPT学习分享">GPT学习分享</a><time datetime="2024-03-07T03:14:02.000Z" title="发表于 2024-03-07 11:14:02">2024-03-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By Daoji</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo 5.4.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://daoji-twikoo.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://daoji-twikoo.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

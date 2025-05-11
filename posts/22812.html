@@ -1,0 +1,345 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>强大的 Python 任务自动化工具！invoke 十分钟入门指南[转自公众号Python猫] | 盗计のBlog</title><meta name="author" content="Daoji,daoji.chang@gmail.com"><meta name="copyright" content="Daoji"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="我们继续聊聊 Python 任务自动化的话题。 nox 的作者在去年的 Pycon US 上，做了一场题为《Break the Cycle: Three excellent Python tools to automate repetitive tasks》的分享（B站观看地址：https:&#x2F;&#x2F;b23.tv&#x2F;av86640235），她介绍了三个任务自动化工具：tox、nox 和 invoke，本文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="强大的 Python 任务自动化工具！invoke 十分钟入门指南[转自公众号Python猫]">
+<meta property="og:url" content="https://www.yunjiguan.com/posts/22812.html">
+<meta property="og:site_name" content="盗计のBlog">
+<meta property="og:description" content="我们继续聊聊 Python 任务自动化的话题。 nox 的作者在去年的 Pycon US 上，做了一场题为《Break the Cycle: Three excellent Python tools to automate repetitive tasks》的分享（B站观看地址：https:&#x2F;&#x2F;b23.tv&#x2F;av86640235），她介绍了三个任务自动化工具：tox、nox 和 invoke，本文">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/bug_fixing_oc7a.svg">
+<meta property="article:published_time" content="2020-05-02T01:46:55.000Z">
+<meta property="article:modified_time" content="2025-05-11T14:41:24.550Z">
+<meta property="article:author" content="Daoji">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/bug_fixing_oc7a.svg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "强大的 Python 任务自动化工具！invoke 十分钟入门指南[转自公众号Python猫]",
+  "url": "https://www.yunjiguan.com/posts/22812.html",
+  "image": "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/bug_fixing_oc7a.svg",
+  "datePublished": "2020-05-02T01:46:55.000Z",
+  "dateModified": "2025-05-11T14:41:24.550Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Daoji",
+      "url": "https://www.yunjiguan.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/assets/favicon.ico"><link rel="canonical" href="https://www.yunjiguan.com/posts/22812.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '强大的 Python 任务自动化工具！invoke 十分钟入门指南[转自公众号Python猫]',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/daojiAnime/cdn/css/blog/background.css"><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="盗计のBlog" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load', preloader.endLoading)
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="web_bg" style="background-color: rgb(255, 255, 255);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "/img/loading.gif" data-lazy-src="https://i.imgur.com/6DEulXU.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-video"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://daojianime.github.io/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/bug_fixing_oc7a.svg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">盗计のBlog</span></a><a class="nav-page-title" href="/"><span class="site-name">强大的 Python 任务自动化工具！invoke 十分钟入门指南[转自公众号Python猫]</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-video"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://daojianime.github.io/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">强大的 Python 任务自动化工具！invoke 十分钟入门指南[转自公众号Python猫]</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-05-02T01:46:55.000Z" title="发表于 2020-05-02 09:46:55">2020-05-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-05-11T14:41:24.550Z" title="更新于 2025-05-11 22:41:24">2025-05-11</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>我们继续聊聊 Python 任务自动化的话题。</p>
+<p>nox 的作者在去年的 Pycon US 上，做了一场题为《Break the Cycle: Three excellent Python tools to automate repetitive tasks》的分享（B站观看地址：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://b23.tv/av86640235%EF%BC%89%EF%BC%8C%E5%A5%B9%E4%BB%8B%E7%BB%8D%E4%BA%86%E4%B8%89%E4%B8%AA%E4%BB%BB%E5%8A%A1%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7%EF%BC%9Atox%E3%80%81nox">https://b23.tv/av86640235），她介绍了三个任务自动化工具：tox、nox</a> 和 invoke，本文的话题正好就是最后的 invoke。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/djgzs_admin/ArticleImg/raw/master/2020/05/02/2020/05/02/20200502094851" alt="img"></p>
+<h2 id="1、invoke-可以做什么？"><a href="#1、invoke-可以做什么？" class="headerlink" title="1、invoke 可以做什么？"></a>1、invoke 可以做什么？</h2><p>invoke 是从著名的远程部署工具 Fabric 中分离出来的，它与 paramiko 一起是 Fabric 的两大最核心的基础组件。</p>
+<p>除了作为命令行工具，它专注于“任务执行”（task execution），可以标注和组织任务，并通过 CLI（command-line interface，即命令行界面） 和 shell 命令来执行任务。</p>
+<p>同样是任务自动化工具，invoke 与我们之前介绍过的 tox/nox 在侧重点上有所不同：</p>
+<ul>
+<li>tox/nox 主要是在打包、测试、持续集成等方面的自动化（当然它们能做的还不止于此）</li>
+<li>invoke 则更具普遍性，可以用在任何需要“执行任务”的场景，可以是无相关性的任务组，也可以是有顺序依赖的分步骤的工作流</li>
+</ul>
+<p>invoke 在 Github 上有 2.7K star，十分受欢迎，接下来我们看看它如何使用？</p>
+<h2 id="2、怎么使用-invoke？"><a href="#2、怎么使用-invoke？" class="headerlink" title="2、怎么使用 invoke？"></a>2、怎么使用 invoke？</h2><p>首先，安装很简单：<code>pip install invoke</code>。</p>
+<p>其次，简单使用时有以下要素：</p>
+<ul>
+<li>任务文件。创建一个 tasks.py 文件。</li>
+<li>@task 装饰器。在一个函数上添加 @task 装饰器，即可将该函数标记为一个任务，接受 invoke 的调度管理。</li>
+<li>上下文参数。给被装饰的函数添加一个上下文参数（context argument），注意它必须作为第一个参数，而命名按约定可以是<code>c</code> 或<code>ctx</code> 或<code>context</code> 。</li>
+<li>命令行执行。在命令行中执行<code>invoke --list</code> 来查看所有任务，运行<code>invoke xxx</code> 来执行名为 xxx 的任务。命令行中的“invoke”可以简写成“inv”。</li>
+</ul>
+<p>以下是一个简单的示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文件名：tasks.py</span></span><br><span class="line"><span class="keyword">from</span> invoke <span class="keyword">import</span> task</span><br><span class="line"></span><br><span class="line"><span class="meta">@task</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hello</span>(<span class="params">c</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Hello world!&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@task</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">greet</span>(<span class="params">c, name</span>):</span><br><span class="line">    c.run(<span class="string">f&quot;echo <span class="subst">&#123;name&#125;</span>加油!&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>在上述代码中，我们定义了两个任务：</p>
+<ul>
+<li>”hello“任务调用了 Python 内置的 print 函数，会打印一个字符串“Hello world!”</li>
+<li>“greet”任务调用了上下文参数的 run() 方法，可以执行 shell 命令，同时本例中还可以接收一个参数。在 shell 命令中，echo 可理解成打印，所以这也是一个打印任务，会打印出“xxx加油！”（xxx 是我们传的参数）</li>
+</ul>
+<p>以上代码写在 tasks.py 文件中，首先导入装饰器 <code>from invoke import task</code>，@task 装饰器可以不带参数，也可以带参数（参见下一节），被它装饰了的函数就是一个任务。</p>
+<p>上下文参数（即上例的“c”）必须要显式地指明，如果缺少这个参数，执行时会抛出异常：“TypeError: Tasks must have an initial Context argument!”</p>
+<p>然后在 tasks.py 文件的同级目录中，打开命令行窗口，执行命令。如果执行的位置找不到这个任务文件，则会报错：“Can’t find any collection named ‘tasks’!”</p>
+<p>正常情况下，通过执行<code>inv --list</code> 或者<code>inv -l</code> ，可以看到所有任务的列表（按字母表顺序排序）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>inv -l</span><br><span class="line">Available tasks:</span><br><span class="line"></span><br><span class="line">  greet</span><br><span class="line">  hello</span><br></pre></td></tr></table></figure>
+
+<p>我们依次执行这两个任务，其中传参时可以默认按位置参数传参，也可以指定关键字传参。结果是：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>inv hello</span><br><span class="line">Hello world!</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>inv greet 武汉</span><br><span class="line">武汉加油!</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>inv greet --name=<span class="string">&quot;武汉&quot;</span></span><br><span class="line">武汉加油！</span><br></pre></td></tr></table></figure>
+
+<p>缺少传参时，报错：’greet’ did not receive required positional arguments: ‘name’；多余传参时，报错：No idea what ‘???’ is!</p>
+<h2 id="3、-如何用好-invoke？"><a href="#3、-如何用好-invoke？" class="headerlink" title="3、 如何用好 invoke？"></a>3、 如何用好 invoke？</h2><p>介绍完 invoke 的简单用法，我们知道了它所需的几项要素，也大致知道了它的使用步骤，接下来是它的其它用法。</p>
+<h3 id="3-1-添加帮助信息"><a href="#3-1-添加帮助信息" class="headerlink" title="3.1 添加帮助信息"></a>3.1 添加帮助信息</h3><p>在上例中，“inv -l”只能看到任务名称，缺少必要的辅助信息，为了加强可读性，我们可以这样写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@task(<span class="params"><span class="built_in">help</span>=&#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;A param for test&#x27;</span>&#125;</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">greet</span>(<span class="params">c, name</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    A test for shell command.</span></span><br><span class="line"><span class="string">    Second line.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    c.run(<span class="string">f&quot;echo <span class="subst">&#123;name&#125;</span>加油!&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>其中，文档字符串的第一行内容会作为摘录，在“inv -l”的查询结果中展示，而且完整的内容与 @task 的 help 内容，会对应在“inv –help”中展示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>inv -l</span><br><span class="line">Available tasks:</span><br><span class="line"></span><br><span class="line">  greet   A test <span class="keyword">for</span> shell command.</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>inv --<span class="built_in">help</span> greet</span><br><span class="line">Usage: inv[oke] [--core-opts] greet [--options] [other tasks here ...]</span><br><span class="line"></span><br><span class="line">Docstring:</span><br><span class="line">  A test <span class="keyword">for</span> shell command.</span><br><span class="line">  Second line.</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  -n STRING, --name=STRING   A param <span class="keyword">for</span> test</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-任务的分解与组合"><a href="#3-2-任务的分解与组合" class="headerlink" title="3.2 任务的分解与组合"></a>3.2 任务的分解与组合</h3><p>通常一个大任务可以被分解成一组小任务，反过来，一系列的小任务也可能被串连成一个大任务。在对任务作分解、抽象与组合时，这里有两种思路：</p>
+<ul>
+<li>对内分解，对外统一：只定义一个 @task 的任务，作为总体的任务入口，实际的处理逻辑可以抽象成多个方法，但是外部不感知到它们</li>
+<li>多点呈现，单点汇总：定义多个 @task 的任务，外部可以感知并分别调用它们，同时将有关联的任务组合起来，调用某个任务时，也执行其它相关联的任务</li>
+</ul>
+<p>第一种思路很容易理解，实现与使用都很简单，但是其缺点是缺少灵活性，难于单独执行其中的某个/些子任务。适用于相对独立的单个任务，通常也不需要 invoke 就能做到（使用 invoke 的好处是，拥有命令行的支持）。</p>
+<p>第二种思路更加灵活，既方便单一任务的执行，也方便多任务的组合执行。实际上，这种场景才是 invoke 发挥最大价值的场景。</p>
+<p>那么，invoke 如何实现分步任务的组合呢？可以在 @task 装饰器的“pre”与“post”参数中指定，分别表示前置任务与后置任务：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@task</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">clean</span>(<span class="params">c</span>):</span><br><span class="line">    c.run(<span class="string">&quot;echo clean&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@task</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">message</span>(<span class="params">c</span>):</span><br><span class="line">    c.run(<span class="string">&quot;echo message&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@task(<span class="params">pre=[clean], post=[message]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">build</span>(<span class="params">c</span>):</span><br><span class="line">    c.run(<span class="string">&quot;echo build&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>clean 与 message 任务作为子任务，可以单独调用，也可以作为 build 任务的前置与后置任务而组合使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; inv clean</span><br><span class="line">clean</span><br><span class="line">&gt;&gt;&gt; inv message</span><br><span class="line">message</span><br><span class="line">&gt;&gt;&gt; inv build</span><br><span class="line">clean</span><br><span class="line">build</span><br><span class="line">message</span><br></pre></td></tr></table></figure>
+
+<p>这两个参数是列表类型，即可设置多个任务。另外，在默认情况下，@task 装饰器的位置参数会被视为前置任务，接着上述代码，我们写一个：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@task(<span class="params">clean, message</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>(<span class="params">c</span>):</span><br><span class="line">    c.run(<span class="string">&quot;echo test&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>然后执行，会发现两个参数都被视为了前置任务：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>inv test</span><br><span class="line">clean</span><br><span class="line">message</span><br><span class="line">test</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-模块的拆分与整合"><a href="#3-3-模块的拆分与整合" class="headerlink" title="3.3 模块的拆分与整合"></a>3.3 模块的拆分与整合</h3><p>如果要管理很多相对独立的大型任务，或者需要多个团队分别维护各自的任务，那么，就有必要对 tasks.py 作拆分与整合。</p>
+<p>例如，现在有多份 tasks.py，彼此是相对完整而独立的任务模块，不方便把所有内容都放在一个文件中，那么，如何有效地把它们整合起来管理呢？</p>
+<p>invoke 提供了这方面的支持。首先，只能保留一份名为“tasks.py”的文件，其次，在该文件中导入其它改名后的任务文件，最后，使用 invoke 的 Collection 类把它们关联起来。</p>
+<p>我们把本文中第一个示例文件改名为 task1.py，并新建一个 tasks.py 文件，内容如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文件名：tasks.py</span></span><br><span class="line"><span class="keyword">from</span> invoke <span class="keyword">import</span> Collection, task</span><br><span class="line"><span class="keyword">import</span> task1</span><br><span class="line"></span><br><span class="line"><span class="meta">@task</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">deploy</span>(<span class="params">c</span>):</span><br><span class="line">    c.run(<span class="string">&quot;echo deploy&quot;</span>)</span><br><span class="line"></span><br><span class="line">namespace = Collection(task1, deploy)</span><br></pre></td></tr></table></figure>
+
+<p>每个 py 文件拥有独立的命名空间，而在此处，我们用 Collection 可以创建出一个新的命名空间，从而实现对所有任务的统一管理。效果如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>inv -l</span><br><span class="line">Available tasks:</span><br><span class="line"></span><br><span class="line">  deploy</span><br><span class="line">  task1.greet</span><br><span class="line">  task1.hello</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>inv deploy</span><br><span class="line">deploy</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>inv task1.hello</span><br><span class="line">Hello world!</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>inv task1.greet 武汉</span><br><span class="line">武汉加油!</span><br></pre></td></tr></table></figure>
+
+<p>关于不同任务模块的导入、嵌套、混合、起别名等内容，还有不少细节，请查阅官方文档了解。</p>
+<h3 id="3-4-交互式操作"><a href="#3-4-交互式操作" class="headerlink" title="3.4 交互式操作"></a>3.4 交互式操作</h3><p>某些任务可能需要交互式的输入，例如要求输入“y”，按回车键后才会继续执行。如果在任务执行期间需要人工参与，那自动化任务的能力将大打折扣。</p>
+<p>invoke 提供了在程序运行期的监控能力，可以监听<code>stdout</code> 和<code>stderr</code> ，并支持在<code>stdin</code> 中输入必要的信息。</p>
+<p>例如，假设某个任务（excitable-program）在执行时会提示“Are you ready? [y/n]”，只有输入了“y”并按下回车键，才会执行后续的操作。</p>
+<p>那么，在代码中指定 responses 参数的内容，只要监听到匹配信息，程序会自动执行相应的操作：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">responses = &#123;<span class="string">r&quot;Are you ready? \[y/n\] &quot;</span>: <span class="string">&quot;y\n&quot;</span>&#125;</span><br><span class="line">ctx.run(<span class="string">&quot;excitable-program&quot;</span>, responses=responses)</span><br></pre></td></tr></table></figure>
+
+<p>responses 是字典类型，键值对分别为监听内容及其回应内容。需注意，键值会被视为正则表达式，所以像本例中的方括号就要先转义。</p>
+<h3 id="3-5-作为命令行工具库"><a href="#3-5-作为命令行工具库" class="headerlink" title="3.5 作为命令行工具库"></a>3.5 作为命令行工具库</h3><p>Python 中有不少好用的命令行工具库，比如标准库中的<code>argparse</code>、Flask 作者开源的<code>click</code> 与谷歌开源的<code>fire</code> 等等，而 invoke 也可以作为命令行工具库使用。</p>
+<p>（PS：有位 Prodesire 同学写了“Python 命令行之旅”的系列文章，详细介绍了其它几个命令行工具库的用法，我在公众号“Python猫”里转载过大部分，感兴趣的同学可查看历史文章。）</p>
+<p>事实上，Fabric 项目最初把 invoke 分离成独立的库，就是想让它承担解析命令行与执行子命令的任务。所以，除了作为自动化任务管理工具，invoke 也可以被用于开发命令行工具。</p>
+<p>官方文档中给出了一个示例，我们可以了解到它的基本用法。</p>
+<p>假设我们要开发一个 tester 工具，让用户<code>pip install tester</code> 安装，而此工具提供两个执行命令：<code>tester unit</code> 和<code>tester intergration</code> 。</p>
+<p>这两个子命令需要在 tasks.py 文件中定义：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># tasks.py</span></span><br><span class="line"><span class="keyword">from</span> invoke <span class="keyword">import</span> task</span><br><span class="line"></span><br><span class="line"><span class="meta">@task</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">unit</span>(<span class="params">c</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Running unit tests!&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@task</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">integration</span>(<span class="params">c</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Running integration tests!&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>然后在程序入口文件中引入它：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># main.py</span></span><br><span class="line"><span class="keyword">from</span> invoke <span class="keyword">import</span> Collection, Program</span><br><span class="line"><span class="keyword">from</span> tester <span class="keyword">import</span> tasks</span><br><span class="line"></span><br><span class="line">program = Program(namespace=Collection.from_module(tasks), version=<span class="string">&#x27;0.1.0&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>最后在打包文件中声明入口函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># setup.py</span></span><br><span class="line">setup(</span><br><span class="line">    name=<span class="string">&#x27;tester&#x27;</span>,</span><br><span class="line">    version=<span class="string">&#x27;0.1.0&#x27;</span>,</span><br><span class="line">    packages=[<span class="string">&#x27;tester&#x27;</span>],</span><br><span class="line">    install_requires=[<span class="string">&#x27;invoke&#x27;</span>],</span><br><span class="line">    entry_points=&#123;</span><br><span class="line">        <span class="string">&#x27;console_scripts&#x27;</span>: [<span class="string">&#x27;tester = tester.main:program.run&#x27;</span>]</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>如此打包发行的库，就是一个功能齐全的命令行工具了：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$ tester --version</span><br><span class="line">Tester <span class="number">0.1</span><span class="number">.0</span></span><br><span class="line">$ tester --<span class="built_in">help</span></span><br><span class="line">Usage: tester [--core-opts] &lt;subcommand&gt; [--subcommand-opts] ...</span><br><span class="line"></span><br><span class="line">Core options:</span><br><span class="line">  ... core options here, minus task-related ones ...</span><br><span class="line"></span><br><span class="line">Subcommands:</span><br><span class="line">  unit</span><br><span class="line">  integration</span><br><span class="line"></span><br><span class="line">$ tester --<span class="built_in">list</span></span><br><span class="line">No idea what <span class="string">&#x27;--list&#x27;</span> <span class="keyword">is</span>!</span><br><span class="line">$ tester unit</span><br><span class="line">Running unit tests!</span><br></pre></td></tr></table></figure>
+
+<p>上手容易，开箱即用，invoke 不失为一款可以考虑的命令行工具库。更多详细用法，请查阅文档 。</p>
+<h2 id="4、小结"><a href="#4、小结" class="headerlink" title="4、小结"></a>4、小结</h2><p>invoke 作为从 Fabric 项目中分离出来的独立项目，它自身具备一些完整而强大的功能，除了可用于开发命令行工具，它还是著名的任务自动化工具。</p>
+<p>本文介绍了它的基础用法与 5 个方面的中级内容，相信读者们会对它产生一定的了解。invoke 的官方文档十分详尽，限于篇幅，本文不再详细展开，若感兴趣，请自行查阅文档哦。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/djgzs_admin/ArticleImg/raw/master/2020/05/02/2020/05/02/20200502094755" alt="音符"></p>
+<p><strong>作者简介：</strong>豌豆花下猫，生于广东毕业于武大，现苏漂程序员，有一些极客思维，也有一些人文情怀，有一些温度，还有一些态度。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.yunjiguan.com">Daoji</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.yunjiguan.com/posts/22812.html">https://www.yunjiguan.com/posts/22812.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://www.yunjiguan.com" target="_blank">盗计のBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python/">Python</a></div><div class="post-share"><div class="social-share" data-image="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/bug_fixing_oc7a.svg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/14916.html" title="一日一技：Numpy进阶之排序小技巧"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/airport_2581.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">一日一技：Numpy进阶之排序小技巧</div></div><div class="info-2"><div class="info-item-1">Numpy提供了大量用数组操作的函数，其中不乏常见的排序函数。 这里讲下numpy.sort、numpy.argsort、numpy.lexsort三种排序函数的用法。 1、如何对数组元素进行快速排序？使用numpy.sort函数可以对数组进行排序，并返回排序好的数组。 使用方法： 1numpy.sort(a, axis=-1, kind=None, order=None)  参数：  a : 要排序的数组； axis ：按什么轴进行排序，默认按最后一个轴进行排序； kind ：排序方法，默认是快速排序； order :  当数组定义了字段属性时，可以按照某个属性进行排序；  12345678910111213141516171819202122232425262728293031323334353637import numpy as np# 创建一个一维数组x1 = np.array([1,8,2,4])x1&#x27;&#x27;&#x27;一维数组：array([1, 8, 2, 4])&#x27;&#x27;&#x27;#...</div></div></div></a><a class="pagination-related" href="/posts/2352.html" title="认真就能打动人：273篇干货资料汇总"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/celebration_0jvk.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">认真就能打动人：273篇干货资料汇总</div></div><div class="info-2"><div class="info-item-1">来自公众号Python与算法社区的汇总     </div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/56655.html" title="Logging用法"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/learning_2q1h.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-03</div><div class="info-item-2">Logging用法</div></div><div class="info-2"><div class="info-item-1">Logging用法打印所有Logger对象123for name in logging.Logger.manager.loggerDict.keys():       logger = logging.getLogger(name)       print(&#x27;name = %s, logger = %s&#x27; % (name, logger))	  </div></div></div></a><a class="pagination-related" href="/posts/180.html" title="FastAPI中文教程（一）"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/youtube_tutorial_2gn3.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-12</div><div class="info-item-2">FastAPI中文教程（一）</div></div><div class="info-2"><div class="info-item-1">FastAPI系列教程（一）教程资源ChristopherGS的英文教程 pyb4430/full-stack-fastapi-postgresql: Full stack, modern web application generator. Using FastAPI, PostgreSQL as database, Docker, automatic HTTPS and more....</div></div></div></a><a class="pagination-related" href="/posts/33210.html" title="个人免签方案"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/creative_thinking_b3bc.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-01-16</div><div class="info-item-2">个人免签方案</div></div><div class="info-2"><div class="info-item-1">个人免签方案方案说明介绍个人免签国内主要是解决网银的微信+支付宝支付渠道的对接，这两种方案要进行免签的话，可以通过监听通知消息回写数据库达到转账记录的目的，通过+/-0.1 金额进行多笔订单同时转账场景下确保订单一致性。比较符合的就有 V 免签、码支付、彩虹交易等。其中只有 V 免签有良好的开源生态，因此选用 V 免签进行定制化。 方案调研手机监听Android 15 Supported vmq apk PC 监听未开源 PC 端 Linux 虚拟化itchat-uos 架构设计 Api: fastapi + python3.12 SQL DB: Postgres Cache DB: Redis Cron: apscheduler Python Lint: ruff + mypy  设计问题同时多个订单生成，如何区分不同订单支付的通过订单金额不同，以 0.1 步长形成一个梯度去生成订单，同时对 key (price+商户 ID) 使用一个超时异步锁，设置默认 1 分钟超时时间，以订单生成时间字段形成一个锁，每次查询 uid 下最后一个订单，时间超过 1...</div></div></div></a><a class="pagination-related" href="/posts/14490.html" title="通过shell脚本查看python版本并比较"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/percentages_0rur.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-05-13</div><div class="info-item-2">通过shell脚本查看python版本并比较</div></div><div class="info-2"><div class="info-item-1">1234567891011121314151617181920212223242526272829303132333435#!/bin/shcheckPython()&#123;    #推荐版本V2.6.5    V1=2    V2=6    V3=5    echo need python version is : $V1.$V2.$V3    #获取本机python版本号。这里2&gt;&amp;1是必须的，python -V这个是标准错误输出的，需要转换    U_V1=`python -V 2&gt;&amp;1|awk &#x27;&#123;print $2&#125;&#x27;|awk -F &#x27;.&#x27; &#x27;&#123;print $1&#125;&#x27;`    U_V2=`python -V 2&gt;&amp;1|awk &#x27;&#123;print $2&#125;&#x27;|awk -F &#x27;.&#x27; &#x27;&#123;print $2&#125;&#x27;`    U_V3=`python...</div></div></div></a><a class="pagination-related" href="/posts/34537.html" title="30个Python极简代码，10分钟get常用技巧！"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/exams_g4ow.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-28</div><div class="info-item-2">30个Python极简代码，10分钟get常用技巧！</div></div><div class="info-2"><div class="info-item-1">1. 重复元素判定以下方法可以检查给定列表是不是存在重复元素，它会使用 set() 函数来移除所有重复元素。 12345678def all_unique(lst):    return len(lst) == len(set(lst))x = [1,1,2,2,3,2,3,4,5,6]y = [1,2,3,4,5]all_unique(x) # Falseall_unique(y) # True  2. 字符元素组成判定检查两个字符串的组成元素是不是一样的。 1234567from collections import Counterdef anagram(first, second):    return Counter(first) == Counter(second)anagram(&quot;abcd3&quot;, &quot;3acdb&quot;) # True  3. 内存占用下面的代码块可以检查变量 variable 所占用的内存。 1234import sys variable = 30 print(sys.getsizeof(variable)) #...</div></div></div></a><a class="pagination-related" href="/posts/18713.html" title="Python中lambda的使用，与它的三个好基友介绍！"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/like_dislike_1dfj.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-28</div><div class="info-item-2">Python中lambda的使用，与它的三个好基友介绍！</div></div><div class="info-2"><div class="info-item-1">匿名函数lambda除了def语句，python还提供了一种生成函数对象的表达式形式。由于它与LISP语言中的一个工具类似，所以称为lambda。就像def一样，这个表达式创建了一个之后能够调用的函数，但是它返回一个函数而不是将这个函数赋值给一个变量。这些就是lambda叫做匿名函数的原因。实际上，他常常以一种行内进行函数定义的方式使用，或者用作推迟执行一些代码。lambda的一般形式是关键字lambda之后跟着一个或多个参数（与一个def头部内用括号括起来的参数列表类似），紧跟着是一个冒号，之后是表达式  lambda arg1，arg2,argn:expression using...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "/img/loading.gif" data-lazy-src="https://i.imgur.com/6DEulXU.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Daoji</div><div class="author-info-description">我在这里记录我的生活，记录我的学习，知识的积累使我自信和满足，感情的沉积使我成长和强大。我的博客只记录我想记录的东西。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/daojiAnime" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="tencent://message/?uin=133397418" rel="external nofollow noreferrer" target="_blank" title="QQ"><i class="fab fa-qq" style="color: #12B7F5;"></i></a><a class="social-icon" href="/assets/img/weixin.jpg" target="_blank" title="微信"><i class="fab fa-weixin" style="color: #07C160;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-rss" style="color: #FFA500;"></i></a><a class="social-icon" href="mailto:daoji.chang@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/252.html" title="Agent多工具超长上下文处理方案"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Bus_stop_8ib0.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Agent多工具超长上下文处理方案"/></a><div class="content"><a class="title" href="/posts/252.html" title="Agent多工具超长上下文处理方案">Agent多工具超长上下文处理方案</a><time datetime="2025-05-11T14:43:15.000Z" title="发表于 2025-05-11 22:43:15">2025-05-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/35873.html" title="beartype 运行时入参校验"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/reminders_697p.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="beartype 运行时入参校验"/></a><div class="content"><a class="title" href="/posts/35873.html" title="beartype 运行时入参校验">beartype 运行时入参校验</a><time datetime="2025-03-25T23:08:07.000Z" title="发表于 2025-03-26 07:08:07">2025-03-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/25614.html" title="AI断片了吗？探秘大模型在超长对话中的理解能力"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/fingerprint_swrc.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI断片了吗？探秘大模型在超长对话中的理解能力"/></a><div class="content"><a class="title" href="/posts/25614.html" title="AI断片了吗？探秘大模型在超长对话中的理解能力">AI断片了吗？探秘大模型在超长对话中的理解能力</a><time datetime="2025-03-10T00:02:00.000Z" title="发表于 2025-03-10 08:02:00">2025-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/33210.html" title="个人免签方案"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/creative_thinking_b3bc.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="个人免签方案"/></a><div class="content"><a class="title" href="/posts/33210.html" title="个人免签方案">个人免签方案</a><time datetime="2025-01-16T02:33:24.000Z" title="发表于 2025-01-16 10:33:24">2025-01-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/60917.html" title="GPT学习分享"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/High_five_u364.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GPT学习分享"/></a><div class="content"><a class="title" href="/posts/60917.html" title="GPT学习分享">GPT学习分享</a><time datetime="2024-03-07T03:14:02.000Z" title="发表于 2024-03-07 11:14:02">2024-03-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By Daoji</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo 5.4.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://daoji-twikoo.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://daoji-twikoo.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

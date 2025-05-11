@@ -1,0 +1,269 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>少量数据使用SharedPreferences存储 | 盗计のBlog</title><meta name="author" content="Daoji,daoji.chang@gmail.com"><meta name="copyright" content="Daoji"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="article">
+<meta property="og:title" content="少量数据使用SharedPreferences存储">
+<meta property="og:url" content="https://www.yunjiguan.com/posts/42127.html">
+<meta property="og:site_name" content="盗计のBlog">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Winter_olympics_p07j.svg">
+<meta property="article:published_time" content="2019-01-23T01:42:30.000Z">
+<meta property="article:modified_time" content="2025-05-11T14:41:24.545Z">
+<meta property="article:author" content="Daoji">
+<meta property="article:tag" content="Android">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Winter_olympics_p07j.svg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "少量数据使用SharedPreferences存储",
+  "url": "https://www.yunjiguan.com/posts/42127.html",
+  "image": "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Winter_olympics_p07j.svg",
+  "datePublished": "2019-01-23T01:42:30.000Z",
+  "dateModified": "2025-05-11T14:41:24.545Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Daoji",
+      "url": "https://www.yunjiguan.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/assets/favicon.ico"><link rel="canonical" href="https://www.yunjiguan.com/posts/42127.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '少量数据使用SharedPreferences存储',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/daojiAnime/cdn/css/blog/background.css"><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="盗计のBlog" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load', preloader.endLoading)
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="web_bg" style="background-color: rgb(255, 255, 255);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "/img/loading.gif" data-lazy-src="https://i.imgur.com/6DEulXU.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-video"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://daojianime.github.io/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Winter_olympics_p07j.svg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">盗计のBlog</span></a><a class="nav-page-title" href="/"><span class="site-name">少量数据使用SharedPreferences存储</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-video"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://daojianime.github.io/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">少量数据使用SharedPreferences存储</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-01-23T01:42:30.000Z" title="发表于 2019-01-23 09:42:30">2019-01-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-05-11T14:41:24.545Z" title="更新于 2025-05-11 22:41:24">2025-05-11</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p><img src= "/img/loading.gif" data-lazy-src="https://ws1.sinaimg.cn/large/e3bf8736gy1fzgecpyfuvj21900u01kz.jpg"></p>
+<span id="more"></span>
+
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>&emsp;&emsp;SharedPreferences是使用<strong>键值对</strong>来存储数据的，所以每当保存和取出一条数据，需要给这条数据提供一个对应的键。而且SharedPreferences是支持多种不同的数据类型存储，也就是当存入的数据类型是什么样，取出来就是什么样的。SharedPreferences进行数据持久化要比使用文件方便的多。</p>
+<h3 id="将数据存进SharedPreferences"><a href="#将数据存进SharedPreferences" class="headerlink" title="将数据存进SharedPreferences"></a>将数据存进SharedPreferences</h3><p>&emsp;&emsp;要使用SharedPreferences存储数据，首先要获取SharedPreferences对象，Android提供的三种获取SharedPreferences对象的方法。</p>
+<ol>
+<li><p>Context类中的<code>getSharedPreferences()</code>方法</p>
+<p>此方法接收两个参数。</p>
+<blockquote>
+<p>①用于指定SharedPreferences文件名称  //不存在则创建一个，存放<code>/data/data/&lt;packge name&gt;/shared_prefs/</code>目录下</p>
+<p>②用于指定操作模式  //目前只有<code>MODE_PRIVATE</code>可选，传入0值相同，其他模式均被抛弃</p>
+</blockquote>
+</li>
+<li><p>Activity类中的<code>getPreferences()</code>方法</p>
+<p>该方法只接收操作模式<code>MODE_PRIVATE</code>，该方法被调用的时候自动以当前活动的类名作为SharedPerferences的文件名。</p>
+</li>
+<li><p>PreferenceManager类中的<code>getDefaultSharedPreferences()</code>方法</p>
+<p>这是一个静态的方法，它接收一个Context参数，并自动使用当前程序的包名为前缀命名SharedPerferences文件。</p>
+</li>
+</ol>
+<p>获取SharedPerferences对象后，就能向SharedPreferences中添加数据了，分3步实现</p>
+<blockquote>
+<p>⑴调用SharedPerferences对象的edit()方法来获取一个SharedPerferences.Editor对象。</p>
+<p>⑵向SharedPerferences.Editor对象中添加数据，比如添加一个布尔型数据就使用putBoolean()方法，添加一个字符串就使用putString()方法，以此类推。</p>
+<p>⑶调用apply()方法将添加的数据提交，从而完成数据存储操作。</p>
+</blockquote>
+<h3 id="从SharedPreferences中取出数据"><a href="#从SharedPreferences中取出数据" class="headerlink" title="从SharedPreferences中取出数据"></a>从SharedPreferences中取出数据</h3><p>&emsp;&emsp;SharedPerferences对象提供了<code>getString（）</code>等方法对数据进行读取，get方法均要传入两个参数，第一个为键，第二个为默认值，例如<code>getSharedPreferences(&quot;data&quot;,MODE_PRIVATE).getString(&quot;name&quot;,&quot;&quot;)</code>、<code>getSharedPreferences(&quot;data&quot;,MODE_PRIVATE).getBoolean(&quot;eated&quot;,false)</code>。读取的SharedPreferences对象创建方法，应该和存储的SharedPreferences对象一样，否则会找不到SharedPreferences文件。</p>
+<p>注：<code>Ctrl + P</code>可以查看一个方法的参数类型，规范的代码会带有注释说明。自动补全在类名后加点可以查看该类可以被外部引用的方法。<code>Ctrl+点击</code>进去代码查看也可以。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.yunjiguan.com">Daoji</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.yunjiguan.com/posts/42127.html">https://www.yunjiguan.com/posts/42127.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://www.yunjiguan.com" target="_blank">盗计のBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Android/">Android</a></div><div class="post-share"><div class="social-share" data-image="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Winter_olympics_p07j.svg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/43265.html" title="没有收获到预期的成果只能怪我还不够努力"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/not_found_60pq.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">没有收获到预期的成果只能怪我还不够努力</div></div><div class="info-2"><div class="info-item-1">   考试失利&emsp;&emsp;以为我学的很好了，但是笔试的时候却不理想，那么简单的一道题，到头来还是做错了，一转身就发现错误的那种简单的题。反思过后，觉得我不是学的不好，是用的太少，缺乏实践经验。 追求极致&emsp;&emsp;我说的追求极致，也不是非要到一个很高的顶点，但是至少也要有一定成就，有一定的量。没有积累的知识，到头来只是一个空壳。昨天群里的小伙伴推荐给我TS，今天又在学Flutter了，之前推给我Vue.js后来又推给我Angular 。一个人的精力是有限的，我也意识到了，但是我还是没掌握好。 &emsp;&emsp;无论学习什么，要去掌握好一门知识，真的不是表面就行的。实践、操作后才能真正掌握好。  告诫：学习要追求深层次的理解，不要停留在只是会用的地步，才能真正的接近大神，没有第二条道路可走。  </div></div></div></a><a class="pagination-related" href="/posts/16151.html" title="Android Studio 3.4.0利用Modelu生成Jar依赖包"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/buffer_wq43.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Android Studio 3.4.0利用Modelu生成Jar依赖包</div></div><div class="info-2"><div class="info-item-1">   1、新建一个AS项目(不详细介绍)2、点击File-&gt;New-&gt;New Module3、选择Android Library点next4、点击Finish 5、将要打成Jar包的类放入新建的library目录下 6、打开新建的library下的build.gradle文件最后加入如下代码 123456789101112131415task makejar(type: Copy)&#123;    //删除原来的jar包    delete &#x27;libs/test.jar&#x27;  //从该目录下拷贝生成的jar包(各版本AndroidStudio目录可能不一样最好自己检查一遍目录)    from(&#x27;build/intermediates/intermediate-jars/release/&#x27;)         //拷贝到该目录    into(&#x27;libs&#x27;)         include(&#x27;classes.jar&#x27;)    //命名文件为test.jar   ...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/53646.html" title="Android studio如何用GIF图作为背景"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/community_8nwl.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2018-08-08</div><div class="info-item-2">Android studio如何用GIF图作为背景</div></div><div class="info-2"><div class="info-item-1">   引用第三方库1、先将你需要的GIF进行压缩，不然有可能会内存溢出 2、将你的GIF放到drawable当中 3、引入GIF依赖 12//引入GIF背景动态图实现依赖compile &#x27;pl.droidsonroids.gif:android-gif-drawable:1.1.+&#x27;   4、添加自定义GIF控件 1234&lt;pl.droidsonroids.gif.GifImageView    android:layout_width=&quot;match_parent&quot;    android:layout_height=&quot;match_parent&quot;    android:background=&quot;@drawable/lutos_background&quot; /&gt;   5、完成 </div></div></div></a><a class="pagination-related" href="/posts/16151.html" title="Android Studio 3.4.0利用Modelu生成Jar依赖包"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/buffer_wq43.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2019-01-23</div><div class="info-item-2">Android Studio 3.4.0利用Modelu生成Jar依赖包</div></div><div class="info-2"><div class="info-item-1">   1、新建一个AS项目(不详细介绍)2、点击File-&gt;New-&gt;New Module3、选择Android Library点next4、点击Finish 5、将要打成Jar包的类放入新建的library目录下 6、打开新建的library下的build.gradle文件最后加入如下代码 123456789101112131415task makejar(type: Copy)&#123;    //删除原来的jar包    delete &#x27;libs/test.jar&#x27;  //从该目录下拷贝生成的jar包(各版本AndroidStudio目录可能不一样最好自己检查一遍目录)    from(&#x27;build/intermediates/intermediate-jars/release/&#x27;)         //拷贝到该目录    into(&#x27;libs&#x27;)         include(&#x27;classes.jar&#x27;)    //命名文件为test.jar   ...</div></div></div></a><a class="pagination-related" href="/posts/5489.html" title="Android常见图片处理框架"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/contact_us_15o2.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2018-08-13</div><div class="info-item-2">Android常见图片处理框架</div></div><div class="info-2"><div class="info-item-1">...</div></div></div></a><a class="pagination-related" href="/posts/27312.html" title="DDoS攻击-Java实现"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/mobile_browsers_lib5.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2018-08-16</div><div class="info-item-2">DDoS攻击-Java实现</div></div><div class="info-2"><div class="info-item-1">  转载 分布式拒绝服务(DDoS:Distributed Denial of Service)攻击指借助于客户/服务器技术，将多个计算机联合起来作为攻击平台，对一个或多个目标发动DDoS攻击，从而成倍地提高拒绝服务攻击的威力。通常，攻击者使用一个偷窃帐号将DDoS主控程序安装在一个计算机上，在一个设定的时间主控程序将与大量代理程序通讯，代理程序已经被安装在网络上的许多计算机上。代理程序收到指令时就发动攻击。利用客户/服务器技术，主控程序能在几秒钟内激活成百上千次代理程序的运行。  12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273public class DDos &#123;    public static void main(String[] args) &#123;        ExecutorService es =...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "/img/loading.gif" data-lazy-src="https://i.imgur.com/6DEulXU.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Daoji</div><div class="author-info-description">我在这里记录我的生活，记录我的学习，知识的积累使我自信和满足，感情的沉积使我成长和强大。我的博客只记录我想记录的东西。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/daojiAnime" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="tencent://message/?uin=133397418" rel="external nofollow noreferrer" target="_blank" title="QQ"><i class="fab fa-qq" style="color: #12B7F5;"></i></a><a class="social-icon" href="/assets/img/weixin.jpg" target="_blank" title="微信"><i class="fab fa-weixin" style="color: #07C160;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-rss" style="color: #FFA500;"></i></a><a class="social-icon" href="mailto:daoji.chang@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/252.html" title="Agent多工具超长上下文处理方案"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Bus_stop_8ib0.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Agent多工具超长上下文处理方案"/></a><div class="content"><a class="title" href="/posts/252.html" title="Agent多工具超长上下文处理方案">Agent多工具超长上下文处理方案</a><time datetime="2025-05-11T14:43:15.000Z" title="发表于 2025-05-11 22:43:15">2025-05-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/35873.html" title="beartype 运行时入参校验"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/reminders_697p.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="beartype 运行时入参校验"/></a><div class="content"><a class="title" href="/posts/35873.html" title="beartype 运行时入参校验">beartype 运行时入参校验</a><time datetime="2025-03-25T23:08:07.000Z" title="发表于 2025-03-26 07:08:07">2025-03-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/25614.html" title="AI断片了吗？探秘大模型在超长对话中的理解能力"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/fingerprint_swrc.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI断片了吗？探秘大模型在超长对话中的理解能力"/></a><div class="content"><a class="title" href="/posts/25614.html" title="AI断片了吗？探秘大模型在超长对话中的理解能力">AI断片了吗？探秘大模型在超长对话中的理解能力</a><time datetime="2025-03-10T00:02:00.000Z" title="发表于 2025-03-10 08:02:00">2025-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/33210.html" title="个人免签方案"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/creative_thinking_b3bc.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="个人免签方案"/></a><div class="content"><a class="title" href="/posts/33210.html" title="个人免签方案">个人免签方案</a><time datetime="2025-01-16T02:33:24.000Z" title="发表于 2025-01-16 10:33:24">2025-01-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/60917.html" title="GPT学习分享"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/High_five_u364.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GPT学习分享"/></a><div class="content"><a class="title" href="/posts/60917.html" title="GPT学习分享">GPT学习分享</a><time datetime="2024-03-07T03:14:02.000Z" title="发表于 2024-03-07 11:14:02">2024-03-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By Daoji</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo 5.4.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://daoji-twikoo.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://daoji-twikoo.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

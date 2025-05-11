@@ -1,0 +1,297 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>盗计のBlog - 跟我毒，薄雾不，不log</title><meta name="author" content="Daoji,daoji.chang@gmail.com"><meta name="copyright" content="Daoji"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="我在这里记录我的生活，记录我的学习，知识的积累使我自信和满足，感情的沉积使我成长和强大。我的博客只记录我想记录的东西。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="盗计のBlog">
+<meta property="og:url" content="https://www.yunjiguan.com/page/2/index.html">
+<meta property="og:site_name" content="盗计のBlog">
+<meta property="og:description" content="我在这里记录我的生活，记录我的学习，知识的积累使我自信和满足，感情的沉积使我成长和强大。我的博客只记录我想记录的东西。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgur.com/6DEulXU.jpg">
+<meta property="article:author" content="Daoji">
+<meta property="article:tag" content="盗计,Daoji,Java,C#,Shell,Linux,Android">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/6DEulXU.jpg"><link rel="shortcut icon" href="/assets/favicon.ico"><link rel="canonical" href="https://www.yunjiguan.com/page/2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '盗计のBlog',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/daojiAnime/cdn/css/blog/background.css"><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="盗计のBlog" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load', preloader.endLoading)
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="web_bg" style="background-color: rgb(255, 255, 255);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "/img/loading.gif" data-lazy-src="https://i.imgur.com/6DEulXU.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-video"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://daojianime.github.io/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://i.imgur.com/VeZhnNU.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">盗计のBlog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-video"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://daojianime.github.io/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">盗计のBlog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/daojiAnime" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="tencent://message/?uin=133397418" rel="external nofollow noreferrer" target="_blank" title="QQ"><i class="fab fa-qq" style="color: #12B7F5;"></i></a><a class="social-icon" href="/assets/img/weixin.jpg" target="_blank" title="微信"><i class="fab fa-weixin" style="color: #07C160;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-rss" style="color: #FFA500;"></i></a><a class="social-icon" href="mailto:daoji.chang@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/posts/41935.html" title="Golang题库（七）"><img class="post-bg" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/features_overview_jg7a.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Golang题库（七）"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/41935.html" title="Golang题库（七）">Golang题库（七）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-27T12:14:45.000Z" title="发表于 2023-06-27 20:14:45">2023-06-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></span></div><div class="content">Golang题库（七）Slice 与 Array, Append()Array数组（Array）是一个由固定长度的特定类型元素组成的序列，一个数组可以由零个或多个元素组成。因其长度的不可变动，数组在Go中很少直接使用。把一个大数组传递给函数会消耗很多内存。一般采用数组的切片 几种初始化方式 123arr1 := [3]int&#123;1, 2, 3&#125;arr2 := [...]int&#123;1, 2, 3&#125;arr3 := [3]int&#123;0:3,1:4&#125;  SliceSlice是一种数据结构，描述与Slice变量本身分开存储的Array的连续部分。 Slice不是Array。Slice描述了Array的一部分。 slice底层是一个struct 123456// runtime/slice.gotype slice struct &#123;    array unsafe.Pointer// 指向数组的指针    len   int    cap  ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/40874.html" title="Golang题库（六）"><img class="post-bg" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/missed_chances_k3cq.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Golang题库（六）"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/40874.html" title="Golang题库（六）">Golang题库（六）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-26T11:17:17.000Z" title="发表于 2023-06-26 19:17:17">2023-06-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></span></div><div class="content">Golang题库（六）✨讲一讲 GMP 模型三个字母的含义  G（Goroutine）：G 就是我们所说的 Go 语言中的协程 Goroutine 的缩写，相当于操作系统中的进程控制块。其中存着 goroutine 的运行时栈信息，CPU 的一些寄存器的值以及执行的函数指令等。 M（Machine）：代表一个操作系统的主线程，对内核级线程的封装，数量对应真实的 CPU 数。一个 M 直接关联一个 os 内核线程，用于执行 G。M 会优先从关联的 P 的本地队列中直接获取待执行的 G。M 保存了 M 自身使用的栈信息、当前正在 M上执行的 G 信息、与之绑定的 P 信息。 P（Processor）：Processor 代表了 M 所需的上下文环境，代表 M 运行 G 所需要的资源。是处理用户级代码逻辑的处理器，可以将其看作一个局部调度器使 go 代码在一个线程上跑。当 P 有任务时，就需要创建或者唤醒一个系统线程来执行它队列里的任务，所以 P 和 M 是相互绑定的。总的来说，P 可以根据实际情况开启协程去工作，它包含了运行 goroutine 的资源，如果线程想运行...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/55219.html" title="Golang题库（五）"><img class="post-bg" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/bug_fixing_oc7a.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Golang题库（五）"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/55219.html" title="Golang题库（五）">Golang题库（五）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-25T13:46:12.000Z" title="发表于 2023-06-25 21:46:12">2023-06-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></span></div><div class="content">Golang题库（五）go 实现不重启热部署根据SIGHUP 信号量根据系统的 SIGHUP 信号量，以此信号量触发进程重启，达到热更新的效果。 热部署我们需要考虑几个能力：  新进程启动成功，老进程不会有资源残留 新进程初始化的过程中，服务不会中断 新进程初始化失败，老进程仍然继续工作 同一时间，只能有一个更新动作执行  监听信号量的方法的环境是在 类 UNIX 系统中，在现在的 UNIX 内核中，允许多个进程同时监听一个端口。在收到 SIGHUP 信号量时，先 fork 出一个新的进程监听端口，同时等待旧进程处理完已经进来的连接，最后杀掉旧进程。 使用air包air包可以实现插件化热更新的方案，集成方便，非常适用于小型项目的开发。 ⭐saas灰度发布介绍灰度发布常见有三种模式金丝雀发布、滚动发布、蓝绿发布。灰度发布主要是更新服务中，通过服务的多节点、多切片进行无感知的服务更新迭代。阿里云、AWS等云平台都已支持灰度发布功能。 实现灰度发布主要是通过网关转发的均衡负载，确保服务更新过程中能够不停机、无感知、可回溯。常见的灰度发布实现方案有Nginx +Lua + Redis...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/5389.html" title="Golang题库（四）"><img class="post-bg" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/cookie_love_ulvn.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Golang题库（四）"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/5389.html" title="Golang题库（四）">Golang题库（四）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-23T12:55:21.000Z" title="发表于 2023-06-23 20:55:21">2023-06-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></span></div><div class="content">Golang题库（四）map取一个key，然后修改这个值，原map数据的值会不会变化？map属于引用类型，所以取一个key，然后修改这个值，原map数据的值会发生变化 向为nil的channel发送数据会怎么样空通道即无缓冲通道。无缓冲通道上的发送操作将会阻塞，直到另一个goroutine在对应的通道上执行接收操作，这时值传送完成，两个goroutine都可以继续执行。相反，如果接收操作先执行，接收方gorountine将阻塞，直到另一个goroutine在同一个通道上发送一个值。 使用无缓冲通道进行的通信导致发送和接收goroutine同步化。因此，无缓冲通道也称为同步通道。当一个值在无缓冲通道上传递时，接收值后发送方goroutine才被再次唤醒。 WaitGroup的坑 Add一个负数如果计数器的值小于0会直接panic  Add在Wait之后调用比如一些子协程开头调用Add结束调用Wait，这些...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/31692.html" title="Golang题库（三）"><img class="post-bg" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Calculator_0evy.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Golang题库（三）"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/31692.html" title="Golang题库（三）">Golang题库（三）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-22T13:06:15.000Z" title="发表于 2023-06-22 21:06:15">2023-06-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></span></div><div class="content">Golang题库（三）同一个协程里面，对无缓冲channel同时发送和接收数据有什么问题 同一个协程里，不能对无缓冲channel同时发送和接收数据，如果这么做会直接报错死锁。 对于一个无缓冲的channel而言，只有不同的协程之间一方发送数据一方接受数据才不会阻塞。channel无缓冲时，发送阻塞直到数据被接收，接收阻塞直到读到数据。 channel和锁的对比作用区别 Channel是用于处理协程中的数据通信问题的，通过编程逻辑设计，可以实现锁的效果。 Mutex是用于控制原子性操作数据安全性，通过加锁和释放确保区间内数据只能有单一协程访问。数据一致性。  两者的用途不同 两者内存占用也不同   channel的应用场景channel用于协程之间数据通信，根据设计能够实现多种功能。   任务超时与取消通过在通道中传递信号，可以实现任务的超时和取消机制。例如，一个 goroutine 可以在执行耗时操作时启动一个定时器，如果操作在指定时间内未完成，可以通过通道发送取消信号给其他 goroutine，从而取消操作。 比如超时处理： 12select &#123;    case...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/30645.html" title="Golang题库（二）"><img class="post-bg" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/process_e90d.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Golang题库（二）"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/30645.html" title="Golang题库（二）">Golang题库（二）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-20T10:44:21.000Z" title="发表于 2023-06-20 18:44:21">2023-06-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></span></div><div class="content">Golang题库（二）数组怎么转集合?无法直接转换，需要通过遍历数组，构造一个map。例如： 12345678func main() &#123;	arr := [5]int&#123;1, 2, 3, 4, 5&#125;	m := make(map[int]int, 5)	for i, v := range arr &#123;		m[i] = v	&#125;	fmt.Println(m)&#125;  ⭐Go的GMP模型?G是Goroutine的缩写，相当于操作系统的进程控制块(process control block)。它包含：函数执行的指令和参数，任务对象，线程上下文切换，字段保护，和字段的寄存器。 M是一个线程，每个M都有一个线程的栈。如果没有给线程的栈分配内存，操作系统会给线程的栈分配默认的内存。当线程的栈制定，M.stack-&gt;G.stack,...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/59343.html" title="Golang题库（一）"><img class="post-bg" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/ninja_e52b.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Golang题库（一）"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/59343.html" title="Golang题库（一）">Golang题库（一）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-19T12:15:43.000Z" title="发表于 2023-06-19 20:15:43">2023-06-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></span></div><div class="content">Golang题库（一）golang里的数组和切片有了解过吗？值传递和引用传递在函数传参中，数组是值传递，切片则是引用传递。即函数内修改数组，外不变，而切片则相反。 逻辑运算数组能比较大小，切片则只能与nil比较。 容量和长度数组是连续地址的储存相同类型元素的序列，初始化容量之后，不可变。 切片是指向数组的拥有相同类型元素的可变长序列，可以扩容和传递，比数组更加灵活。 Go切片(slice)的实现可以在源码包src/runtime/slice.go中找到。在源码中，slice的数据结构定义如下。 12345type slice struct &#123;	array unsafe.Pointer	//指向底层数组的指针	len int					//切片长度	cap...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/20671.html" title="操作系统题库（三）"><img class="post-bg" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/result_5583.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统题库（三）"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/20671.html" title="操作系统题库（三）">操作系统题库（三）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-18T09:18:25.000Z" title="发表于 2023-06-18 17:18:25">2023-06-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></span></div><div class="content">操作系统题库（三）16.如何选择 Linux 操作系统版本？作答 优先选择熟悉的操作系统，然后选择仍然在官方支持的版本。优先选择熟悉的系统可以更好更快的开发业务，选择官方支持的版本能够保持软件源的更新和及时同步安全补丁，同时有更好的社区支持。 按我来说就是CentOS 7。 答案 一般来讲，桌面用户首选 Ubuntu ；服务器首选 RHEL 或 CentOS ，两者中首选 CentOS 。 根据具体要求：  安全性要求较高，则选择 Debian 或者 FreeBSD 。 需要使用数据库高级服务和电子邮件网络应用的用户可以选择 SUSE 。 想要新技术新功能可以选择 Feddora ，Feddora 是 RHEL 和 CentOS 的一个测试版和预发布版本。 【重点】根据现有状况，绝大多数互联网公司选择 CentOS 。现在比较常用的是 7 系列，现在市场占有大概一半左右。另外的原因是 CentOS 更侧重服务器领域，并且无版权约束。  17. 如何规划一台 Linux 主机，步骤是怎样？作答 答案 1、确定机器是做什么用的，比如是做 WEB...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/23750.html" title="操作系统题库（二）"><img class="post-bg" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/social_growth_d0y3.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统题库（二）"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/23750.html" title="操作系统题库（二）">操作系统题库（二）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-17T11:23:22.000Z" title="发表于 2023-06-17 19:23:22">2023-06-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></span></div><div class="content">操作系统题库（二）4.什么是 Linux 内核？作答 Linux内核是操作系统最基础的程序。其中包括设备CPU、GPU、摄像头、USB等驱动，包括文件管理程序、进程调度程序等最基本的底层功能程序。并提供一系列的底层接口，供应用层开发程序，例如视频播放器、浏览器等。 答案 Linux 系统的核心是内核。内核控制着计算机系统上的所有硬件和软件，在必要时分配硬件，并根据需要执行软件。  系统内存管理 应用程序管理 硬件设备管理 文件系统管理  5. Linux 开机启动过程？作答 Linux开机过程实际上是内核程序的启动，启动内存管理程序、进程调度程序。然后进度调度程序会去启动一些预设的自启的第三方应用，通常启动脚本配置在/etc/init.d目录下。 答案 1、主机加电自检，加载 BIOS 硬件信息。  2、读取 MBR 的引导文件(GRUB、LILO)。 3、引导 Linux 内核。 4、运行第一个进程 init (进程号永远为 1 )。 5、进入相应的运行级别。 6、运行终端，输入用户名和密码。  6....</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/52412.html" title="操作系统题库（一）"><img class="post-bg" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/organize_photos_d5nr.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统题库（一）"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/52412.html" title="操作系统题库（一）">操作系统题库（一）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-16T13:22:32.000Z" title="发表于 2023-06-16 21:22:32">2023-06-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></span></div><div class="content">操作系统题库（一）1.Linux常用命令作答 1cd ls top free df du awk sed vi zip/unzip tar gzip cp mv rm grep cat echo export ssh  这些都是我比较常用的命令。 答案 常用命令  目录相关 find 命令 ls 命令 pwd 命令 cd 命令   mkdir 命令 df 命令 rm 命令 mv 命令 cp 命令 mount 命令 cat 命令 tail 命令 less 命令   通用命令 grep 命令 sed 命令 awk 命令 vim 命令 diff 命令 sort 命令 xargs 命令   压缩相关 tar 命令 gzip 命令 bzip2 命令 unzip 命令   系统命令 export 命令 kill 命令 passwd 命令 su 命令 yum 命令 rpm 命令 shutdown 命令 crontab 命令 service 命令 chmod 命令 chown 命令 uname 命令 whereis 命令 locate 命令 man 命令   网络相关 ifconfig...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#content-inner">7</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "/img/loading.gif" data-lazy-src="https://i.imgur.com/6DEulXU.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Daoji</div><div class="author-info-description">我在这里记录我的生活，记录我的学习，知识的积累使我自信和满足，感情的沉积使我成长和强大。我的博客只记录我想记录的东西。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/daojiAnime" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="tencent://message/?uin=133397418" rel="external nofollow noreferrer" target="_blank" title="QQ"><i class="fab fa-qq" style="color: #12B7F5;"></i></a><a class="social-icon" href="/assets/img/weixin.jpg" target="_blank" title="微信"><i class="fab fa-weixin" style="color: #07C160;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-rss" style="color: #FFA500;"></i></a><a class="social-icon" href="mailto:daoji.chang@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/252.html" title="Agent多工具超长上下文处理方案"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Bus_stop_8ib0.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Agent多工具超长上下文处理方案"/></a><div class="content"><a class="title" href="/posts/252.html" title="Agent多工具超长上下文处理方案">Agent多工具超长上下文处理方案</a><time datetime="2025-05-11T14:43:15.000Z" title="发表于 2025-05-11 22:43:15">2025-05-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/35873.html" title="beartype 运行时入参校验"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/reminders_697p.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="beartype 运行时入参校验"/></a><div class="content"><a class="title" href="/posts/35873.html" title="beartype 运行时入参校验">beartype 运行时入参校验</a><time datetime="2025-03-25T23:08:07.000Z" title="发表于 2025-03-26 07:08:07">2025-03-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/25614.html" title="AI断片了吗？探秘大模型在超长对话中的理解能力"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/fingerprint_swrc.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI断片了吗？探秘大模型在超长对话中的理解能力"/></a><div class="content"><a class="title" href="/posts/25614.html" title="AI断片了吗？探秘大模型在超长对话中的理解能力">AI断片了吗？探秘大模型在超长对话中的理解能力</a><time datetime="2025-03-10T00:02:00.000Z" title="发表于 2025-03-10 08:02:00">2025-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/33210.html" title="个人免签方案"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/creative_thinking_b3bc.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="个人免签方案"/></a><div class="content"><a class="title" href="/posts/33210.html" title="个人免签方案">个人免签方案</a><time datetime="2025-01-16T02:33:24.000Z" title="发表于 2025-01-16 10:33:24">2025-01-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/60917.html" title="GPT学习分享"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/High_five_u364.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GPT学习分享"/></a><div class="content"><a class="title" href="/posts/60917.html" title="GPT学习分享">GPT学习分享</a><time datetime="2024-03-07T03:14:02.000Z" title="发表于 2024-03-07 11:14:02">2024-03-07</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/AI/"><span class="card-category-list-name">AI</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Docker/"><span class="card-category-list-name">Docker</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Python/"><span class="card-category-list-name">Python</span><span class="card-category-list-count">7</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Python/fastapi/"><span class="card-category-list-name">fastapi</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Python/logging/"><span class="card-category-list-name">logging</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/"><span class="card-category-list-name">前端</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/"><span class="card-category-list-name">未分类</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"><span class="card-category-list-name">面试题</span><span class="card-category-list-count">13</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/log/" style="font-size: 1.1em; color: #999">log</a> <a href="/tags/%E4%B8%8D%E4%B8%BA%E4%BA%BA%E7%9F%A5/" style="font-size: 1.1em; color: #999">不为人知</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 1.1em; color: #999">爬虫</a> <a href="/tags/Go/" style="font-size: 1.35em; color: #99a3b1">Go</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 1.4em; color: #99a5b6">面试题</a> <a href="/tags/Vue/" style="font-size: 1.1em; color: #999">Vue</a> <a href="/tags/Mac%E9%AA%8C%E8%AF%81%E7%AE%97%E6%B3%95/" style="font-size: 1.1em; color: #999">Mac验证算法</a> <a href="/tags/fastapi/" style="font-size: 1.15em; color: #999b9e">fastapi</a> <a href="/tags/blog/" style="font-size: 1.3em; color: #99a1ac">blog</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.2em; color: #999da3">前端</a> <a href="/tags/Android/" style="font-size: 1.25em; color: #999fa7">Android</a> <a href="/tags/WebRTC/" style="font-size: 1.1em; color: #999">WebRTC</a> <a href="/tags/%E6%94%AF%E4%BB%98%E6%8E%A5%E5%8F%A3/" style="font-size: 1.15em; color: #999b9e">支付接口</a> <a href="/tags/Python/" style="font-size: 1.5em; color: #99a9bf">Python</a> <a href="/tags/SQLAlchemy/" style="font-size: 1.15em; color: #999b9e">SQLAlchemy</a> <a href="/tags/webrtc/" style="font-size: 1.1em; color: #999">webrtc</a> <a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 1.1em; color: #999">杂项</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 1.15em; color: #999b9e">随笔</a> <a href="/tags/Java/" style="font-size: 1.1em; color: #999">Java</a> <a href="/tags/alembic/" style="font-size: 1.1em; color: #999">alembic</a> <a href="/tags/Web/" style="font-size: 1.1em; color: #999">Web</a> <a href="/tags/Linux/" style="font-size: 1.45em; color: #99a7ba">Linux</a> <a href="/tags/%E6%83%85%E6%84%9F%E6%80%9D%E7%BB%AA/" style="font-size: 1.1em; color: #999">情感思绪</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 1.2em; color: #999da3">人工智能</a> <a href="/tags/Hexo/" style="font-size: 1.1em; color: #999">Hexo</a> <a href="/tags/Swarm/" style="font-size: 1.1em; color: #999">Swarm</a> <a href="/tags/logging/" style="font-size: 1.1em; color: #999">logging</a> <a href="/tags/%E9%9B%86%E7%BE%A4/" style="font-size: 1.1em; color: #999">集群</a> <a href="/tags/Docker/" style="font-size: 1.1em; color: #999">Docker</a> <a href="/tags/pydantic/" style="font-size: 1.1em; color: #999">pydantic</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/"
+            title="查看更多">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/05/">
+            <span class="card-archive-list-date">
+              五月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/03/">
+            <span class="card-archive-list-date">
+              三月 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/01/">
+            <span class="card-archive-list-date">
+              一月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/03/">
+            <span class="card-archive-list-date">
+              三月 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/02/">
+            <span class="card-archive-list-date">
+              二月 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/07/">
+            <span class="card-archive-list-date">
+              七月 2023
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/06/">
+            <span class="card-archive-list-date">
+              六月 2023
+            </span>
+            <span class="card-archive-list-count">10</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/03/">
+            <span class="card-archive-list-date">
+              三月 2023
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">69</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-05-11T14:45:01.229Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By Daoji</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo 5.4.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  fetch('https://v1.hitokoto.cn')
+    .then(response => response.json())
+    .then(data => {
+      if (true) {
+        const from = '出自 ' + data.from
+        const sub = []
+        sub.unshift(data.hitokoto, from)
+        typedJSFn.init(sub)
+      } else {
+        document.getElementById('subtitle').textContent = data.hitokoto
+      }
+    })
+}
+typedJSFn.run(subtitleType)
+</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

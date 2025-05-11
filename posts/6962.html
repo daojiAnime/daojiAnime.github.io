@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>vue中keep-alive组件的使用 | 盗计のBlog</title><meta name="author" content="Daoji,daoji.chang@gmail.com"><meta name="copyright" content="Daoji"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言&amp;emsp; 在开发中经常有从列表跳到详情页，然后返回详情页的时候需要缓存列表页的状态（比如滚动位置信息），这个时候就需要保存状态，要缓存状态；vue 里提供了 keep-alive 组件用来缓存状态。 &amp;emsp; 可以用以下几种方案解决问题； 一、利用 meta 标签直接上代码, 1、首先在路由中的 meta 标签中记录 keepAlive 的属性为 true 12345678  path">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue中keep-alive组件的使用">
+<meta property="og:url" content="https://www.yunjiguan.com/posts/6962.html">
+<meta property="og:site_name" content="盗计のBlog">
+<meta property="og:description" content="前言&amp;emsp; 在开发中经常有从列表跳到详情页，然后返回详情页的时候需要缓存列表页的状态（比如滚动位置信息），这个时候就需要保存状态，要缓存状态；vue 里提供了 keep-alive 组件用来缓存状态。 &amp;emsp; 可以用以下几种方案解决问题； 一、利用 meta 标签直接上代码, 1、首先在路由中的 meta 标签中记录 keepAlive 的属性为 true 12345678  path">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/late_at_night_23xk.svg">
+<meta property="article:published_time" content="2020-06-30T03:43:08.000Z">
+<meta property="article:modified_time" content="2025-05-11T14:41:24.551Z">
+<meta property="article:author" content="Daoji">
+<meta property="article:tag" content="Vue">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/late_at_night_23xk.svg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "vue中keep-alive组件的使用",
+  "url": "https://www.yunjiguan.com/posts/6962.html",
+  "image": "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/late_at_night_23xk.svg",
+  "datePublished": "2020-06-30T03:43:08.000Z",
+  "dateModified": "2025-05-11T14:41:24.551Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Daoji",
+      "url": "https://www.yunjiguan.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/assets/favicon.ico"><link rel="canonical" href="https://www.yunjiguan.com/posts/6962.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'vue中keep-alive组件的使用',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/daojiAnime/cdn/css/blog/background.css"><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="盗计のBlog" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load', preloader.endLoading)
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="web_bg" style="background-color: rgb(255, 255, 255);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "/img/loading.gif" data-lazy-src="https://i.imgur.com/6DEulXU.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-video"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://daojianime.github.io/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/late_at_night_23xk.svg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">盗计のBlog</span></a><a class="nav-page-title" href="/"><span class="site-name">vue中keep-alive组件的使用</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-video"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://daojianime.github.io/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">vue中keep-alive组件的使用</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-06-30T03:43:08.000Z" title="发表于 2020-06-30 11:43:08">2020-06-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-05-11T14:41:24.551Z" title="更新于 2025-05-11 22:41:24">2025-05-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp; 在开发中经常有从列表跳到详情页，然后返回详情页的时候需要缓存列表页的状态（比如滚动位置信息），这个时候就需要保存状态，要缓存状态；vue 里提供了 keep-alive 组件用来缓存状态。 &emsp; 可以用以下几种方案解决问题；</p>
+<h2 id="一、利用-meta-标签"><a href="#一、利用-meta-标签" class="headerlink" title="一、利用 meta 标签"></a>一、利用 meta 标签</h2><p>直接上代码, 1、首先在路由中的 meta 标签中记录 keepAlive 的属性为 true</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  <span class="attr">path</span>: <span class="string">&#x27;/classify&#x27;</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;classify&#x27;</span>,</span><br><span class="line">  <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&#x27;@/views/classify/classify.vue&#x27;</span>),</span><br><span class="line">  <span class="attr">meta</span>: &#123;</span><br><span class="line">    <span class="attr">title</span>: <span class="string">&#x27;雷石淘券券&#x27;</span>,</span><br><span class="line">    <span class="attr">keepAlive</span>: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>2、在创建 router 实例的时候加上 scrollBehavior 方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> <span class="title class_">Router</span>(&#123;</span><br><span class="line">  <span class="attr">mode</span>: <span class="string">&quot;history&quot;</span>,</span><br><span class="line">  <span class="attr">base</span>: process.<span class="property">env</span>.<span class="property">BASE_URL</span>,</span><br><span class="line">  routes,</span><br><span class="line">  <span class="title function_">scrollBehavior</span>(<span class="params">to, <span class="keyword">from</span>, savedPosition</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (savedPosition) &#123;</span><br><span class="line">      <span class="keyword">return</span> savedPosition;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="attr">x</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">y</span>: <span class="number">0</span></span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>3/在需要缓存的 router-view 组件上包裹 keep-alive 组件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;keep-alive&gt;</span><br><span class="line">   &lt;router-view v-if=&#x27;$route.meta.keepAlive&#x27;&gt;&lt;/router-view&gt;</span><br><span class="line">&lt;/keep-alive&gt;</span><br><span class="line">&lt;router-view v-if=&quot;!$route.meta.keepAlive&quot;&gt;&lt;/router-view&gt;</span><br></pre></td></tr></table></figure>
+
+<p>4、由于有些情况下需要缓存有些情况下不需要缓存，可以在缓存的组件里的路由钩子函数中做判断</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">beforeRouteLeave</span> (to, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">loading</span> = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">if</span> (to.<span class="property">path</span> === <span class="string">&#x27;/goods_detail&#x27;</span>) &#123;</span><br><span class="line">      <span class="keyword">from</span>.<span class="property">meta</span>.<span class="property">keepAlive</span> = <span class="literal">true</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">from</span>.<span class="property">meta</span>.<span class="property">keepAlive</span> = <span class="literal">false</span></span><br><span class="line">     <span class="comment">// this.$destroy()</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">next</span>()</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;支持可以支持组件的缓存，但是这种方法有 bug，首先第一次打开页面的时候并不缓存，即第一次从列表页跳到详情页，再回来并没有缓存，后面在进入详情页才会被缓存 &emsp;并且只会缓存第一次进入的状态，不会重新请求数据，如果当页面 A 选中一个分类跳到 B 页面，再从 B 列表页面跳往详情页，此时会缓存这个状态，并且以后再从 A 页面的其他分类跳到 B 页面都不会重新被缓存，以至于每次从详情页返回 B 页面都会跳第一次缓存的状态；当你的项目只有一种状态需要缓存，可以考虑使用这种方法</p>
+<h2 id="二、-使用-include、exclude-属性和-beforeRouteEnter-钩子函数"><a href="#二、-使用-include、exclude-属性和-beforeRouteEnter-钩子函数" class="headerlink" title="二、 使用 include、exclude 属性和 beforeRouteEnter 钩子函数"></a>二、 使用 include、exclude 属性和 beforeRouteEnter 钩子函数</h2><p>&emsp;首先介绍一下 include 和 exclude vue 文档(<a target="_blank" rel="noopener external nofollow noreferrer" href="https://cn.vuejs.org/v2/api/#keep-alive">https://cn.vuejs.org/v2/api/</a>) 是在 vue2.0 以后新增的属性 include 是需要缓存的组件； exclude 是除了某些组件都缓存； include 和 exclude 属性允许组件有条件地缓存。二者都可以用逗号分隔字符串、正则表达式或一个数组来表示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 逗号分隔字符串 --&gt;</span><br><span class="line">&lt;keep-alive include=&quot;a,b&quot;&gt;</span><br><span class="line">  &lt;component :is=&quot;view&quot;&gt;&lt;/component&gt;</span><br><span class="line">&lt;/keep-alive&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 正则表达式 (使用 `v-bind`) --&gt;</span><br><span class="line">&lt;keep-alive :include=&quot;/a|b/&quot;&gt;</span><br><span class="line">  &lt;component :is=&quot;view&quot;&gt;&lt;/component&gt;</span><br><span class="line">&lt;/keep-alive&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 数组 (使用 `v-bind`) --&gt;</span><br><span class="line">&lt;keep-alive :include=&quot;[&#x27;a&#x27;, &#x27;b&#x27;]&quot;&gt;</span><br><span class="line">  &lt;component :is=&quot;view&quot;&gt;&lt;/component&gt;</span><br><span class="line">&lt;/keep-alive&gt;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;匹配首先检查组件自身的 name 选项，如果 name 选项不可用，则匹配它的局部注册名称 (父组件 components 选项的键值)。匿名组件不能被匹配。</p>
+<p>&emsp;max 只在 2.5.0 新增，最多可以缓存多少组件实例。一旦这个数字达到了，在新实例被创建之前，已缓存组件中最久没有被访问的实例会被销毁掉。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;keep-alive :max=&quot;10&quot;&gt;</span><br><span class="line">  &lt;component :is=&quot;view&quot;&gt;&lt;/component&gt;</span><br><span class="line">&lt;/keep-alive&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="activated-与-deactivated。"><a href="#activated-与-deactivated。" class="headerlink" title="activated 与 deactivated。"></a>activated 与 deactivated。</h5><p>&emsp;简单介绍一下在被 keep-alive 包含的组件/路由中，会多出两个生命周期的钩子:activated 与 deactivated。文档：在 2.2.0 及其更高版本中，activated 和 deactivated 将会在 树内的所有嵌套组件中触发。 activated 在组件第一次渲染时会被调用，之后在每次缓存组件被激活时调用。 <strong>activated 调用时机：</strong> 第一次进入缓存路由/组件，在 mounted 后面，beforeRouteEnter 守卫传给 next 的回调函数之前调用：</p>
+<p>beforeMount=&gt; 如果你是从别的路由/组件进来(组件销毁 destroyed/或离开缓存 deactivated)=&gt;mounted=&gt; activated 进入缓存组件 =&gt; 执行 beforeRouteEnter 回调</p>
+<p>因为组件被缓存了，再次进入缓存路由/组件时，不会触发这些钩子：// beforeCreate created beforeMount mounted 都不会触发。</p>
+<p>deactivated：组件被停用(离开路由)时调用使用了 keep-alive 就不会调用 beforeDestroy(组件销毁前钩子)和 destroyed(组件销毁)，因为组件没被销毁，被缓存起来了。这个钩子可以看作 beforeDestroy 的替代，如果你缓存了组件，要在组件销毁的的时候做一些事情，你可以放在这个钩子里。如果你离开了路由，会依次触发：</p>
+<p>组件内的离开当前路由钩子 beforeRouteLeave =&gt; 路由前置守卫 beforeEach =&gt;全局后置钩子 afterEach =&gt; deactivated 离开缓存组件 =&gt; activated 进入缓存组件(如果你进入的也是缓存路由</p>
+<p><strong>项目中缓存使用方法：</strong> 1、在创建的 router 对象上加 scrollBehavior 方法，同上； 2、将需要缓存的组件加在 include 属性里</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;keep-alive :include=&quot;[&#x27;home&#x27;, &#x27;classify&#x27;, &#x27;search&#x27;]&quot;&gt;</span><br><span class="line">      &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">&lt;/keep-alive&gt;</span><br></pre></td></tr></table></figure>
+
+<p>3、在 beforeRouteEnter 的 next 回掉函数里，对返回 A 页面不需要缓存的的情况初始化，即将本来需要写在 created 里的东西写在这里；注意一定要将所有的需要初始化的数据要写一遍，不然会有 bug;所以不太推荐</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">beforeRouteEnter</span> (to, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">    <span class="title function_">next</span>(<span class="function"><span class="params">vm</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 通过 `vm` 访问组件实例</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">from</span>.<span class="property">path</span> !== <span class="string">&#x27;/goods_detail&#x27;</span>) &#123; <span class="comment">// 一定是从A进到B页面才刷新</span></span><br><span class="line">        vm.<span class="property">titleText</span> = vm.<span class="property">$route</span>.<span class="property">query</span>.<span class="property">name</span></span><br><span class="line">        vm.<span class="property">categoryUpper</span> = vm.<span class="property">$route</span>.<span class="property">query</span>.<span class="property">categoryUpper</span></span><br><span class="line">        vm.<span class="property">goods</span> = []</span><br><span class="line">        vm.<span class="property">page</span> = <span class="number">1</span></span><br><span class="line">        vm.<span class="property">catsIndex</span> = <span class="number">0</span></span><br><span class="line">        vm.<span class="property">is_search</span> = <span class="literal">false</span></span><br><span class="line">        vm.<span class="title function_">getCats2</span>()<span class="comment">// 是本来写在created里面的各种</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、使用-include、exclude-属性和-beforeRouteLeave-钩子函数和-vuex-推荐使用"><a href="#三、使用-include、exclude-属性和-beforeRouteLeave-钩子函数和-vuex-推荐使用" class="headerlink" title="三、使用 include、exclude 属性和 beforeRouteLeave 钩子函数和 vuex (推荐使用)"></a>三、使用 include、exclude 属性和 beforeRouteLeave 钩子函数和 vuex (推荐使用)</h2><p>&emsp;第三种方法和第二种相似，不同的地方在于，将需要缓存的组件保存到全局变量，可以在路由的钩子函数里灵活的控制哪些组件需要缓存，那些不需要缓存；跟第二种方法相比，不需要每次再重新初始化数据，但是需要在 vuex 中保存数据；上代码 1、在创建的 router 对象上加 scrollBehavior 方法，同上； 2、将需要缓存的组件加在 include 属性里</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;keep-alive :include=&quot;catch_components&quot;&gt;</span><br><span class="line">      &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">&lt;/keep-alive&gt;</span><br></pre></td></tr></table></figure>
+
+<p>3、在 store 里加入需要缓存的的组件的变量名，和相应的方法；</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> <span class="title class_">Vuex</span>.<span class="title class_">Store</span>(&#123;</span><br><span class="line">  <span class="attr">state</span>: &#123;</span><br><span class="line">    <span class="attr">catch_components</span>: []</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">mutations</span>: &#123;</span><br><span class="line">    <span class="title function_">GET_CATCHE_COMPONENTS</span>(<span class="params">state, data</span>) &#123;</span><br><span class="line">      state.<span class="property">catch_components</span> = data;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>3、在 beforeRouteLeave 钩子函数里控制需要缓存的组件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">beforeRouteLeave</span> (to, <span class="keyword">from</span>, next) &#123; <span class="comment">//要在离开该组件的时候控制需要缓存的组件，否则将出现第一次不缓存的情况</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">busy</span> = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">if</span> (to.<span class="property">path</span> === <span class="string">&#x27;/goods_detail&#x27;</span>) &#123; <span class="comment">// 去往详情页的时候需要缓存组件，其他情况下不需要缓存</span></span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">$store</span>.<span class="title function_">commit</span>(<span class="string">&#x27;GET_CATCHE_COMPONENTS&#x27;</span>, [<span class="string">&#x27;home&#x27;</span>])</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">$store</span>.<span class="title function_">commit</span>(<span class="string">&#x27;GET_CATCHE_COMPONENTS&#x27;</span>, [])</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">next</span>()</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;以上是在 vue 项目里使用 keep-alive 的情况，网上有一些配合 this.$destroy()方法使用的，但我在使用过程中验证了，并不好用；如果有多个状态，并且有选择的缓存，那么第三个方法是最好的选择；如果你不想用 vuex 使用第二种方法也可以，但需要注意初始化数据。</p>
+<p>&emsp;另外，在我们的项目中遇到路由相同但参数不同的情况组件被复用，不更新的问题，vue 官方给出了 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://router.vuejs.org/zh/guide/essentials/dynamic-matching.html#%E5%93%8D%E5%BA%94%E8%B7%AF%E7%94%B1%E5%8F%82%E6%95%B0%E7%9A%84%E5%8F%98%E5%8C%96">响应路由参数变化</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">watch</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;$route&#x27;</span> (to, <span class="keyword">from</span>) &#123;</span><br><span class="line">      <span class="variable language_">document</span>.<span class="property">title</span> = <span class="variable language_">this</span>.<span class="property">$route</span>.<span class="property">query</span>.<span class="property">name</span></span><br><span class="line">      <span class="variable language_">this</span>.<span class="title function_">getDefault</span>() <span class="comment">//根据参数数据响应</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.yunjiguan.com">Daoji</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.yunjiguan.com/posts/6962.html">https://www.yunjiguan.com/posts/6962.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://www.yunjiguan.com" target="_blank">盗计のBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Vue/">Vue</a></div><div class="post-share"><div class="social-share" data-image="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/late_at_night_23xk.svg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/30418.html" title="解决git/github下载速度缓慢的问题总汇"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/bookmarks_r6up.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">解决git/github下载速度缓慢的问题总汇</div></div><div class="info-2"><div class="info-item-1">官网下载 Git 时，速度几乎是超不过 20KB，解决方法有很多，这里介绍几个简单粗暴的方法。这里使用 windows 系统作为演示，其他系统对号入座即可。 方法一：淘宝镜像淘宝有一个镜像的网站 可以提供下载：https://npm.taobao.org/mirrors/git-for-windows/ 点击上方链接，往下拉就会看到相应的版本，第一个最新版本，后面的是历史版本。 方法二：利用码云来克隆 GitHub 项目，操作简单而且有效1、首先需要一个码云账户，如果你没有，这个是官网地址——https://gitee.com/ 。 2、如果没有账户,需要注册一个账户。注册使用手机号就可以，一分钟的事。 3、新建一个仓库,选择导入已有仓库。 4、找到你的 GitHub 网站，选择 clone 下的网址，复制。 5、在上面链接中输入我们刚刚复制的要导入的 github 项目地址，然后点击创建。 6、等待码云克隆项目，大概 1-3 分钟（由你的网络和要克隆项目大小决定）。 7、克隆完成，下载我们码云上的项目（这个就是你正常下载速度了）。 8、正常下载项目（原谅我的超级慢校园网速）。...</div></div></div></a><a class="pagination-related" href="/posts/2984.html" title="Google Authoritarian/谷歌身份验证器原理"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/night-min.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Google Authoritarian/谷歌身份验证器原理</div></div><div class="info-2"><div class="info-item-1"> TOTP算法(Time-based One-time Password algorithm)是一种从共享密钥和当前时间计算一次性密码的算法。 它已被采纳为Internet工程任务组标准RFC 6238，是Initiative for Open Authentication（OATH）的基石，并被用于许多双因素身份验证系统。 TOTP是基于散列的消息认证码（HMAC）的示例。 它使用加密哈希函数将密钥与当前时间戳组合在一起以生成一次性密码。 由于网络延迟和不同步时钟可能导致密码接收者必须尝试一系列可能的时间来进行身份验证，因此时间戳通常以30秒的间隔增加，从而减少了潜在的搜索空间。  TOTP算法使用场景&emsp;&emsp;TOTP算法的使用场景可以有动态口令认证、前后端接口认证等，TOTP算法需要客户端和服务端保持时钟一致(基于UTC时间) 适用场景 服务器登录动态密码验证 公司VPN登录双因素验证 银行转账动态密码 网银、网络游戏的实体动态口令牌 等基于时间有效性验证的应用场景  TOTP的基本原理TOTP计算公式1TOTP(K, TC) =...</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "/img/loading.gif" data-lazy-src="https://i.imgur.com/6DEulXU.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Daoji</div><div class="author-info-description">我在这里记录我的生活，记录我的学习，知识的积累使我自信和满足，感情的沉积使我成长和强大。我的博客只记录我想记录的东西。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/daojiAnime" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="tencent://message/?uin=133397418" rel="external nofollow noreferrer" target="_blank" title="QQ"><i class="fab fa-qq" style="color: #12B7F5;"></i></a><a class="social-icon" href="/assets/img/weixin.jpg" target="_blank" title="微信"><i class="fab fa-weixin" style="color: #07C160;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-rss" style="color: #FFA500;"></i></a><a class="social-icon" href="mailto:daoji.chang@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%88%A9%E7%94%A8-meta-%E6%A0%87%E7%AD%BE"><span class="toc-number">2.</span> <span class="toc-text">一、利用 meta 标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81-%E4%BD%BF%E7%94%A8-include%E3%80%81exclude-%E5%B1%9E%E6%80%A7%E5%92%8C-beforeRouteEnter-%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">二、 使用 include、exclude 属性和 beforeRouteEnter 钩子函数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#activated-%E4%B8%8E-deactivated%E3%80%82"><span class="toc-number">3.0.0.1.</span> <span class="toc-text">activated 与 deactivated。</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E4%BD%BF%E7%94%A8-include%E3%80%81exclude-%E5%B1%9E%E6%80%A7%E5%92%8C-beforeRouteLeave-%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0%E5%92%8C-vuex-%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">三、使用 include、exclude 属性和 beforeRouteLeave 钩子函数和 vuex (推荐使用)</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/252.html" title="Agent多工具超长上下文处理方案"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Bus_stop_8ib0.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Agent多工具超长上下文处理方案"/></a><div class="content"><a class="title" href="/posts/252.html" title="Agent多工具超长上下文处理方案">Agent多工具超长上下文处理方案</a><time datetime="2025-05-11T14:43:15.000Z" title="发表于 2025-05-11 22:43:15">2025-05-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/35873.html" title="beartype 运行时入参校验"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/reminders_697p.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="beartype 运行时入参校验"/></a><div class="content"><a class="title" href="/posts/35873.html" title="beartype 运行时入参校验">beartype 运行时入参校验</a><time datetime="2025-03-25T23:08:07.000Z" title="发表于 2025-03-26 07:08:07">2025-03-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/25614.html" title="AI断片了吗？探秘大模型在超长对话中的理解能力"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/fingerprint_swrc.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI断片了吗？探秘大模型在超长对话中的理解能力"/></a><div class="content"><a class="title" href="/posts/25614.html" title="AI断片了吗？探秘大模型在超长对话中的理解能力">AI断片了吗？探秘大模型在超长对话中的理解能力</a><time datetime="2025-03-10T00:02:00.000Z" title="发表于 2025-03-10 08:02:00">2025-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/33210.html" title="个人免签方案"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/creative_thinking_b3bc.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="个人免签方案"/></a><div class="content"><a class="title" href="/posts/33210.html" title="个人免签方案">个人免签方案</a><time datetime="2025-01-16T02:33:24.000Z" title="发表于 2025-01-16 10:33:24">2025-01-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/60917.html" title="GPT学习分享"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/High_five_u364.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GPT学习分享"/></a><div class="content"><a class="title" href="/posts/60917.html" title="GPT学习分享">GPT学习分享</a><time datetime="2024-03-07T03:14:02.000Z" title="发表于 2024-03-07 11:14:02">2024-03-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By Daoji</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo 5.4.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://daoji-twikoo.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://daoji-twikoo.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

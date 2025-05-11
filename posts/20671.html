@@ -1,0 +1,664 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>操作系统题库（三） | 盗计のBlog</title><meta name="author" content="Daoji,daoji.chang@gmail.com"><meta name="copyright" content="Daoji"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="操作系统题库（三）16.如何选择 Linux 操作系统版本？作答 优先选择熟悉的操作系统，然后选择仍然在官方支持的版本。优先选择熟悉的系统可以更好更快的开发业务，选择官方支持的版本能够保持软件源的更新和及时同步安全补丁，同时有更好的社区支持。 按我来说就是CentOS 7。 答案 一般来讲，桌面用户首选 Ubuntu ；服务器首选 RHEL 或 CentOS ，两者中首选 CentOS 。 根据具">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统题库（三）">
+<meta property="og:url" content="https://www.yunjiguan.com/posts/20671.html">
+<meta property="og:site_name" content="盗计のBlog">
+<meta property="og:description" content="操作系统题库（三）16.如何选择 Linux 操作系统版本？作答 优先选择熟悉的操作系统，然后选择仍然在官方支持的版本。优先选择熟悉的系统可以更好更快的开发业务，选择官方支持的版本能够保持软件源的更新和及时同步安全补丁，同时有更好的社区支持。 按我来说就是CentOS 7。 答案 一般来讲，桌面用户首选 Ubuntu ；服务器首选 RHEL 或 CentOS ，两者中首选 CentOS 。 根据具">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/result_5583.svg">
+<meta property="article:published_time" content="2023-06-18T09:18:25.000Z">
+<meta property="article:modified_time" content="2025-05-11T14:41:24.552Z">
+<meta property="article:author" content="Daoji">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="面试题">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/result_5583.svg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "操作系统题库（三）",
+  "url": "https://www.yunjiguan.com/posts/20671.html",
+  "image": "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/result_5583.svg",
+  "datePublished": "2023-06-18T09:18:25.000Z",
+  "dateModified": "2025-05-11T14:41:24.552Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Daoji",
+      "url": "https://www.yunjiguan.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/assets/favicon.ico"><link rel="canonical" href="https://www.yunjiguan.com/posts/20671.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '操作系统题库（三）',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/daojiAnime/cdn/css/blog/background.css"><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="盗计のBlog" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load', preloader.endLoading)
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="web_bg" style="background-color: rgb(255, 255, 255);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "/img/loading.gif" data-lazy-src="https://i.imgur.com/6DEulXU.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-video"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://daojianime.github.io/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/result_5583.svg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">盗计のBlog</span></a><a class="nav-page-title" href="/"><span class="site-name">操作系统题库（三）</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-video"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://daojianime.github.io/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">操作系统题库（三）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-06-18T09:18:25.000Z" title="发表于 2023-06-18 17:18:25">2023-06-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-05-11T14:41:24.552Z" title="更新于 2025-05-11 22:41:24">2025-05-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="操作系统题库（三）"><a href="#操作系统题库（三）" class="headerlink" title="操作系统题库（三）"></a>操作系统题库（三）</h1><h2 id="16-如何选择-Linux-操作系统版本？"><a href="#16-如何选择-Linux-操作系统版本？" class="headerlink" title="16.如何选择 Linux 操作系统版本？"></a>16.如何选择 Linux 操作系统版本？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p>优先选择熟悉的操作系统，然后选择仍然在官方支持的版本。优先选择熟悉的系统可以更好更快的开发业务，选择官方支持的版本能够保持软件源的更新和及时同步安全补丁，同时有更好的社区支持。</p>
+<p>按我来说就是CentOS 7。</p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p>一般来讲，桌面用户首选 Ubuntu ；服务器首选 RHEL 或 CentOS ，两者中首选 CentOS 。</p>
+<p>根据具体要求：</p>
+<ul>
+<li>安全性要求较高，则选择 Debian 或者 FreeBSD 。</li>
+<li>需要使用数据库高级服务和电子邮件网络应用的用户可以选择 SUSE 。</li>
+<li>想要新技术新功能可以选择 Feddora ，Feddora 是 RHEL 和 CentOS 的一个测试版和预发布版本。</li>
+<li>【重点】<strong>根据现有状况，绝大多数互联网公司选择 CentOS 。现在比较常用的是 7 系列，现在市场占有大概一半左右。另外的原因是 CentOS 更侧重服务器领域，并且无版权约束</strong>。</li>
+</ul>
+<h2 id="17-如何规划一台-Linux-主机，步骤是怎样？"><a href="#17-如何规划一台-Linux-主机，步骤是怎样？" class="headerlink" title="17. 如何规划一台 Linux 主机，步骤是怎样？"></a>17. 如何规划一台 Linux 主机，步骤是怎样？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p>1、确定机器是做什么用的，比如是做 WEB 、DB、还是游戏服务器。</p>
+<blockquote>
+<p>不同的用途，机器的配置会有所不同。</p>
+</blockquote>
+<ul>
+<li>2、确定好之后，就要定系统需要怎么安装，默认安装哪些系统、分区怎么做。</li>
+<li>3、需要优化系统的哪些参数，需要创建哪些用户等等的。</li>
+</ul>
+<h2 id="⭐❤️😘✨18-请问当用户反馈网站访问慢，你会如何处理？"><a href="#⭐❤️😘✨18-请问当用户反馈网站访问慢，你会如何处理？" class="headerlink" title="⭐❤️😘✨18.请问当用户反馈网站访问慢，你会如何处理？"></a>⭐❤️😘✨18.请问当用户反馈网站访问慢，你会如何处理？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p>问题排查：</p>
+<ol>
+<li>排查物理资源是否足够，前提是有资源监控（通常我的服务器都会在业务场景上部署资源监控程序），检查带宽、CPU负载、内存、磁盘空间和读写速度这些资源是否足够。</li>
+<li>排查web反代程序（如Nginx、Caddy、Traefik）配置是否正确。</li>
+<li>排查web程序并发是否达到上线前的压测（QPS、TPS）均值，合理的上线流程需要做好压测，估计并发量。</li>
+<li>做CDN测试，通常网络质量也是影响用户体验的关键数值。</li>
+<li>检测是否有洪水攻击、DDoS、CC，可能存在竞业攻击或者恶意攻击。</li>
+</ol>
+<p>性能优化：</p>
+<ol>
+<li>套CDN，做静态资源的多节点缓存。</li>
+<li>nginx做前端静态资源的压缩（gzip、<em>brotli</em>压缩算法支持）</li>
+<li>前后端分离，前端静态资源设计localstore缓存，减少不必要的网络请求</li>
+<li>后端做合并请求，减少请求数</li>
+<li>增加缓存中间件的设计，使用内存数据库(如redis)，将一些频繁请求又不常变化的数据缓存，提升IO性能。</li>
+<li>增加硬件资源（带宽、CPU、服务器集群等）</li>
+<li>前端做异步加载，一些数据量比较大的请求，使用Ajax</li>
+<li>后端将一些频繁查询数据库的接口，做数据缓存</li>
+<li>后端将一些计算量比较大却不会变动的聚合数据，做磁盘缓存</li>
+</ol>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p><strong>有哪些方面的因素会导致网站网站访问慢？</strong></p>
+<ul>
+<li><p>1、服务器出口带宽不够用</p>
+<blockquote>
+<ul>
+<li>本身服务器购买的出口带宽比较小。一旦并发量大的话，就会造成分给每个用户的出口带宽就小，访问速度自然就会慢。</li>
+<li>跨运营商网络导致带宽缩减。例如，公司网站放在电信的网络上，那么客户这边对接是长城宽带或联通，这也可能导致带宽的缩减。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>2、服务器负载过大，导致响应不过来</p>
+<blockquote>
+<p>可以从两个方面入手分析：</p>
+<ul>
+<li>分析系统负载，使用 w 命令或者 uptime 命令查看系统负载。如果负载很高，则使用 top 命令查看 CPU ，MEM 等占用情况，要么是 CPU 繁忙，要么是内存不够。</li>
+<li>如果这二者都正常，再去使用 sar 命令分析网卡流量，分析是不是遭到了攻击。一旦分析出问题的原因，采取对应的措施解决，如决定要不要杀死一些进程，或者禁止一些访问等。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>3、数据库瓶颈</p>
+<blockquote>
+<ul>
+<li>如果慢查询比较多。那么就要开发人员或 DBA 协助进行 SQL 语句的优化。</li>
+<li>如果数据库响应慢，考虑可以加一个数据库缓存，如 Redis 等。然后，也可以搭建 MySQL 主从，一台 MySQL 服务器负责写，其他几台从数据库负责读。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>4、网站开发代码没有优化好</p>
+<blockquote>
+<ul>
+<li>例如 SQL 语句没有优化，导致数据库读写相当耗时。</li>
+</ul>
+</blockquote>
+<p><strong>针对网站访问慢，怎么去排查？</strong></p>
+</li>
+<li><p>1、首先要确定是用户端还是服务端的问题。当接到用户反馈访问慢，那边自己立即访问网站看看，如果自己这边访问快，基本断定是用户端问题，就需要耐心跟客户解释，协助客户解决问题。</p>
+<blockquote>
+<p>不要上来就看服务端的问题。一定要从源头开始，逐步逐步往下。</p>
+</blockquote>
+</li>
+<li><p>2、如果访问也慢，那么可以利用浏览器的调试功能，看看加载那一项数据消耗时间过多，是图片加载慢，还是某些数据加载慢。</p>
+</li>
+<li><p>3、针对服务器负载情况。查看服务器硬件(网络、CPU、内存)的消耗情况。如果是购买的云主机，比如阿里云，可以登录阿里云平台提供各方面的监控，比如 CPU、内存、带宽的使用情况。</p>
+</li>
+<li><p>4、如果发现硬件资源消耗都不高，那么就需要通过查日志，比如看看 MySQL慢查询的日志，看看是不是某条 SQL 语句查询慢，导致网站访问慢。</p>
+</li>
+</ul>
+<p><strong>怎么去解决？</strong></p>
+<ul>
+<li>1、如果是出口带宽问题，那么久申请加大出口带宽。</li>
+<li>2、如果慢查询比较多，那么就要开发人员或 DBA 协助进行 SQL 语句的优化。</li>
+<li>3、如果数据库响应慢，考虑可以加一个数据库缓存，如 Redis 等等。然后也可以搭建MySQL 主从，一台 MySQL 服务器负责写，其他几台从数据库负责读。</li>
+<li>4、申请购买 CDN 服务，加载用户的访问。</li>
+<li>5、如果访问还比较慢，那就需要从整体架构上进行优化咯。做到专角色专用，多台服务器提供同一个服务。</li>
+</ul>
+<h2 id="19-如何排查-CPU-load-过高问题？"><a href="#19-如何排查-CPU-load-过高问题？" class="headerlink" title="19.如何排查 CPU load 过高问题？"></a>19.如何排查 CPU load 过高问题？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<ol>
+<li>top查看cpu avg，通常三个数值要低于CPU的核数才能确保资源满足，最佳状态不超过cpu核数*0.75</li>
+<li>top/htop查看cpu占用资源最高的进程</li>
+<li>最后检查程序设计是否合理（例如递归问题）</li>
+</ol>
+<p><font style="background-color:#e91e64">答案</font></p>
+<h6 id="1-首先排查哪些进程cpu占用率高。-通过命令-ps-ux"><a href="#1-首先排查哪些进程cpu占用率高。-通过命令-ps-ux" class="headerlink" title="1. 首先排查哪些进程cpu占用率高。 通过命令 ps ux"></a>1. 首先排查哪些进程cpu占用率高。 通过命令 ps ux</h6><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/731331-20160817133313328-137128375.png" alt="image"></p>
+<h6 id="2-查看对应java进程的每个线程的CPU占用率。通过命令：ps-Lp-15047-cu"><a href="#2-查看对应java进程的每个线程的CPU占用率。通过命令：ps-Lp-15047-cu" class="headerlink" title="2. 查看对应java进程的每个线程的CPU占用率。通过命令：ps -Lp 15047 cu"></a>2. 查看对应java进程的每个线程的CPU占用率。通过命令：ps -Lp 15047 cu</h6><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/731331-20160817133314484-415014403.png" alt="image"></p>
+<h6 id="3-追踪线程内部，查看load过高原因。通过命令：jstack-15047。"><a href="#3-追踪线程内部，查看load过高原因。通过命令：jstack-15047。" class="headerlink" title="3. 追踪线程内部，查看load过高原因。通过命令：jstack 15047。"></a>3. 追踪线程内部，查看load过高原因。通过命令：jstack 15047。</h6><p>或者打印线程 jstack <code>pidof java</code> &gt; stack.out</p>
+<p>查找到对应的threadid, 再反查代码。</p>
+<h2 id="20-Linux-性能调优都有哪几种方法？"><a href="#20-Linux-性能调优都有哪几种方法？" class="headerlink" title="20.Linux 性能调优都有哪几种方法？"></a>20.Linux 性能调优都有哪几种方法？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<ol>
+<li>设置swap缓存</li>
+</ol>
+<p>我觉得都问这个问题了，你服务器买好点吧。。。。。。low炮，linux开源系统经过长期考验，有什么好调？</p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p>1、Disabling daemons (关闭 daemons)。</p>
+<p>2、Shutting down the GUI (关闭 GUI)。</p>
+<p>3、Changing kernel parameters (改变内核参数)。</p>
+<p>4、Kernel parameters (内核参数)。</p>
+<p>5、Tuning the processor subsystem (处理器子系统调优)。</p>
+<p>6、Tuning the memory subsystem (内存子系统调优)。</p>
+<p>7、Tuning the file system (文件系统子系统调优)。</p>
+<p>8、Tuning the network subsystem（网络子系统调优)。</p>
+<h2 id="21-Shell-脚本是什么？"><a href="#21-Shell-脚本是什么？" class="headerlink" title="21.Shell 脚本是什么？"></a>21.Shell 脚本是什么？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p>Linux内置bash支持shell脚本语言，这是一种解释型编程语言。shell脚本实际上是集成了一些Linux命令和流程控制的代码程序，可以直接在Linux系统中运行，不需要额外安装编译器或者解释器。</p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p>一个 Shell 脚本是一个文本文件，包含一个或多个命令。作为系统管理员，我们经常需要使用多个命令来完成一项任务，我们可以添加这些所有命令在一个文本文件(Shell 脚本)来完成这些日常工作任务。</p>
+<h2 id="22-什么是默认登录-Shell-？"><a href="#22-什么是默认登录-Shell-？" class="headerlink" title="22.什么是默认登录 Shell ？"></a>22.什么是默认登录 Shell ？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p>Linux系统最基本的控制方式是通过CLI，而要操控Linux都是默认通过Bash Shell程序，进行命令行的交互式控制，所以Linux默认登录shell，才提供了交互式操控系统的功能。</p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p>在 Linux 操作系统，<code>&quot;&quot;/bin/bash&quot;&quot;</code> 是默认登录 Shell，是在创建用户时分配的。</p>
+<p>使用 chsh 命令可以改变默认的 Shell 。示例如下所示：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">chsh &lt;用户名&gt; -s &lt;新shell&gt;</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">chsh linuxtechi -s /bin/sh</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="23-在-Shell-脚本中，如何写入注释？"><a href="#23-在-Shell-脚本中，如何写入注释？" class="headerlink" title="23.在 Shell 脚本中，如何写入注释？"></a>23.在 Shell 脚本中，如何写入注释？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p>使用<code>#</code>号做注释符合，<code>#</code>所在行后面的字符将作为注释。</p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p>注释可以用来描述一个脚本可以做什么和它是如何工作的。每一行注释以 <code>#</code> 开头。例子如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">This is a <span class="built_in">command</span></span></span><br><span class="line">echo “I am logged in as $USER”</span><br></pre></td></tr></table></figure>
+
+<h2 id="24-可以在-Shell-脚本中使用哪些类型的变量？"><a href="#24-可以在-Shell-脚本中使用哪些类型的变量？" class="headerlink" title="24.可以在 Shell 脚本中使用哪些类型的变量？"></a>24.可以在 Shell 脚本中使用哪些类型的变量？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<ol>
+<li>数字类型</li>
+<li>字符类型</li>
+</ol>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p>在 Shell 脚本，我们可以使用两种类型的变量：</p>
+<ul>
+<li><p>系统定义变量</p>
+<blockquote>
+<p>系统变量是由系统系统自己创建的。这些变量通常由大写字母组成，可以通过 <code>set</code> 命令查看。</p>
+</blockquote>
+</li>
+<li><p>用户定义变量</p>
+<blockquote>
+<p>用户变量由系统用户来生成和定义，变量的值可以通过命令 <code>&quot;&quot;echo $&lt;变量名&gt;&quot;&quot;</code> 查看。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="25-Shell脚本中-标记的用途是什么？"><a href="#25-Shell脚本中-标记的用途是什么？" class="headerlink" title="25.Shell脚本中 $? 标记的用途是什么？"></a>25.Shell脚本中 $? 标记的用途是什么？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p><code>$?</code>能够获取上一个逻辑判断语句的结果。</p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p>在写一个 Shell 脚本时，如果你想要检查前一命令是否执行成功，在 <code>if</code> 条件中使用 <code>$?</code> 可以来检查前一命令的结束状态。</p>
+<ul>
+<li><p>如果结束状态是 0 ，说明前一个命令执行成功。例如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@localhost:~# ls /usr/bin/shar</span><br><span class="line">/usr/bin/shar</span><br><span class="line">root@localhost:~# echo $?</span><br><span class="line">0</span><br></pre></td></tr></table></figure></li>
+<li><p>如果结束状态不是0，说明命令执行失败。例如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@localhost:~# ls /usr/bin/share</span><br><span class="line">ls: cannot access /usr/bin/share: No such file or directory</span><br><span class="line">root@localhost:~# echo $?</span><br><span class="line">2</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="26-Bourne-Shell-bash-中有哪些特殊的变量？"><a href="#26-Bourne-Shell-bash-中有哪些特殊的变量？" class="headerlink" title="26. Bourne Shell(bash) 中有哪些特殊的变量？"></a>26. Bourne Shell(bash) 中有哪些特殊的变量？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p>下面的表列出了 Bourne Shell 为命令行设置的特殊变量。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">内建变量    解释</span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">0    命令行中的脚本名字</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">1    第一个命令行参数</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">2    第二个命令行参数</span></span><br><span class="line">…..    …….</span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">9    第九个命令行参数</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash"><span class="comment">#    命令行参数的数量</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">*    所有命令行参数，以空格隔开</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="27-如何取消变量或取消变量赋值？"><a href="#27-如何取消变量或取消变量赋值？" class="headerlink" title="27.如何取消变量或取消变量赋值？"></a>27.如何取消变量或取消变量赋值？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p><code>unset</code> 命令用于取消变量或取消变量赋值。语法如下所示：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">unset</span> &lt;变量名&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="28-Shell-脚本中-if-语法如何嵌套？"><a href="#28-Shell-脚本中-if-语法如何嵌套？" class="headerlink" title="28.Shell 脚本中 if 语法如何嵌套？"></a>28.Shell 脚本中 if 语法如何嵌套？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if [&#x27;&#x27;=&#x27;&#x27;];then</span><br><span class="line">	if [];then</span><br><span class="line">	if</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<p><font style="background-color:#e91e64">答案</font></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">if [ 条件 ]</span><br><span class="line">then</span><br><span class="line">命令1</span><br><span class="line">命令2</span><br><span class="line">……</span><br><span class="line">else</span><br><span class="line">if [ 条件 ]</span><br><span class="line">then</span><br><span class="line">命令1</span><br><span class="line">命令2</span><br><span class="line">….</span><br><span class="line">else</span><br><span class="line">命令1</span><br><span class="line">命令2</span><br><span class="line">……</span><br><span class="line">fi</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<h2 id="29-在-Shell-脚本中如何比较两个数字？"><a href="#29-在-Shell-脚本中如何比较两个数字？" class="headerlink" title="29.在 Shell 脚本中如何比较两个数字？"></a>29.在 Shell 脚本中如何比较两个数字？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if [ 1 &lt; 2];then</span><br><span class="line">  echo &quot;1比2小&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<p><font style="background-color:#e91e64">答案</font></p>
+<p>在 <code>if-then</code> 中使用测试命令（ <code>-gt</code> 等）来比较两个数字。例如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">x=10</span><br><span class="line">y=20</span><br><span class="line">if [ $x -gt $y ]</span><br><span class="line">then</span><br><span class="line">echo “x is greater than y”</span><br><span class="line">else</span><br><span class="line">echo “y is greater than x”</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<h2 id="30-Shell-脚本中-case-语句的语法？"><a href="#30-Shell-脚本中-case-语句的语法？" class="headerlink" title="30.Shell 脚本中 case 语句的语法？"></a>30.Shell 脚本中 case 语句的语法？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p>基础语法如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">case 值 in</span><br><span class="line">模式1)</span><br><span class="line">    command1</span><br><span class="line">    command2</span><br><span class="line">    ...</span><br><span class="line">    commandN</span><br><span class="line">    ;;</span><br><span class="line">模式2)</span><br><span class="line">    command1</span><br><span class="line">    command2</span><br><span class="line">    ...</span><br><span class="line">    commandN</span><br><span class="line">    ;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
+
+<h2 id="31-Shell-脚本中-for-循环语法？"><a href="#31-Shell-脚本中-for-循环语法？" class="headerlink" title="31. Shell 脚本中 for 循环语法？"></a>31. Shell 脚本中 for 循环语法？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p>与其他编程语言类似，Shell支持for循环。</p>
+<p>for循环一般格式为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for var in item1 item2 ... itemN</span><br><span class="line">do</span><br><span class="line">    command1</span><br><span class="line">    command2</span><br><span class="line">    ...</span><br><span class="line">    commandN</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<p>写成一行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for var in item1 item2 ... itemN; do command1; command2… done;</span><br></pre></td></tr></table></figure>
+
+<p>当变量值在列表里，for 循环即执行一次所有命令，使用变量名获取列表中的当前取值。命令可为任何有效的 shell 命令和语句。in 列表可以包含替换、字符串和文件名。</p>
+<p>in列表是可选的，如果不用它，for循环使用命令行的位置参数。</p>
+<p>例如，顺序输出当前列表中的数字：</p>
+<p>实例</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for loop i 1 2 3 4 5</span><br><span class="line">do</span><br><span class="line">  echo &quot;The value is: $loop&quot;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">The value is: 1</span><br><span class="line">The value is: 2</span><br><span class="line">The value is: 3</span><br><span class="line">The value is: 4</span><br><span class="line">The value is: 5</span><br></pre></td></tr></table></figure>
+
+<p>顺序输出字符串中的字符：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">for str in This is a string</span><br><span class="line">do</span><br><span class="line">    echo $str</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">This</span><br><span class="line">is</span><br><span class="line">a</span><br><span class="line">string</span><br></pre></td></tr></table></figure>
+
+<h2 id="32-Shell-脚本中-while-循环语法？"><a href="#32-Shell-脚本中-while-循环语法？" class="headerlink" title="32.Shell 脚本中 while 循环语法？"></a>32.Shell 脚本中 while 循环语法？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p>while 循环用于不断执行一系列命令，也用于从输入文件中读取数据。其语法格式为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while condition</span><br><span class="line">do</span><br><span class="line">    command</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<h2 id="33-do-while-语句的基本格式？"><a href="#33-do-while-语句的基本格式？" class="headerlink" title="33. do-while 语句的基本格式？"></a>33. do-while 语句的基本格式？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p><code>do-while</code> 语句类似于 <code>while</code> 语句，但检查条件语句之前先执行命令（LCTT 译注：意即至少执行一次。）。下面是用 <code>do-while</code> 语句的语法：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">命令</span><br><span class="line">&#125; while (条件)</span><br></pre></td></tr></table></figure>
+
+<h2 id="34-Shell-脚本中-break-命令的作用？"><a href="#34-Shell-脚本中-break-命令的作用？" class="headerlink" title="34.Shell 脚本中 break 命令的作用？"></a>34.Shell 脚本中 break 命令的作用？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p>退出循环、退出流程控制</p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p><code>break</code> 命令一个简单的用途是退出执行中的循环。我们可以在 <code>while</code> 和 <code>until</code> 循环中使用 <code>break</code> 命令跳出循环。</p>
+<h2 id="35-Shell-脚本中-continue-命令的作用？"><a href="#35-Shell-脚本中-continue-命令的作用？" class="headerlink" title="35.Shell 脚本中 continue 命令的作用？"></a>35.Shell 脚本中 continue 命令的作用？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p><code>continue</code> 命令不同于 <code>break</code> 命令，它只跳出当前循环的迭代，而不是整个循环。<code>continue</code> 命令很多时候是很有用的，例如错误发生，但我们依然希望继续执行大循环的时候。</p>
+<h2 id="36-如何使脚本可执行？"><a href="#36-如何使脚本可执行？" class="headerlink" title="36.如何使脚本可执行？"></a>36.如何使脚本可执行？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p><code>chmod +x 文件路径</code>添加可执行权限，或者使用<code>bash 脚本文件</code>直接执行</p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<h2 id="37-bin-bash-的作用？"><a href="#37-bin-bash-的作用？" class="headerlink" title="37. #!/bin/bash 的作用？"></a>37. #!/bin/bash 的作用？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p>脚本首行添加，指定执行脚本的程序。同样适用于python。</p>
+<p>使用<code>chmod</code>添加可执行权限，可以直接通过<code>./文件名</code>执行脚本。</p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p><code>#!/bin/bash</code> 是 Shell 脚本的第一行，称为释伴（shebang）行。</p>
+<ul>
+<li>这里 <code>#</code> 符号叫做 hash ，而 <code>!</code> 叫做 bang。</li>
+<li>它的意思是命令通过 <code>/bin/bash</code> 来执行。</li>
+</ul>
+<h2 id="38-如何调试-Shell脚本？"><a href="#38-如何调试-Shell脚本？" class="headerlink" title="38.如何调试 Shell脚本？"></a>38.如何调试 Shell脚本？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<ul>
+<li><p>使用 <code>-x&#39;</code> 数（<code>sh -x myscript.sh</code>）可以调试 Shell脚本。</p>
+</li>
+<li><p>另一个种方法是使用 <code>-nv</code> 参数(<code>sh -nv myscript.sh</code>)。</p>
+</li>
+</ul>
+<h2 id="⭐39-如何将标准输出和错误输出同时重定向到同一位置"><a href="#⭐39-如何将标准输出和错误输出同时重定向到同一位置" class="headerlink" title="⭐39.如何将标准输出和错误输出同时重定向到同一位置?"></a>⭐39.如何将标准输出和错误输出同时重定向到同一位置?</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p><code>bash xxx.sh 2&gt;&amp;1 &gt;&gt; xxx.log</code></p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<ul>
+<li><p>方法一：<code>2&gt;&amp;1 (如# ls /usr/share/doc &gt; out.txt 2&gt;&amp;1 )</code> 。</p>
+</li>
+<li><p>方法二：<code>&amp;&gt; (如# ls /usr/share/doc &amp;&gt; out.txt )</code> 。</p>
+</li>
+</ul>
+<h2 id="40-在-Shell-脚本中，如何测试文件？"><a href="#40-在-Shell-脚本中，如何测试文件？" class="headerlink" title="40.在 Shell 脚本中，如何测试文件？"></a>40.在 Shell 脚本中，如何测试文件？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p>test 命令可以用来测试文件。基础用法如下表格：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Test         用法</span><br><span class="line">-d 文件名    如果文件存在并且是目录，返回true</span><br><span class="line">-e 文件名    如果文件存在，返回true</span><br><span class="line">-f 文件名    如果文件存在并且是普通文件，返回true</span><br><span class="line">-r 文件名    如果文件存在并可读，返回true</span><br><span class="line">-s 文件名    如果文件存在并且不为空，返回true</span><br><span class="line">-w 文件名    如果文件存在并可写，返回true</span><br><span class="line">-x 文件名    如果文件存在并可执行，返回true</span><br></pre></td></tr></table></figure>
+
+<h2 id="41-在-Shell-脚本如何定义函数呢？"><a href="#41-在-Shell-脚本如何定义函数呢？" class="headerlink" title="41. 在 Shell 脚本如何定义函数呢？"></a>41. 在 Shell 脚本如何定义函数呢？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">函数名()&#123;</span><br><span class="line">	echo &#x27;&#x27;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><font style="background-color:#e91e64">答案</font></p>
+<p>函数是拥有名字的代码块。当我们定义代码块，我们就可以在我们的脚本调用函数名字，该块就会被执行。示例如下所示：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="function"><span class="title">diskusage</span></span> () &#123; <span class="built_in">df</span> -h ; &#125;</span></span><br><span class="line">译注：下面是我给的shell函数语法，原文没有</span><br><span class="line">[ function ] 函数名 [()]</span><br><span class="line">&#123;</span><br><span class="line">命令;</span><br><span class="line">[return int;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="⭐42-如何让-Shell-就脚本得到来自终端的输入"><a href="#⭐42-如何让-Shell-就脚本得到来自终端的输入" class="headerlink" title="⭐42. 如何让 Shell 就脚本得到来自终端的输入?"></a>⭐42. 如何让 Shell 就脚本得到来自终端的输入?</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p><code>read</code>命令</p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p>read 命令可以读取来自终端（使用键盘）的数据。read 命令得到用户的输入并置于你给出的变量中。例子如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">vi /tmp/test.sh</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">echo ‘Please enter your name’</span><br><span class="line">read name</span><br><span class="line">echo “My Name is $name”</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">./test.sh</span></span><br><span class="line">Please enter your name</span><br><span class="line">LinuxTechi</span><br><span class="line">My Name is LinuxTechi</span><br></pre></td></tr></table></figure>
+
+<h2 id="⭐43-如何执行算术运算？"><a href="#⭐43-如何执行算术运算？" class="headerlink" title="⭐43.如何执行算术运算？"></a>⭐43.如何执行算术运算？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p><code>+ - * / %</code></p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p>有两种方法来执行算术运算：</p>
+<ul>
+<li>1、使用 expr 命令：<code># expr 5 + 2</code> 。</li>
+<li>2、用一个美元符号和方括号（<code>$[ 表达式 ]</code>）：<code>test=$[16 + 4] ; test=$[16 + 4]</code> 。</li>
+</ul>
+<h2 id="⭐44-一台-Linux-系统初始化环境后需要做一些什么安全工作？"><a href="#⭐44-一台-Linux-系统初始化环境后需要做一些什么安全工作？" class="headerlink" title="⭐44.一台 Linux 系统初始化环境后需要做一些什么安全工作？"></a>⭐44.一台 Linux 系统初始化环境后需要做一些什么安全工作？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p>配置防火墙<code>iptables</code>、<code>firewalld</code></p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<ul>
+<li><p>1、添加普通用户登陆，禁止 root 用户登陆，更改 SSH 端口号。</p>
+</li>
+<li><p>2、服务器使用密钥登陆，禁止密码登陆。</p>
+</li>
+<li><p>3、开启防火墙，关闭 SElinux ，根据业务需求设置相应的防火墙规则。</p>
+</li>
+<li><p>4、装 fail2ban 这种防止 SSH 暴力破击的软件。</p>
+</li>
+<li><p>5、设置只允许公司办公网出口 IP 能登陆服务器(看公司实际需要)</p>
+</li>
+<li><p>6、修改历史命令记录的条数为 10 条。</p>
+</li>
+<li><p>7、只允许有需要的服务器可以访问外网，其它全部禁止。</p>
+</li>
+<li><p>8、做好软件层面的防护。</p>
+<ul>
+<li><p>8.1 设置 nginx_waf 模块防止 SQL 注入。</p>
+</li>
+<li><p>8.2 把 Web 服务使用 www 用户启动，更改网站目录的所有者和所属组为 www 。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="45-什么叫-CC-攻击？什么叫-DDOS-攻击？"><a href="#45-什么叫-CC-攻击？什么叫-DDOS-攻击？" class="headerlink" title="45.什么叫 CC 攻击？什么叫 DDOS 攻击？"></a>45.什么叫 CC 攻击？什么叫 DDOS 攻击？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<ul>
+<li>CC 攻击，主要是用来攻击页面的，模拟多个用户不停的对你的页面进行访问，从而使你的系统资源消耗殆尽。</li>
+<li>DDOS 攻击，中文名叫分布式拒绝服务攻击，指借助服务器技术将多个计算机联合起来作为攻击平台，来对一个或多个目标发动 DDOS 攻击。</li>
+</ul>
+<h2 id="⭐46-怎么预防-CC-攻击和-DDOS-攻击？"><a href="#⭐46-怎么预防-CC-攻击和-DDOS-攻击？" class="headerlink" title="⭐46.怎么预防 CC 攻击和 DDOS 攻击？"></a>⭐46.怎么预防 CC 攻击和 DDOS 攻击？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<ol>
+<li>使用高防IP服务，购买ISP的防御流量。</li>
+<li>配置CDN资源分发。</li>
+<li>iptables在链路层做一些IP封禁的定时脚本（可能误杀用户，控制可接受的范围即可）。</li>
+<li>cloudflare的DNS自带cdn真实IP隐藏</li>
+<li>waf（听说过，不了解）</li>
+</ol>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p>防 CC、DDOS 攻击，这些只能是用硬件防火墙做流量清洗，将攻击流量引入黑洞。</p>
+<blockquote>
+<p>流量清洗这一块，主要是买 ISP 服务商的防攻击的服务就可以，机房一般有空余流量，我们一般是买服务，毕竟攻击不会是持续长时间。</p>
+<p>例如说，<a target="_blank" rel="noopener external nofollow noreferrer" href="https://cn.aliyun.com/product/ddos">《阿里云 —— DDoS 高防IP》</a> 。</p>
+</blockquote>
+<h2 id="⭐47-什么是网站数据库注入？"><a href="#⭐47-什么是网站数据库注入？" class="headerlink" title="⭐47.什么是网站数据库注入？"></a>⭐47.什么是网站数据库注入？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p>SQL注入，一种网站攻击。还有XSS攻击</p>
+<p>通过web网站的前端输入框或者api接口传入SQL语句，直接操作数据库，达到攻击行为。</p>
+<p>预防方案：</p>
+<ol>
+<li>使用成熟的ORM框架，防注入。</li>
+<li>在前端进行正则审计，过滤sql语句。</li>
+<li>后端不通过传入的字符直接构造sql语句，使用预先构造并编译的sql语句，预防注入。</li>
+</ol>
+<p><font style="background-color:#e91e64">答案</font></p>
+<ul>
+<li>由于程序员的水平及经验参差不齐，大部分程序员在编写代码的时候，没有对用户输入数据的合法性进行判断。</li>
+<li>应用程序存在安全隐患。用户可以提交一段数据库查询代码，根据程序返回的结果，获得某些他想得知的数据，这就是所谓的 SQL 注入。</li>
+<li>SQL注入，是从正常的 WWW 端口访问，而且表面看起来跟一般的 Web 页面访问没什么区别，如果管理员没查看日志的习惯，可能被入侵很长时间都不会发觉。</li>
+</ul>
+<h2 id="48-如何过滤与预防？"><a href="#48-如何过滤与预防？" class="headerlink" title="48.如何过滤与预防？"></a>48.如何过滤与预防？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p>参考 <a href="#%E2%AD%9047.%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E7%AB%99%E6%95%B0%E6%8D%AE%E5%BA%93%E6%B3%A8%E5%85%A5%EF%BC%9F">37</a></p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p>数据库网页端注入这种，可以考虑使用 nginx_waf 做过滤与预防。</p>
+<h2 id="49-如何配置静态-IP-？"><a href="#49-如何配置静态-IP-？" class="headerlink" title="49.如何配置静态 IP ？"></a>49.如何配置静态 IP ？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">测试服务器OS: Centos 6.5 x64</span><br><span class="line">本机OS: Ubuntu 14.04 x64</span><br></pre></td></tr></table></figure>
+
+<p>由于Virtualbox当时安装Centos 6.5的时候设置的是自动获取的IP，所以局域网内每次启动，IP有时候会变化<br>如果本地测试最好固定静态IP</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">用户root登陆到服务器，编辑配置信息</span></span><br><span class="line">vi /etc/sysconfig/network-scripts/ifcfg-eth0</span><br></pre></td></tr></table></figure>
+
+<p>设置如下内容，有则改之，无则添加</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DEVICE=eth0</span><br><span class="line">BOOTPROT=static</span><br><span class="line">IPADDR=192.168.1.200</span><br><span class="line">GATEWAY=192.168.1.1</span><br><span class="line">NETMASK=255.255.255.0</span><br><span class="line">ONBOOT=yes</span><br></pre></td></tr></table></figure>
+
+<p>之后保存<br>然后重启网卡即可</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service network restart</span><br></pre></td></tr></table></figure>
+
+<p>现在试试吧，IP已经变为192.168.1.200<br>直接远程登陆</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.1.200</span><br></pre></td></tr></table></figure>
+
+<h2 id="50-设置-DNS-需要修改哪个配置文件？"><a href="#50-设置-DNS-需要修改哪个配置文件？" class="headerlink" title="50.设置 DNS 需要修改哪个配置文件？"></a>50.设置 DNS 需要修改哪个配置文件？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p><code>/etc/hosts</code></p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p>全局的配置，可以在 <code>/etc/resolv.conf</code> 文件中配置。</p>
+<p>指定网卡的配置，可以在 <code>/etc/sysconfig/network-scripts/ifcfg-eth0</code> 文件中配置。</p>
+<p>一般来说，肯定是全局配置即可。</p>
+<h2 id="51-etc-hosts-文件什么做用？"><a href="#51-etc-hosts-文件什么做用？" class="headerlink" title="51./etc/hosts 文件什么做用？"></a>51./etc/hosts 文件什么做用？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p>配置本地的域名和IP的映射关系，当网络请求，需要dns解析域名的时候，会优先使用该配置的IP地址。</p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p>在 <code>/etc/hosts</code> 文中，我们可以配置指定域名和 IP 的映射关系。详细的，可以看看 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.jianshu.com/p/476a92a39b45">《Linux环境下 /etc/hosts 文件详解》</a> 文章。</p>
+<h2 id="52-在-Linux-下如何指定dns服务器，来解析某个域名？"><a href="#52-在-Linux-下如何指定dns服务器，来解析某个域名？" class="headerlink" title="52. 在 Linux 下如何指定dns服务器，来解析某个域名？"></a>52. 在 Linux 下如何指定dns服务器，来解析某个域名？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p>使用 dig 命令：<code>dig @DNSip http://domain.com</code> 。例如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dig @8.8.8.8 www.baidu.com # 使用谷歌 DNS 解析百度</span><br></pre></td></tr></table></figure>
+
+<h2 id="53-iptables-命令？"><a href="#53-iptables-命令？" class="headerlink" title="53.iptables 命令？"></a>53.iptables 命令？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p>iptables ，是一个配置 Linux 内核防火墙的命令行工具。功能非常强大，对于我们开发来说，主要掌握如何开放端口即可。例如：</p>
+<ul>
+<li><p>把来源 IP 为 192.168.1.101 访问本机 80 端口的包直接拒绝：<code>iptables -I INPUT -s 192.168.1.101 -p tcp --dport 80 -j REJECT</code> 。</p>
+</li>
+<li><p>开启 80 端口，因为web对外都是这个端口</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p tcp --dport 80 -j ACCEP</span><br></pre></td></tr></table></figure></li>
+<li><p>另外，要注意使用 <code>iptables save</code> 命令，进行保存。否则，服务器重启后，配置的规则将丢失。</p>
+</li>
+</ul>
+<h2 id="54-route-命令？"><a href="#54-route-命令？" class="headerlink" title="54.route 命令？"></a>54.route 命令？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p><strong>route命令</strong>用来显示并设置Linux内核中的网络路由表，route命令设置的路由主要是静态路由。要实现两个不同的子网之间的通信，需要一台连接两个网络的路由器，或者同时位于两个网络的网关来实现。</p>
+<p>在Linux系统中设置路由通常是为了解决以下问题：该Linux系统在一个局域网中，局域网中有一个网关，能够让机器访问Internet，那么就需要将这台机器的<a target="_blank" rel="noopener external nofollow noreferrer" href="http://man.linuxde.net/ip">ip</a>地址设置为Linux机器的默认路由。要注意的是，直接在命令行下执行route命令来添加路由，不会永久保存，当网卡重启或者机器重启之后，该路由就失效了；可以在<code>/etc/rc.local</code>中添加route命令来保证该路由设置永久有效。</p>
+<h2 id="55-添加一条到-192-168-3-0-24-的路由，网关为-192-168-1-254-？"><a href="#55-添加一条到-192-168-3-0-24-的路由，网关为-192-168-1-254-？" class="headerlink" title="55.添加一条到 192.168.3.0/24 的路由，网关为 192.168.1.254 ？"></a>55.添加一条到 192.168.3.0/24 的路由，网关为 192.168.1.254 ？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p>输入命令 <code>route add -net 192.168.3.0/24 netmask 255.255.255.0 gw 192.168.1.254</code> 。</p>
+<h2 id="56-查看本机路由的三种方式？"><a href="#56-查看本机路由的三种方式？" class="headerlink" title="56.查看本机路由的三种方式？"></a>56.查看本机路由的三种方式？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[root@centos6 ~]# route -n</span><br><span class="line">Kernel IP routing table</span><br><span class="line">Destination Gateway Genmask Flags Metric Ref Use Iface</span><br><span class="line">192.168.220.0 0.0.0.0 255.255.255.0 U 1 0 0 eth1</span><br><span class="line">169.254.0.0 0.0.0.0 255.255.0.0 U 1002 0 0 eth0</span><br><span class="line">172.16.0.0 0.0.0.0 255.255.0.0 U 0 0 0 eth0</span><br><span class="line">0.0.0.0 172.16.0.1 0.0.0.0 UG 0 0 0 eth0</span><br><span class="line"></span><br><span class="line">[root@centos6 ~]# netstat -nr</span><br><span class="line">Kernel IP routing table</span><br><span class="line">Destination Gateway Genmask Flags MSS Window irtt Iface</span><br><span class="line">192.168.220.0 0.0.0.0 255.255.255.0 U 0 0 0 eth1</span><br><span class="line">169.254.0.0 0.0.0.0 255.255.0.0 U 0 0 0 eth0</span><br><span class="line">172.16.0.0 0.0.0.0 255.255.0.0 U 0 0 0 eth0</span><br><span class="line">0.0.0.0 172.16.0.1 0.0.0.0 UG 0 0 0 eth0</span><br><span class="line"></span><br><span class="line">[root@centos6 ~]# ip route</span><br><span class="line">192.168.220.0/24 dev eth1 proto kernel scope link src 192.168.220.157 metric 1</span><br><span class="line">169.254.0.0/16 dev eth0 scope link metric 1002</span><br><span class="line">172.16.0.0/16 dev eth0 proto kernel scope link src 172.16.251.6</span><br><span class="line">default via 172.16.0.1 dev eth0 proto static</span><br></pre></td></tr></table></figure>
+
+<h2 id="57-tcpdump-命令？"><a href="#57-tcpdump-命令？" class="headerlink" title="57.tcpdump 命令？"></a>57.tcpdump 命令？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<p><strong>tcpdump命令</strong>是一款sniffer工具，它可以打印所有经过网络接口的数据包的头信息，也可以使用<code>-w</code>选项将数据包保存到文件中，方便以后分析。</p>
+<h2 id="58-在-Linux-系统下如何按照下面要求抓包：只过滤出访问-HTTP-服务的，目标-IP-为-192-168-0-111-，一共抓-1000-个包，并且保存到-1-cap-文件中？？"><a href="#58-在-Linux-系统下如何按照下面要求抓包：只过滤出访问-HTTP-服务的，目标-IP-为-192-168-0-111-，一共抓-1000-个包，并且保存到-1-cap-文件中？？" class="headerlink" title="58. 在 Linux 系统下如何按照下面要求抓包：只过滤出访问 HTTP 服务的，目标 IP 为 192.168.0.111 ，一共抓 1000 个包，并且保存到 1.cap 文件中？？"></a>58. 在 Linux 系统下如何按照下面要求抓包：只过滤出访问 HTTP 服务的，目标 IP 为 192.168.0.111 ，一共抓 1000 个包，并且保存到 1.cap 文件中？？</h2><p><font style="background-color: #8bc34a">作答</font></p>
+<p><font style="background-color:#e91e64">答案</font></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tcpdump -nn -s0 host 192.168.0.111 and port 80 -c 1000 -w 1.cap</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.yunjiguan.com">Daoji</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.yunjiguan.com/posts/20671.html">https://www.yunjiguan.com/posts/20671.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://www.yunjiguan.com" target="_blank">盗计のBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a><a class="post-meta__tags" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></div><div class="post-share"><div class="social-share" data-image="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/result_5583.svg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/23750.html" title="操作系统题库（二）"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/social_growth_d0y3.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">操作系统题库（二）</div></div><div class="info-2"><div class="info-item-1">操作系统题库（二）4.什么是 Linux 内核？作答 Linux内核是操作系统最基础的程序。其中包括设备CPU、GPU、摄像头、USB等驱动，包括文件管理程序、进程调度程序等最基本的底层功能程序。并提供一系列的底层接口，供应用层开发程序，例如视频播放器、浏览器等。 答案 Linux 系统的核心是内核。内核控制着计算机系统上的所有硬件和软件，在必要时分配硬件，并根据需要执行软件。  系统内存管理 应用程序管理 硬件设备管理 文件系统管理  5. Linux 开机启动过程？作答 Linux开机过程实际上是内核程序的启动，启动内存管理程序、进程调度程序。然后进度调度程序会去启动一些预设的自启的第三方应用，通常启动脚本配置在/etc/init.d目录下。 答案 1、主机加电自检，加载 BIOS 硬件信息。  2、读取 MBR 的引导文件(GRUB、LILO)。 3、引导 Linux 内核。 4、运行第一个进程 init (进程号永远为 1 )。 5、进入相应的运行级别。 6、运行终端，输入用户名和密码。  6....</div></div></div></a><a class="pagination-related" href="/posts/59343.html" title="Golang题库（一）"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/ninja_e52b.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Golang题库（一）</div></div><div class="info-2"><div class="info-item-1">Golang题库（一）golang里的数组和切片有了解过吗？值传递和引用传递在函数传参中，数组是值传递，切片则是引用传递。即函数内修改数组，外不变，而切片则相反。 逻辑运算数组能比较大小，切片则只能与nil比较。 容量和长度数组是连续地址的储存相同类型元素的序列，初始化容量之后，不可变。 切片是指向数组的拥有相同类型元素的可变长序列，可以扩容和传递，比数组更加灵活。 Go切片(slice)的实现可以在源码包src/runtime/slice.go中找到。在源码中，slice的数据结构定义如下。 12345type slice struct &#123;	array unsafe.Pointer	//指向底层数组的指针	len int					//切片长度	cap...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/52412.html" title="操作系统题库（一）"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/organize_photos_d5nr.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-16</div><div class="info-item-2">操作系统题库（一）</div></div><div class="info-2"><div class="info-item-1">操作系统题库（一）1.Linux常用命令作答 1cd ls top free df du awk sed vi zip/unzip tar gzip cp mv rm grep cat echo export ssh  这些都是我比较常用的命令。 答案 常用命令  目录相关 find 命令 ls 命令 pwd 命令 cd 命令   mkdir 命令 df 命令 rm 命令 mv 命令 cp 命令 mount 命令 cat 命令 tail 命令 less 命令   通用命令 grep 命令 sed 命令 awk 命令 vim 命令 diff 命令 sort 命令 xargs 命令   压缩相关 tar 命令 gzip 命令 bzip2 命令 unzip 命令   系统命令 export 命令 kill 命令 passwd 命令 su 命令 yum 命令 rpm 命令 shutdown 命令 crontab 命令 service 命令 chmod 命令 chown 命令 uname 命令 whereis 命令 locate 命令 man 命令   网络相关 ifconfig...</div></div></div></a><a class="pagination-related" href="/posts/23750.html" title="操作系统题库（二）"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/social_growth_d0y3.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-17</div><div class="info-item-2">操作系统题库（二）</div></div><div class="info-2"><div class="info-item-1">操作系统题库（二）4.什么是 Linux 内核？作答 Linux内核是操作系统最基础的程序。其中包括设备CPU、GPU、摄像头、USB等驱动，包括文件管理程序、进程调度程序等最基本的底层功能程序。并提供一系列的底层接口，供应用层开发程序，例如视频播放器、浏览器等。 答案 Linux 系统的核心是内核。内核控制着计算机系统上的所有硬件和软件，在必要时分配硬件，并根据需要执行软件。  系统内存管理 应用程序管理 硬件设备管理 文件系统管理  5. Linux 开机启动过程？作答 Linux开机过程实际上是内核程序的启动，启动内存管理程序、进程调度程序。然后进度调度程序会去启动一些预设的自启的第三方应用，通常启动脚本配置在/etc/init.d目录下。 答案 1、主机加电自检，加载 BIOS 硬件信息。  2、读取 MBR 的引导文件(GRUB、LILO)。 3、引导 Linux 内核。 4、运行第一个进程 init (进程号永远为 1 )。 5、进入相应的运行级别。 6、运行终端，输入用户名和密码。  6....</div></div></div></a><a class="pagination-related" href="/posts/7680.html" title="DenyHosts安装及配置"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/newsletter_vovu.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2018-04-15</div><div class="info-item-2">DenyHosts安装及配置</div></div><div class="info-2"><div class="info-item-1">    DenyHosts（项目主页：http://denyhosts.sourceforge.net/）是运行于Linux上的一款预防SSH暴力破解的软件，可以从http://sourceforge.net/projects/denyhosts/files/进行下载，然后将下载回来的DenyHosts-2.6.tar.gz源码包上传到Linux系统中。  下面是安装过程 12345678910wget https://www.cubecloud.net/DenyHosts-2.6.tar.gz           #下载安装包tar zxvf DenyHosts-2.6.tar.gz 		     #解压源码包cd DenyHosts-2.6						 #进入安装解压目录python setup.py install					 #安装DenyHostscd /usr/share/denyhosts/				 #默认安装路径cp denyhosts.cfg-dist denyhosts.cfg      #denyhosts.cfg为配置文件cp...</div></div></div></a><a class="pagination-related" href="/posts/56521.html" title="Linux Crontab 安装使用详细说明"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/social_strategy_1wuq.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2018-06-28</div><div class="info-item-2">Linux Crontab 安装使用详细说明</div></div><div class="info-2"><div class="info-item-1">    &emsp;&emsp;crontab命令常见于Unix和Linux的操作系统之中，用于设置周期性被执行的指令。该命令从标准输入设备读取指令，并将其存放于“crontab”文件中，以供之后读取和执行。通常，crontab储存的指令被守护进程激活。crond 常常在后台运行，每一分钟检查是否有预定的作业需要执行。这类作业一般称为cron jobs。    一、安装12yum -y install vixie-cronyum -y install crontabs  说明：vixie-cron 软件包是 cron 的主程序；crontabs 软件包是用来安装、卸装、或列举用来驱动 cron 守护进程的表格的程序。 二、配置cron 是 linux 的内置服务，但它不自动起来，可以用以下的方法启动、关闭这个服务：  12345service crond start     //启动服务service crond stop      //关闭服务service crond restart   //重启服务service crond reload   ...</div></div></div></a><a class="pagination-related" href="/posts/44609.html" title="Linux中实用但很小众的11个炫酷终端命令"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/processing_qj6a.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-29</div><div class="info-item-2">Linux中实用但很小众的11个炫酷终端命令</div></div><div class="info-2"><div class="info-item-1">&emsp;今天给大家分享Linux总结出来的11个炫酷的Linux终端命令大全，通过今天这篇文章将向大家展示一系列的Linux命令、工具和技巧，我希望一开始就有人告诉我这些，而不是曾在我成长道路上绊住我。 命令行日常系快捷键如下的快捷方式非常有用，能够极大的提升你的工作效率： CTRL + U -剪切光标前的内容 CTRL + K -剪切光标至行末的内容 CTRL + Y -粘贴 CTRL + E -移动光标到行末 CTRL + A -移动光标到行首 ALT + F -跳向下一个空格 ALT + B -跳回上一个空格 ALT + Backspace -删除前一个单词 CTRL + W -剪切光标后一个单词 Shift + Insert -向终端内粘贴文本 那么为了让上述内容更易理解来看下面的这行命令。 1sudo apt-get intall programname...</div></div></div></a><a class="pagination-related" href="/posts/58864.html" title="Linux在CLI下连接WiFi"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Savings_dwkw.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2018-06-28</div><div class="info-item-2">Linux在CLI下连接WiFi</div></div><div class="info-2"><div class="info-item-1">   系统安装好后，有线与线连接都可以使用， 切换联网方式执行要使用“ifdown 对应的网卡名称”或者“ifup 对应的网卡名称”这两条命令即可。 使用 nmcli命令，查看各网卡的状态。得知无线网卡已经被驱动起来，并且已经纳入NetworkManager的管理。 1234567[root@localhost ~]# nmcli dev statusDEVICE      TYPE      STATE   CONNECTION   wlp3s0b1    wifi      连接的  Daoji_Studio virbr0      bridge    连接的  virbr0       enp2s0      ethernet  不可用  --           lo          loopback  未托管  --           virbr0-nic  tun       未托管  --             这是我的WiFi连接情况  如果无线网卡没有被纳入NetworkManager的管理，则可以安装”NetworkManager-wifi”...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "/img/loading.gif" data-lazy-src="https://i.imgur.com/6DEulXU.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Daoji</div><div class="author-info-description">我在这里记录我的生活，记录我的学习，知识的积累使我自信和满足，感情的沉积使我成长和强大。我的博客只记录我想记录的东西。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/daojiAnime" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="tencent://message/?uin=133397418" rel="external nofollow noreferrer" target="_blank" title="QQ"><i class="fab fa-qq" style="color: #12B7F5;"></i></a><a class="social-icon" href="/assets/img/weixin.jpg" target="_blank" title="微信"><i class="fab fa-weixin" style="color: #07C160;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-rss" style="color: #FFA500;"></i></a><a class="social-icon" href="mailto:daoji.chang@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%A2%98%E5%BA%93%EF%BC%88%E4%B8%89%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">操作系统题库（三）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#16-%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9-Linux-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">16.如何选择 Linux 操作系统版本？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-%E5%A6%82%E4%BD%95%E8%A7%84%E5%88%92%E4%B8%80%E5%8F%B0-Linux-%E4%B8%BB%E6%9C%BA%EF%BC%8C%E6%AD%A5%E9%AA%A4%E6%98%AF%E6%80%8E%E6%A0%B7%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">17. 如何规划一台 Linux 主机，步骤是怎样？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%AD%90%E2%9D%A4%EF%B8%8F%F0%9F%98%98%E2%9C%A818-%E8%AF%B7%E9%97%AE%E5%BD%93%E7%94%A8%E6%88%B7%E5%8F%8D%E9%A6%88%E7%BD%91%E7%AB%99%E8%AE%BF%E9%97%AE%E6%85%A2%EF%BC%8C%E4%BD%A0%E4%BC%9A%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%EF%BC%9F"><span class="toc-number">1.3.</span> <span class="toc-text">⭐❤️😘✨18.请问当用户反馈网站访问慢，你会如何处理？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19-%E5%A6%82%E4%BD%95%E6%8E%92%E6%9F%A5-CPU-load-%E8%BF%87%E9%AB%98%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-number">1.4.</span> <span class="toc-text">19.如何排查 CPU load 过高问题？</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-%E9%A6%96%E5%85%88%E6%8E%92%E6%9F%A5%E5%93%AA%E4%BA%9B%E8%BF%9B%E7%A8%8Bcpu%E5%8D%A0%E7%94%A8%E7%8E%87%E9%AB%98%E3%80%82-%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4-ps-ux"><span class="toc-number">1.4.0.0.0.1.</span> <span class="toc-text">1. 首先排查哪些进程cpu占用率高。 通过命令 ps ux</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-%E6%9F%A5%E7%9C%8B%E5%AF%B9%E5%BA%94java%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%AF%8F%E4%B8%AA%E7%BA%BF%E7%A8%8B%E7%9A%84CPU%E5%8D%A0%E7%94%A8%E7%8E%87%E3%80%82%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%EF%BC%9Aps-Lp-15047-cu"><span class="toc-number">1.4.0.0.0.2.</span> <span class="toc-text">2. 查看对应java进程的每个线程的CPU占用率。通过命令：ps -Lp 15047 cu</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-%E8%BF%BD%E8%B8%AA%E7%BA%BF%E7%A8%8B%E5%86%85%E9%83%A8%EF%BC%8C%E6%9F%A5%E7%9C%8Bload%E8%BF%87%E9%AB%98%E5%8E%9F%E5%9B%A0%E3%80%82%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%EF%BC%9Ajstack-15047%E3%80%82"><span class="toc-number">1.4.0.0.0.3.</span> <span class="toc-text">3. 追踪线程内部，查看load过高原因。通过命令：jstack 15047。</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20-Linux-%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98%E9%83%BD%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="toc-number">1.5.</span> <span class="toc-text">20.Linux 性能调优都有哪几种方法？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21-Shell-%E8%84%9A%E6%9C%AC%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.6.</span> <span class="toc-text">21.Shell 脚本是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#22-%E4%BB%80%E4%B9%88%E6%98%AF%E9%BB%98%E8%AE%A4%E7%99%BB%E5%BD%95-Shell-%EF%BC%9F"><span class="toc-number">1.7.</span> <span class="toc-text">22.什么是默认登录 Shell ？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#23-%E5%9C%A8-Shell-%E8%84%9A%E6%9C%AC%E4%B8%AD%EF%BC%8C%E5%A6%82%E4%BD%95%E5%86%99%E5%85%A5%E6%B3%A8%E9%87%8A%EF%BC%9F"><span class="toc-number">1.8.</span> <span class="toc-text">23.在 Shell 脚本中，如何写入注释？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#24-%E5%8F%AF%E4%BB%A5%E5%9C%A8-Shell-%E8%84%9A%E6%9C%AC%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%93%AA%E4%BA%9B%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8F%98%E9%87%8F%EF%BC%9F"><span class="toc-number">1.9.</span> <span class="toc-text">24.可以在 Shell 脚本中使用哪些类型的变量？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#25-Shell%E8%84%9A%E6%9C%AC%E4%B8%AD-%E6%A0%87%E8%AE%B0%E7%9A%84%E7%94%A8%E9%80%94%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.10.</span> <span class="toc-text">25.Shell脚本中 $? 标记的用途是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#26-Bourne-Shell-bash-%E4%B8%AD%E6%9C%89%E5%93%AA%E4%BA%9B%E7%89%B9%E6%AE%8A%E7%9A%84%E5%8F%98%E9%87%8F%EF%BC%9F"><span class="toc-number">1.11.</span> <span class="toc-text">26. Bourne Shell(bash) 中有哪些特殊的变量？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#27-%E5%A6%82%E4%BD%95%E5%8F%96%E6%B6%88%E5%8F%98%E9%87%8F%E6%88%96%E5%8F%96%E6%B6%88%E5%8F%98%E9%87%8F%E8%B5%8B%E5%80%BC%EF%BC%9F"><span class="toc-number">1.12.</span> <span class="toc-text">27.如何取消变量或取消变量赋值？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#28-Shell-%E8%84%9A%E6%9C%AC%E4%B8%AD-if-%E8%AF%AD%E6%B3%95%E5%A6%82%E4%BD%95%E5%B5%8C%E5%A5%97%EF%BC%9F"><span class="toc-number">1.13.</span> <span class="toc-text">28.Shell 脚本中 if 语法如何嵌套？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#29-%E5%9C%A8-Shell-%E8%84%9A%E6%9C%AC%E4%B8%AD%E5%A6%82%E4%BD%95%E6%AF%94%E8%BE%83%E4%B8%A4%E4%B8%AA%E6%95%B0%E5%AD%97%EF%BC%9F"><span class="toc-number">1.14.</span> <span class="toc-text">29.在 Shell 脚本中如何比较两个数字？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#30-Shell-%E8%84%9A%E6%9C%AC%E4%B8%AD-case-%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%AF%AD%E6%B3%95%EF%BC%9F"><span class="toc-number">1.15.</span> <span class="toc-text">30.Shell 脚本中 case 语句的语法？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#31-Shell-%E8%84%9A%E6%9C%AC%E4%B8%AD-for-%E5%BE%AA%E7%8E%AF%E8%AF%AD%E6%B3%95%EF%BC%9F"><span class="toc-number">1.16.</span> <span class="toc-text">31. Shell 脚本中 for 循环语法？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#32-Shell-%E8%84%9A%E6%9C%AC%E4%B8%AD-while-%E5%BE%AA%E7%8E%AF%E8%AF%AD%E6%B3%95%EF%BC%9F"><span class="toc-number">1.17.</span> <span class="toc-text">32.Shell 脚本中 while 循环语法？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#33-do-while-%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F%EF%BC%9F"><span class="toc-number">1.18.</span> <span class="toc-text">33. do-while 语句的基本格式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#34-Shell-%E8%84%9A%E6%9C%AC%E4%B8%AD-break-%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-number">1.19.</span> <span class="toc-text">34.Shell 脚本中 break 命令的作用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#35-Shell-%E8%84%9A%E6%9C%AC%E4%B8%AD-continue-%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-number">1.20.</span> <span class="toc-text">35.Shell 脚本中 continue 命令的作用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#36-%E5%A6%82%E4%BD%95%E4%BD%BF%E8%84%9A%E6%9C%AC%E5%8F%AF%E6%89%A7%E8%A1%8C%EF%BC%9F"><span class="toc-number">1.21.</span> <span class="toc-text">36.如何使脚本可执行？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#37-bin-bash-%E7%9A%84%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-number">1.22.</span> <span class="toc-text">37. #!&#x2F;bin&#x2F;bash 的作用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#38-%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95-Shell%E8%84%9A%E6%9C%AC%EF%BC%9F"><span class="toc-number">1.23.</span> <span class="toc-text">38.如何调试 Shell脚本？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%AD%9039-%E5%A6%82%E4%BD%95%E5%B0%86%E6%A0%87%E5%87%86%E8%BE%93%E5%87%BA%E5%92%8C%E9%94%99%E8%AF%AF%E8%BE%93%E5%87%BA%E5%90%8C%E6%97%B6%E9%87%8D%E5%AE%9A%E5%90%91%E5%88%B0%E5%90%8C%E4%B8%80%E4%BD%8D%E7%BD%AE"><span class="toc-number">1.24.</span> <span class="toc-text">⭐39.如何将标准输出和错误输出同时重定向到同一位置?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#40-%E5%9C%A8-Shell-%E8%84%9A%E6%9C%AC%E4%B8%AD%EF%BC%8C%E5%A6%82%E4%BD%95%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6%EF%BC%9F"><span class="toc-number">1.25.</span> <span class="toc-text">40.在 Shell 脚本中，如何测试文件？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#41-%E5%9C%A8-Shell-%E8%84%9A%E6%9C%AC%E5%A6%82%E4%BD%95%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0%E5%91%A2%EF%BC%9F"><span class="toc-number">1.26.</span> <span class="toc-text">41. 在 Shell 脚本如何定义函数呢？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%AD%9042-%E5%A6%82%E4%BD%95%E8%AE%A9-Shell-%E5%B0%B1%E8%84%9A%E6%9C%AC%E5%BE%97%E5%88%B0%E6%9D%A5%E8%87%AA%E7%BB%88%E7%AB%AF%E7%9A%84%E8%BE%93%E5%85%A5"><span class="toc-number">1.27.</span> <span class="toc-text">⭐42. 如何让 Shell 就脚本得到来自终端的输入?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%AD%9043-%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%EF%BC%9F"><span class="toc-number">1.28.</span> <span class="toc-text">⭐43.如何执行算术运算？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%AD%9044-%E4%B8%80%E5%8F%B0-Linux-%E7%B3%BB%E7%BB%9F%E5%88%9D%E5%A7%8B%E5%8C%96%E7%8E%AF%E5%A2%83%E5%90%8E%E9%9C%80%E8%A6%81%E5%81%9A%E4%B8%80%E4%BA%9B%E4%BB%80%E4%B9%88%E5%AE%89%E5%85%A8%E5%B7%A5%E4%BD%9C%EF%BC%9F"><span class="toc-number">1.29.</span> <span class="toc-text">⭐44.一台 Linux 系统初始化环境后需要做一些什么安全工作？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#45-%E4%BB%80%E4%B9%88%E5%8F%AB-CC-%E6%94%BB%E5%87%BB%EF%BC%9F%E4%BB%80%E4%B9%88%E5%8F%AB-DDOS-%E6%94%BB%E5%87%BB%EF%BC%9F"><span class="toc-number">1.30.</span> <span class="toc-text">45.什么叫 CC 攻击？什么叫 DDOS 攻击？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%AD%9046-%E6%80%8E%E4%B9%88%E9%A2%84%E9%98%B2-CC-%E6%94%BB%E5%87%BB%E5%92%8C-DDOS-%E6%94%BB%E5%87%BB%EF%BC%9F"><span class="toc-number">1.31.</span> <span class="toc-text">⭐46.怎么预防 CC 攻击和 DDOS 攻击？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%AD%9047-%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E7%AB%99%E6%95%B0%E6%8D%AE%E5%BA%93%E6%B3%A8%E5%85%A5%EF%BC%9F"><span class="toc-number">1.32.</span> <span class="toc-text">⭐47.什么是网站数据库注入？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#48-%E5%A6%82%E4%BD%95%E8%BF%87%E6%BB%A4%E4%B8%8E%E9%A2%84%E9%98%B2%EF%BC%9F"><span class="toc-number">1.33.</span> <span class="toc-text">48.如何过滤与预防？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#49-%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81-IP-%EF%BC%9F"><span class="toc-number">1.34.</span> <span class="toc-text">49.如何配置静态 IP ？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#50-%E8%AE%BE%E7%BD%AE-DNS-%E9%9C%80%E8%A6%81%E4%BF%AE%E6%94%B9%E5%93%AA%E4%B8%AA%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%9F"><span class="toc-number">1.35.</span> <span class="toc-text">50.设置 DNS 需要修改哪个配置文件？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#51-etc-hosts-%E6%96%87%E4%BB%B6%E4%BB%80%E4%B9%88%E5%81%9A%E7%94%A8%EF%BC%9F"><span class="toc-number">1.36.</span> <span class="toc-text">51.&#x2F;etc&#x2F;hosts 文件什么做用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#52-%E5%9C%A8-Linux-%E4%B8%8B%E5%A6%82%E4%BD%95%E6%8C%87%E5%AE%9Adns%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E6%9D%A5%E8%A7%A3%E6%9E%90%E6%9F%90%E4%B8%AA%E5%9F%9F%E5%90%8D%EF%BC%9F"><span class="toc-number">1.37.</span> <span class="toc-text">52. 在 Linux 下如何指定dns服务器，来解析某个域名？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#53-iptables-%E5%91%BD%E4%BB%A4%EF%BC%9F"><span class="toc-number">1.38.</span> <span class="toc-text">53.iptables 命令？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#54-route-%E5%91%BD%E4%BB%A4%EF%BC%9F"><span class="toc-number">1.39.</span> <span class="toc-text">54.route 命令？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#55-%E6%B7%BB%E5%8A%A0%E4%B8%80%E6%9D%A1%E5%88%B0-192-168-3-0-24-%E7%9A%84%E8%B7%AF%E7%94%B1%EF%BC%8C%E7%BD%91%E5%85%B3%E4%B8%BA-192-168-1-254-%EF%BC%9F"><span class="toc-number">1.40.</span> <span class="toc-text">55.添加一条到 192.168.3.0&#x2F;24 的路由，网关为 192.168.1.254 ？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#56-%E6%9F%A5%E7%9C%8B%E6%9C%AC%E6%9C%BA%E8%B7%AF%E7%94%B1%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-number">1.41.</span> <span class="toc-text">56.查看本机路由的三种方式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#57-tcpdump-%E5%91%BD%E4%BB%A4%EF%BC%9F"><span class="toc-number">1.42.</span> <span class="toc-text">57.tcpdump 命令？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#58-%E5%9C%A8-Linux-%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%A6%82%E4%BD%95%E6%8C%89%E7%85%A7%E4%B8%8B%E9%9D%A2%E8%A6%81%E6%B1%82%E6%8A%93%E5%8C%85%EF%BC%9A%E5%8F%AA%E8%BF%87%E6%BB%A4%E5%87%BA%E8%AE%BF%E9%97%AE-HTTP-%E6%9C%8D%E5%8A%A1%E7%9A%84%EF%BC%8C%E7%9B%AE%E6%A0%87-IP-%E4%B8%BA-192-168-0-111-%EF%BC%8C%E4%B8%80%E5%85%B1%E6%8A%93-1000-%E4%B8%AA%E5%8C%85%EF%BC%8C%E5%B9%B6%E4%B8%94%E4%BF%9D%E5%AD%98%E5%88%B0-1-cap-%E6%96%87%E4%BB%B6%E4%B8%AD%EF%BC%9F%EF%BC%9F"><span class="toc-number">1.43.</span> <span class="toc-text">58. 在 Linux 系统下如何按照下面要求抓包：只过滤出访问 HTTP 服务的，目标 IP 为 192.168.0.111 ，一共抓 1000 个包，并且保存到 1.cap 文件中？？</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/252.html" title="Agent多工具超长上下文处理方案"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Bus_stop_8ib0.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Agent多工具超长上下文处理方案"/></a><div class="content"><a class="title" href="/posts/252.html" title="Agent多工具超长上下文处理方案">Agent多工具超长上下文处理方案</a><time datetime="2025-05-11T14:43:15.000Z" title="发表于 2025-05-11 22:43:15">2025-05-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/35873.html" title="beartype 运行时入参校验"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/reminders_697p.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="beartype 运行时入参校验"/></a><div class="content"><a class="title" href="/posts/35873.html" title="beartype 运行时入参校验">beartype 运行时入参校验</a><time datetime="2025-03-25T23:08:07.000Z" title="发表于 2025-03-26 07:08:07">2025-03-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/25614.html" title="AI断片了吗？探秘大模型在超长对话中的理解能力"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/fingerprint_swrc.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI断片了吗？探秘大模型在超长对话中的理解能力"/></a><div class="content"><a class="title" href="/posts/25614.html" title="AI断片了吗？探秘大模型在超长对话中的理解能力">AI断片了吗？探秘大模型在超长对话中的理解能力</a><time datetime="2025-03-10T00:02:00.000Z" title="发表于 2025-03-10 08:02:00">2025-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/33210.html" title="个人免签方案"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/creative_thinking_b3bc.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="个人免签方案"/></a><div class="content"><a class="title" href="/posts/33210.html" title="个人免签方案">个人免签方案</a><time datetime="2025-01-16T02:33:24.000Z" title="发表于 2025-01-16 10:33:24">2025-01-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/60917.html" title="GPT学习分享"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/High_five_u364.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GPT学习分享"/></a><div class="content"><a class="title" href="/posts/60917.html" title="GPT学习分享">GPT学习分享</a><time datetime="2024-03-07T03:14:02.000Z" title="发表于 2024-03-07 11:14:02">2024-03-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By Daoji</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo 5.4.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://daoji-twikoo.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://daoji-twikoo.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

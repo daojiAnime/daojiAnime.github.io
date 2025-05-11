@@ -1,0 +1,273 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Swarm集群系统搭建和管理技巧 | 盗计のBlog</title><meta name="author" content="Daoji,daoji.chang@gmail.com"><meta name="copyright" content="Daoji"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Swarm集群系统搭建和管理技巧Portainer管理面板&amp;emsp;&amp;emsp;针对Portainer面板这里不过详细介绍，目前Docker单节点、Swarm集群的管理面板中，没有其他面板能够媲美它了。安装也是一键搞定，所有上手使用非常轻松。Introduction - Portainer Documentation，如果不是服务器配置特别低，建议学习和自建使用可以安装上，可视化操作还是比较方便">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swarm集群系统搭建和管理技巧">
+<meta property="og:url" content="https://www.yunjiguan.com/posts/31580.html">
+<meta property="og:site_name" content="盗计のBlog">
+<meta property="og:description" content="Swarm集群系统搭建和管理技巧Portainer管理面板&amp;emsp;&amp;emsp;针对Portainer面板这里不过详细介绍，目前Docker单节点、Swarm集群的管理面板中，没有其他面板能够媲美它了。安装也是一键搞定，所有上手使用非常轻松。Introduction - Portainer Documentation，如果不是服务器配置特别低，建议学习和自建使用可以安装上，可视化操作还是比较方便">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/photo-1668009358366-a09c5ab0da81.webp">
+<meta property="article:published_time" content="2022-11-24T12:32:52.000Z">
+<meta property="article:modified_time" content="2025-05-11T14:41:24.545Z">
+<meta property="article:author" content="Daoji">
+<meta property="article:tag" content="集群">
+<meta property="article:tag" content="Swarm">
+<meta property="article:tag" content="Docker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/photo-1668009358366-a09c5ab0da81.webp"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Swarm集群系统搭建和管理技巧",
+  "url": "https://www.yunjiguan.com/posts/31580.html",
+  "image": "https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/photo-1668009358366-a09c5ab0da81.webp",
+  "datePublished": "2022-11-24T12:32:52.000Z",
+  "dateModified": "2025-05-11T14:41:24.545Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Daoji",
+      "url": "https://www.yunjiguan.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/assets/favicon.ico"><link rel="canonical" href="https://www.yunjiguan.com/posts/31580.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Swarm集群系统搭建和管理技巧',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/daojiAnime/cdn/css/blog/background.css"><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="盗计のBlog" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load', preloader.endLoading)
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="web_bg" style="background-color: rgb(255, 255, 255);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "/img/loading.gif" data-lazy-src="https://i.imgur.com/6DEulXU.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-video"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://daojianime.github.io/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/photo-1668009358366-a09c5ab0da81.webp);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">盗计のBlog</span></a><a class="nav-page-title" href="/"><span class="site-name">Swarm集群系统搭建和管理技巧</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-video"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://daojianime.github.io/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Swarm集群系统搭建和管理技巧</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-11-24T12:32:52.000Z" title="发表于 2022-11-24 20:32:52">2022-11-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-05-11T14:41:24.545Z" title="更新于 2025-05-11 22:41:24">2025-05-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Docker/">Docker</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="Swarm集群系统搭建和管理技巧"><a href="#Swarm集群系统搭建和管理技巧" class="headerlink" title="Swarm集群系统搭建和管理技巧"></a>Swarm集群系统搭建和管理技巧</h1><h2 id="Portainer管理面板"><a href="#Portainer管理面板" class="headerlink" title="Portainer管理面板"></a>Portainer管理面板</h2><p>&emsp;&emsp;针对Portainer面板这里不过详细介绍，目前Docker单节点、Swarm集群的管理面板中，没有其他面板能够媲美它了。安装也是一键搞定，所有上手使用非常轻松。<a target="_blank" rel="noopener external nofollow noreferrer" href="https://docs.portainer.io/start/intro">Introduction - Portainer Documentation</a>，如果不是服务器配置特别低，建议学习和自建使用可以安装上，可视化操作还是比较方便的。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/Snipaste_2022-11-24_20-40-26.webp" alt="portainer登录页面"></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/Snipaste_2022-11-24_20-43-21.webp" alt="集群节点选择页面"></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/Snipaste_2022-11-24_20-43-46.webp" alt="集群管理页面"></p>
+<h2 id="Swarm常用命令"><a href="#Swarm常用命令" class="headerlink" title="Swarm常用命令"></a>Swarm常用命令</h2><h3 id="初始化Swarm集群"><a href="#初始化Swarm集群" class="headerlink" title="初始化Swarm集群"></a>初始化Swarm集群</h3><p>&emsp;&emsp;Swarm集群需要开放<code>2377``7946``4789</code>这三个端口进行集群通信，特殊的主机商如阿里云文档说明<code>4789</code>网络作为常规的UDP通信端口，不提供给用户使用。如果出现通信异常和跨主机网络异常，需要检查这些因素。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker swarm init --advertise-addr 公网IP</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加节点"><a href="#添加节点" class="headerlink" title="添加节点"></a>添加节点</h3><p>&emsp;&emsp;添加节点的时候，最好<font>附带上指定IP的参数</font><code>--listen-addr IP地址</code>，部分主机商多层网络比较复杂，自动获取的IP不是公网IP，而是内网的IP，导致端口即使是开放的也无法正常连接Overlay网络。</p>
+<h4 id="添加manager节点"><a href="#添加manager节点" class="headerlink" title="添加manager节点"></a>添加manager节点</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker swarm join-token manager <span class="comment"># 获取添加命令</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="添加worker节点"><a href="#添加worker节点" class="headerlink" title="添加worker节点"></a>添加worker节点</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker swarm join-token worker <span class="comment"># 获取添加命令</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="解散集群和节点主动脱离"><a href="#解散集群和节点主动脱离" class="headerlink" title="解散集群和节点主动脱离"></a>解散集群和节点主动脱离</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker swarm leave -f</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;如果需要离开集群，可以在对应节点执行上面的命令。</p>
+<h2 id="集群运维技巧"><a href="#集群运维技巧" class="headerlink" title="集群运维技巧"></a>集群运维技巧</h2><h3 id="Overlay网络连接不上的问题"><a href="#Overlay网络连接不上的问题" class="headerlink" title="Overlay网络连接不上的问题"></a>Overlay网络连接不上的问题</h3><p>&emsp;&emsp;Overlay网络不通，主要是两个原因：</p>
+<ol>
+<li>端口未开放，无法正常通信。</li>
+<li>加入节点时未指明节点IP，出现节点IP无数据交换。</li>
+</ol>
+<h3 id="节点无响应"><a href="#节点无响应" class="headerlink" title="节点无响应"></a>节点无响应</h3><p>Swarm集群稳定性不足，重启的节点脱离后，会在节点记录之前的节点信息，重新加入节点却被认为是一个新节点，之前的集群信息未清除，导致无响应，节点异常。执行下面指令清除Swarm集群信息后，再加入集群。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker swarm leave -f</span><br><span class="line">docker network <span class="built_in">rm</span> docker_gwbridge</span><br><span class="line">systemctl stop docker</span><br><span class="line"><span class="built_in">rm</span> -rf /var/lib/docker/swarm</span><br><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
+
+<p>另外一种情况是管理节点异常，例如3个管理节点，出现一个管理节点掉线，两个管理节点无法选举Leader节点，如果节点比较多，建议<code>5节点</code>或<code>7节点</code>，根据Raft算法，管理节点最好是基数，并且建议最多<code>7节点。</code>此时可以使用<code>docker node demote 节点ID</code>让一台管理节点变成worker节点。然后再恢复3管理节点。</p>
+<h3 id="内存不足的问题"><a href="#内存不足的问题" class="headerlink" title="内存不足的问题"></a>内存不足的问题</h3><p>由于集群的长期使用，动态更新，系统内残留无用的日志、镜像、容器、Cache会堆在内存中，一般当docker反馈这个信息的时候，已经是宿主机内存分配完了<code>df -hl</code>可以看到磁盘没剩多少空间了。<code>docker system df</code>可以查看docker使用的内存空间。<code>docker system prune -a</code>命令能够清空docker无用的文件，这个命令是最干净的。如果需要针对性的清除，可以清除镜像即可，例如<code>docker image prune -a</code>。</p>
+<h3 id="Service约束的使用"><a href="#Service约束的使用" class="headerlink" title="Service约束的使用"></a>Service约束的使用</h3><p>可以通过<code>constraints</code>参数限制服务启动在哪个节点，一般都是添加对应的标签进行<code>==</code>、<code>!=</code>判断。例如</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">mode:</span> <span class="string">global</span></span><br><span class="line">  <span class="attr">placement:</span></span><br><span class="line">    <span class="attr">constraints:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">node.labels.role!=web</span></span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.yunjiguan.com">Daoji</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.yunjiguan.com/posts/31580.html">https://www.yunjiguan.com/posts/31580.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://www.yunjiguan.com" target="_blank">盗计のBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%9B%86%E7%BE%A4/">集群</a><a class="post-meta__tags" href="/tags/Swarm/">Swarm</a><a class="post-meta__tags" href="/tags/Docker/">Docker</a></div><div class="post-share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/photo-1668009358366-a09c5ab0da81.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/32717.html" title="Python获取系统类型"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/daojiAnime/cdn@master/img/photo-1669041124233-295fb1ab1f4f.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Python获取系统类型</div></div><div class="info-2"><div class="info-item-1">通过platform模块可以获取系统信息12345678# 判定系统is_sys = platform.system()if is_sys == &quot;Darwin&quot;:	passelif is_sys == &quot;Linux&quot;:	passelse:	None </div></div></div></a><a class="pagination-related" href="/posts/51030.html" title="Python使用gRPC协议通信"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/spreadsheets_xdjy.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Python使用gRPC协议通信</div></div><div class="info-2"><div class="info-item-1">简单介绍gRPC是谷歌开源的通信协议，支持多开发语言，可以实现跨语言调用，函数调用的形式非常直观，需要编写Protobuf 文件，生成对应开发语言的模块文件。Protobuf 数据序列化传输是二进制协议传输，相对json、xml等格式要更加轻量。是目前微服务最流行使用的协议。 gRPC官网 安装12pip install grpcio #安装grpcpip install grpcio-tools #安装grpc tools  gRPC模式gRPC提供了四种服务模式：  一元 RPC，其中客户端向服务端发送单个请求并获得 单响应返回，就像正常的函数调用一样。 1rpc SayHello(HelloRequest) returns (HelloResponse); 服务端流式 RPC，其中客户端向服务端发送请求，并获得一个流来读取一系列消息。客户端从返回的流中读取，直到没有更多消息为止。gRPC 保证在单个 RPC 调用中进行消息排序。 1rpc LotsOfReplies(HelloRequest) returns (stream HelloResponse); 客户端流式...</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "/img/loading.gif" data-lazy-src="https://i.imgur.com/6DEulXU.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Daoji</div><div class="author-info-description">我在这里记录我的生活，记录我的学习，知识的积累使我自信和满足，感情的沉积使我成长和强大。我的博客只记录我想记录的东西。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/daojiAnime" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="tencent://message/?uin=133397418" rel="external nofollow noreferrer" target="_blank" title="QQ"><i class="fab fa-qq" style="color: #12B7F5;"></i></a><a class="social-icon" href="/assets/img/weixin.jpg" target="_blank" title="微信"><i class="fab fa-weixin" style="color: #07C160;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-rss" style="color: #FFA500;"></i></a><a class="social-icon" href="mailto:daoji.chang@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Swarm%E9%9B%86%E7%BE%A4%E7%B3%BB%E7%BB%9F%E6%90%AD%E5%BB%BA%E5%92%8C%E7%AE%A1%E7%90%86%E6%8A%80%E5%B7%A7"><span class="toc-number">1.</span> <span class="toc-text">Swarm集群系统搭建和管理技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Portainer%E7%AE%A1%E7%90%86%E9%9D%A2%E6%9D%BF"><span class="toc-number">1.1.</span> <span class="toc-text">Portainer管理面板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Swarm%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.2.</span> <span class="toc-text">Swarm常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96Swarm%E9%9B%86%E7%BE%A4"><span class="toc-number">1.2.1.</span> <span class="toc-text">初始化Swarm集群</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%8A%82%E7%82%B9"><span class="toc-number">1.2.2.</span> <span class="toc-text">添加节点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0manager%E8%8A%82%E7%82%B9"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">添加manager节点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0worker%E8%8A%82%E7%82%B9"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">添加worker节点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%95%A3%E9%9B%86%E7%BE%A4%E5%92%8C%E8%8A%82%E7%82%B9%E4%B8%BB%E5%8A%A8%E8%84%B1%E7%A6%BB"><span class="toc-number">1.2.3.</span> <span class="toc-text">解散集群和节点主动脱离</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E7%BE%A4%E8%BF%90%E7%BB%B4%E6%8A%80%E5%B7%A7"><span class="toc-number">1.3.</span> <span class="toc-text">集群运维技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Overlay%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.3.1.</span> <span class="toc-text">Overlay网络连接不上的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8A%82%E7%82%B9%E6%97%A0%E5%93%8D%E5%BA%94"><span class="toc-number">1.3.2.</span> <span class="toc-text">节点无响应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E4%B8%8D%E8%B6%B3%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.3.3.</span> <span class="toc-text">内存不足的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Service%E7%BA%A6%E6%9D%9F%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.3.4.</span> <span class="toc-text">Service约束的使用</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/252.html" title="Agent多工具超长上下文处理方案"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Bus_stop_8ib0.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Agent多工具超长上下文处理方案"/></a><div class="content"><a class="title" href="/posts/252.html" title="Agent多工具超长上下文处理方案">Agent多工具超长上下文处理方案</a><time datetime="2025-05-11T14:43:15.000Z" title="发表于 2025-05-11 22:43:15">2025-05-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/35873.html" title="beartype 运行时入参校验"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/reminders_697p.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="beartype 运行时入参校验"/></a><div class="content"><a class="title" href="/posts/35873.html" title="beartype 运行时入参校验">beartype 运行时入参校验</a><time datetime="2025-03-25T23:08:07.000Z" title="发表于 2025-03-26 07:08:07">2025-03-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/25614.html" title="AI断片了吗？探秘大模型在超长对话中的理解能力"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/fingerprint_swrc.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI断片了吗？探秘大模型在超长对话中的理解能力"/></a><div class="content"><a class="title" href="/posts/25614.html" title="AI断片了吗？探秘大模型在超长对话中的理解能力">AI断片了吗？探秘大模型在超长对话中的理解能力</a><time datetime="2025-03-10T00:02:00.000Z" title="发表于 2025-03-10 08:02:00">2025-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/33210.html" title="个人免签方案"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/creative_thinking_b3bc.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="个人免签方案"/></a><div class="content"><a class="title" href="/posts/33210.html" title="个人免签方案">个人免签方案</a><time datetime="2025-01-16T02:33:24.000Z" title="发表于 2025-01-16 10:33:24">2025-01-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/60917.html" title="GPT学习分享"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/High_five_u364.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GPT学习分享"/></a><div class="content"><a class="title" href="/posts/60917.html" title="GPT学习分享">GPT学习分享</a><time datetime="2024-03-07T03:14:02.000Z" title="发表于 2024-03-07 11:14:02">2024-03-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By Daoji</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo 5.4.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://daoji-twikoo.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://daoji-twikoo.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

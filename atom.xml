@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>盗计のBlog</title>
+  <icon>https://www.yunjiguan.com/assets/favicon.ico</icon>
+  <subtitle>跟我毒，薄雾不，不log</subtitle>
+  <link href="https://www.yunjiguan.com/atom.xml" rel="self"/>
+  
+  <link href="https://www.yunjiguan.com/"/>
+  <updated>2025-05-11T14:44:29.620Z</updated>
+  <id>https://www.yunjiguan.com/</id>
+  
+  <author>
+    <name>Daoji</name>
+    <email>daoji.chang@gmail.com</email>
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Agent多工具超长上下文处理方案</title>
+    <link href="https://www.yunjiguan.com/posts/252.html"/>
+    <id>https://www.yunjiguan.com/posts/252.html</id>
+    <published>2025-05-11T14:43:15.000Z</published>
+    <updated>2025-05-11T14:44:29.620Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;方案原理&quot;&gt;&lt;a href=&quot;#方案原理&quot; class=&quot;headerlink&quot; title=&quot;方案原理&quot;&gt;&lt;/a&gt;方案原理&lt;/h2&gt;&lt;h3 id=&quot;rag方案&quot;&gt;&lt;a href=&quot;#rag方案&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="AI" scheme="https://www.yunjiguan.com/categories/AI/"/>
+    
+    
+    <category term="人工智能" scheme="https://www.yunjiguan.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>beartype 运行时入参校验</title>
+    <link href="https://www.yunjiguan.com/posts/35873.html"/>
+    <id>https://www.yunjiguan.com/posts/35873.html</id>
+    <published>2025-03-25T23:08:07.000Z</published>
+    <updated>2025-05-11T14:41:24.549Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;code&gt;beartype&lt;/code&gt; 和 &lt;code&gt;pydantic&lt;/code&gt; 都是 Python 中用于类型检查和数据验证的工具，但它们的设计理念和应用场景有所不同。我们来详细对比一下它们的区别，以便你根据需求选择合适的工具。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="Python" scheme="https://www.yunjiguan.com/categories/Python/"/>
+    
+    
+    <category term="Python" scheme="https://www.yunjiguan.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AI断片了吗？探秘大模型在超长对话中的理解能力</title>
+    <link href="https://www.yunjiguan.com/posts/25614.html"/>
+    <id>https://www.yunjiguan.com/posts/25614.html</id>
+    <published>2025-03-10T00:02:00.000Z</published>
+    <updated>2025-05-11T14:41:24.545Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;AI断片了吗？探秘大模型在超长对话中的理解能力&quot;&gt;&lt;a href=&quot;#AI断片了吗？探秘大模型在超长对话中的理解能力&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="AI" scheme="https://www.yunjiguan.com/categories/AI/"/>
+    
+    
+    <category term="人工智能" scheme="https://www.yunjiguan.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>个人免签方案</title>
+    <link href="https://www.yunjiguan.com/posts/33210.html"/>
+    <id>https://www.yunjiguan.com/posts/33210.html</id>
+    <published>2025-01-16T02:33:24.000Z</published>
+    <updated>2025-05-11T14:41:24.550Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;个人免签方案&quot;&gt;&lt;a href=&quot;#个人免签方案&quot; class=&quot;headerlink&quot; title=&quot;个人免签方案&quot;&gt;&lt;/a&gt;个人免签方案&lt;/h1&gt;&lt;h2 id=&quot;方案说明&quot;&gt;&lt;a href=&quot;#方案说明&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Python" scheme="https://www.yunjiguan.com/categories/Python/"/>
+    
+    
+    <category term="fastapi" scheme="https://www.yunjiguan.com/tags/fastapi/"/>
+    
+    <category term="Python" scheme="https://www.yunjiguan.com/tags/Python/"/>
+    
+    <category term="支付接口" scheme="https://www.yunjiguan.com/tags/%E6%94%AF%E4%BB%98%E6%8E%A5%E5%8F%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GPT学习分享</title>
+    <link href="https://www.yunjiguan.com/posts/60917.html"/>
+    <id>https://www.yunjiguan.com/posts/60917.html</id>
+    <published>2024-03-07T03:14:02.000Z</published>
+    <updated>2025-05-11T14:41:24.545Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;GPT学习分享&quot;&gt;&lt;a href=&quot;#GPT学习分享&quot; class=&quot;headerlink&quot; title=&quot;GPT学习分享&quot;&gt;&lt;/a&gt;GPT学习分享&lt;/h1&gt;&lt;h2 id=&quot;序&quot;&gt;&lt;a href=&quot;#序&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="未分类" scheme="https://www.yunjiguan.com/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/"/>
+    
+    
+    <category term="blog" scheme="https://www.yunjiguan.com/tags/blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS设置height 100%不生效</title>
+    <link href="https://www.yunjiguan.com/posts/44550.html"/>
+    <id>https://www.yunjiguan.com/posts/44550.html</id>
+    <published>2024-02-22T01:40:38.000Z</published>
+    <updated>2025-05-11T14:41:24.550Z</updated>
+    
+    
+    <summary type="html">CSS设置height 100%不生效</summary>
+    
+    
+    
+    <category term="前端" scheme="https://www.yunjiguan.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="前端" scheme="https://www.yunjiguan.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Golang题库（十）</title>
+    <link href="https://www.yunjiguan.com/posts/52803.html"/>
+    <id>https://www.yunjiguan.com/posts/52803.html</id>
+    <published>2023-07-05T14:11:49.000Z</published>
+    <updated>2025-05-11T14:41:24.546Z</updated>
+    
+    
+    
+    
+    <category term="未分类" scheme="https://www.yunjiguan.com/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/"/>
+    
+    
+    <category term="blog" scheme="https://www.yunjiguan.com/tags/blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Golang题库（十）</title>
+    <link href="https://www.yunjiguan.com/posts/52804.html"/>
+    <id>https://www.yunjiguan.com/posts/52804.html</id>
+    <published>2023-07-05T14:11:49.000Z</published>
+    <updated>2025-05-11T14:41:24.552Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Golang题库（十）&quot;&gt;&lt;a href=&quot;#Golang题库（十）&quot; class=&quot;headerlink&quot; title=&quot;Golang题库（十）&quot;&gt;&lt;/a&gt;Golang题库（十）&lt;/h1&gt;&lt;h2 id=&quot;空结构体占不占内存空间？-为什么使用空结构体？&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="Go" scheme="https://www.yunjiguan.com/tags/Go/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Golang题库（九）</title>
+    <link href="https://www.yunjiguan.com/posts/19444.html"/>
+    <id>https://www.yunjiguan.com/posts/19444.html</id>
+    <published>2023-07-04T13:28:02.000Z</published>
+    <updated>2025-05-11T14:41:24.552Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Golang题库（九）&quot;&gt;&lt;a href=&quot;#Golang题库（九）&quot; class=&quot;headerlink&quot; title=&quot;Golang题库（九）&quot;&gt;&lt;/a&gt;Golang题库（九）&lt;/h1&gt;&lt;h2 id=&quot;怎么用go实现一个栈&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="Go" scheme="https://www.yunjiguan.com/tags/Go/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Golang题库（八）</title>
+    <link href="https://www.yunjiguan.com/posts/6059.html"/>
+    <id>https://www.yunjiguan.com/posts/6059.html</id>
+    <published>2023-07-03T13:27:34.000Z</published>
+    <updated>2025-05-11T14:41:24.552Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Golang题库（八）&quot;&gt;&lt;a href=&quot;#Golang题库（八）&quot; class=&quot;headerlink&quot; title=&quot;Golang题库（八）&quot;&gt;&lt;/a&gt;Golang题库（八）&lt;/h1&gt;&lt;h2 id=&quot;go语言的引用类型有什么？&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="Go" scheme="https://www.yunjiguan.com/tags/Go/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Golang题库（七）</title>
+    <link href="https://www.yunjiguan.com/posts/41935.html"/>
+    <id>https://www.yunjiguan.com/posts/41935.html</id>
+    <published>2023-06-27T12:14:45.000Z</published>
+    <updated>2025-05-11T14:41:24.552Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Golang题库（七）&quot;&gt;&lt;a href=&quot;#Golang题库（七）&quot; class=&quot;headerlink&quot; title=&quot;Golang题库（七）&quot;&gt;&lt;/a&gt;Golang题库（七）&lt;/h1&gt;&lt;h2 id=&quot;Slice-与-Array-Append&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="Go" scheme="https://www.yunjiguan.com/tags/Go/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Golang题库（六）</title>
+    <link href="https://www.yunjiguan.com/posts/40874.html"/>
+    <id>https://www.yunjiguan.com/posts/40874.html</id>
+    <published>2023-06-26T11:17:17.000Z</published>
+    <updated>2025-05-11T14:41:24.552Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Golang题库（六）&quot;&gt;&lt;a href=&quot;#Golang题库（六）&quot; class=&quot;headerlink&quot; title=&quot;Golang题库（六）&quot;&gt;&lt;/a&gt;Golang题库（六）&lt;/h1&gt;&lt;h2 id=&quot;✨讲一讲-GMP-模型&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="Go" scheme="https://www.yunjiguan.com/tags/Go/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Golang题库（五）</title>
+    <link href="https://www.yunjiguan.com/posts/55219.html"/>
+    <id>https://www.yunjiguan.com/posts/55219.html</id>
+    <published>2023-06-25T13:46:12.000Z</published>
+    <updated>2025-05-11T14:41:24.552Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Golang题库（五）&quot;&gt;&lt;a href=&quot;#Golang题库（五）&quot; class=&quot;headerlink&quot; title=&quot;Golang题库（五）&quot;&gt;&lt;/a&gt;Golang题库（五）&lt;/h1&gt;&lt;h2 id=&quot;go-实现不重启热部署&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="Go" scheme="https://www.yunjiguan.com/tags/Go/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Golang题库（四）</title>
+    <link href="https://www.yunjiguan.com/posts/5389.html"/>
+    <id>https://www.yunjiguan.com/posts/5389.html</id>
+    <published>2023-06-23T12:55:21.000Z</published>
+    <updated>2025-05-11T14:41:24.552Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Golang题库（四）&quot;&gt;&lt;a href=&quot;#Golang题库（四）&quot; class=&quot;headerlink&quot; title=&quot;Golang题库（四）&quot;&gt;&lt;/a&gt;Golang题库（四）&lt;/h1&gt;&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="Go" scheme="https://www.yunjiguan.com/tags/Go/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Golang题库（三）</title>
+    <link href="https://www.yunjiguan.com/posts/31692.html"/>
+    <id>https://www.yunjiguan.com/posts/31692.html</id>
+    <published>2023-06-22T13:06:15.000Z</published>
+    <updated>2025-05-11T14:41:24.552Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Golang题库（三）&quot;&gt;&lt;a href=&quot;#Golang题库（三）&quot; class=&quot;headerlink&quot; title=&quot;Golang题库（三）&quot;&gt;&lt;/a&gt;Golang题库（三）&lt;/h1&gt;&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="Go" scheme="https://www.yunjiguan.com/tags/Go/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Golang题库（二）</title>
+    <link href="https://www.yunjiguan.com/posts/30645.html"/>
+    <id>https://www.yunjiguan.com/posts/30645.html</id>
+    <published>2023-06-20T10:44:21.000Z</published>
+    <updated>2025-05-11T14:41:24.552Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Golang题库（二）&quot;&gt;&lt;a href=&quot;#Golang题库（二）&quot; class=&quot;headerlink&quot; title=&quot;Golang题库（二）&quot;&gt;&lt;/a&gt;Golang题库（二）&lt;/h1&gt;&lt;h2 id=&quot;数组怎么转集合&quot;&gt;&lt;a href=&quot;#数组怎么转集合&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="Go" scheme="https://www.yunjiguan.com/tags/Go/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Golang题库（一）</title>
+    <link href="https://www.yunjiguan.com/posts/59343.html"/>
+    <id>https://www.yunjiguan.com/posts/59343.html</id>
+    <published>2023-06-19T12:15:43.000Z</published>
+    <updated>2025-05-11T14:41:24.551Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Golang题库（一）&quot;&gt;&lt;a href=&quot;#Golang题库（一）&quot; class=&quot;headerlink&quot; title=&quot;Golang题库（一）&quot;&gt;&lt;/a&gt;Golang题库（一）&lt;/h1&gt;&lt;h2 id=&quot;golang里的数组和切片有了解过吗？&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="Go" scheme="https://www.yunjiguan.com/tags/Go/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>操作系统题库（三）</title>
+    <link href="https://www.yunjiguan.com/posts/20671.html"/>
+    <id>https://www.yunjiguan.com/posts/20671.html</id>
+    <published>2023-06-18T09:18:25.000Z</published>
+    <updated>2025-05-11T14:41:24.552Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;操作系统题库（三）&quot;&gt;&lt;a href=&quot;#操作系统题库（三）&quot; class=&quot;headerlink&quot; title=&quot;操作系统题库（三）&quot;&gt;&lt;/a&gt;操作系统题库（三）&lt;/h1&gt;&lt;h2 id=&quot;16-如何选择-Linux-操作系统版本？&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+    <category term="Linux" scheme="https://www.yunjiguan.com/tags/Linux/"/>
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>操作系统题库（二）</title>
+    <link href="https://www.yunjiguan.com/posts/23750.html"/>
+    <id>https://www.yunjiguan.com/posts/23750.html</id>
+    <published>2023-06-17T11:23:22.000Z</published>
+    <updated>2025-05-11T14:41:24.553Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;操作系统题库（二）&quot;&gt;&lt;a href=&quot;#操作系统题库（二）&quot; class=&quot;headerlink&quot; title=&quot;操作系统题库（二）&quot;&gt;&lt;/a&gt;操作系统题库（二）&lt;/h1&gt;&lt;h2 id=&quot;4-什么是-Linux-内核？&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+    <category term="Linux" scheme="https://www.yunjiguan.com/tags/Linux/"/>
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>操作系统题库（一）</title>
+    <link href="https://www.yunjiguan.com/posts/52412.html"/>
+    <id>https://www.yunjiguan.com/posts/52412.html</id>
+    <published>2023-06-16T13:22:32.000Z</published>
+    <updated>2025-05-11T14:41:24.552Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;操作系统题库（一）&quot;&gt;&lt;a href=&quot;#操作系统题库（一）&quot; class=&quot;headerlink&quot; title=&quot;操作系统题库（一）&quot;&gt;&lt;/a&gt;操作系统题库（一）&lt;/h1&gt;&lt;h2 id=&quot;1-Linux常用命令&quot;&gt;&lt;a href=&quot;#1-Linux常用命令&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+    <category term="Linux" scheme="https://www.yunjiguan.com/tags/Linux/"/>
+    
+    <category term="面试题" scheme="https://www.yunjiguan.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+</feed>
