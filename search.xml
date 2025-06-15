@@ -95,9 +95,9 @@
       
         <tags>
             
-            <tag> fastapi </tag>
-            
             <tag> Python </tag>
+            
+            <tag> fastapi </tag>
             
             <tag> 支付接口 </tag>
             
@@ -552,11 +552,11 @@
       
         <tags>
             
+            <tag> Python </tag>
+            
             <tag> fastapi </tag>
             
             <tag> pydantic </tag>
-            
-            <tag> Python </tag>
             
             <tag> SQLAlchemy </tag>
             
