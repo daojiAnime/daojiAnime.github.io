@@ -6,7 +6,7 @@
   <link href="https://www.yunjiguan.com/atom.xml" rel="self"/>
   
   <link href="https://www.yunjiguan.com/"/>
-  <updated>2025-06-15T10:46:27.191Z</updated>
+  <updated>2025-06-15T10:47:32.452Z</updated>
   <id>https://www.yunjiguan.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.yunjiguan.com/posts/252.html"/>
     <id>https://www.yunjiguan.com/posts/252.html</id>
     <published>2025-05-11T14:43:15.000Z</published>
-    <updated>2025-06-15T10:46:27.191Z</updated>
+    <updated>2025-06-15T10:47:32.452Z</updated>
     
     
       
@@ -114,9 +114,9 @@
     <category term="Python" scheme="https://www.yunjiguan.com/categories/Python/"/>
     
     
-    <category term="Python" scheme="https://www.yunjiguan.com/tags/Python/"/>
-    
     <category term="fastapi" scheme="https://www.yunjiguan.com/tags/fastapi/"/>
+    
+    <category term="Python" scheme="https://www.yunjiguan.com/tags/Python/"/>
     
     <category term="支付接口" scheme="https://www.yunjiguan.com/tags/%E6%94%AF%E4%BB%98%E6%8E%A5%E5%8F%A3/"/>
     
