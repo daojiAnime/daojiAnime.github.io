@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://blog.daojinobb.eu.org/categories/index.html</loc>
+    <loc>https://blog.daojinobb.eu.org/categories/</loc>
     
     <lastmod>2025-05-11</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://blog.daojinobb.eu.org/link/index.html</loc>
+    <loc>https://blog.daojinobb.eu.org/link/</loc>
     
     <lastmod>2025-05-11</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://blog.daojinobb.eu.org/music/index.html</loc>
+    <loc>https://blog.daojinobb.eu.org/music/</loc>
     
     <lastmod>2025-05-11</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://blog.daojinobb.eu.org/photos/index.html</loc>
+    <loc>https://blog.daojinobb.eu.org/photos/</loc>
     
     <lastmod>2025-05-11</lastmod>
     
@@ -47,7 +47,7 @@
   </url>
   
   <url>
-    <loc>https://blog.daojinobb.eu.org/tags/index.html</loc>
+    <loc>https://blog.daojinobb.eu.org/tags/</loc>
     
     <lastmod>2025-05-11</lastmod>
     
@@ -92,25 +92,7 @@
   </url>
   
   <url>
-    <loc>https://blog.daojinobb.eu.org/posts/30645.html</loc>
-    
-    <lastmod>2025-05-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.daojinobb.eu.org/posts/55219.html</loc>
-    
-    <lastmod>2025-05-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.daojinobb.eu.org/posts/40874.html</loc>
     
     <lastmod>2025-05-11</lastmod>
     
@@ -128,7 +110,7 @@
   </url>
   
   <url>
-    <loc>https://blog.daojinobb.eu.org/posts/52804.html</loc>
+    <loc>https://blog.daojinobb.eu.org/posts/30645.html</loc>
     
     <lastmod>2025-05-11</lastmod>
     
@@ -137,7 +119,16 @@
   </url>
   
   <url>
-    <loc>https://blog.daojinobb.eu.org/posts/20671.html</loc>
+    <loc>https://blog.daojinobb.eu.org/posts/40874.html</loc>
+    
+    <lastmod>2025-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.daojinobb.eu.org/posts/52804.html</loc>
     
     <lastmod>2025-05-11</lastmod>
     
@@ -164,43 +155,7 @@
   </url>
   
   <url>
-    <loc>https://blog.daojinobb.eu.org/posts/2893.html</loc>
-    
-    <lastmod>2025-05-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.daojinobb.eu.org/posts/91.html</loc>
-    
-    <lastmod>2025-05-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.daojinobb.eu.org/posts/15671.html</loc>
-    
-    <lastmod>2025-05-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.daojinobb.eu.org/posts/35158.html</loc>
-    
-    <lastmod>2025-05-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.daojinobb.eu.org/posts/6962.html</loc>
+    <loc>https://blog.daojinobb.eu.org/posts/20671.html</loc>
     
     <lastmod>2025-05-11</lastmod>
     
@@ -254,6 +209,51 @@
   </url>
   
   <url>
+    <loc>https://blog.daojinobb.eu.org/posts/2893.html</loc>
+    
+    <lastmod>2025-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.daojinobb.eu.org/posts/91.html</loc>
+    
+    <lastmod>2025-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.daojinobb.eu.org/posts/35158.html</loc>
+    
+    <lastmod>2025-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.daojinobb.eu.org/posts/15671.html</loc>
+    
+    <lastmod>2025-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.daojinobb.eu.org/posts/6962.html</loc>
+    
+    <lastmod>2025-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.daojinobb.eu.org/posts/59343.html</loc>
     
     <lastmod>2025-05-11</lastmod>
@@ -273,24 +273,6 @@
   
   <url>
     <loc>https://blog.daojinobb.eu.org/posts/33210.html</loc>
-    
-    <lastmod>2025-05-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.daojinobb.eu.org/posts/2352.html</loc>
-    
-    <lastmod>2025-05-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.daojinobb.eu.org/posts/44550.html</loc>
     
     <lastmod>2025-05-11</lastmod>
     
@@ -371,6 +353,24 @@
   </url>
   
   <url>
+    <loc>https://blog.daojinobb.eu.org/posts/2352.html</loc>
+    
+    <lastmod>2025-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.daojinobb.eu.org/posts/44550.html</loc>
+    
+    <lastmod>2025-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.daojinobb.eu.org/posts/56655.html</loc>
     
     <lastmod>2025-05-11</lastmod>
@@ -416,7 +416,7 @@
   </url>
   
   <url>
-    <loc>https://blog.daojinobb.eu.org/posts/18713.html</loc>
+    <loc>https://blog.daojinobb.eu.org/posts/19522.html</loc>
     
     <lastmod>2025-05-11</lastmod>
     
@@ -425,7 +425,7 @@
   </url>
   
   <url>
-    <loc>https://blog.daojinobb.eu.org/posts/19522.html</loc>
+    <loc>https://blog.daojinobb.eu.org/posts/18713.html</loc>
     
     <lastmod>2025-05-11</lastmod>
     
@@ -443,7 +443,7 @@
   </url>
   
   <url>
-    <loc>https://blog.daojinobb.eu.org/posts/32717.html</loc>
+    <loc>https://blog.daojinobb.eu.org/posts/56855.html</loc>
     
     <lastmod>2025-05-11</lastmod>
     
@@ -452,7 +452,7 @@
   </url>
   
   <url>
-    <loc>https://blog.daojinobb.eu.org/posts/56855.html</loc>
+    <loc>https://blog.daojinobb.eu.org/posts/32717.html</loc>
     
     <lastmod>2025-05-11</lastmod>
     
@@ -551,15 +551,6 @@
   </url>
   
   <url>
-    <loc>https://blog.daojinobb.eu.org/posts/43991.html</loc>
-    
-    <lastmod>2025-05-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.daojinobb.eu.org/posts/58864.html</loc>
     
     <lastmod>2025-05-11</lastmod>
@@ -569,7 +560,7 @@
   </url>
   
   <url>
-    <loc>https://blog.daojinobb.eu.org/posts/19424.html</loc>
+    <loc>https://blog.daojinobb.eu.org/posts/43991.html</loc>
     
     <lastmod>2025-05-11</lastmod>
     
@@ -587,7 +578,25 @@
   </url>
   
   <url>
+    <loc>https://blog.daojinobb.eu.org/posts/19424.html</loc>
+    
+    <lastmod>2025-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.daojinobb.eu.org/posts/25614.html</loc>
+    
+    <lastmod>2025-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.daojinobb.eu.org/posts/31580.html</loc>
     
     <lastmod>2025-05-11</lastmod>
     
@@ -650,15 +659,6 @@
   </url>
   
   <url>
-    <loc>https://blog.daojinobb.eu.org/posts/31580.html</loc>
-    
-    <lastmod>2025-05-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.daojinobb.eu.org/posts/60917.html</loc>
     
     <lastmod>2025-05-11</lastmod>
@@ -670,7 +670,7 @@
 
   <url>
     <loc>https://blog.daojinobb.eu.org/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -678,210 +678,210 @@
   
   <url>
     <loc>https://blog.daojinobb.eu.org/tags/blog/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/tags/fastapi/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/tags/pydantic/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/tags/Python/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/tags/SQLAlchemy/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/tags/log/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/tags/logging/</loc>
-    <lastmod>2025-06-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.daojinobb.eu.org/tags/webrtc/</loc>
-    <lastmod>2025-06-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.daojinobb.eu.org/tags/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/tags/alembic/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.daojinobb.eu.org/tags/webrtc/</loc>
+    <lastmod>2025-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.daojinobb.eu.org/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/tags/%E6%94%AF%E4%BB%98%E6%8E%A5%E5%8F%A3/</loc>
-    <lastmod>2025-06-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.daojinobb.eu.org/tags/Android/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/tags/Linux/</loc>
-    <lastmod>2025-06-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.daojinobb.eu.org/tags/%E9%9B%86%E7%BE%A4/</loc>
-    <lastmod>2025-06-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.daojinobb.eu.org/tags/Swarm/</loc>
-    <lastmod>2025-06-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.daojinobb.eu.org/tags/Docker/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/tags/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/tags/Web/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/tags/Java/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.daojinobb.eu.org/tags/WebRTC/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <loc>https://blog.daojinobb.eu.org/tags/%E9%9B%86%E7%BE%A4/</loc>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.daojinobb.eu.org/tags/Vue/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <loc>https://blog.daojinobb.eu.org/tags/Swarm/</loc>
+    <lastmod>2025-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.daojinobb.eu.org/tags/Docker/</loc>
+    <lastmod>2025-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.daojinobb.eu.org/tags/Android/</loc>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/tags/%E7%88%AC%E8%99%AB/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/tags/Mac%E9%AA%8C%E8%AF%81%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/tags/Hexo/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/tags/%E6%9D%82%E9%A1%B9/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/tags/%E4%B8%8D%E4%B8%BA%E4%BA%BA%E7%9F%A5/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/tags/%E6%83%85%E6%84%9F%E6%80%9D%E7%BB%AA/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.daojinobb.eu.org/tags/WebRTC/</loc>
+    <lastmod>2025-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.daojinobb.eu.org/tags/Vue/</loc>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/tags/Go/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -890,56 +890,56 @@
   
   <url>
     <loc>https://blog.daojinobb.eu.org/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/categories/AI/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/categories/Python/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/categories/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/categories/Python/fastapi/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/categories/Python/logging/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/categories/Docker/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.daojinobb.eu.org/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
