@@ -1,0 +1,267 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>标签: Pythonic | 盗计のBlog</title><meta name="author" content="Daoji,daoji.chang@gmail.com"><meta name="copyright" content="Daoji"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="探索AI与编程技术的博客，包含深度分析与实用工具解决方案，让学习更有效率。加入我们一起成长！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="盗计のBlog">
+<meta property="og:url" content="https://blog.daojinobb.eu.org/tags/Pythonic/">
+<meta property="og:site_name" content="盗计のBlog">
+<meta property="og:description" content="探索AI与编程技术的博客，包含深度分析与实用工具解决方案，让学习更有效率。加入我们一起成长！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgur.com/6DEulXU.jpg">
+<meta property="article:author" content="Daoji">
+<meta property="article:tag" content="Agent, RAG, LLM, MCP, Python类型检查, AI, 大模型, Golang面试题, CSS布局, 免签支付方案, 数据验证工具, 长上下文对话">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/6DEulXU.jpg"><link rel="shortcut icon" href="/assets/favicon.ico"><link rel="canonical" href="https://blog.daojinobb.eu.org/tags/Pythonic/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=GTM-TTSGZRZW"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'GTM-TTSGZRZW')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'GTM-TTSGZRZW', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '标签: Pythonic',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'tag'
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/daojiAnime/cdn/css/blog/background.css"><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="盗计のBlog" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load', preloader.endLoading)
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="web_bg" style="background-color: rgb(255, 255, 255);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://i.imgur.com/6DEulXU.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">248</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">60</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-video"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://daojianime.github.io/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url(https://i.imgur.com/jRNf3kb.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">盗计のBlog</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-video"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://daojianime.github.io/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">Pythonic</h1></div></header><main class="layout" id="content-inner"><div id="tag"><div class="article-sort-title">标签 - Pythonic</div><div class="article-sort"><div class="article-sort-item year">2020</div><div class="article-sort-item"><a class="article-sort-item-img" href="/posts/34537" title="30个Python极简代码，10分钟get常用技巧！"><img src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/palette_110c.svg" alt="30个Python极简代码，10分钟get常用技巧！" onerror="this.onerror=null;this.src='/img/404.jpg'"></a><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2020-04-28T13:43:24.000Z" title="发表于 2020-04-28 21:43:24">2020-04-28</time></div><a class="article-sort-item-title" href="/posts/34537" title="30个Python极简代码，10分钟get常用技巧！">30个Python极简代码，10分钟get常用技巧！</a></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://i.imgur.com/6DEulXU.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Daoji</div><div class="author-info-description">探索AI与编程技术的博客，包含深度分析与实用工具解决方案，让学习更有效率。加入我们一起成长！</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">248</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">60</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/daojiAnime" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="tencent://message/?uin=133397418" rel="external nofollow noreferrer" target="_blank" title="QQ"><i class="fab fa-qq" style="color: #12B7F5;"></i></a><a class="social-icon" href="/assets/img/weixin.jpg" target="_blank" title="微信"><i class="fab fa-weixin" style="color: #07C160;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-rss" style="color: #FFA500;"></i></a><a class="social-icon" href="mailto:daoji.chang@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/252" title="Agent多工具超长上下文处理方案"><img src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Specs_djh3.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Agent多工具超长上下文处理方案"/></a><div class="content"><a class="title" href="/posts/252" title="Agent多工具超长上下文处理方案">Agent多工具超长上下文处理方案</a><time datetime="2025-05-11T14:43:15.000Z" title="发表于 2025-05-11 22:43:15">2025-05-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/35873" title="beartype 运行时入参校验"><img src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/laravel_and_vue_59tp.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="beartype 运行时入参校验"/></a><div class="content"><a class="title" href="/posts/35873" title="beartype 运行时入参校验">beartype 运行时入参校验</a><time datetime="2025-03-25T23:08:07.000Z" title="发表于 2025-03-26 07:08:07">2025-03-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/25614" title="AI断片了吗？探秘大模型在超长对话中的理解能力"><img src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/tweetstorm_49e8.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI断片了吗？探秘大模型在超长对话中的理解能力"/></a><div class="content"><a class="title" href="/posts/25614" title="AI断片了吗？探秘大模型在超长对话中的理解能力">AI断片了吗？探秘大模型在超长对话中的理解能力</a><time datetime="2025-03-10T00:02:00.000Z" title="发表于 2025-03-10 08:02:00">2025-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/33210" title="个人免签方案"><img src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/freelancer_b0my.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="个人免签方案"/></a><div class="content"><a class="title" href="/posts/33210" title="个人免签方案">个人免签方案</a><time datetime="2025-01-16T02:33:24.000Z" title="发表于 2025-01-16 10:33:24">2025-01-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/60917" title="GPT学习分享"><img src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/texting_k35o.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GPT学习分享"/></a><div class="content"><a class="title" href="/posts/60917" title="GPT学习分享">GPT学习分享</a><time datetime="2024-03-07T03:14:02.000Z" title="发表于 2024-03-07 11:14:02">2024-03-07</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+      <i class="fas fa-angle-right"></i></a>
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/AI/"><span class="card-category-list-name">AI</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Android%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">Android技术</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Docker/"><span class="card-category-list-name">Docker</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Golang/"><span class="card-category-list-name">Golang</span><span class="card-category-list-count">11</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/"><span class="card-category-list-name">面试题</span><span class="card-category-list-count">11</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/GMP%E6%A8%A1%E5%9E%8B/"><span class="card-category-list-name">GMP模型</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/GMP%E6%A8%A1%E5%9E%8B/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/"><span class="card-category-list-name">垃圾回收</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"><span class="card-category-list-name">内存管理</span><span class="card-category-list-count">1</span></a></li></ul></li></ul></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81/" style="font-size: 1.1em; color: #999">数据验证</a> <a href="/tags/%E5%85%8D%E7%AD%BE%E7%BA%A6/" style="font-size: 1.1em; color: #999">免签约</a> <a href="/tags/Shell%E8%84%9A%E6%9C%AC/" style="font-size: 1.1em; color: #999">Shell脚本</a> <a href="/tags/Git/" style="font-size: 1.1em; color: #999">Git</a> <a href="/tags/GitHub/" style="font-size: 1.1em; color: #999">GitHub</a> <a href="/tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" style="font-size: 1.23em; color: #999ea6">深拷贝</a> <a href="/tags/Fresco/" style="font-size: 1.1em; color: #999">Fresco</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" style="font-size: 1.1em; color: #999">内存模型</a> <a href="/tags/filter/" style="font-size: 1.1em; color: #999">filter</a> <a href="/tags/Vue3/" style="font-size: 1.23em; color: #999ea6">Vue3</a> <a href="/tags/GIF/" style="font-size: 1.1em; color: #999">GIF</a> <a href="/tags/IPC/" style="font-size: 1.1em; color: #999">IPC</a> <a href="/tags/%E6%97%A5%E5%BF%97/" style="font-size: 1.1em; color: #999">日志</a> <a href="/tags/mheap/" style="font-size: 1.1em; color: #999">mheap</a> <a href="/tags/%E5%B8%83%E5%B1%80%E9%97%AE%E9%A2%98/" style="font-size: 1.1em; color: #999">布局问题</a> <a href="/tags/hosts/" style="font-size: 1.1em; color: #999">hosts</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/" style="font-size: 1.1em; color: #999">命令行</a> <a href="/tags/iptables/" style="font-size: 1.1em; color: #999">iptables</a> <a href="/tags/Linux%E5%91%BD%E4%BB%A4/" style="font-size: 1.1em; color: #999">Linux命令</a> <a href="/tags/%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/" style="font-size: 1.1em; color: #999">离线下载</a> <a href="/tags/RWMutex/" style="font-size: 1.1em; color: #999">RWMutex</a> <a href="/tags/%E5%86%85%E6%A0%B8%E7%A9%BA%E9%97%B4/" style="font-size: 1.1em; color: #999">内核空间</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 1.23em; color: #999ea6">自动化</a> <a href="/tags/reduce/" style="font-size: 1.1em; color: #999">reduce</a> <a href="/tags/ps/" style="font-size: 1.1em; color: #999">ps</a> <a href="/tags/%E7%BD%91%E9%A1%B5%E5%B5%8C%E5%85%A5/" style="font-size: 1.1em; color: #999">网页嵌入</a> <a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 1.23em; color: #999ea6">杂项</a> <a href="/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/" style="font-size: 1.1em; color: #999">网易云音乐</a> <a href="/tags/Vite/" style="font-size: 1.1em; color: #999">Vite</a> <a href="/tags/sync-Map/" style="font-size: 1.1em; color: #999">sync.Map</a> <a href="/tags/Web%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1.1em; color: #999">Web服务器</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.37em; color: #99a4b2">操作系统</a> <a href="/tags/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/" style="font-size: 1.1em; color: #999">终端命令</a> <a href="/tags/Hexo/" style="font-size: 1.1em; color: #999">Hexo</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" style="font-size: 1.1em; color: #999">数据存储</a> <a href="/tags/OneIndex/" style="font-size: 1.1em; color: #999">OneIndex</a> <a href="/tags/SQL%E6%B3%A8%E5%85%A5/" style="font-size: 1.1em; color: #999">SQL注入</a> <a href="/tags/new/" style="font-size: 1.23em; color: #999ea6">new</a> <a href="/tags/Linux/" style="font-size: 1.5em; color: #99a9bf">Linux</a> <a href="/tags/OpenCV/" style="font-size: 1.1em; color: #999">OpenCV</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/"
+            title="查看更多">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/05/">
+            <span class="card-archive-list-date">
+              五月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/03/">
+            <span class="card-archive-list-date">
+              三月 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/01/">
+            <span class="card-archive-list-date">
+              一月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/03/">
+            <span class="card-archive-list-date">
+              三月 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/02/">
+            <span class="card-archive-list-date">
+              二月 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/07/">
+            <span class="card-archive-list-date">
+              七月 2023
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/06/">
+            <span class="card-archive-list-date">
+              六月 2023
+            </span>
+            <span class="card-archive-list-count">10</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/03/">
+            <span class="card-archive-list-date">
+              三月 2023
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">69</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-06-24T05:36:51.513Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By Daoji</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo 5.4.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

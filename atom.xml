@@ -6,7 +6,7 @@
   <link href="https://blog.daojinobb.eu.org/atom.xml" rel="self"/>
   
   <link href="https://blog.daojinobb.eu.org/"/>
-  <updated>2025-06-15T10:47:32.452Z</updated>
+  <updated>2025-06-24T04:30:26.933Z</updated>
   <id>https://blog.daojinobb.eu.org/</id>
   
   <author>
@@ -21,16 +21,10 @@
     <link href="https://blog.daojinobb.eu.org/posts/252"/>
     <id>https://blog.daojinobb.eu.org/posts/252</id>
     <published>2025-05-11T14:43:15.000Z</published>
-    <updated>2025-06-15T10:47:32.452Z</updated>
+    <updated>2025-06-24T04:30:26.933Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;方案原理&quot;&gt;&lt;a href=&quot;#方案原理&quot; class=&quot;headerlink&quot; title=&quot;方案原理&quot;&gt;&lt;/a&gt;方案原理&lt;/h2&gt;&lt;h3 id=&quot;rag方案&quot;&gt;&lt;a href=&quot;#rag方案&quot; class=&quot;headerlink&quot;</summary>
-        
-      
+    <summary type="html">本文提出了一套在超长上下文场景下，通过 Agent 使用多工具的解决方案。详细介绍了基于 RAG 的工具检索方案、多 Agent 路由系统设计，通过为工具打标签并分配给专业的 Agent，实现智能路由，以应对大规模工具库的管理和高效调用。</summary>
     
     
     
@@ -46,25 +40,27 @@
     <link href="https://blog.daojinobb.eu.org/posts/35873"/>
     <id>https://blog.daojinobb.eu.org/posts/35873</id>
     <published>2025-03-25T23:08:07.000Z</published>
-    <updated>2025-05-11T14:41:24.549Z</updated>
+    <updated>2025-06-24T05:35:13.803Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;code&gt;beartype&lt;/code&gt; 和 &lt;code&gt;pydantic&lt;/code&gt; 都是 Python 中用于类型检查和数据验证的工具，但它们的设计理念和应用场景有所不同。我们来详细对比一下它们的区别，以便你根据需求选择合适的工具。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2</summary>
-        
-      
+    <summary type="html">详细对比了Python中两大运行时类型检查工具`beartype`和`pydantic`的区别和适用场景。通过功能分析和代码示例，帮助你理解它们在类型检查、数据验证、性能和数据转换等方面的不同，从而选择最适合你项目的工具。</summary>
     
     
     
     <category term="Python" scheme="https://blog.daojinobb.eu.org/categories/Python/"/>
     
+    <category term="工具" scheme="https://blog.daojinobb.eu.org/categories/Python/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="pydantic" scheme="https://blog.daojinobb.eu.org/tags/pydantic/"/>
     
     <category term="Python" scheme="https://blog.daojinobb.eu.org/tags/Python/"/>
+    
+    <category term="beartype" scheme="https://blog.daojinobb.eu.org/tags/beartype/"/>
+    
+    <category term="类型检查" scheme="https://blog.daojinobb.eu.org/tags/%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5/"/>
+    
+    <category term="数据验证" scheme="https://blog.daojinobb.eu.org/tags/%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81/"/>
     
   </entry>
   
@@ -73,16 +69,10 @@
     <link href="https://blog.daojinobb.eu.org/posts/25614"/>
     <id>https://blog.daojinobb.eu.org/posts/25614</id>
     <published>2025-03-10T00:02:00.000Z</published>
-    <updated>2025-05-11T14:41:24.545Z</updated>
+    <updated>2025-06-24T04:30:26.932Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;AI断片了吗？探秘大模型在超长对话中的理解能力&quot;&gt;&lt;a href=&quot;#AI断片了吗？探秘大模型在超长对话中的理解能力&quot; class=&quot;headerlink&quot;</summary>
-        
-      
+    <summary type="html">本文探讨了大型语言模型在超长对话中出现&quot;断片&quot;或遗忘现象的原因，分析了其背后的技术原理如 token 限制和上下文截断，并介绍了一些解决方案，如上下文摘要提取和针对特定场景（如代码补全）的优化策略。</summary>
     
     
     
@@ -98,16 +88,10 @@
     <link href="https://blog.daojinobb.eu.org/posts/33210"/>
     <id>https://blog.daojinobb.eu.org/posts/33210</id>
     <published>2025-01-16T02:33:24.000Z</published>
-    <updated>2025-05-11T14:41:24.550Z</updated>
+    <updated>2025-06-24T05:24:14.602Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;个人免签方案&quot;&gt;&lt;a href=&quot;#个人免签方案&quot; class=&quot;headerlink&quot; title=&quot;个人免签方案&quot;&gt;&lt;/a&gt;个人免签方案&lt;/h1&gt;&lt;h2 id=&quot;方案说明&quot;&gt;&lt;a href=&quot;#方案说明&quot; class=&quot;headerlink&quot;</summary>
-        
-      
+    <summary type="html">本文探讨了个人免签支付方案的实现，重点解决微信和支付宝的收款问题。介绍了通过监听通知实现自动确认的原理，并设计了一套基于FastAPI、PostgreSQL和Redis的技术架构，同时讨论了并发订单处理等关键问题。</summary>
     
     
     
@@ -120,6 +104,8 @@
     
     <category term="支付接口" scheme="https://blog.daojinobb.eu.org/tags/%E6%94%AF%E4%BB%98%E6%8E%A5%E5%8F%A3/"/>
     
+    <category term="免签支付" scheme="https://blog.daojinobb.eu.org/tags/%E5%85%8D%E7%AD%BE%E6%94%AF%E4%BB%98/"/>
+    
   </entry>
   
   <entry>
@@ -127,42 +113,48 @@
     <link href="https://blog.daojinobb.eu.org/posts/60917"/>
     <id>https://blog.daojinobb.eu.org/posts/60917</id>
     <published>2024-03-07T03:14:02.000Z</published>
-    <updated>2025-05-11T14:41:24.545Z</updated>
+    <updated>2025-06-24T05:09:46.374Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;GPT学习分享&quot;&gt;&lt;a href=&quot;#GPT学习分享&quot; class=&quot;headerlink&quot; title=&quot;GPT学习分享&quot;&gt;&lt;/a&gt;GPT学习分享&lt;/h1&gt;&lt;h2 id=&quot;序&quot;&gt;&lt;a href=&quot;#序&quot; class=&quot;headerlink&quot;</summary>
-        
-      
+    <summary type="html">本文详细分享了构建 GPT 模型的技术知识。从有限状态马尔可夫链的基础概念入手，深入讲解了 Transformer 架构的演进、自编码与自回归模型的区别，并系统阐述了训练一个 AI 助手的四个核心阶段：预训练、监督微调（SFT）、奖励建模和从人类反馈中强化学习（RLHF）。</summary>
     
     
     
-    <category term="未分类" scheme="https://blog.daojinobb.eu.org/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/"/>
+    <category term="AI" scheme="https://blog.daojinobb.eu.org/categories/AI/"/>
     
     
     <category term="blog" scheme="https://blog.daojinobb.eu.org/tags/blog/"/>
     
+    <category term="人工智能" scheme="https://blog.daojinobb.eu.org/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    <category term="GPT" scheme="https://blog.daojinobb.eu.org/tags/GPT/"/>
+    
   </entry>
   
   <entry>
-    <title>CSS设置height 100%不生效</title>
+    <title>CSS中height 100%为何不生效？Flexbox布局解决方案</title>
     <link href="https://blog.daojinobb.eu.org/posts/44550"/>
     <id>https://blog.daojinobb.eu.org/posts/44550</id>
     <published>2024-02-22T01:40:38.000Z</published>
-    <updated>2025-05-11T14:41:24.550Z</updated>
+    <updated>2025-06-24T05:07:38.995Z</updated>
     
     
-    <summary type="html">CSS设置height 100%不生效</summary>
+    <summary type="html">本文详细解释了为什么在父元素没有固定高度时，子元素设置 height 100% 会失效，并提供了使用 Flexbox (display flex) 和 Grid 布局作为现代CSS解决方案，以实现元素高度的动态填充。</summary>
     
     
     
     <category term="前端" scheme="https://blog.daojinobb.eu.org/categories/%E5%89%8D%E7%AB%AF/"/>
     
+    <category term="CSS" scheme="https://blog.daojinobb.eu.org/categories/%E5%89%8D%E7%AB%AF/CSS/"/>
     
-    <category term="前端" scheme="https://blog.daojinobb.eu.org/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="CSS" scheme="https://blog.daojinobb.eu.org/tags/CSS/"/>
+    
+    <category term="Flexbox" scheme="https://blog.daojinobb.eu.org/tags/Flexbox/"/>
+    
+    <category term="前端开发" scheme="https://blog.daojinobb.eu.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="布局问题" scheme="https://blog.daojinobb.eu.org/tags/%E5%B8%83%E5%B1%80%E9%97%AE%E9%A2%98/"/>
     
   </entry>
   
@@ -171,366 +163,564 @@
     <link href="https://blog.daojinobb.eu.org/posts/52803"/>
     <id>https://blog.daojinobb.eu.org/posts/52803</id>
     <published>2023-07-05T14:11:49.000Z</published>
-    <updated>2025-05-11T14:41:24.546Z</updated>
+    <updated>2025-06-24T05:22:29.004Z</updated>
+    
+    
+    <summary type="html">Golang系列面试题库第十篇，精选Go语言常见面试题目，帮助开发者巩固知识，从容应对技术面试。</summary>
     
     
     
+    <category term="Golang" scheme="https://blog.daojinobb.eu.org/categories/Golang/"/>
     
-    <category term="未分类" scheme="https://blog.daojinobb.eu.org/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/"/>
+    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     
     
-    <category term="blog" scheme="https://blog.daojinobb.eu.org/tags/blog/"/>
+    <category term="Go" scheme="https://blog.daojinobb.eu.org/tags/Go/"/>
+    
+    <category term="Golang" scheme="https://blog.daojinobb.eu.org/tags/Golang/"/>
+    
+    <category term="面试题" scheme="https://blog.daojinobb.eu.org/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="编程题" scheme="https://blog.daojinobb.eu.org/tags/%E7%BC%96%E7%A8%8B%E9%A2%98/"/>
     
   </entry>
   
   <entry>
-    <title>Golang题库（十）</title>
+    <title>Golang面试题详解（十）：并发模型、GMP调度、Context与defer</title>
     <link href="https://blog.daojinobb.eu.org/posts/52804"/>
     <id>https://blog.daojinobb.eu.org/posts/52804</id>
     <published>2023-07-05T14:11:49.000Z</published>
-    <updated>2025-05-11T14:41:24.552Z</updated>
+    <updated>2025-06-24T04:46:36.002Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Golang题库（十）&quot;&gt;&lt;a href=&quot;#Golang题库（十）&quot; class=&quot;headerlink&quot; title=&quot;Golang题库（十）&quot;&gt;&lt;/a&gt;Golang题库（十）&lt;/h1&gt;&lt;h2 id=&quot;空结构体占不占内存空间？-为什么使用空结构体？&quot;&gt;&lt;a</summary>
-        
-      
+    <summary type="html">本文为 Golang 面试题系列第十篇，聚焦于 Go 的并发模型，详细对比了 Channel、WaitGroup、Context 的使用场景。深入探讨了 GMP 调度细节，如 G 的饥饿问题、G/M/P 的数量与关系、以及大规模 Goroutine 的调度策略。同时覆盖了 defer/panic/recover 机制、init 函数执行顺序、空结构体等重要知识点。</summary>
     
     
     
-    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="Golang" scheme="https://blog.daojinobb.eu.org/categories/Golang/"/>
+    
+    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="并发编程" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+    
+    <category term="GMP模型" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/GMP%E6%A8%A1%E5%9E%8B/"/>
     
     
-    <category term="面试题" scheme="https://blog.daojinobb.eu.org/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="Golang" scheme="https://blog.daojinobb.eu.org/tags/Golang/"/>
     
-    <category term="Go" scheme="https://blog.daojinobb.eu.org/tags/Go/"/>
+    <category term="Go面试题" scheme="https://blog.daojinobb.eu.org/tags/Go%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="Channel" scheme="https://blog.daojinobb.eu.org/tags/Channel/"/>
+    
+    <category term="GMP" scheme="https://blog.daojinobb.eu.org/tags/GMP/"/>
+    
+    <category term="WaitGroup" scheme="https://blog.daojinobb.eu.org/tags/WaitGroup/"/>
+    
+    <category term="并发模型" scheme="https://blog.daojinobb.eu.org/tags/%E5%B9%B6%E5%8F%91%E6%A8%A1%E5%9E%8B/"/>
+    
+    <category term="Context" scheme="https://blog.daojinobb.eu.org/tags/Context/"/>
+    
+    <category term="defer" scheme="https://blog.daojinobb.eu.org/tags/defer/"/>
+    
+    <category term="panic" scheme="https://blog.daojinobb.eu.org/tags/panic/"/>
+    
+    <category term="recover" scheme="https://blog.daojinobb.eu.org/tags/recover/"/>
+    
+    <category term="init" scheme="https://blog.daojinobb.eu.org/tags/init/"/>
+    
+    <category term="空结构体" scheme="https://blog.daojinobb.eu.org/tags/%E7%A9%BA%E7%BB%93%E6%9E%84%E4%BD%93/"/>
     
   </entry>
   
   <entry>
-    <title>Golang题库（九）</title>
+    <title>Golang面试题详解（九）：内存模型、深浅拷贝与并发安全</title>
     <link href="https://blog.daojinobb.eu.org/posts/19444"/>
     <id>https://blog.daojinobb.eu.org/posts/19444</id>
     <published>2023-07-04T13:28:02.000Z</published>
-    <updated>2025-05-11T14:41:24.552Z</updated>
+    <updated>2025-06-24T04:46:58.745Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Golang题库（九）&quot;&gt;&lt;a href=&quot;#Golang题库（九）&quot; class=&quot;headerlink&quot; title=&quot;Golang题库（九）&quot;&gt;&lt;/a&gt;Golang题库（九）&lt;/h1&gt;&lt;h2 id=&quot;怎么用go实现一个栈&quot;&gt;&lt;a</summary>
-        
-      
+    <summary type="html">本文为 Golang 面试题系列第九篇，深度拆解了 Go 语言的内存模型，包括 Span、mcache、mcentral、mheap 的三级管理结构和对象分配流程。同时详细探讨了深拷贝与浅拷贝的区别、实现方式，并辨析了 Slice、Map、Channel 的并发安全性问题。</summary>
     
     
     
-    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="Golang" scheme="https://blog.daojinobb.eu.org/categories/Golang/"/>
+    
+    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="内存管理" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="并发编程" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
     
-    <category term="面试题" scheme="https://blog.daojinobb.eu.org/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="Golang" scheme="https://blog.daojinobb.eu.org/tags/Golang/"/>
     
-    <category term="Go" scheme="https://blog.daojinobb.eu.org/tags/Go/"/>
+    <category term="Go面试题" scheme="https://blog.daojinobb.eu.org/tags/Go%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="Channel" scheme="https://blog.daojinobb.eu.org/tags/Channel/"/>
+    
+    <category term="Slice" scheme="https://blog.daojinobb.eu.org/tags/Slice/"/>
+    
+    <category term="线程安全" scheme="https://blog.daojinobb.eu.org/tags/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="Map" scheme="https://blog.daojinobb.eu.org/tags/Map/"/>
+    
+    <category term="内存模型" scheme="https://blog.daojinobb.eu.org/tags/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"/>
+    
+    <category term="mheap" scheme="https://blog.daojinobb.eu.org/tags/mheap/"/>
+    
+    <category term="mcache" scheme="https://blog.daojinobb.eu.org/tags/mcache/"/>
+    
+    <category term="mcentral" scheme="https://blog.daojinobb.eu.org/tags/mcentral/"/>
+    
+    <category term="深拷贝" scheme="https://blog.daojinobb.eu.org/tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D/"/>
+    
+    <category term="浅拷贝" scheme="https://blog.daojinobb.eu.org/tags/%E6%B5%85%E6%8B%B7%E8%B4%9D/"/>
+    
+    <category term="并发安全" scheme="https://blog.daojinobb.eu.org/tags/%E5%B9%B6%E5%8F%91%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="make" scheme="https://blog.daojinobb.eu.org/tags/make/"/>
+    
+    <category term="new" scheme="https://blog.daojinobb.eu.org/tags/new/"/>
     
   </entry>
   
   <entry>
-    <title>Golang题库（八）</title>
+    <title>Golang面试题详解（八）：GC、GMP、逃逸分析与并发陷阱</title>
     <link href="https://blog.daojinobb.eu.org/posts/6059"/>
     <id>https://blog.daojinobb.eu.org/posts/6059</id>
     <published>2023-07-03T13:27:34.000Z</published>
-    <updated>2025-05-11T14:41:24.552Z</updated>
+    <updated>2025-06-24T04:46:59.562Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Golang题库（八）&quot;&gt;&lt;a href=&quot;#Golang题库（八）&quot; class=&quot;headerlink&quot; title=&quot;Golang题库（八）&quot;&gt;&lt;/a&gt;Golang题库（八）&lt;/h1&gt;&lt;h2 id=&quot;go语言的引用类型有什么？&quot;&gt;&lt;a</summary>
-        
-      
+    <summary type="html">本文为 Golang 面试题系列第八篇，全面覆盖了 Go 语言高级面试题。内容包括：Go GC 的三色标记法与混合写屏障、GMP 调度模型中 G 阻塞的处理、内存逃逸分析的原理与场景。同时深入探讨了 map 底层、Goroutine 闭包陷阱、锁的饥饿模式、Channel 的关闭读写等并发核心问题。</summary>
     
     
     
-    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="Golang" scheme="https://blog.daojinobb.eu.org/categories/Golang/"/>
+    
+    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="垃圾回收" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/"/>
+    
+    <category term="GMP模型" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/GMP%E6%A8%A1%E5%9E%8B/"/>
+    
+    <category term="内存管理" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/GMP%E6%A8%A1%E5%9E%8B/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"/>
     
     
-    <category term="面试题" scheme="https://blog.daojinobb.eu.org/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="Golang" scheme="https://blog.daojinobb.eu.org/tags/Golang/"/>
     
-    <category term="Go" scheme="https://blog.daojinobb.eu.org/tags/Go/"/>
+    <category term="Go面试题" scheme="https://blog.daojinobb.eu.org/tags/Go%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="Channel" scheme="https://blog.daojinobb.eu.org/tags/Channel/"/>
+    
+    <category term="Mutex" scheme="https://blog.daojinobb.eu.org/tags/Mutex/"/>
+    
+    <category term="Map" scheme="https://blog.daojinobb.eu.org/tags/Map/"/>
+    
+    <category term="GMP" scheme="https://blog.daojinobb.eu.org/tags/GMP/"/>
+    
+    <category term="Goroutine" scheme="https://blog.daojinobb.eu.org/tags/Goroutine/"/>
+    
+    <category term="GC" scheme="https://blog.daojinobb.eu.org/tags/GC/"/>
+    
+    <category term="三色标记法" scheme="https://blog.daojinobb.eu.org/tags/%E4%B8%89%E8%89%B2%E6%A0%87%E8%AE%B0%E6%B3%95/"/>
+    
+    <category term="混合写屏障" scheme="https://blog.daojinobb.eu.org/tags/%E6%B7%B7%E5%90%88%E5%86%99%E5%B1%8F%E9%9A%9C/"/>
+    
+    <category term="逃逸分析" scheme="https://blog.daojinobb.eu.org/tags/%E9%80%83%E9%80%B8%E5%88%86%E6%9E%90/"/>
+    
+    <category term="WaitGroup" scheme="https://blog.daojinobb.eu.org/tags/WaitGroup/"/>
     
   </entry>
   
   <entry>
-    <title>Golang题库（七）</title>
+    <title>Golang面试题详解（七）：Slice底层、线程安全Map、锁与Map实现</title>
     <link href="https://blog.daojinobb.eu.org/posts/41935"/>
     <id>https://blog.daojinobb.eu.org/posts/41935</id>
     <published>2023-06-27T12:14:45.000Z</published>
-    <updated>2025-05-11T14:41:24.552Z</updated>
+    <updated>2025-06-24T04:46:25.101Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Golang题库（七）&quot;&gt;&lt;a href=&quot;#Golang题库（七）&quot; class=&quot;headerlink&quot; title=&quot;Golang题库（七）&quot;&gt;&lt;/a&gt;Golang题库（七）&lt;/h1&gt;&lt;h2 id=&quot;Slice-与-Array-Append&quot;&gt;&lt;a</summary>
-        
-      
+    <summary type="html">本文为 Golang 面试题系列第七篇，深入剖析了 Slice 与 Array 的区别、append 及 growslice 的底层扩容逻辑。探讨了实现线程安全 map 的三种方式（读写锁、分片加锁、sync.Map），并解释了 Go 的 Mutex 为何不是可重入锁，最后详细图解了 Go map 的 hmap 和 bmap 底层实现原理。</summary>
     
     
     
-    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="Golang" scheme="https://blog.daojinobb.eu.org/categories/Golang/"/>
+    
+    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="并发编程" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
     
-    <category term="面试题" scheme="https://blog.daojinobb.eu.org/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="Golang" scheme="https://blog.daojinobb.eu.org/tags/Golang/"/>
     
-    <category term="Go" scheme="https://blog.daojinobb.eu.org/tags/Go/"/>
+    <category term="Go面试题" scheme="https://blog.daojinobb.eu.org/tags/Go%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="Slice" scheme="https://blog.daojinobb.eu.org/tags/Slice/"/>
+    
+    <category term="Array" scheme="https://blog.daojinobb.eu.org/tags/Array/"/>
+    
+    <category term="append" scheme="https://blog.daojinobb.eu.org/tags/append/"/>
+    
+    <category term="sync.Map" scheme="https://blog.daojinobb.eu.org/tags/sync-Map/"/>
+    
+    <category term="线程安全" scheme="https://blog.daojinobb.eu.org/tags/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="Mutex" scheme="https://blog.daojinobb.eu.org/tags/Mutex/"/>
+    
+    <category term="可重入锁" scheme="https://blog.daojinobb.eu.org/tags/%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81/"/>
+    
+    <category term="Map" scheme="https://blog.daojinobb.eu.org/tags/Map/"/>
+    
+    <category term="hmap" scheme="https://blog.daojinobb.eu.org/tags/hmap/"/>
     
   </entry>
   
   <entry>
-    <title>Golang题库（六）</title>
+    <title>Golang面试题详解（六）：GMP模型、GC、深浅拷贝及Channel应用</title>
     <link href="https://blog.daojinobb.eu.org/posts/40874"/>
     <id>https://blog.daojinobb.eu.org/posts/40874</id>
     <published>2023-06-26T11:17:17.000Z</published>
-    <updated>2025-05-11T14:41:24.552Z</updated>
+    <updated>2025-06-24T04:46:22.131Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Golang题库（六）&quot;&gt;&lt;a href=&quot;#Golang题库（六）&quot; class=&quot;headerlink&quot; title=&quot;Golang题库（六）&quot;&gt;&lt;/a&gt;Golang题库（六）&lt;/h1&gt;&lt;h2 id=&quot;✨讲一讲-GMP-模型&quot;&gt;&lt;a</summary>
-        
-      
+    <summary type="html">本文为 Golang 面试题系列第六篇，详细拆解了 Go 语言核心的 GMP 调度模型，对比了多种 GC 垃圾回收算法，并解释了 Go GC 的触发时机。同时，深入探讨了深拷贝与浅拷贝的区别、Channel 的应用、以及 make 和 new 的不同。</summary>
     
     
     
-    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="Golang" scheme="https://blog.daojinobb.eu.org/categories/Golang/"/>
+    
+    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="GMP模型" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/GMP%E6%A8%A1%E5%9E%8B/"/>
+    
+    <category term="垃圾回收" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/GMP%E6%A8%A1%E5%9E%8B/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/"/>
     
     
-    <category term="面试题" scheme="https://blog.daojinobb.eu.org/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="Golang" scheme="https://blog.daojinobb.eu.org/tags/Golang/"/>
     
-    <category term="Go" scheme="https://blog.daojinobb.eu.org/tags/Go/"/>
+    <category term="Go面试题" scheme="https://blog.daojinobb.eu.org/tags/Go%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="Channel" scheme="https://blog.daojinobb.eu.org/tags/Channel/"/>
+    
+    <category term="深拷贝" scheme="https://blog.daojinobb.eu.org/tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D/"/>
+    
+    <category term="浅拷贝" scheme="https://blog.daojinobb.eu.org/tags/%E6%B5%85%E6%8B%B7%E8%B4%9D/"/>
+    
+    <category term="make" scheme="https://blog.daojinobb.eu.org/tags/make/"/>
+    
+    <category term="new" scheme="https://blog.daojinobb.eu.org/tags/new/"/>
+    
+    <category term="GMP" scheme="https://blog.daojinobb.eu.org/tags/GMP/"/>
+    
+    <category term="GC" scheme="https://blog.daojinobb.eu.org/tags/GC/"/>
+    
+    <category term="垃圾回收" scheme="https://blog.daojinobb.eu.org/tags/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/"/>
     
   </entry>
   
   <entry>
-    <title>Golang题库（五）</title>
+    <title>Golang面试题详解（五）：热部署、读写锁、Goroutine与线程</title>
     <link href="https://blog.daojinobb.eu.org/posts/55219"/>
     <id>https://blog.daojinobb.eu.org/posts/55219</id>
     <published>2023-06-25T13:46:12.000Z</published>
-    <updated>2025-05-11T14:41:24.552Z</updated>
+    <updated>2025-06-24T04:47:00.316Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Golang题库（五）&quot;&gt;&lt;a href=&quot;#Golang题库（五）&quot; class=&quot;headerlink&quot; title=&quot;Golang题库（五）&quot;&gt;&lt;/a&gt;Golang题库（五）&lt;/h1&gt;&lt;h2 id=&quot;go-实现不重启热部署&quot;&gt;&lt;a</summary>
-        
-      
+    <summary type="html">本文为 Golang 面试题系列第五篇，探讨了 Go 实现服务热部署的多种方案，深入解析了读写锁(RWMutex)的底层实现原理，并给出了使用 Channel 实现两个协程交替打印的经典范例，最后对比了 Goroutine 与线程的本质区别。</summary>
     
     
     
-    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="Golang" scheme="https://blog.daojinobb.eu.org/categories/Golang/"/>
+    
+    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="系统设计" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="并发编程" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
     
-    <category term="面试题" scheme="https://blog.daojinobb.eu.org/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="Golang" scheme="https://blog.daojinobb.eu.org/tags/Golang/"/>
     
-    <category term="Go" scheme="https://blog.daojinobb.eu.org/tags/Go/"/>
+    <category term="并发编程" scheme="https://blog.daojinobb.eu.org/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+    
+    <category term="Go面试题" scheme="https://blog.daojinobb.eu.org/tags/Go%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="热部署" scheme="https://blog.daojinobb.eu.org/tags/%E7%83%AD%E9%83%A8%E7%BD%B2/"/>
+    
+    <category term="灰度发布" scheme="https://blog.daojinobb.eu.org/tags/%E7%81%B0%E5%BA%A6%E5%8F%91%E5%B8%83/"/>
+    
+    <category term="RWMutex" scheme="https://blog.daojinobb.eu.org/tags/RWMutex/"/>
+    
+    <category term="读写锁" scheme="https://blog.daojinobb.eu.org/tags/%E8%AF%BB%E5%86%99%E9%94%81/"/>
+    
+    <category term="Goroutine" scheme="https://blog.daojinobb.eu.org/tags/Goroutine/"/>
+    
+    <category term="线程" scheme="https://blog.daojinobb.eu.org/tags/%E7%BA%BF%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
-    <title>Golang题库（四）</title>
+    <title>Golang面试题详解（四）：Map、Channel、WaitGroup常见陷阱及Struct比较</title>
     <link href="https://blog.daojinobb.eu.org/posts/5389"/>
     <id>https://blog.daojinobb.eu.org/posts/5389</id>
     <published>2023-06-23T12:55:21.000Z</published>
-    <updated>2025-05-11T14:41:24.552Z</updated>
+    <updated>2025-06-24T04:47:01.104Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Golang题库（四）&quot;&gt;&lt;a href=&quot;#Golang题库（四）&quot; class=&quot;headerlink&quot; title=&quot;Golang题库（四）&quot;&gt;&lt;/a&gt;Golang题库（四）&lt;/h1&gt;&lt;h2</summary>
-        
-      
+    <summary type="html">本文为 Golang 面试题系列第四篇，解答了 map 作为引用类型的修改问题，分析了向 nil channel 发送数据的阻塞行为，并详细总结了 WaitGroup 使用中的常见陷阱。同时，探讨了 Go struct 的可比较性规则。</summary>
     
     
     
-    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="Golang" scheme="https://blog.daojinobb.eu.org/categories/Golang/"/>
+    
+    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="并发编程" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
     
-    <category term="面试题" scheme="https://blog.daojinobb.eu.org/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="Golang" scheme="https://blog.daojinobb.eu.org/tags/Golang/"/>
     
-    <category term="Go" scheme="https://blog.daojinobb.eu.org/tags/Go/"/>
+    <category term="Go面试题" scheme="https://blog.daojinobb.eu.org/tags/Go%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="Channel" scheme="https://blog.daojinobb.eu.org/tags/Channel/"/>
+    
+    <category term="Map" scheme="https://blog.daojinobb.eu.org/tags/Map/"/>
+    
+    <category term="WaitGroup" scheme="https://blog.daojinobb.eu.org/tags/WaitGroup/"/>
+    
+    <category term="Struct" scheme="https://blog.daojinobb.eu.org/tags/Struct/"/>
+    
+    <category term="并发陷阱" scheme="https://blog.daojinobb.eu.org/tags/%E5%B9%B6%E5%8F%91%E9%99%B7%E9%98%B1/"/>
     
   </entry>
   
   <entry>
-    <title>Golang题库（三）</title>
+    <title>Golang面试题详解（三）：Channel与锁、应用场景及Slice与Array深度对比</title>
     <link href="https://blog.daojinobb.eu.org/posts/31692"/>
     <id>https://blog.daojinobb.eu.org/posts/31692</id>
     <published>2023-06-22T13:06:15.000Z</published>
-    <updated>2025-05-11T14:41:24.552Z</updated>
+    <updated>2025-06-24T04:46:28.350Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Golang题库（三）&quot;&gt;&lt;a href=&quot;#Golang题库（三）&quot; class=&quot;headerlink&quot; title=&quot;Golang题库（三）&quot;&gt;&lt;/a&gt;Golang题库（三）&lt;/h1&gt;&lt;h2</summary>
-        
-      
+    <summary type="html">本文为 Golang 面试题系列第三篇，深入探讨了无缓冲 Channel 的死锁问题，对比了 Channel 与锁 (Mutex) 的使用场景与区别，并总结了 Channel 在任务超时、事件驱动、并发控制等多种应用场景。最后，详细对比了 Slice 和 Array 的核心差异。</summary>
     
     
     
-    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="Golang" scheme="https://blog.daojinobb.eu.org/categories/Golang/"/>
+    
+    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="并发编程" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
     
-    <category term="面试题" scheme="https://blog.daojinobb.eu.org/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="Golang" scheme="https://blog.daojinobb.eu.org/tags/Golang/"/>
     
-    <category term="Go" scheme="https://blog.daojinobb.eu.org/tags/Go/"/>
+    <category term="Go面试题" scheme="https://blog.daojinobb.eu.org/tags/Go%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="Channel" scheme="https://blog.daojinobb.eu.org/tags/Channel/"/>
+    
+    <category term="Slice" scheme="https://blog.daojinobb.eu.org/tags/Slice/"/>
+    
+    <category term="Array" scheme="https://blog.daojinobb.eu.org/tags/Array/"/>
+    
+    <category term="Mutex" scheme="https://blog.daojinobb.eu.org/tags/Mutex/"/>
+    
+    <category term="锁" scheme="https://blog.daojinobb.eu.org/tags/%E9%94%81/"/>
+    
+    <category term="并发控制" scheme="https://blog.daojinobb.eu.org/tags/%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6/"/>
     
   </entry>
   
   <entry>
-    <title>Golang题库（二）</title>
+    <title>Golang面试题详解（二）：GMP模型、Channel底层原理及Go与Java对比</title>
     <link href="https://blog.daojinobb.eu.org/posts/30645"/>
     <id>https://blog.daojinobb.eu.org/posts/30645</id>
     <published>2023-06-20T10:44:21.000Z</published>
-    <updated>2025-05-11T14:41:24.552Z</updated>
+    <updated>2025-06-24T04:47:01.887Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Golang题库（二）&quot;&gt;&lt;a href=&quot;#Golang题库（二）&quot; class=&quot;headerlink&quot; title=&quot;Golang题库（二）&quot;&gt;&lt;/a&gt;Golang题库（二）&lt;/h1&gt;&lt;h2 id=&quot;数组怎么转集合&quot;&gt;&lt;a href=&quot;#数组怎么转集合&quot;</summary>
-        
-      
+    <summary type="html">本文为 Golang 面试题系列第二篇，深入探讨了 Go 语言核心的 GMP 调度模型、Channel 的底层数据结构(hchan)与实现原理，并详细对比了 Go 与 Java 在函数重载、性能、并发模型及继承等方面的关键差异。</summary>
     
     
     
-    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="Golang" scheme="https://blog.daojinobb.eu.org/categories/Golang/"/>
+    
+    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="GMP模型" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/GMP%E6%A8%A1%E5%9E%8B/"/>
     
     
-    <category term="面试题" scheme="https://blog.daojinobb.eu.org/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="Golang" scheme="https://blog.daojinobb.eu.org/tags/Golang/"/>
     
-    <category term="Go" scheme="https://blog.daojinobb.eu.org/tags/Go/"/>
+    <category term="Go面试题" scheme="https://blog.daojinobb.eu.org/tags/Go%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="Channel" scheme="https://blog.daojinobb.eu.org/tags/Channel/"/>
+    
+    <category term="GMP" scheme="https://blog.daojinobb.eu.org/tags/GMP/"/>
+    
+    <category term="协程调度" scheme="https://blog.daojinobb.eu.org/tags/%E5%8D%8F%E7%A8%8B%E8%B0%83%E5%BA%A6/"/>
+    
+    <category term="hchan" scheme="https://blog.daojinobb.eu.org/tags/hchan/"/>
+    
+    <category term="Go与Java" scheme="https://blog.daojinobb.eu.org/tags/Go%E4%B8%8EJava/"/>
     
   </entry>
   
   <entry>
-    <title>Golang题库（一）</title>
+    <title>Golang面试题详解（一）：数组、切片、Channel与继承</title>
     <link href="https://blog.daojinobb.eu.org/posts/59343"/>
     <id>https://blog.daojinobb.eu.org/posts/59343</id>
     <published>2023-06-19T12:15:43.000Z</published>
-    <updated>2025-05-11T14:41:24.551Z</updated>
+    <updated>2025-06-24T04:45:53.257Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Golang题库（一）&quot;&gt;&lt;a href=&quot;#Golang题库（一）&quot; class=&quot;headerlink&quot; title=&quot;Golang题库（一）&quot;&gt;&lt;/a&gt;Golang题库（一）&lt;/h1&gt;&lt;h2 id=&quot;golang里的数组和切片有了解过吗？&quot;&gt;&lt;a</summary>
-        
-      
+    <summary type="html">本文深入剖析了 Golang 面试中常见的核心知识点，包括数组与切片的区别、值传递与引用传递、切片的底层实现、扩容机制及常见陷阱。同时详细解答了对已关闭 Channel 的读写操作，以及 Go 语言如何通过结构体嵌套和接口实现继承。</summary>
     
     
     
-    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="Golang" scheme="https://blog.daojinobb.eu.org/categories/Golang/"/>
+    
+    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     
     
-    <category term="面试题" scheme="https://blog.daojinobb.eu.org/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="Golang" scheme="https://blog.daojinobb.eu.org/tags/Golang/"/>
     
-    <category term="Go" scheme="https://blog.daojinobb.eu.org/tags/Go/"/>
+    <category term="Go面试题" scheme="https://blog.daojinobb.eu.org/tags/Go%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="数组" scheme="https://blog.daojinobb.eu.org/tags/%E6%95%B0%E7%BB%84/"/>
+    
+    <category term="切片" scheme="https://blog.daojinobb.eu.org/tags/%E5%88%87%E7%89%87/"/>
+    
+    <category term="Channel" scheme="https://blog.daojinobb.eu.org/tags/Channel/"/>
+    
+    <category term="继承" scheme="https://blog.daojinobb.eu.org/tags/%E7%BB%A7%E6%89%BF/"/>
     
   </entry>
   
   <entry>
-    <title>操作系统题库（三）</title>
+    <title>Linux面试题详解（三）：性能、Shell、网络与安全</title>
     <link href="https://blog.daojinobb.eu.org/posts/20671"/>
     <id>https://blog.daojinobb.eu.org/posts/20671</id>
     <published>2023-06-18T09:18:25.000Z</published>
-    <updated>2025-05-11T14:41:24.552Z</updated>
+    <updated>2025-06-24T05:18:39.575Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;操作系统题库（三）&quot;&gt;&lt;a href=&quot;#操作系统题库（三）&quot; class=&quot;headerlink&quot; title=&quot;操作系统题库（三）&quot;&gt;&lt;/a&gt;操作系统题库（三）&lt;/h1&gt;&lt;h2 id=&quot;16-如何选择-Linux-操作系统版本？&quot;&gt;&lt;a</summary>
-        
-      
+    <summary type="html">Linux面试题精选，涵盖性能调优（解决网站慢、CPU高负载）、Shell脚本、网络（IP、DNS、iptables、路由）、安全（防DDoS、SQL注入）等。Linux运维及后端开发面试必备。</summary>
     
     
     
-    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="操作系统" scheme="https://blog.daojinobb.eu.org/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
+    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="Linux" scheme="https://blog.daojinobb.eu.org/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E9%9D%A2%E8%AF%95%E9%A2%98/Linux/"/>
+    
+    
+    <category term="面试题" scheme="https://blog.daojinobb.eu.org/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="DDoS" scheme="https://blog.daojinobb.eu.org/tags/DDoS/"/>
     
     <category term="Linux" scheme="https://blog.daojinobb.eu.org/tags/Linux/"/>
     
-    <category term="面试题" scheme="https://blog.daojinobb.eu.org/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="操作系统" scheme="https://blog.daojinobb.eu.org/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="Shell脚本" scheme="https://blog.daojinobb.eu.org/tags/Shell%E8%84%9A%E6%9C%AC/"/>
+    
+    <category term="性能调优" scheme="https://blog.daojinobb.eu.org/tags/%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/"/>
+    
+    <category term="网络配置" scheme="https://blog.daojinobb.eu.org/tags/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
+    
+    <category term="Linux安全" scheme="https://blog.daojinobb.eu.org/tags/Linux%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="SQL注入" scheme="https://blog.daojinobb.eu.org/tags/SQL%E6%B3%A8%E5%85%A5/"/>
+    
+    <category term="iptables" scheme="https://blog.daojinobb.eu.org/tags/iptables/"/>
     
   </entry>
   
   <entry>
-    <title>操作系统题库（二）</title>
+    <title>Linux面试题（二）：内核、启动、进程通信与文件系统</title>
     <link href="https://blog.daojinobb.eu.org/posts/23750"/>
     <id>https://blog.daojinobb.eu.org/posts/23750</id>
     <published>2023-06-17T11:23:22.000Z</published>
-    <updated>2025-05-11T14:41:24.553Z</updated>
+    <updated>2025-06-24T04:46:56.232Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;操作系统题库（二）&quot;&gt;&lt;a href=&quot;#操作系统题库（二）&quot; class=&quot;headerlink&quot; title=&quot;操作系统题库（二）&quot;&gt;&lt;/a&gt;操作系统题库（二）&lt;/h1&gt;&lt;h2 id=&quot;4-什么是-Linux-内核？&quot;&gt;&lt;a</summary>
-        
-      
+    <summary type="html">本文为 Linux 面试题系列第二篇，深入探讨了 Linux 内核的功能、开机启动过程、进程间通信（IPC）机制、虚拟内存管理以及文件系统的核心概念，包括目录结构、inode、硬链接与软链接的区别。</summary>
     
     
     
-    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="Linux" scheme="https://blog.daojinobb.eu.org/categories/Linux/"/>
+    
+    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/Linux/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="操作系统" scheme="https://blog.daojinobb.eu.org/categories/Linux/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
     <category term="Linux" scheme="https://blog.daojinobb.eu.org/tags/Linux/"/>
     
-    <category term="面试题" scheme="https://blog.daojinobb.eu.org/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="操作系统" scheme="https://blog.daojinobb.eu.org/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="内核" scheme="https://blog.daojinobb.eu.org/tags/%E5%86%85%E6%A0%B8/"/>
+    
+    <category term="启动流程" scheme="https://blog.daojinobb.eu.org/tags/%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/"/>
+    
+    <category term="进程间通信" scheme="https://blog.daojinobb.eu.org/tags/%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/"/>
+    
+    <category term="IPC" scheme="https://blog.daojinobb.eu.org/tags/IPC/"/>
+    
+    <category term="虚拟内存" scheme="https://blog.daojinobb.eu.org/tags/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/"/>
+    
+    <category term="文件系统" scheme="https://blog.daojinobb.eu.org/tags/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="inode" scheme="https://blog.daojinobb.eu.org/tags/inode/"/>
+    
+    <category term="硬链接" scheme="https://blog.daojinobb.eu.org/tags/%E7%A1%AC%E9%93%BE%E6%8E%A5/"/>
+    
+    <category term="软链接" scheme="https://blog.daojinobb.eu.org/tags/%E8%BD%AF%E9%93%BE%E6%8E%A5/"/>
+    
+    <category term="Linux面试题" scheme="https://blog.daojinobb.eu.org/tags/Linux%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     
   </entry>
   
   <entry>
-    <title>操作系统题库（一）</title>
+    <title>Linux面试题（一）：常用命令、体系结构与内核空间</title>
     <link href="https://blog.daojinobb.eu.org/posts/52412"/>
     <id>https://blog.daojinobb.eu.org/posts/52412</id>
     <published>2023-06-16T13:22:32.000Z</published>
-    <updated>2025-05-11T14:41:24.552Z</updated>
+    <updated>2025-06-24T04:46:57.726Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;操作系统题库（一）&quot;&gt;&lt;a href=&quot;#操作系统题库（一）&quot; class=&quot;headerlink&quot; title=&quot;操作系统题库（一）&quot;&gt;&lt;/a&gt;操作系统题库（一）&lt;/h1&gt;&lt;h2 id=&quot;1-Linux常用命令&quot;&gt;&lt;a href=&quot;#1-Linux常用命令&quot;</summary>
-        
-      
+    <summary type="html">本文为 Linux 面试题系列第一篇，全面总结了 Linux 中最常用的操作命令，并深入探讨了 Linux 的体系结构，详细解释了为何要划分用户空间和内核空间以及它们之间的交互方式。</summary>
     
     
     
-    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="Linux" scheme="https://blog.daojinobb.eu.org/categories/Linux/"/>
+    
+    <category term="面试题" scheme="https://blog.daojinobb.eu.org/categories/Linux/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="操作系统" scheme="https://blog.daojinobb.eu.org/categories/Linux/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
     <category term="Linux" scheme="https://blog.daojinobb.eu.org/tags/Linux/"/>
     
-    <category term="面试题" scheme="https://blog.daojinobb.eu.org/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <category term="操作系统" scheme="https://blog.daojinobb.eu.org/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="Linux面试题" scheme="https://blog.daojinobb.eu.org/tags/Linux%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="常用命令" scheme="https://blog.daojinobb.eu.org/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    
+    <category term="Linux命令" scheme="https://blog.daojinobb.eu.org/tags/Linux%E5%91%BD%E4%BB%A4/"/>
+    
+    <category term="体系结构" scheme="https://blog.daojinobb.eu.org/tags/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="用户空间" scheme="https://blog.daojinobb.eu.org/tags/%E7%94%A8%E6%88%B7%E7%A9%BA%E9%97%B4/"/>
+    
+    <category term="内核空间" scheme="https://blog.daojinobb.eu.org/tags/%E5%86%85%E6%A0%B8%E7%A9%BA%E9%97%B4/"/>
     
   </entry>
   
