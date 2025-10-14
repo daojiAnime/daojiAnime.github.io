@@ -11,4 +11,4 @@ Disallow: /css/
 Disallow: /fonts/
 Disallow: /fancybox/
 
-Sitemap: https://blog.daojinobb.eu.org/sitemap.xml
+Sitemap: https://www.daoji-anime.com/sitemap.xml
