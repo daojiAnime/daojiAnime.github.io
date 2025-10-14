@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.daoji-anime.com/posts/56342</loc>
+    
+    <lastmod>2025-10-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.daoji-anime.com/posts/50672</loc>
     
     <lastmod>2025-06-24</lastmod>
@@ -605,7 +614,7 @@
   </url>
   
   <url>
-    <loc>https://www.daoji-anime.com/music/</loc>
+    <loc>https://www.daoji-anime.com/photos/</loc>
     
     <lastmod>2025-05-11</lastmod>
     
@@ -614,7 +623,7 @@
   </url>
   
   <url>
-    <loc>https://www.daoji-anime.com/photos/</loc>
+    <loc>https://www.daoji-anime.com/music/</loc>
     
     <lastmod>2025-05-11</lastmod>
     
@@ -641,7 +650,7 @@
   </url>
   
   <url>
-    <loc>https://www.daoji-anime.com/posts/26337</loc>
+    <loc>https://www.daoji-anime.com/posts/44241</loc>
     
     <lastmod>2025-05-11</lastmod>
     
@@ -650,7 +659,7 @@
   </url>
   
   <url>
-    <loc>https://www.daoji-anime.com/posts/44241</loc>
+    <loc>https://www.daoji-anime.com/posts/26337</loc>
     
     <lastmod>2025-05-11</lastmod>
     
@@ -670,7 +679,7 @@
 
   <url>
     <loc>https://www.daoji-anime.com/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -678,1736 +687,1736 @@
   
   <url>
     <loc>https://www.daoji-anime.com/tags/fastapi/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/pydantic/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Python/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/SQLAlchemy/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Web%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Go/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Golang/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E7%BC%96%E7%A8%8B%E9%A2%98/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/log/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/logging/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E6%97%A5%E5%BF%97/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/webrtc/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Django/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/aiortc/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E5%AE%9E%E6%97%B6%E9%80%9A%E4%BF%A1/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/alembic/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E6%94%AF%E4%BB%98%E6%8E%A5%E5%8F%A3/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E5%85%8D%E7%AD%BE%E6%94%AF%E4%BB%98/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/blog/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/GPT/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/Android/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/GIF/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/Android-Studio/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/UI%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/Gradle/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/Jar/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E6%89%93%E5%8C%85/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/Glide/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/Picasso/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/Fresco/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/Java/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/DDoS/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/Linux/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/SSH/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/DenyHosts/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/SharedPreferences/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E9%94%AE%E5%80%BC%E5%AF%B9/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E9%9B%86%E7%BE%A4/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Swarm/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Docker/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Portainer/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/Android/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/GIF/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/Android-Studio/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/UI%E5%BC%80%E5%8F%91/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/Gradle/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/Jar/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E6%89%93%E5%8C%85/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/Glide/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/Picasso/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/Fresco/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/Java/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/DDoS/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/Linux/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/SSH/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/DenyHosts/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/SharedPreferences/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E9%94%AE%E5%80%BC%E5%AF%B9/</loc>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Crontab/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Shell/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%8A%80%E5%B7%A7/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/htop/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/ranger/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/WiFi/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/nmcli/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/NetworkManager/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/CentOS/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/OpenSSH/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/WiFi/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/nmcli/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/NetworkManager/</loc>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E5%AE%89%E5%85%A8/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E6%9C%A8%E9%A9%AC/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E6%8C%96%E7%9F%BF%E7%97%85%E6%AF%92/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E8%84%9A%E6%9C%AC/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/ps/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/grep/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/wc/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Speedtest/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E5%B8%A6%E5%AE%BD%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E6%88%90%E9%95%BF/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E6%80%9D%E8%80%83/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Web/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Aria2/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/OneIndex/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/OneDrive/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Rclone/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Synchronized/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Gnome/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E7%89%88%E6%9C%AC%E6%AF%94%E8%BE%83/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Pythonic/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/TOTP/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E8%B0%B7%E6%AD%8C%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81%E5%99%A8/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/HMAC/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E5%8A%A8%E6%80%81%E5%8F%A3%E4%BB%A4/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/lambda/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/map/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/filter/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/reduce/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/etcd/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/etcd3/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/TOTP/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E8%B0%B7%E6%AD%8C%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81%E5%99%A8/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/HMAC/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E5%8A%A8%E6%80%81%E5%8F%A3%E4%BB%A4/</loc>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/gRPC/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Protobuf/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/RPC/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/itchat/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/OpenCV/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/platform/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/beartype/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Numpy/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E6%8E%92%E5%BA%8F/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/f-string/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E5%85%8D%E7%AD%BE%E7%BA%A6/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E7%88%AC%E8%99%AB/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E6%94%AF%E4%BB%98%E5%AE%9D/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/f-string/</loc>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/invoke/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Fabric/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Nginx/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Web%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Pandas/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/init-py/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E5%8C%85/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E6%A8%A1%E5%9D%97/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/import/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/pip/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/CSS/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Flexbox/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E5%B8%83%E5%B1%80%E9%97%AE%E9%A2%98/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/HTML/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/iframe/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E7%BD%91%E9%A1%B5%E5%B5%8C%E5%85%A5/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Vue3/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/TypeScript/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Vite/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Pinia/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/VueUse/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/VSCode/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/WebRTC/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E9%9F%B3%E8%A7%86%E9%A2%91/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/P2P/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/JavaScript/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Vue/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E4%B8%8D%E4%B8%BA%E4%BA%BA%E7%9F%A5/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E6%83%85%E6%84%9F%E6%80%9D%E7%BB%AA/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/Go%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E6%95%B0%E7%BB%84/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E5%88%87%E7%89%87/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/Channel/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E7%BB%A7%E6%89%BF/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/Slice/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/Array/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/append/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/sync-Map/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/Mutex/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/Map/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/hmap/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E9%94%81/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/mheap/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/mcache/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/mcentral/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E6%B5%85%E6%8B%B7%E8%B4%9D/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E5%B9%B6%E5%8F%91%E5%AE%89%E5%85%A8/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/make/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/new/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/GMP/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E5%8D%8F%E7%A8%8B%E8%B0%83%E5%BA%A6/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/hchan/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/Go%E4%B8%8EJava/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E7%83%AD%E9%83%A8%E7%BD%B2/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E7%81%B0%E5%BA%A6%E5%8F%91%E5%B8%83/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/RWMutex/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E8%AF%BB%E5%86%99%E9%94%81/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/Goroutine/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E7%BA%BF%E7%A8%8B/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/GC/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E4%B8%89%E8%89%B2%E6%A0%87%E8%AE%B0%E6%B3%95/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E6%B7%B7%E5%90%88%E5%86%99%E5%B1%8F%E9%9A%9C/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E9%80%83%E9%80%B8%E5%88%86%E6%9E%90/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/WaitGroup/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E5%B9%B6%E5%8F%91%E6%A8%A1%E5%9E%8B/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/Context/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/defer/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/panic/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/recover/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/init/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E7%A9%BA%E7%BB%93%E6%9E%84%E4%BD%93/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/Struct/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E5%B9%B6%E5%8F%91%E9%99%B7%E9%98%B1/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/Linux%E5%91%BD%E4%BB%A4/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E7%94%A8%E6%88%B7%E7%A9%BA%E9%97%B4/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E5%86%85%E6%A0%B8%E7%A9%BA%E9%97%B4/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/Linux%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/Shell%E8%84%9A%E6%9C%AC/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/Linux%E5%AE%89%E5%85%A8/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/SQL%E6%B3%A8%E5%85%A5/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/iptables/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E5%86%85%E6%A0%B8/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/IPC/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/inode/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E7%A1%AC%E9%93%BE%E6%8E%A5/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/tags/%E8%BD%AF%E9%93%BE%E6%8E%A5/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Hexo/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Markdown/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E6%9D%82%E9%A1%B9/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Git/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/GitHub/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/Gitee/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/%E7%BD%91%E7%BB%9C%E4%BC%98%E5%8C%96/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/tags/hosts/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E6%83%85%E6%84%9F%E6%80%9D%E7%BB%AA/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/Go%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E6%95%B0%E7%BB%84/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E5%88%87%E7%89%87/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/Channel/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E7%BB%A7%E6%89%BF/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/Slice/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/Array/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/append/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/sync-Map/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/Mutex/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/Map/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/hmap/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E9%94%81/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/mheap/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/mcache/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/mcentral/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E6%B5%85%E6%8B%B7%E8%B4%9D/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E5%B9%B6%E5%8F%91%E5%AE%89%E5%85%A8/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/make/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/new/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/GMP/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E5%8D%8F%E7%A8%8B%E8%B0%83%E5%BA%A6/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/hchan/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/Go%E4%B8%8EJava/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E7%83%AD%E9%83%A8%E7%BD%B2/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E7%81%B0%E5%BA%A6%E5%8F%91%E5%B8%83/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/RWMutex/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E8%AF%BB%E5%86%99%E9%94%81/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/Goroutine/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E7%BA%BF%E7%A8%8B/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/GC/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E4%B8%89%E8%89%B2%E6%A0%87%E8%AE%B0%E6%B3%95/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E6%B7%B7%E5%90%88%E5%86%99%E5%B1%8F%E9%9A%9C/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E9%80%83%E9%80%B8%E5%88%86%E6%9E%90/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/WaitGroup/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E5%B9%B6%E5%8F%91%E6%A8%A1%E5%9E%8B/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/Context/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/defer/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/panic/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/recover/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/init/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E7%A9%BA%E7%BB%93%E6%9E%84%E4%BD%93/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/Linux%E5%91%BD%E4%BB%A4/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E7%94%A8%E6%88%B7%E7%A9%BA%E9%97%B4/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E5%86%85%E6%A0%B8%E7%A9%BA%E9%97%B4/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/Linux%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/Struct/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E5%B9%B6%E5%8F%91%E9%99%B7%E9%98%B1/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/Shell%E8%84%9A%E6%9C%AC/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/Linux%E5%AE%89%E5%85%A8/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/SQL%E6%B3%A8%E5%85%A5/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/iptables/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E5%86%85%E6%A0%B8/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/IPC/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/inode/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E7%A1%AC%E9%93%BE%E6%8E%A5/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/tags/%E8%BD%AF%E9%93%BE%E6%8E%A5/</loc>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -2416,420 +2425,420 @@
   
   <url>
     <loc>https://www.daoji-anime.com/categories/Python/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/categories/Golang/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/categories/Python/WebRTC/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/categories/Python/fastapi/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/categories/AI/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/categories/Python/logging/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/Android%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/Java/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/Linux/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/categories/Docker/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/Android%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/Java/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/Linux/</loc>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/categories/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/Python/%E5%AE%89%E5%85%A8/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/categories/Python/%E5%88%86%E5%B8%83%E5%BC%8F/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.daoji-anime.com/categories/Java/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <loc>https://www.daoji-anime.com/categories/Python/%E5%AE%89%E5%85%A8/</loc>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/categories/Python/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/categories/Python/%E8%87%AA%E5%8A%A8%E5%8C%96/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.daoji-anime.com/categories/Linux/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <loc>https://www.daoji-anime.com/categories/Java/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/</loc>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/categories/Python/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/categories/Python/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.daoji-anime.com/categories/Python/%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <loc>https://www.daoji-anime.com/categories/Linux/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/</loc>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/categories/Python/Web/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.daoji-anime.com/categories/Linux/%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <loc>https://www.daoji-anime.com/categories/Python/%E5%9F%BA%E7%A1%80/</loc>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/categories/Linux/Web%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/Linux/%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/</loc>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/categories/Linux/%E5%91%BD%E4%BB%A4%E8%A1%8C/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/categories/Python/Linux/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/Linux/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/categories/Linux/%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/Linux/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/categories/Linux/%E5%AE%89%E5%85%A8%E8%BF%90%E7%BB%B4/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/categories/Linux/Shell%E7%BC%96%E7%A8%8B/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/Linux/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/Linux/%E5%BB%BA%E7%AB%99/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/Java/%E5%B9%B6%E5%8F%91/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/GMP%E6%A8%A1%E5%9E%8B/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/Linux/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/categories/%E5%BB%BA%E7%AB%99/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.daoji-anime.com/categories/%E5%89%8D%E7%AB%AF/CSS/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/%E5%89%8D%E7%AB%AF/HTML/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/%E5%89%8D%E7%AB%AF/Vue/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/%E5%89%8D%E7%AB%AF/WebRTC/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/GMP%E6%A8%A1%E5%9E%8B/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/GMP%E6%A8%A1%E5%9E%8B/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/GMP%E6%A8%A1%E5%9E%8B/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/Linux/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/%E5%BB%BA%E7%AB%99/%E6%9D%82%E9%A1%B9/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/GMP%E6%A8%A1%E5%9E%8B/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.daoji-anime.com/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E9%9D%A2%E8%AF%95%E9%A2%98/Linux/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <loc>https://www.daoji-anime.com/categories/Linux/%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/categories/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/Linux/%E5%BB%BA%E7%AB%99/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/Java/%E5%B9%B6%E5%8F%91/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/GMP%E6%A8%A1%E5%9E%8B/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/Linux/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/%E5%89%8D%E7%AB%AF/CSS/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/%E5%89%8D%E7%AB%AF/HTML/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/%E5%89%8D%E7%AB%AF/Vue/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/%E5%89%8D%E7%AB%AF/WebRTC/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/%E5%BB%BA%E7%AB%99/%E6%9D%82%E9%A1%B9/</loc>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.daoji-anime.com/categories/%E5%B7%A5%E5%85%B7/%E6%9D%82%E9%A1%B9/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/GMP%E6%A8%A1%E5%9E%8B/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/GMP%E6%A8%A1%E5%9E%8B/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/GMP%E6%A8%A1%E5%9E%8B/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/Linux/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/GMP%E6%A8%A1%E5%9E%8B/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.daoji-anime.com/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E9%9D%A2%E8%AF%95%E9%A2%98/Linux/</loc>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

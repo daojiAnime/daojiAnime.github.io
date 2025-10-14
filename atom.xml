@@ -6,7 +6,7 @@
   <link href="https://www.daoji-anime.com/atom.xml" rel="self"/>
   
   <link href="https://www.daoji-anime.com/"/>
-  <updated>2025-06-24T04:30:26.933Z</updated>
+  <updated>2025-10-14T10:05:00.000Z</updated>
   <id>https://www.daoji-anime.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>🧭 Cursor Rules 一页规范</title>
+    <link href="https://www.daoji-anime.com/posts/56342"/>
+    <id>https://www.daoji-anime.com/posts/56342</id>
+    <published>2025-10-14T09:29:26.000Z</published>
+    <updated>2025-10-14T10:05:00.000Z</updated>
+    
+    
+    <summary type="html">一页指南，介绍 Cursor `.cursor/rules/*.mdc` 的编写与使用，涵盖文件结构、匹配与激活机制、常见模式与最佳实践，并附示例模板。</summary>
+    
+    
+    
+    <category term="AI" scheme="https://www.daoji-anime.com/categories/AI/"/>
+    
+    
+    <category term="blog" scheme="https://www.daoji-anime.com/tags/blog/"/>
+    
+    <category term="人工智能" scheme="https://www.daoji-anime.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+  </entry>
   
   <entry>
     <title>Agent多工具超长上下文处理方案</title>
@@ -123,9 +144,9 @@
     <category term="AI" scheme="https://www.daoji-anime.com/categories/AI/"/>
     
     
-    <category term="人工智能" scheme="https://www.daoji-anime.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
     <category term="blog" scheme="https://www.daoji-anime.com/tags/blog/"/>
+    
+    <category term="人工智能" scheme="https://www.daoji-anime.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
     <category term="GPT" scheme="https://www.daoji-anime.com/tags/GPT/"/>
     
@@ -684,43 +705,6 @@
     <category term="硬链接" scheme="https://www.daoji-anime.com/tags/%E7%A1%AC%E9%93%BE%E6%8E%A5/"/>
     
     <category term="软链接" scheme="https://www.daoji-anime.com/tags/%E8%BD%AF%E9%93%BE%E6%8E%A5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux面试题（一）：常用命令、体系结构与内核空间</title>
-    <link href="https://www.daoji-anime.com/posts/52412"/>
-    <id>https://www.daoji-anime.com/posts/52412</id>
-    <published>2023-06-16T13:22:32.000Z</published>
-    <updated>2025-06-24T04:46:57.726Z</updated>
-    
-    
-    <summary type="html">本文为 Linux 面试题系列第一篇，全面总结了 Linux 中最常用的操作命令，并深入探讨了 Linux 的体系结构，详细解释了为何要划分用户空间和内核空间以及它们之间的交互方式。</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://www.daoji-anime.com/categories/Linux/"/>
-    
-    <category term="面试题" scheme="https://www.daoji-anime.com/categories/Linux/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-    <category term="操作系统" scheme="https://www.daoji-anime.com/categories/Linux/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-    <category term="Linux" scheme="https://www.daoji-anime.com/tags/Linux/"/>
-    
-    <category term="操作系统" scheme="https://www.daoji-anime.com/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-    
-    <category term="常用命令" scheme="https://www.daoji-anime.com/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    
-    <category term="Linux命令" scheme="https://www.daoji-anime.com/tags/Linux%E5%91%BD%E4%BB%A4/"/>
-    
-    <category term="体系结构" scheme="https://www.daoji-anime.com/tags/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/"/>
-    
-    <category term="用户空间" scheme="https://www.daoji-anime.com/tags/%E7%94%A8%E6%88%B7%E7%A9%BA%E9%97%B4/"/>
-    
-    <category term="内核空间" scheme="https://www.daoji-anime.com/tags/%E5%86%85%E6%A0%B8%E7%A9%BA%E9%97%B4/"/>
-    
-    <category term="Linux面试题" scheme="https://www.daoji-anime.com/tags/Linux%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     
   </entry>
   

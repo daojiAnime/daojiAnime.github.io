@@ -1,0 +1,417 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>🧭 Cursor Rules 一页规范 | 盗计のBlog</title><meta name="author" content="Daoji,daoji.chang@gmail.com"><meta name="copyright" content="Daoji"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一页指南，介绍 Cursor &#96;.cursor&#x2F;rules&#x2F;*.mdc&#96; 的编写与使用，涵盖文件结构、匹配与激活机制、常见模式与最佳实践，并附示例模板。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="🧭 Cursor Rules 一页规范">
+<meta property="og:url" content="https://www.daoji-anime.com/posts/56342">
+<meta property="og:site_name" content="盗计のBlog">
+<meta property="og:description" content="一页指南，介绍 Cursor &#96;.cursor&#x2F;rules&#x2F;*.mdc&#96; 的编写与使用，涵盖文件结构、匹配与激活机制、常见模式与最佳实践，并附示例模板。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Graduation_ktn0.svg">
+<meta property="article:published_time" content="2025-10-14T09:29:26.000Z">
+<meta property="article:modified_time" content="2025-10-14T10:05:00.000Z">
+<meta property="article:author" content="Daoji">
+<meta property="article:tag" content="blog">
+<meta property="article:tag" content="人工智能">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Graduation_ktn0.svg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "🧭 Cursor Rules 一页规范",
+  "url": "https://www.daoji-anime.com/posts/56342",
+  "image": "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Graduation_ktn0.svg",
+  "datePublished": "2025-10-14T09:29:26.000Z",
+  "dateModified": "2025-10-14T10:05:00.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Daoji",
+      "url": "https://www.daoji-anime.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/assets/favicon.ico"><link rel="canonical" href="https://www.daoji-anime.com/posts/56342"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=GTM-TTSGZRZW"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'GTM-TTSGZRZW')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'GTM-TTSGZRZW', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '🧭 Cursor Rules 一页规范',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/daojiAnime/cdn/css/blog/background.css"><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="盗计のBlog" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load', preloader.endLoading)
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="web_bg" style="background-color: rgb(255, 255, 255);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://i.imgur.com/6DEulXU.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">70</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">248</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">60</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-video"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://daojianime.github.io/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Graduation_ktn0.svg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">盗计のBlog</span></a><a class="nav-page-title" href="/"><span class="site-name">🧭 Cursor Rules 一页规范</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-video"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://daojianime.github.io/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">🧭 Cursor Rules 一页规范</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-10-14T09:29:26.000Z" title="发表于 2025-10-14 17:29:26">2025-10-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-10-14T10:05:00.000Z" title="更新于 2025-10-14 18:05:00">2025-10-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/AI/">AI</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="🧭-Cursor-Rules-一页规范"><a href="#🧭-Cursor-Rules-一页规范" class="headerlink" title="🧭 Cursor Rules 一页规范"></a>🧭 Cursor Rules 一页规范</h1><blockquote>
+<p>适用于 Cursor 编辑器（<code>.cursor/rules/*.mdc</code>）<br> 目的：让 AI 始终遵循项目约定、编码规范、文档风格。</p>
+</blockquote>
+<hr>
+<h2 id="🗂️-规则类型与层级"><a href="#🗂️-规则类型与层级" class="headerlink" title="🗂️ 规则类型与层级"></a>🗂️ 规则类型与层级</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>位置</th>
+<th>作用范围</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>User Rules</strong></td>
+<td>设置 → Rules</td>
+<td>全局</td>
+<td>个人偏好、风格、语气</td>
+</tr>
+<tr>
+<td><strong>Project Rules</strong></td>
+<td><code>.cursor/rules/</code></td>
+<td>当前项目</td>
+<td>项目约定、代码规范</td>
+</tr>
+<tr>
+<td><strong>Memories</strong></td>
+<td>自动生成</td>
+<td>临时</td>
+<td>保存 AI 对项目的学习记忆</td>
+</tr>
+<tr>
+<td><strong>Legacy (<code>.cursorrules</code>)</strong></td>
+<td>项目根目录</td>
+<td>旧格式</td>
+<td>推荐迁移到 <code>.mdc</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="📄-mdc-文件结构"><a href="#📄-mdc-文件结构" class="headerlink" title="📄 .mdc 文件结构"></a>📄 <code>.mdc</code> 文件结构</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">description: 指定规则用途（简洁清晰）</span><br><span class="line">globs: src/**/*.ts, tests/**/*.ts</span><br><span class="line">alwaysApply: false</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">- 指导内容 / 编码规范 / 示例</span><br></pre></td></tr></table></figure>
+
+<h3 id="字段说明"><a href="#字段说明" class="headerlink" title="字段说明"></a>字段说明</h3><ul>
+<li><strong>description</strong>：一句话描述规则用途（AI 判断相关性用）</li>
+<li><strong>globs</strong>：匹配文件路径（仅匹配时生效）</li>
+<li><strong>alwaysApply</strong>：<code>true</code> = 总是启用；<code>false</code> = 仅匹配时注入</li>
+</ul>
+<hr>
+<h2 id="⚙️-规则生效机制"><a href="#⚙️-规则生效机制" class="headerlink" title="⚙️ 规则生效机制"></a>⚙️ 规则生效机制</h2><ol>
+<li>**注入 (Injection)**：规则文本进入上下文（prompt）</li>
+<li>**激活 (Activation)**：AI 判断规则与任务相关后才真正遵守</li>
+</ol>
+<blockquote>
+<p>注入 ≠ 一定生效，规则需被模型“激活”后才有效。</p>
+</blockquote>
+<hr>
+<h2 id="🧩-常见规则模式"><a href="#🧩-常见规则模式" class="headerlink" title="🧩 常见规则模式"></a>🧩 常见规则模式</h2><table>
+<thead>
+<tr>
+<th>模式</th>
+<th>启用方式</th>
+<th>用途示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Always</strong></td>
+<td><code>alwaysApply: true</code></td>
+<td>全局安全规范、命名约定</td>
+</tr>
+<tr>
+<td><strong>Auto Attached</strong></td>
+<td><code>globs</code> 匹配</td>
+<td>模块/目录级规则</td>
+</tr>
+<tr>
+<td><strong>Agent Requested</strong></td>
+<td><code>description</code> 触发</td>
+<td>特定任务触发（如生成 GraphQL）</td>
+</tr>
+<tr>
+<td><strong>Manual (<code>@rule</code>)</strong></td>
+<td>手动调用</td>
+<td>临时规则、非自动启用</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="🪜-嵌套与作用域"><a href="#🪜-嵌套与作用域" class="headerlink" title="🪜 嵌套与作用域"></a>🪜 嵌套与作用域</h2><ul>
+<li>子目录可设局部规则：<code>frontend/.cursor/rules/</code></li>
+<li>多层目录下的规则会按路径匹配自动注入</li>
+<li>推荐：<strong>项目级通用 + 模块级局部</strong></li>
+</ul>
+<hr>
+<h2 id="✅-编写最佳实践"><a href="#✅-编写最佳实践" class="headerlink" title="✅ 编写最佳实践"></a>✅ 编写最佳实践</h2><ol>
+<li><strong>每条规则聚焦一个主题</strong></li>
+<li><strong>description 清晰可匹配任务</strong></li>
+<li><strong>合理使用 globs 限定范围</strong></li>
+<li><strong>慎用 alwaysApply</strong>，避免上下文膨胀</li>
+<li><strong>正文包含代码示例 / 模板</strong></li>
+<li><strong>纳入 Git 管理，定期更新</strong></li>
+<li><strong>避免规则冲突，保持一致性</strong></li>
+</ol>
+<hr>
+<h2 id="⚠️-注意事项"><a href="#⚠️-注意事项" class="headerlink" title="⚠️ 注意事项"></a>⚠️ 注意事项</h2><ul>
+<li>规则注入不透明，AI 可能忽略冲突或模糊规则</li>
+<li><code>@docs/...</code> 文件引用不总可靠</li>
+<li><code>.mdc</code> 内置编辑 UI 有时不稳定，推荐外部编辑器</li>
+<li>上下文过长可能导致截断，影响规则生效</li>
+</ul>
+<hr>
+<h2 id="🚀-使用流程"><a href="#🚀-使用流程" class="headerlink" title="🚀 使用流程"></a>🚀 使用流程</h2><ol>
+<li>创建 <code>.cursor/rules/</code> 目录</li>
+<li>新建 <code>.mdc</code> 文件并填写 <code>description / globs / alwaysApply</code></li>
+<li>在正文写清楚规则内容</li>
+<li>编辑匹配文件或对话时自动启用</li>
+<li>需要时在对话中使用 <code>@ruleName</code> 显式调用</li>
+</ol>
+<hr>
+<h3 id="✅-示例"><a href="#✅-示例" class="headerlink" title="✅ 示例"></a>✅ 示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">description: Apply to all service layer files</span><br><span class="line">globs: src/services/**/*.ts</span><br><span class="line">alwaysApply: false</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">- Service 类以 `*Service` 命名  </span><br><span class="line">- 不直接访问数据库  </span><br><span class="line">- 必须定义输入/输出类型</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.daoji-anime.com">Daoji</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.daoji-anime.com/posts/56342">https://www.daoji-anime.com/posts/56342</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://www.daoji-anime.com" target="_blank">盗计のBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/blog/">blog</a><a class="post-meta__tags" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></div><div class="post-share"><div class="social-share" data-image="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Graduation_ktn0.svg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/posts/252" title="Agent多工具超长上下文处理方案"><img class="cover" src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/walking_around_25f5.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Agent多工具超长上下文处理方案</div></div><div class="info-2"><div class="info-item-1">方案原理rag方案rag 示例：  https://github.com/run-llama/llama_index/blob/df48f1d83b032aae3ec232013a11401cd26ea184/docs/docs/examples/agent/openai_agent_retrieval.ipynb#L223 https://github.com/HRI-EU/tulip_agent/blob/main/examples/tool_library_search.py https://hri-eu.github.io/tulip_agent/  工具搜索的原理图flowchart TD     A[ToolLibrary] --&gt; B[工具管理]     A --&gt; C[向量存储]     A --&gt; D[嵌入模型]      B --&gt; E[加载工具]     B --&gt; F[搜索工具]     B --&gt; G[执行工具]     B --&gt; H[更新工具]     B --&gt; I[删除工具]      E...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/60917" title="GPT学习分享"><img class="cover" src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/experts3_3njd.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-07</div><div class="info-item-2">GPT学习分享</div></div><div class="info-2"><div class="info-item-1">GPT学习分享序学习Microsoft Build 2023的分享State of GPT。围绕三个内容讲解：  GPT模型 如何训练一个GPT助手 如何有效的将这些助手应用到业务上  有限状态马尔可夫链（FSMC） 本文展示了一个极简 GPT，它只有 2 个 token 0 和 1，上下文长度为 3； 这样的 GPT 可以看做是一个有限状态马尔可夫链（FSMC）。 我们将用 token sequence 111101111011110 作为输入对这个极简 GPT 训练 50 次， 得到的状态转移概率符合我们的预期。 二进制GPTtoken只有0和1 输入：0010101 输出：下一个token是0的概率(P0)和1的概率(P1)  例如输入的是：010，根据自身的参数和状态可能下一个token是1的概率为80%，即  P(0) = 20% P(1) =...</div></div></div></a><a class="pagination-related" href="/posts/25614" title="AI断片了吗？探秘大模型在超长对话中的理解能力"><img class="cover" src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/portfolio_update_nqhs.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-10</div><div class="info-item-2">AI断片了吗？探秘大模型在超长对话中的理解能力</div></div><div class="info-2"><div class="info-item-1">AI断片了吗？探秘大模型在超长对话中的理解能力我们经常需要跟大模型进行反复、冗长的对话，才能令大模型给到我们一个满意的答复。像在写作、代码补全等长上下文的创作场景，需要不断的修正大模型的回答，对未完成内容进行续写，很容易就超出了目前大模型能够支持的上下文长度。 断片原因大模型断片是可以追溯的，这里需要讲解一下大模型的前置知识。关于大模型的 token 长度，这边有一篇文章讲如何构建 GPT 模型https://daojianime.github.io/posts/60917.html，阅读这篇文章可以对 token有更深一步的理解。 token简单来说就是我们跟大模型的对话文字在多维空间的一个表达，这里 token是模型训练、推理中使用的tokenizer将文字转换成的向量，token 数量跟文字数量并不是一一对应的，因为在多维空间的表达经常会将一个词作为一个token这种操作。 在我们理解何为 token 的基础上，我们再看看为什么 token 数有限。 首先在大模型的训练中，动辄是 TB 级的训练语料，需要用到的算力目前都是 H100、A100...</div></div></div></a><a class="pagination-related" href="/posts/252" title="Agent多工具超长上下文处理方案"><img class="cover" src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/walking_around_25f5.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-11</div><div class="info-item-2">Agent多工具超长上下文处理方案</div></div><div class="info-2"><div class="info-item-1">方案原理rag方案rag 示例：  https://github.com/run-llama/llama_index/blob/df48f1d83b032aae3ec232013a11401cd26ea184/docs/docs/examples/agent/openai_agent_retrieval.ipynb#L223 https://github.com/HRI-EU/tulip_agent/blob/main/examples/tool_library_search.py https://hri-eu.github.io/tulip_agent/  工具搜索的原理图flowchart TD     A[ToolLibrary] --&gt; B[工具管理]     A --&gt; C[向量存储]     A --&gt; D[嵌入模型]      B --&gt; E[加载工具]     B --&gt; F[搜索工具]     B --&gt; G[执行工具]     B --&gt; H[更新工具]     B --&gt; I[删除工具]      E...</div></div></div></a><a class="pagination-related" href="/posts/2352" title="认真就能打动人：273篇干货资料汇总"><img class="cover" src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/mission_impossible_bwa2.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-05-02</div><div class="info-item-2">认真就能打动人：273篇干货资料汇总</div></div><div class="info-2"><div class="info-item-1">来自公众号Python与算法社区的汇总     </div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://i.imgur.com/6DEulXU.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Daoji</div><div class="author-info-description">探索AI与编程技术的博客，包含深度分析与实用工具解决方案，让学习更有效率。加入我们一起成长！</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">70</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">248</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">60</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/daojiAnime"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/daojiAnime" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="tencent://message/?uin=133397418" rel="external nofollow noreferrer" target="_blank" title="QQ"><i class="fab fa-qq" style="color: #12B7F5;"></i></a><a class="social-icon" href="/assets/img/weixin.jpg" target="_blank" title="微信"><i class="fab fa-weixin" style="color: #07C160;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-rss" style="color: #FFA500;"></i></a><a class="social-icon" href="mailto:daoji.chang@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%A7%AD-Cursor-Rules-%E4%B8%80%E9%A1%B5%E8%A7%84%E8%8C%83"><span class="toc-number">1.</span> <span class="toc-text">🧭 Cursor Rules 一页规范</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%97%82%EF%B8%8F-%E8%A7%84%E5%88%99%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%B1%82%E7%BA%A7"><span class="toc-number">1.1.</span> <span class="toc-text">🗂️ 规则类型与层级</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%84-mdc-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.</span> <span class="toc-text">📄 .mdc 文件结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E6%AE%B5%E8%AF%B4%E6%98%8E"><span class="toc-number">1.2.1.</span> <span class="toc-text">字段说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9A%99%EF%B8%8F-%E8%A7%84%E5%88%99%E7%94%9F%E6%95%88%E6%9C%BA%E5%88%B6"><span class="toc-number">1.3.</span> <span class="toc-text">⚙️ 规则生效机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%A9-%E5%B8%B8%E8%A7%81%E8%A7%84%E5%88%99%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.4.</span> <span class="toc-text">🧩 常见规则模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%AA%9C-%E5%B5%8C%E5%A5%97%E4%B8%8E%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">1.5.</span> <span class="toc-text">🪜 嵌套与作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%85-%E7%BC%96%E5%86%99%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="toc-number">1.6.</span> <span class="toc-text">✅ 编写最佳实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9A%A0%EF%B8%8F-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.7.</span> <span class="toc-text">⚠️ 注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9A%80-%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B"><span class="toc-number">1.8.</span> <span class="toc-text">🚀 使用流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.8.1.</span> <span class="toc-text">✅ 示例</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/56342" title="🧭 Cursor Rules 一页规范"><img src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Graduation_ktn0.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="🧭 Cursor Rules 一页规范"/></a><div class="content"><a class="title" href="/posts/56342" title="🧭 Cursor Rules 一页规范">🧭 Cursor Rules 一页规范</a><time datetime="2025-10-14T09:29:26.000Z" title="发表于 2025-10-14 17:29:26">2025-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/252" title="Agent多工具超长上下文处理方案"><img src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/walking_around_25f5.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Agent多工具超长上下文处理方案"/></a><div class="content"><a class="title" href="/posts/252" title="Agent多工具超长上下文处理方案">Agent多工具超长上下文处理方案</a><time datetime="2025-05-11T14:43:15.000Z" title="发表于 2025-05-11 22:43:15">2025-05-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/35873" title="beartype 运行时入参校验"><img src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Bibliophile_hwqc.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="beartype 运行时入参校验"/></a><div class="content"><a class="title" href="/posts/35873" title="beartype 运行时入参校验">beartype 运行时入参校验</a><time datetime="2025-03-25T23:08:07.000Z" title="发表于 2025-03-26 07:08:07">2025-03-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/25614" title="AI断片了吗？探秘大模型在超长对话中的理解能力"><img src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/portfolio_update_nqhs.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI断片了吗？探秘大模型在超长对话中的理解能力"/></a><div class="content"><a class="title" href="/posts/25614" title="AI断片了吗？探秘大模型在超长对话中的理解能力">AI断片了吗？探秘大模型在超长对话中的理解能力</a><time datetime="2025-03-10T00:02:00.000Z" title="发表于 2025-03-10 08:02:00">2025-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/33210" title="个人免签方案"><img src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/maker_launch_crhe.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="个人免签方案"/></a><div class="content"><a class="title" href="/posts/33210" title="个人免签方案">个人免签方案</a><time datetime="2025-01-16T02:33:24.000Z" title="发表于 2025-01-16 10:33:24">2025-01-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By Daoji</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  const runMermaid = ele => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    ele.forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = `%%{init:{ 'theme':'${theme}'}}%%\n`
+      const mermaidID = `mermaid-${index}`
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+      const renderMermaid = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      // mermaid v9 and v10 compatibility
+      typeof renderFn === 'string' ? renderMermaid(renderFn) : renderFn.then(({ svg }) => renderMermaid(svg))
+    })
+  }
+
+  const codeToMermaid = () => {
+    const codeMermaidEle = document.querySelectorAll('pre > code.mermaid')
+    if (codeMermaidEle.length === 0) return
+
+    codeMermaidEle.forEach(ele => {
+      const preEle = document.createElement('pre')
+      preEle.className = 'mermaid-src'
+      preEle.hidden = true
+      preEle.textContent = ele.textContent
+      const newEle = document.createElement('div')
+      newEle.className = 'mermaid-wrap'
+      newEle.appendChild(preEle)
+      ele.parentNode.replaceWith(newEle)
+    })
+  }
+
+  const loadMermaid = () => {
+    if (true) codeToMermaid()
+    const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+    if ($mermaid.length === 0) return
+
+    const runMermaidFn = () => runMermaid($mermaid)
+    btf.addGlobalFn('themeChange', runMermaidFn, 'mermaid')
+    window.loadMermaid ? runMermaidFn() : btf.getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaidFn)
+  }
+
+  btf.addGlobalFn('encrypt', loadMermaid, 'mermaid')
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://daoji-twikoo.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://daoji-twikoo.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
