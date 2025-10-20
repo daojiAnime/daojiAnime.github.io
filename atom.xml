@@ -6,7 +6,7 @@
   <link href="https://www.daoji-anime.com/atom.xml" rel="self"/>
   
   <link href="https://www.daoji-anime.com/"/>
-  <updated>2025-10-20T06:15:33.704Z</updated>
+  <updated>2025-10-20T08:22:33.000Z</updated>
   <id>https://www.daoji-anime.com/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>多智能体系统技术架构文档</title>
+    <link href="https://www.daoji-anime.com/posts/61390"/>
+    <id>https://www.daoji-anime.com/posts/61390</id>
+    <published>2025-10-20T08:22:33.000Z</published>
+    <updated>2025-10-20T08:22:33.000Z</updated>
+    
+    
+    <summary type="html">基于多智能体协作的建筑工程质量管理智能系统Dong8技术架构文档，采用监督者-执行者架构，集成自然语言处理、混合检索、智能SQL生成等核心技术</summary>
+    
+    
+    
+    <category term="AI" scheme="https://www.daoji-anime.com/categories/AI/"/>
+    
+    
+    <category term="Python" scheme="https://www.daoji-anime.com/tags/Python/"/>
+    
+    <category term="多智能体" scheme="https://www.daoji-anime.com/tags/%E5%A4%9A%E6%99%BA%E8%83%BD%E4%BD%93/"/>
+    
+    <category term="AI" scheme="https://www.daoji-anime.com/tags/AI/"/>
+    
+    <category term="LangGraph" scheme="https://www.daoji-anime.com/tags/LangGraph/"/>
+    
+    <category term="RAG" scheme="https://www.daoji-anime.com/tags/RAG/"/>
+    
+    <category term="建筑工程" scheme="https://www.daoji-anime.com/tags/%E5%BB%BA%E7%AD%91%E5%B7%A5%E7%A8%8B/"/>
+    
+    <category term="质量管理" scheme="https://www.daoji-anime.com/tags/%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>矩形检测算法技术方案</title>
     <link href="https://www.daoji-anime.com/posts/22039"/>
     <id>https://www.daoji-anime.com/posts/22039</id>
     <published>2025-10-20T06:09:37.000Z</published>
-    <updated>2025-10-20T06:15:33.704Z</updated>
+    <updated>2025-10-20T06:18:20.747Z</updated>
     
     
       
@@ -421,8 +452,6 @@
     
     <category term="Go面试题" scheme="https://www.daoji-anime.com/tags/Go%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     
-    <category term="Mutex" scheme="https://www.daoji-anime.com/tags/Mutex/"/>
-    
     <category term="Slice" scheme="https://www.daoji-anime.com/tags/Slice/"/>
     
     <category term="Array" scheme="https://www.daoji-anime.com/tags/Array/"/>
@@ -432,6 +461,8 @@
     <category term="sync.Map" scheme="https://www.daoji-anime.com/tags/sync-Map/"/>
     
     <category term="线程安全" scheme="https://www.daoji-anime.com/tags/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="Mutex" scheme="https://www.daoji-anime.com/tags/Mutex/"/>
     
     <category term="可重入锁" scheme="https://www.daoji-anime.com/tags/%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81/"/>
     
@@ -585,15 +616,15 @@
     
     <category term="Channel" scheme="https://www.daoji-anime.com/tags/Channel/"/>
     
+    <category term="Slice" scheme="https://www.daoji-anime.com/tags/Slice/"/>
+    
+    <category term="Array" scheme="https://www.daoji-anime.com/tags/Array/"/>
+    
     <category term="Mutex" scheme="https://www.daoji-anime.com/tags/Mutex/"/>
     
     <category term="锁" scheme="https://www.daoji-anime.com/tags/%E9%94%81/"/>
     
     <category term="并发控制" scheme="https://www.daoji-anime.com/tags/%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6/"/>
-    
-    <category term="Slice" scheme="https://www.daoji-anime.com/tags/Slice/"/>
-    
-    <category term="Array" scheme="https://www.daoji-anime.com/tags/Array/"/>
     
   </entry>
   
@@ -660,47 +691,6 @@
     <category term="Channel" scheme="https://www.daoji-anime.com/tags/Channel/"/>
     
     <category term="继承" scheme="https://www.daoji-anime.com/tags/%E7%BB%A7%E6%89%BF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux面试题详解（三）：性能、Shell、网络与安全</title>
-    <link href="https://www.daoji-anime.com/posts/20671"/>
-    <id>https://www.daoji-anime.com/posts/20671</id>
-    <published>2023-06-18T09:18:25.000Z</published>
-    <updated>2025-06-24T05:18:39.575Z</updated>
-    
-    
-    <summary type="html">Linux面试题精选，涵盖性能调优（解决网站慢、CPU高负载）、Shell脚本、网络（IP、DNS、iptables、路由）、安全（防DDoS、SQL注入）等。Linux运维及后端开发面试必备。</summary>
-    
-    
-    
-    <category term="操作系统" scheme="https://www.daoji-anime.com/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-    
-    <category term="面试题" scheme="https://www.daoji-anime.com/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-    <category term="Linux" scheme="https://www.daoji-anime.com/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E9%9D%A2%E8%AF%95%E9%A2%98/Linux/"/>
-    
-    
-    <category term="面试题" scheme="https://www.daoji-anime.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-    <category term="DDoS" scheme="https://www.daoji-anime.com/tags/DDoS/"/>
-    
-    <category term="Linux" scheme="https://www.daoji-anime.com/tags/Linux/"/>
-    
-    <category term="操作系统" scheme="https://www.daoji-anime.com/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-    
-    <category term="Shell脚本" scheme="https://www.daoji-anime.com/tags/Shell%E8%84%9A%E6%9C%AC/"/>
-    
-    <category term="性能调优" scheme="https://www.daoji-anime.com/tags/%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/"/>
-    
-    <category term="网络配置" scheme="https://www.daoji-anime.com/tags/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
-    
-    <category term="Linux安全" scheme="https://www.daoji-anime.com/tags/Linux%E5%AE%89%E5%85%A8/"/>
-    
-    <category term="SQL注入" scheme="https://www.daoji-anime.com/tags/SQL%E6%B3%A8%E5%85%A5/"/>
-    
-    <category term="iptables" scheme="https://www.daoji-anime.com/tags/iptables/"/>
     
   </entry>
   
