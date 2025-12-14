@@ -149,9 +149,9 @@
     <category term="AI" scheme="https://www.daoji-anime.com/categories/AI/"/>
     
     
-    <category term="人工智能" scheme="https://www.daoji-anime.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
     <category term="blog" scheme="https://www.daoji-anime.com/tags/blog/"/>
+    
+    <category term="人工智能" scheme="https://www.daoji-anime.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
   </entry>
   
@@ -262,9 +262,9 @@
     <category term="AI" scheme="https://www.daoji-anime.com/categories/AI/"/>
     
     
-    <category term="人工智能" scheme="https://www.daoji-anime.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
     <category term="blog" scheme="https://www.daoji-anime.com/tags/blog/"/>
+    
+    <category term="人工智能" scheme="https://www.daoji-anime.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
     <category term="GPT" scheme="https://www.daoji-anime.com/tags/GPT/"/>
     
@@ -396,13 +396,13 @@
     
     <category term="Go面试题" scheme="https://www.daoji-anime.com/tags/Go%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     
+    <category term="Channel" scheme="https://www.daoji-anime.com/tags/Channel/"/>
+    
     <category term="Slice" scheme="https://www.daoji-anime.com/tags/Slice/"/>
     
     <category term="线程安全" scheme="https://www.daoji-anime.com/tags/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/"/>
     
     <category term="Map" scheme="https://www.daoji-anime.com/tags/Map/"/>
-    
-    <category term="Channel" scheme="https://www.daoji-anime.com/tags/Channel/"/>
     
     <category term="内存模型" scheme="https://www.daoji-anime.com/tags/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"/>
     
@@ -451,21 +451,21 @@
     
     <category term="Go面试题" scheme="https://www.daoji-anime.com/tags/Go%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     
+    <category term="Channel" scheme="https://www.daoji-anime.com/tags/Channel/"/>
+    
     <category term="Mutex" scheme="https://www.daoji-anime.com/tags/Mutex/"/>
     
     <category term="Map" scheme="https://www.daoji-anime.com/tags/Map/"/>
     
-    <category term="Channel" scheme="https://www.daoji-anime.com/tags/Channel/"/>
-    
     <category term="Goroutine" scheme="https://www.daoji-anime.com/tags/Goroutine/"/>
+    
+    <category term="GMP" scheme="https://www.daoji-anime.com/tags/GMP/"/>
     
     <category term="GC" scheme="https://www.daoji-anime.com/tags/GC/"/>
     
     <category term="三色标记法" scheme="https://www.daoji-anime.com/tags/%E4%B8%89%E8%89%B2%E6%A0%87%E8%AE%B0%E6%B3%95/"/>
     
     <category term="混合写屏障" scheme="https://www.daoji-anime.com/tags/%E6%B7%B7%E5%90%88%E5%86%99%E5%B1%8F%E9%9A%9C/"/>
-    
-    <category term="GMP" scheme="https://www.daoji-anime.com/tags/GMP/"/>
     
     <category term="逃逸分析" scheme="https://www.daoji-anime.com/tags/%E9%80%83%E9%80%B8%E5%88%86%E6%9E%90/"/>
     
@@ -553,9 +553,9 @@
     
     <category term="new" scheme="https://www.daoji-anime.com/tags/new/"/>
     
-    <category term="GC" scheme="https://www.daoji-anime.com/tags/GC/"/>
-    
     <category term="GMP" scheme="https://www.daoji-anime.com/tags/GMP/"/>
+    
+    <category term="GC" scheme="https://www.daoji-anime.com/tags/GC/"/>
     
     <category term="垃圾回收" scheme="https://www.daoji-anime.com/tags/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/"/>
     
@@ -625,9 +625,9 @@
     
     <category term="Go面试题" scheme="https://www.daoji-anime.com/tags/Go%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     
-    <category term="Map" scheme="https://www.daoji-anime.com/tags/Map/"/>
-    
     <category term="Channel" scheme="https://www.daoji-anime.com/tags/Channel/"/>
+    
+    <category term="Map" scheme="https://www.daoji-anime.com/tags/Map/"/>
     
     <category term="WaitGroup" scheme="https://www.daoji-anime.com/tags/WaitGroup/"/>
     
@@ -660,13 +660,13 @@
     
     <category term="Go面试题" scheme="https://www.daoji-anime.com/tags/Go%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     
+    <category term="Channel" scheme="https://www.daoji-anime.com/tags/Channel/"/>
+    
     <category term="Slice" scheme="https://www.daoji-anime.com/tags/Slice/"/>
     
     <category term="Array" scheme="https://www.daoji-anime.com/tags/Array/"/>
     
     <category term="Mutex" scheme="https://www.daoji-anime.com/tags/Mutex/"/>
-    
-    <category term="Channel" scheme="https://www.daoji-anime.com/tags/Channel/"/>
     
     <category term="锁" scheme="https://www.daoji-anime.com/tags/%E9%94%81/"/>
     

@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陈东昌 - AI开发工程师简历</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <style>
+        :root {
+            --primary-900: #0c2340;
+            --primary-800: #1a3a5c;
+            --primary-700: #1e4976;
+            --primary-600: #2563eb;
+            --primary-500: #3b82f6;
+            --primary-400: #60a5fa;
+            --primary-300: #93c5fd;
+            --primary-200: #bfdbfe;
+            --primary-100: #dbeafe;
+            --primary-50: #eff6ff;
+
+            --neutral-900: #111827;
+            --neutral-800: #1f2937;
+            --neutral-700: #374151;
+            --neutral-600: #4b5563;
+            --neutral-500: #6b7280;
+            --neutral-400: #9ca3af;
+            --neutral-300: #d1d5db;
+            --neutral-200: #e5e7eb;
+            --neutral-100: #f3f4f6;
+            --neutral-50: #f9fafb;
+
+            --accent-green: #10b981;
+            --accent-green-light: #d1fae5;
+            --accent-orange: #f59e0b;
+            --accent-orange-light: #fef3c7;
+            --accent-purple: #8b5cf6;
+            --accent-purple-light: #ede9fe;
+
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--primary-50) 0%, var(--neutral-100) 50%, var(--primary-100) 100%);
+            min-height: 100vh;
+            color: var(--neutral-800);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* 头部区域 - 玻璃态效果 */
+        .header {
+            background: linear-gradient(135deg, var(--primary-800) 0%, var(--primary-900) 100%);
+            border-radius: 24px;
+            padding: 48px;
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .header-left {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            color: var(--primary-200);
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .header-subtitle {
+            font-size: 22px;
+            color: var(--primary-300);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .header-tagline {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 500px;
+            line-height: 1.7;
+        }
+
+        .header-right {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .header-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 12px 20px;
+            border-radius: 12px;
+            color: white;
+            font-size: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .header-meta:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(4px);
+        }
+
+        .header-meta i {
+            width: 18px;
+            height: 18px;
+            color: var(--primary-300);
+        }
+
+        /* 亮点区域 */
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .highlight-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--primary-500);
+            transition: all 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .highlight-card:nth-child(2) {
+            border-left-color: var(--accent-green);
+        }
+
+        .highlight-card:nth-child(3) {
+            border-left-color: var(--accent-orange);
+        }
+
+        .highlight-card:nth-child(4) {
+            border-left-color: var(--accent-purple);
+        }
+
+        .highlight-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            background: var(--primary-100);
+            color: var(--primary-600);
+        }
+
+        .highlight-card:nth-child(2) .highlight-icon {
+            background: var(--accent-green-light);
+            color: var(--accent-green);
+        }
+
+        .highlight-card:nth-child(3) .highlight-icon {
+            background: var(--accent-orange-light);
+            color: var(--accent-orange);
+        }
+
+        .highlight-card:nth-child(4) .highlight-icon {
+            background: var(--accent-purple-light);
+            color: var(--accent-purple);
+        }
+
+        .highlight-icon i {
+            width: 22px;
+            height: 22px;
+        }
+
+        .highlight-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--neutral-800);
+            margin-bottom: 6px;
+        }
+
+        .highlight-desc {
+            font-size: 13px;
+            color: var(--neutral-600);
+            line-height: 1.5;
+        }
+
+        /* 便当盒网格布局 */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+        }
+
+        /* 卡片基础样式 */
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .card-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .card-icon i {
+            width: 22px;
+            height: 22px;
+        }
+
+        .card-icon.blue {
+            background: var(--primary-100);
+            color: var(--primary-600);
+        }
+
+        .card-icon.green {
+            background: var(--accent-green-light);
+            color: var(--accent-green);
+        }
+
+        .card-icon.orange {
+            background: var(--accent-orange-light);
+            color: var(--accent-orange);
+        }
+
+        .card-icon.purple {
+            background: var(--accent-purple-light);
+            color: var(--accent-purple);
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--neutral-900);
+        }
+
+        .card-subtitle {
+            font-size: 13px;
+            color: var(--neutral-500);
+            margin-top: 2px;
+        }
+
+        /* 区块标题 */
+        .section-title {
+            grid-column: span 12;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 0;
+        }
+
+        .section-title h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-900);
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-300), transparent);
+            border-radius: 1px;
+        }
+
+        .section-number {
+            width: 36px;
+            height: 36px;
+            background: var(--primary-600);
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        /* 技能卡片 */
+        .skills-card {
+            grid-column: span 12;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        .skill-category {
+            background: var(--neutral-50);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .skill-category h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--neutral-800);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-category h4 i {
+            width: 16px;
+            height: 16px;
+            color: var(--primary-500);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .skill-tag {
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 100px;
+            background: white;
+            color: var(--neutral-700);
+            border: 1px solid var(--neutral-200);
+            font-weight: 500;
+        }
+
+        /* 工作经历卡片 */
+        .work-card {
+            grid-column: span 12;
+        }
+
+        .work-item {
+            border-bottom: 1px solid var(--neutral-100);
+            padding-bottom: 24px;
+            margin-bottom: 24px;
+        }
+
+        .work-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .work-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .work-title-group h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--neutral-900);
+            margin-bottom: 4px;
+        }
+
+        .work-title-group .position {
+            font-size: 14px;
+            color: var(--primary-600);
+            font-weight: 500;
+        }
+
+        .work-date {
+            font-size: 13px;
+            color: var(--neutral-500);
+            background: var(--neutral-100);
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-weight: 500;
+        }
+
+        .work-achievements {
+            margin-top: 16px;
+        }
+
+        .achievement-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .achievement-table th {
+            background: var(--primary-50);
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--primary-800);
+            border-bottom: 2px solid var(--primary-200);
+        }
+
+        .achievement-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--neutral-100);
+            color: var(--neutral-700);
+        }
+
+        .achievement-table tr:hover td {
+            background: var(--neutral-50);
+        }
+
+        .achievement-table strong {
+            color: var(--primary-600);
+            font-weight: 600;
+        }
+
+        .work-list {
+            list-style: none;
+            margin-top: 12px;
+        }
+
+        .work-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: var(--neutral-700);
+            line-height: 1.6;
+        }
+
+        .work-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--primary-500);
+        }
+
+        .work-list li strong {
+            color: var(--primary-600);
+        }
+
+        .business-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .business-tag {
+            font-size: 12px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            background: var(--primary-50);
+            color: var(--primary-700);
+            font-weight: 500;
+        }
+
+        /* 项目卡片 */
+        .projects-grid {
+            grid-column: span 12;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--neutral-100);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-200);
+            transform: translateY(-4px);
+        }
+
+        .project-card.featured {
+            border: 2px solid var(--primary-400);
+            background: linear-gradient(135deg, white 0%, var(--primary-50) 100%);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .project-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--neutral-900);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .project-title i {
+            width: 18px;
+            height: 18px;
+            color: var(--primary-500);
+        }
+
+        .project-badge {
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 100px;
+            background: var(--accent-orange-light);
+            color: #d97706;
+            font-weight: 600;
+        }
+
+        .project-role {
+            font-size: 13px;
+            color: var(--primary-600);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .project-date {
+            font-size: 12px;
+            color: var(--neutral-500);
+            margin-bottom: 12px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .tech-tag {
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: var(--neutral-100);
+            color: var(--neutral-600);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .project-desc {
+            font-size: 13px;
+            color: var(--neutral-600);
+            line-height: 1.6;
+        }
+
+        .project-desc strong {
+            color: var(--neutral-800);
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 12px;
+            font-size: 13px;
+            color: var(--primary-600);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        .project-link i {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* 教育背景卡片 */
+        .education-card {
+            grid-column: span 6;
+        }
+
+        .education-content {
+            display: flex;
+            gap: 20px;
+        }
+
+        .education-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .education-icon i {
+            width: 28px;
+            height: 28px;
+            color: white;
+        }
+
+        .education-info h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--neutral-900);
+            margin-bottom: 4px;
+        }
+
+        .education-info .major {
+            font-size: 14px;
+            color: var(--primary-600);
+            margin-bottom: 8px;
+        }
+
+        .education-info .date {
+            font-size: 13px;
+            color: var(--neutral-500);
+            margin-bottom: 12px;
+        }
+
+        .education-list {
+            list-style: none;
+        }
+
+        .education-list li {
+            font-size: 13px;
+            color: var(--neutral-600);
+            padding-left: 16px;
+            position: relative;
+            margin-bottom: 6px;
+        }
+
+        .education-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-500);
+        }
+
+        /* 个人总结卡片 */
+        .summary-card {
+            grid-column: span 6;
+        }
+
+        .summary-content {
+            font-size: 14px;
+            color: var(--neutral-700);
+            line-height: 1.8;
+            padding: 20px;
+            background: var(--neutral-50);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-500);
+        }
+
+        .summary-content strong {
+            color: var(--primary-700);
+        }
+
+        /* 页脚 */
+        .footer {
+            grid-column: span 12;
+            text-align: center;
+            padding: 32px;
+            color: var(--neutral-500);
+            font-size: 13px;
+        }
+
+        .footer-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-400), var(--accent-green));
+            border-radius: 2px;
+            margin: 0 auto 16px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .highlights {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .education-card, .summary-card {
+                grid-column: span 12;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 16px;
+            }
+
+            .header {
+                padding: 32px 24px;
+            }
+
+            .header-title {
+                font-size: 32px;
+            }
+
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .work-header {
+                flex-direction: column;
+            }
+
+            .achievement-table {
+                font-size: 12px;
+            }
+
+            .achievement-table th,
+            .achievement-table td {
+                padding: 8px 12px;
+            }
+        }
+
+        /* 打印优化 */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .container {
+                padding: 0;
+                max-width: 100%;
+            }
+
+            .card, .project-card, .highlight-card {
+                box-shadow: none;
+                border: 1px solid var(--neutral-200);
+            }
+
+            .card:hover, .project-card:hover, .highlight-card:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部区域 -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="header-badge">
+                        <i data-lucide="sparkles"></i>
+                        4年AI工程经验 · 专注NLP/RAG系统落地
+                    </div>
+                    <h1 class="header-title">陈东昌</h1>
+                    <p class="header-subtitle">AI开发工程师</p>
+                    <p class="header-tagline">擅长从0到1搭建AI中台，多次将模型准确率提升至95%+，具备开源项目管理经验和端到端交付能力</p>
+                </div>
+                <div class="header-right">
+                    <a href="tel:13229534517" class="header-meta">
+                        <i data-lucide="phone"></i>
+                        <span>13229534517</span>
+                    </a>
+                    <a href="https://daojianime.github.io/" target="_blank" class="header-meta">
+                        <i data-lucide="globe"></i>
+                        <span>个人网站</span>
+                    </a>
+                    <a href="https://github.com/daojiAnime" target="_blank" class="header-meta">
+                        <i data-lucide="github"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- 亮点区域 -->
+        <div class="highlights">
+            <div class="highlight-card">
+                <div class="highlight-icon">
+                    <i data-lucide="rocket"></i>
+                </div>
+                <div class="highlight-title">算法优化专家</div>
+                <div class="highlight-desc">主导多个NLP项目，将抽取准确率从80%提升至95%+</div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">
+                    <i data-lucide="layers"></i>
+                </div>
+                <div class="highlight-title">架构设计能力</div>
+                <div class="highlight-desc">独立设计RAG、多Agent系统，支撑百万级文档处理</div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">
+                    <i data-lucide="users"></i>
+                </div>
+                <div class="highlight-title">团队管理经验</div>
+                <div class="highlight-desc">带领8人团队开发开源项目MemoMate</div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">
+                    <i data-lucide="code-2"></i>
+                </div>
+                <div class="highlight-title">全栈技术栈</div>
+                <div class="highlight-desc">Python后端 + Vue前端 + Docker/K8s部署</div>
+            </div>
+        </div>
+
+        <!-- 主体内容 -->
+        <div class="bento-grid">
+            <!-- 专业技能 -->
+            <div class="section-title">
+                <div class="section-number">01</div>
+                <h2>专业技能</h2>
+            </div>
+
+            <div class="card skills-card">
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4><i data-lucide="server"></i>后端开发</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">FastAPI</span>
+                            <span class="skill-tag">Flask</span>
+                            <span class="skill-tag">Django</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">Redis</span>
+                            <span class="skill-tag">Kafka</span>
+                            <span class="skill-tag">Celery</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i data-lucide="brain"></i>AI/NLP</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">RAG</span>
+                            <span class="skill-tag">LangChain</span>
+                            <span class="skill-tag">NER</span>
+                            <span class="skill-tag">OCR</span>
+                            <span class="skill-tag">LoRA</span>
+                            <span class="skill-tag">Fine-tuning</span>
+                            <span class="skill-tag">vLLM</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i data-lucide="database"></i>向量数据库</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Milvus</span>
+                            <span class="skill-tag">Qdrant</span>
+                            <span class="skill-tag">ChromaDB</span>
+                            <span class="skill-tag">FAISS</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i data-lucide="cpu"></i>大模型生态</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Qianwen2</span>
+                            <span class="skill-tag">Llama</span>
+                            <span class="skill-tag">DeepSeek</span>
+                            <span class="skill-tag">Bert</span>
+                            <span class="skill-tag">PaddleOCR</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i data-lucide="container"></i>DevOps</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">K8s</span>
+                            <span class="skill-tag">CI/CD</span>
+                            <span class="skill-tag">Vue3</span>
+                            <span class="skill-tag">TypeScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 工作经历 -->
+            <div class="section-title">
+                <div class="section-number">02</div>
+                <h2>工作经历</h2>
+            </div>
+
+            <div class="card work-card">
+                <!-- 微柏软件 -->
+                <div class="work-item">
+                    <div class="work-header">
+                        <div class="work-title-group">
+                            <h4>广州微柏软件有限公司</h4>
+                            <div class="position">AI开发工程师 · 技术研发部</div>
+                        </div>
+                        <div class="work-date">2025.07 - 至今</div>
+                    </div>
+                    <div class="work-achievements">
+                        <table class="achievement-table">
+                            <thead>
+                                <tr>
+                                    <th>项目</th>
+                                    <th>核心成果</th>
+                                    <th>技术方案</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>签名检漏</td>
+                                    <td>日均处理 <strong>500+</strong> 份文档，节省 <strong>60%</strong> 人工审核</td>
+                                    <td>视觉大模型 + 图像理解</td>
+                                </tr>
+                                <tr>
+                                    <td>案卷信息抽取</td>
+                                    <td>准确率 <strong>95%</strong>，替代 <strong>80%</strong> 人工录入</td>
+                                    <td>NLP实体抽取 + 后处理优化</td>
+                                </tr>
+                                <tr>
+                                    <td>证件信息提取</td>
+                                    <td>支持 <strong>20+</strong> 种证件模板</td>
+                                    <td>模板化OCR + 规则引擎</td>
+                                </tr>
+                                <tr>
+                                    <td>标签提取</td>
+                                    <td>单文档处理 <strong>&lt;3s</strong></td>
+                                    <td>NER + 关键词提取</td>
+                                </tr>
+                                <tr>
+                                    <td>XML数据问答</td>
+                                    <td>检索准确率 <strong>90%+</strong></td>
+                                    <td>RAG + Text2SQL</td>
+                                </tr>
+                                <tr>
+                                    <td>工程图章定位</td>
+                                    <td>适配 <strong>10+</strong> 种图纸类型</td>
+                                    <td>空白区域检测 + 版面分析</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="business-tags">
+                        <span class="business-tag">电子档案系统</span>
+                        <span class="business-tag">四川路桥科研系统</span>
+                        <span class="business-tag">通用服务平台</span>
+                        <span class="business-tag">一体化管理系统</span>
+                    </div>
+                </div>
+
+                <!-- 半点科技 -->
+                <div class="work-item">
+                    <div class="work-header">
+                        <div class="work-title-group">
+                            <h4>广州半点科技网络有限公司</h4>
+                            <div class="position">AI开发工程师</div>
+                        </div>
+                        <div class="work-date">2025.05 - 2025.06</div>
+                    </div>
+                    <ul class="work-list">
+                        <li>主导 Easyfin 后端开发，设计 RAG + Multi-Agent 架构</li>
+                        <li>RAG-Tools 方案设计，工具执行准确率 <strong>&gt;95%</strong>，检索性能 <strong>&lt;2s</strong></li>
+                        <li>封装 <strong>100+</strong> 金融业务 Tools，实现图表生成和代码执行 Agent</li>
+                    </ul>
+                </div>
+
+                <!-- 达而观智能 -->
+                <div class="work-item">
+                    <div class="work-header">
+                        <div class="work-title-group">
+                            <h4>达而观智能（深圳）有限公司</h4>
+                            <div class="position">后端开发工程师</div>
+                        </div>
+                        <div class="work-date">2023.04 - 2025.05</div>
+                    </div>
+                    <ul class="work-list">
+                        <li>负责 IDPS、YSOCR、NLP 产品私有化部署及信创适配</li>
+                        <li>主导招商银行国际发票项目：抽取准确率 <strong>80% → 95%</strong>，提出 OCR+版面解析升级方案</li>
+                        <li>主导中移全通标书系统：实现标书解析、制作、校对全流程，引入 OnlyOffice 在线编辑</li>
+                    </ul>
+                </div>
+
+                <!-- 阿尔法教育 -->
+                <div class="work-item">
+                    <div class="work-header">
+                        <div class="work-title-group">
+                            <h4>广东阿尔法教育有限公司</h4>
+                            <div class="position">编程讲师</div>
+                        </div>
+                        <div class="work-date">2021.07 - 2023.03</div>
+                    </div>
+                    <ul class="work-list">
+                        <li>负责 Scratch、Python 课程授课，累计培训学员 <strong>200+</strong> 人</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 项目经验 -->
+            <div class="section-title">
+                <div class="section-number">03</div>
+                <h2>项目经验</h2>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card featured">
+                    <div class="project-header">
+                        <div class="project-title">
+                            <i data-lucide="star"></i>
+                            MemoMate 开源项目
+                        </div>
+                        <span class="project-badge">负责人</span>
+                    </div>
+                    <div class="project-role">项目负责人</div>
+                    <div class="project-date">2025.02 - 至今</div>
+                    <div class="project-tech">
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">RAG</span>
+                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">Qdrant</span>
+                    </div>
+                    <div class="project-desc">
+                        开箱即用的 <strong>Agentic RAG</strong> 知识库系统，组建 <strong>8人</strong> 团队，支持 <strong>10+</strong> 种文档格式，集成 Deep Research、PPT Agent 功能
+                    </div>
+                    <a href="https://github.com/memo-mate/MemoMate" target="_blank" class="project-link">
+                        <i data-lucide="external-link"></i>
+                        查看项目
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">
+                            <i data-lucide="shield-alert"></i>
+                            中广核安全预警模型
+                        </div>
+                    </div>
+                    <div class="project-role">项目负责人</div>
+                    <div class="project-date">2024.06 - 2024.12</div>
+                    <div class="project-tech">
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">RAG</span>
+                        <span class="tech-tag">vLLM</span>
+                        <span class="tech-tag">ChromaDB</span>
+                    </div>
+                    <div class="project-desc">
+                        RAG架构电厂安全隐患智能分析，兼容千问/Llama/DeepSeek，支持 <strong>vLLM多卡推理</strong>，端到端负责
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">
+                            <i data-lucide="file-text"></i>
+                            招商银行国际发票算法
+                        </div>
+                    </div>
+                    <div class="project-role">算法工程师</div>
+                    <div class="project-date">2023.07 - 2023.12</div>
+                    <div class="project-tech">
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">LayoutLM</span>
+                        <span class="tech-tag">SegmentOCR</span>
+                    </div>
+                    <div class="project-desc">
+                        国际发票NER抽取，准确率 <strong>80% → 95%+</strong>（提升15个百分点），提出OCR+版面解析升级方案
+                    </div>
+                </div>
+            </div>
+
+            <!-- 教育背景 & 个人总结 -->
+            <div class="section-title">
+                <div class="section-number">04</div>
+                <h2>教育背景 & 个人总结</h2>
+            </div>
+
+            <div class="card education-card">
+                <div class="card-header">
+                    <div class="card-icon blue">
+                        <i data-lucide="graduation-cap"></i>
+                    </div>
+                    <div>
+                        <div class="card-title">教育背景</div>
+                    </div>
+                </div>
+                <div class="education-content">
+                    <div class="education-icon">
+                        <i data-lucide="school"></i>
+                    </div>
+                    <div class="education-info">
+                        <h4>五邑大学</h4>
+                        <div class="major">机械工程 · 本科</div>
+                        <div class="date">2017 - 2021</div>
+                        <ul class="education-list">
+                            <li>参与王洪涛教授人工智能实验室（2020.05 - 2021.06）</li>
+                            <li>独立完成 VGG16+OpenCV+Django+Vue 垃圾分类系统</li>
+                            <li>参与脑机接口神经网络模型设计</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card summary-card">
+                <div class="card-header">
+                    <div class="card-icon green">
+                        <i data-lucide="user"></i>
+                    </div>
+                    <div>
+                        <div class="card-title">个人总结</div>
+                    </div>
+                </div>
+                <div class="summary-content">
+                    具备 <strong>4年AI工程落地经验</strong>，从嵌入式开发到NLP算法再到大模型应用，技术栈持续演进。擅长 <strong>RAG系统架构设计</strong> 和 <strong>NLP算法优化</strong>，多次将模型准确率提升至95%+。拥有开源项目管理经验，具备良好的技术文档能力和跨部门沟通能力。持续关注AI前沿技术，热衷将新技术快速落地到业务场景。
+                </div>
+            </div>
+
+            <!-- 页脚 -->
+            <div class="footer">
+                <div class="footer-divider"></div>
+                <p>陈东昌 · AI开发工程师 · 简历更新于 2025年12月</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
