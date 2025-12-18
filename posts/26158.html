@@ -1,0 +1,683 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>基于 PaddleNLP 的中文敏感数据智能脱敏系统 | 盗计のBlog</title><meta name="author" content="Daoji,daoji.chang@gmail.com"><meta name="copyright" content="Daoji"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本文详细介绍一个基于 PaddleNLP 的中文敏感数据智能脱敏系统的设计与实现。该系统采用正则匹配 + NLP 命名实体识别的双重识别策略，支持四种脱敏模式，提供 Web 界面和 Docker 一键部署能力。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于 PaddleNLP 的中文敏感数据智能脱敏系统">
+<meta property="og:url" content="https://www.daoji-anime.com/posts/26158">
+<meta property="og:site_name" content="盗计のBlog">
+<meta property="og:description" content="本文详细介绍一个基于 PaddleNLP 的中文敏感数据智能脱敏系统的设计与实现。该系统采用正则匹配 + NLP 命名实体识别的双重识别策略，支持四种脱敏模式，提供 Web 界面和 Docker 一键部署能力。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/upgrade_06a0.svg">
+<meta property="article:published_time" content="2025-12-18T08:09:38.000Z">
+<meta property="article:modified_time" content="2025-12-18T08:09:38.000Z">
+<meta property="article:author" content="Daoji">
+<meta property="article:tag" content="NLP">
+<meta property="article:tag" content="PaddleNLP">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="开源项目">
+<meta property="article:tag" content="数据安全">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/upgrade_06a0.svg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "基于 PaddleNLP 的中文敏感数据智能脱敏系统",
+  "url": "https://www.daoji-anime.com/posts/26158",
+  "image": "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/upgrade_06a0.svg",
+  "datePublished": "2025-12-18T08:09:38.000Z",
+  "dateModified": "2025-12-18T08:09:38.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Daoji",
+      "url": "https://www.daoji-anime.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/assets/favicon.ico"><link rel="canonical" href="https://www.daoji-anime.com/posts/26158"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="codeva-QouHCbA5wp"/><link rel="manifest" href="/manifest.json"/><link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon.ico"/><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.ico"/><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon.ico"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=GTM-TTSGZRZW"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'GTM-TTSGZRZW')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'GTM-TTSGZRZW', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '基于 PaddleNLP 的中文敏感数据智能脱敏系统',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/daojiAnime/cdn/css/blog/background.css"><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="盗计のBlog" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load', preloader.endLoading)
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="web_bg" style="background-color: rgb(255, 255, 255);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "/img/loading.gif" data-lazy-src="https://i.imgur.com/6DEulXU.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">271</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">61</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-video"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://daojianime.github.io/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/upgrade_06a0.svg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">盗计のBlog</span></a><a class="nav-page-title" href="/"><span class="site-name">基于 PaddleNLP 的中文敏感数据智能脱敏系统</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-video"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://daojianime.github.io/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">基于 PaddleNLP 的中文敏感数据智能脱敏系统</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-12-18T08:09:38.000Z" title="发表于 2025-12-18 16:09:38">2025-12-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-12-18T08:09:38.000Z" title="更新于 2025-12-18 16:09:38">2025-12-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/">技术实践</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">2.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>10分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><!--
+================ SEO 写作提示 ================
+
+1. 【标题优化】
+   - 包含主关键词，控制在 60 字符内
+   - 使用数字、疑问句等吸引点击
+
+2. 【Description】(50-160 字符)
+   - 概括文章核心内容
+   - 包含主关键词
+   - 引导用户点击
+
+3. 【Keywords】(3-5 个)
+   - 使用逗号分隔
+   - 包含长尾关键词
+   - 示例: 'Python类型检查, mypy教程, 类型注解'
+
+4. 【首段优化】
+   - 前 150 字内包含主关键词
+   - 概述文章要解决的问题
+
+5. 【内容结构】
+   - 使用 H2/H3 标题组织内容
+   - 图片添加 alt 描述
+   - 适当使用列表和代码块
+
+===============================================
+-->
+
+
+<div class="note info flat"><p><strong>本文导读</strong>：介绍一个开源的中文敏感数据智能脱敏系统，结合 <mark class="hl-label blue">正则匹配</mark> 和 <mark class="hl-label purple">深度学习NER</mark> 双重识别策略，支持四种脱敏模式，提供 Web 和 Docker 一键部署。</p>
+</div>
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在数据驱动的时代，<strong>个人隐私保护</strong>已成为不可忽视的议题。无论是企业的日志系统、客服对话记录，还是数据分析报告，都可能包含大量敏感信息——手机号、身份证号、银行卡号、姓名等。</p>
+<div class="note warning flat"><p>《个人信息保护法》和《数据安全法》的实施，对数据脱敏提出了更高要求。传统的正则匹配方案虽然能处理结构化数据（如手机号），但面对「张三给李四转了 5000 元」这类非结构化文本时往往力不从心。</p>
+</div>
+
+<p>本文将介绍一个我开发的开源项目——<strong>敏感数据智能脱敏系统</strong>，它结合了<strong>正则匹配</strong>和**深度学习 NER（命名实体识别）**的优势，实现了对中文文本的智能脱敏处理。</p>
+<a class="btn-beautify blue larger" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/daojiAnime/sensitive-data-masking" title="GitHub 项目地址"><i class="fab fa-github"></i><span>GitHub 项目地址</span></a>
+
+<hr>
+<h2 id="系统概述"><a href="#系统概述" class="headerlink" title="系统概述"></a>系统概述</h2><h3 id="核心特性"><a href="#核心特性" class="headerlink" title="核心特性"></a>核心特性</h3><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><mark class="hl-label blue">双重识别</mark></td>
+<td>正则匹配结构化数据 + NLP 识别非结构化实体</td>
+</tr>
+<tr>
+<td><mark class="hl-label green">四种策略</mark></td>
+<td>部分脱敏、完全脱敏、占位符替换、哈希脱敏</td>
+</tr>
+<tr>
+<td><mark class="hl-label purple">Web</mark></td>
+<td>基于 Gradio 的现代化交互界面</td>
+</tr>
+<tr>
+<td><mark class="hl-label blue">容器化</mark></td>
+<td>Docker 多阶段构建，一键部署</td>
+</tr>
+<tr>
+<td><mark class="hl-label green">高性能</mark></td>
+<td>支持 Intel MKLDNN 加速，fast&#x2F;accurate 双模式</td>
+</tr>
+</tbody></table>
+<h3 id="技术架构"><a href="#技术架构" class="headerlink" title="技术架构"></a>技术架构</h3><div class="mermaid-wrap"><pre class="mermaid-src" hidden>
+    graph TB
+    subgraph UI[&quot;Web Layer&quot;]
+        A[Gradio 6.1+]
+    end
+
+    subgraph APP[&quot;Application Layer&quot;]
+        B[RegexDesensitizer&lt;br&#x2F;&gt;正则识别]
+        C[NLPDesensitizer&lt;br&#x2F;&gt;PaddleNLP NER]
+        D[CompositeDesensitizer&lt;br&#x2F;&gt;组合脱敏器]
+    end
+
+    subgraph ENGINE[&quot;Engine Layer&quot;]
+        E[PaddlePaddle 2.6+]
+        F[PaddleNLP 2.8+]
+    end
+
+    A --&gt; D
+    B --&gt; D
+    C --&gt; D
+    D --&gt; E
+    D --&gt; F
+  </pre></div>
+
+<hr>
+<h2 id="架构设计"><a href="#架构设计" class="headerlink" title="架构设计"></a>架构设计</h2><h3 id="设计原则"><a href="#设计原则" class="headerlink" title="设计原则"></a>设计原则</h3><div class="note primary flat"><p>在设计这个系统时，遵循了以下原则：</p>
+<ol>
+<li><strong>开闭原则</strong>: 对扩展开放，对修改关闭——新增脱敏类型只需扩展，无需修改现有代码</li>
+<li><strong>单一职责</strong>: 每个脱敏器只负责一种识别策略</li>
+<li><strong>依赖倒置</strong>: 高层模块依赖抽象，而非具体实现</li>
+</ol>
+</div>
+
+<h3 id="类结构设计"><a href="#类结构设计" class="headerlink" title="类结构设计"></a>类结构设计</h3><p>系统采用 <mark class="hl-label blue">抽象工厂</mark> + <mark class="hl-label green">策略模式</mark> 的组合设计：</p>
+<div class="tabs"><div class="nav-tabs"><button type="button" class="tab active"><i class="fas fa-tags"></i>实体类型</button><button type="button" class="tab"><i class="fas fa-shield-alt"></i>脱敏策略</button><button type="button" class="tab"><i class="fas fa-database"></i>数据类</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">EntityType</span>(<span class="title class_ inherited__">Enum</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;支持的敏感信息类型&quot;&quot;&quot;</span></span><br><span class="line">    PERSON = <span class="string">&quot;人名&quot;</span>           <span class="comment"># 人物名称</span></span><br><span class="line">    LOCATION = <span class="string">&quot;地名&quot;</span>         <span class="comment"># 地理位置</span></span><br><span class="line">    ORGANIZATION = <span class="string">&quot;组织机构&quot;</span>  <span class="comment"># 公司/机构</span></span><br><span class="line">    TIME = <span class="string">&quot;时间&quot;</span>             <span class="comment"># 时间表达式</span></span><br><span class="line">    PHONE = <span class="string">&quot;电话&quot;</span>            <span class="comment"># 电话号码</span></span><br><span class="line">    EMAIL = <span class="string">&quot;邮箱&quot;</span>            <span class="comment"># 电子邮件</span></span><br><span class="line">    ID_CARD = <span class="string">&quot;身份证&quot;</span>        <span class="comment"># 身份证号码</span></span><br><span class="line">    BANK_CARD = <span class="string">&quot;银行卡&quot;</span>      <span class="comment"># 银行卡号码</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MaskStrategy</span>(<span class="title class_ inherited__">Enum</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;脱敏策略&quot;&quot;&quot;</span></span><br><span class="line">    FULL = <span class="string">&quot;full&quot;</span>           <span class="comment"># 完全脱敏: ***</span></span><br><span class="line">    PARTIAL = <span class="string">&quot;partial&quot;</span>     <span class="comment"># 部分脱敏: 张*三</span></span><br><span class="line">    HASH = <span class="string">&quot;hash&quot;</span>           <span class="comment"># 哈希脱敏: [a1b2c3d]</span></span><br><span class="line">    PLACEHOLDER = <span class="string">&quot;placeholder&quot;</span>  <span class="comment"># 占位符: [人名]</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@dataclass</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Entity</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;识别出的敏感实体&quot;&quot;&quot;</span></span><br><span class="line">    text: <span class="built_in">str</span>              <span class="comment"># 实体文本内容</span></span><br><span class="line">    entity_type: EntityType  <span class="comment"># 实体类型</span></span><br><span class="line">    start: <span class="built_in">int</span>            <span class="comment"># 开始位置</span></span><br><span class="line">    end: <span class="built_in">int</span>              <span class="comment"># 结束位置</span></span><br><span class="line">    confidence: <span class="built_in">float</span> = <span class="number">1.0</span>  <span class="comment"># 置信度</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@dataclass</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MaskResult</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;脱敏处理结果&quot;&quot;&quot;</span></span><br><span class="line">    original_text: <span class="built_in">str</span>      <span class="comment"># 原始文本</span></span><br><span class="line">    masked_text: <span class="built_in">str</span>        <span class="comment"># 脱敏后文本</span></span><br><span class="line">    entities: <span class="built_in">list</span>[Entity]  <span class="comment"># 识别的所有实体</span></span><br></pre></td></tr></table></figure></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div>
+
+<h3 id="脱敏器继承体系"><a href="#脱敏器继承体系" class="headerlink" title="脱敏器继承体系"></a>脱敏器继承体系</h3><div class="mermaid-wrap"><pre class="mermaid-src" hidden>
+    classDiagram
+    class BaseDesensitizer {
+        &lt;&lt;abstract&gt;&gt;
+        +strategy: MaskStrategy
+        +entity_types: list
+        +recognize_entities()* list~Entity~
+        +mask_text(text, entity) str
+        +desensitize(text) MaskResult
+        +display_result(result) void
+    }
+
+    class RegexDesensitizer {
+        +PATTERNS: dict
+        +recognize_entities(text) list~Entity~
+    }
+
+    class NLPDesensitizer {
+        +TAG_MAPPING: dict
+        -_ner: Taskflow
+        +recognize_entities(text) list~Entity~
+    }
+
+    class CompositeDesensitizer {
+        -_regex: RegexDesensitizer
+        -_nlp: NLPDesensitizer
+        +recognize_entities(text) list~Entity~
+        -_remove_overlapping() list~Entity~
+    }
+
+    BaseDesensitizer &lt;|-- RegexDesensitizer
+    BaseDesensitizer &lt;|-- NLPDesensitizer
+    BaseDesensitizer &lt;|-- CompositeDesensitizer
+  </pre></div>
+
+<div class="note success flat"><p>这种设计的优势：</p>
+<ul>
+<li><strong>易于扩展</strong>: 新增脱敏方式只需继承 <code>BaseDesensitizer</code> 并实现 <code>recognize_entities()</code></li>
+<li><strong>策略可组合</strong>: 四种脱敏策略可独立选择，与识别方式解耦</li>
+<li><strong>接口统一</strong>: 所有脱敏器对外暴露相同的 <code>desensitize()</code> 接口</li>
+</ul>
+</div>
+
+<hr>
+<h2 id="核心实现"><a href="#核心实现" class="headerlink" title="核心实现"></a>核心实现</h2><h3 id="正则脱敏器"><a href="#正则脱敏器" class="headerlink" title="正则脱敏器"></a>正则脱敏器</h3><p>对于 <mark class="hl-label blue">结构化敏感数据</mark>（手机号、身份证、银行卡、邮箱），正则匹配是最准确高效的方案：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">RegexDesensitizer</span>(<span class="title class_ inherited__">BaseDesensitizer</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;基于正则表达式的脱敏器&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 预定义的正则模式</span></span><br><span class="line">    PATTERNS: <span class="built_in">dict</span>[EntityType, <span class="built_in">str</span>] = &#123;</span><br><span class="line">        EntityType.PHONE: <span class="string">r&quot;1[3-9]\d&#123;9&#125;&quot;</span>,  <span class="comment"># 中国大陆手机号</span></span><br><span class="line">        EntityType.EMAIL: <span class="string">r&quot;[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]&#123;2,&#125;&quot;</span>,</span><br><span class="line">        EntityType.ID_CARD: <span class="string">r&quot;\d&#123;17&#125;[\dXx]&quot;</span>,  <span class="comment"># 18位身份证</span></span><br><span class="line">        EntityType.BANK_CARD: <span class="string">r&quot;\d&#123;16,19&#125;&quot;</span>,   <span class="comment"># 银行卡号</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">recognize_entities</span>(<span class="params">self, text: <span class="built_in">str</span></span>) -&gt; <span class="built_in">list</span>[Entity]:</span><br><span class="line">        entities = []</span><br><span class="line">        <span class="keyword">for</span> entity_type, pattern <span class="keyword">in</span> <span class="variable language_">self</span>.PATTERNS.items():</span><br><span class="line">            <span class="keyword">if</span> entity_type <span class="keyword">not</span> <span class="keyword">in</span> <span class="variable language_">self</span>.entity_types:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">for</span> <span class="keyword">match</span> <span class="keyword">in</span> re.finditer(pattern, text):</span><br><span class="line">                entities.append(Entity(</span><br><span class="line">                    text=<span class="keyword">match</span>.group(),</span><br><span class="line">                    entity_type=entity_type,</span><br><span class="line">                    start=<span class="keyword">match</span>.start(),</span><br><span class="line">                    end=<span class="keyword">match</span>.end(),</span><br><span class="line">                    confidence=<span class="number">1.0</span>  <span class="comment"># 正则匹配置信度为 100%</span></span><br><span class="line">                ))</span><br><span class="line">        <span class="keyword">return</span> entities</span><br></pre></td></tr></table></figure>
+
+<details class="toggle" ><summary class="toggle-button" style="">正则模式详解</summary><div class="toggle-content"><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>正则表达式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>手机号</td>
+<td><code>1[3-9]\d{9}</code></td>
+<td>以 1 开头，第二位 3-9，共 11 位</td>
+</tr>
+<tr>
+<td>身份证</td>
+<td><code>\d{17}[\dXx]</code></td>
+<td>17 位数字 + 1 位数字或 X</td>
+</tr>
+<tr>
+<td>银行卡</td>
+<td><code>\d{16,19}</code></td>
+<td>16-19 位连续数字</td>
+</tr>
+<tr>
+<td>邮箱</td>
+<td>RFC 5322 简化版</td>
+<td>标准邮箱格式</td>
+</tr>
+</tbody></table>
+</div></details>
+
+<h3 id="NLP-脱敏器"><a href="#NLP-脱敏器" class="headerlink" title="NLP 脱敏器"></a>NLP 脱敏器</h3><p>对于 <mark class="hl-label purple">非结构化敏感数据</mark>（人名、地名、组织机构等），借助 NLP 的命名实体识别（NER）能力：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">NLPDesensitizer</span>(<span class="title class_ inherited__">BaseDesensitizer</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;基于 PaddleNLP 的脱敏器&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    TAG_MAPPING: <span class="built_in">dict</span>[<span class="built_in">str</span>, EntityType] = &#123;</span><br><span class="line">        <span class="string">&quot;PER&quot;</span>: EntityType.PERSON,</span><br><span class="line">        <span class="string">&quot;LOC&quot;</span>: EntityType.LOCATION,</span><br><span class="line">        <span class="string">&quot;ORG&quot;</span>: EntityType.ORGANIZATION,</span><br><span class="line">        <span class="string">&quot;TIME&quot;</span>: EntityType.TIME,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, strategy, entity_types, ner_mode=<span class="string">&quot;fast&quot;</span></span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__(strategy, entity_types)</span><br><span class="line">        <span class="variable language_">self</span>._ner = Taskflow(<span class="string">&quot;ner&quot;</span>, mode=ner_mode)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">recognize_entities</span>(<span class="params">self, text: <span class="built_in">str</span></span>) -&gt; <span class="built_in">list</span>[Entity]:</span><br><span class="line">        ner_results = <span class="variable language_">self</span>._ner(text)</span><br><span class="line">        entities = []</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> ner_results:</span><br><span class="line">            tag = item.get(<span class="string">&quot;type&quot;</span>)</span><br><span class="line">            <span class="keyword">if</span> tag <span class="keyword">in</span> <span class="variable language_">self</span>.TAG_MAPPING:</span><br><span class="line">                entity_type = <span class="variable language_">self</span>.TAG_MAPPING[tag]</span><br><span class="line">                <span class="keyword">if</span> entity_type <span class="keyword">in</span> <span class="variable language_">self</span>.entity_types:</span><br><span class="line">                    entities.append(Entity(</span><br><span class="line">                        text=item[<span class="string">&quot;text&quot;</span>],</span><br><span class="line">                        entity_type=entity_type,</span><br><span class="line">                        start=item[<span class="string">&quot;start&quot;</span>],</span><br><span class="line">                        end=item[<span class="string">&quot;end&quot;</span>],</span><br><span class="line">                        confidence=item.get(<span class="string">&quot;probability&quot;</span>, <span class="number">0.9</span>)</span><br><span class="line">                    ))</span><br><span class="line">        <span class="keyword">return</span> entities</span><br></pre></td></tr></table></figure>
+
+<div class="note info flat"><p><strong>NER 模式对比</strong></p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>fast 模式</th>
+<th>accurate 模式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>模型</td>
+<td>BiGRU-CRF (LAC)</td>
+<td>ERNIE + CRF</td>
+</tr>
+<tr>
+<td>大小</td>
+<td>~50MB</td>
+<td>~400MB</td>
+</tr>
+<tr>
+<td>延迟</td>
+<td>&lt;100ms</td>
+<td>200-500ms</td>
+</tr>
+<tr>
+<td>准确率</td>
+<td>~90%</td>
+<td>~95%</td>
+</tr>
+<tr>
+<td>内存</td>
+<td>~500MB</td>
+<td>~2GB</td>
+</tr>
+<tr>
+<td>场景</td>
+<td><mark class="hl-label green">实时服务</mark></td>
+<td><mark class="hl-label default">批量处理</mark></td>
+</tr>
+</tbody></table>
+</div>
+
+<h3 id="组合脱敏器"><a href="#组合脱敏器" class="headerlink" title="组合脱敏器"></a>组合脱敏器</h3><div class="mermaid-wrap"><pre class="mermaid-src" hidden>
+    flowchart LR
+    A[输入文本] --&gt; B[正则识别]
+    A --&gt; C[NLP识别]
+    B --&gt; D[合并去重]
+    C --&gt; D
+    D --&gt; E[脱敏处理]
+    E --&gt; F[输出结果]
+
+    style B fill:#e1f5fe
+    style C fill:#f3e5f5
+    style D fill:#fff3e0
+  </pre></div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">CompositeDesensitizer</span>(<span class="title class_ inherited__">BaseDesensitizer</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;组合脱敏器: 正则 + NLP&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">recognize_entities</span>(<span class="params">self, text: <span class="built_in">str</span></span>) -&gt; <span class="built_in">list</span>[Entity]:</span><br><span class="line">        <span class="comment"># 1. 正则识别 (优先级高，准确率 100%)</span></span><br><span class="line">        regex_entities = <span class="variable language_">self</span>._regex_desensitizer.recognize_entities(text)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 2. NLP 识别 (补充非结构化数据)</span></span><br><span class="line">        paddle_entities = <span class="variable language_">self</span>._paddle_desensitizer.recognize_entities(text)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 3. 去重合并 (避免重复识别同一区域)</span></span><br><span class="line">        all_entities = regex_entities + paddle_entities</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>._remove_overlapping(all_entities)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="脱敏策略详解"><a href="#脱敏策略详解" class="headerlink" title="脱敏策略详解"></a>脱敏策略详解</h2><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active"><i class="fas fa-user-shield"></i>部分脱敏</button><button type="button" class="tab"><i class="fas fa-eye-slash"></i>完全脱敏</button><button type="button" class="tab"><i class="fas fa-tag"></i>占位符</button><button type="button" class="tab"><i class="fas fa-hashtag"></i>哈希脱敏</button></div><div class="tab-contents"><div class="tab-item-content active"><p><strong>效果</strong>: <code>张三</code> → <code>张*三</code>，<code>13812345678</code> → <code>138****5678</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">_partial_mask</span>(<span class="params">self, text: <span class="built_in">str</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(text) &lt;= <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> text[<span class="number">0</span>] + <span class="string">&quot;*&quot;</span> * (<span class="built_in">len</span>(text) - <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> text[<span class="number">0</span>] + <span class="string">&quot;*&quot;</span> * (<span class="built_in">len</span>(text) - <span class="number">2</span>) + text[-<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+
+<div class="note success flat"><p><strong>适用场景</strong>: 人工审核、演示展示、客户沟通记录</p>
+</div></div><div class="tab-item-content"><p><strong>效果</strong>: <code>张三</code> → <code>**</code>，<code>13812345678</code> → <code>***********</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">_full_mask</span>(<span class="params">self, text: <span class="built_in">str</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;*&quot;</span> * <span class="built_in">len</span>(text)</span><br></pre></td></tr></table></figure>
+
+<div class="note success flat"><p><strong>适用场景</strong>: 日志记录、公开数据、合规归档</p>
+</div></div><div class="tab-item-content"><p><strong>效果</strong>: <code>张三</code> → <code>[人名]</code>，<code>13812345678</code> → <code>[电话]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">_placeholder_mask</span>(<span class="params">self, entity: Entity</span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="string">f&quot;[<span class="subst">&#123;entity.entity_type.value&#125;</span>]&quot;</span></span><br></pre></td></tr></table></figure>
+
+<div class="note success flat"><p><strong>适用场景</strong>: 数据分析、NLP 训练数据、统计报表</p>
+</div></div><div class="tab-item-content"><p><strong>效果</strong>: <code>张三</code> → <code>[4f8b2c1a]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">_hash_mask</span>(<span class="params">self, text: <span class="built_in">str</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">    hash_val = hashlib.md5(text.encode()).hexdigest()[:<span class="number">8</span>]</span><br><span class="line">    <span class="keyword">return</span> <span class="string">f&quot;[<span class="subst">&#123;hash_val&#125;</span>]&quot;</span></span><br></pre></td></tr></table></figure>
+
+<div class="note success flat"><p><strong>适用场景</strong>: 数据对账、可追溯场景、A&#x2F;B 测试</p>
+</div></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div>
+
+<h3 id="策略选择指南"><a href="#策略选择指南" class="headerlink" title="策略选择指南"></a>策略选择指南</h3><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>推荐策略</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>客服系统日志</td>
+<td><mark class="hl-label blue">部分脱敏</mark></td>
+<td>保留可读性，便于问题排查</td>
+</tr>
+<tr>
+<td>公开数据报告</td>
+<td><mark class="hl-label default">完全脱敏</mark></td>
+<td>最大化隐私保护</td>
+</tr>
+<tr>
+<td>数据分析&#x2F;BI</td>
+<td><mark class="hl-label green">占位符</mark></td>
+<td>保留语义结构，便于统计</td>
+</tr>
+<tr>
+<td>数据血缘追踪</td>
+<td><mark class="hl-label purple">哈希脱敏</mark></td>
+<td>可关联原始数据，不可逆推</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="Docker-部署"><a href="#Docker-部署" class="headerlink" title="Docker 部署"></a>Docker 部署</h2><h3 id="多阶段构建"><a href="#多阶段构建" class="headerlink" title="多阶段构建"></a>多阶段构建</h3><details class="toggle" ><summary class="toggle-button" style="">查看完整 Dockerfile</summary><div class="toggle-content"><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Stage 1: Builder (依赖安装)</span></span><br><span class="line"><span class="keyword">FROM</span> --platform=linux/amd64 ghcr.io/astral-sh/uv:python3.<span class="number">10</span>-bookworm-slim AS builder</span><br><span class="line"></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"><span class="keyword">ENV</span> UV_COMPILE_BYTECODE=<span class="number">1</span></span><br><span class="line"><span class="keyword">ENV</span> UV_LINK_MODE=<span class="keyword">copy</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"></span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> --mount=<span class="built_in">type</span>=cache,target=/root/.cache/uv \</span></span><br><span class="line"><span class="language-bash">    uv <span class="built_in">sync</span> --frozen --no-dev --group paddle</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Stage 2: Runtime (运行时)</span></span><br><span class="line"><span class="keyword">FROM</span> --platform=linux/amd64 python:<span class="number">3.10</span>-slim AS runtime</span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> useradd -m -u 1000 appuser</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> --from=builder /app/.venv /app/.venv</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ENV</span> FLAGS_use_mkldnn=<span class="number">1</span></span><br><span class="line"><span class="keyword">ENV</span> OMP_NUM_THREADS=<span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">HEALTHCHECK</span><span class="language-bash"> --interval=30s --<span class="built_in">timeout</span>=10s --retries=3 \</span></span><br><span class="line"><span class="language-bash">    CMD curl -f http://localhost:7860/ || <span class="built_in">exit</span> 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">USER</span> appuser</span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;python&quot;</span>, <span class="string">&quot;app.py&quot;</span>]</span></span><br></pre></td></tr></table></figure></div></details>
+
+<h3 id="一键部署"><a href="#一键部署" class="headerlink" title="一键部署"></a>一键部署</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active"><i class="fas fa-terminal"></i>脚本部署</button><button type="button" class="tab"><i class="fab fa-docker"></i>Docker Compose</button><button type="button" class="tab"><i class="fas fa-download"></i>直接拉取</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/daojiAnime/sensitive-data-masking.git</span><br><span class="line"><span class="built_in">cd</span> sensitive-data-masking</span><br><span class="line">./scripts/start.sh</span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker compose up -d</span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 7860:7860 \</span><br><span class="line">    -e NER_MODE=fast \</span><br><span class="line">    -v ./models:/app/models \</span><br><span class="line">    ghcr.io/daojianime/sensitive-data-masking:latest</span><br></pre></td></tr></table></figure></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div>
+
+<div class="note warning flat"><p><strong>内存配置建议</strong></p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>最小内存</th>
+<th>推荐内存</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>fast</td>
+<td>1GB</td>
+<td>2GB</td>
+</tr>
+<tr>
+<td>accurate</td>
+<td>2GB</td>
+<td>4GB</td>
+</tr>
+</tbody></table>
+</div>
+
+<hr>
+<h2 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h2><h3 id="Python-API"><a href="#Python-API" class="headerlink" title="Python API"></a>Python API</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> demo <span class="keyword">import</span> CompositeDesensitizer, MaskStrategy, EntityType</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建组合脱敏器</span></span><br><span class="line">desensitizer = CompositeDesensitizer(</span><br><span class="line">    strategy=MaskStrategy.PARTIAL,</span><br><span class="line">    entity_types=[EntityType.PERSON, EntityType.PHONE, EntityType.ID_CARD],</span><br><span class="line">    ner_mode=<span class="string">&quot;fast&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 处理文本</span></span><br><span class="line">text = <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">客户张三（身份证号：110101199001011234）于2024年1月15日</span></span><br><span class="line"><span class="string">来电咨询，联系电话：13812345678，邮箱：zhangsan@example.com。</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">result = desensitizer.desensitize(text)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;脱敏后:&quot;</span>, result.masked_text)</span><br></pre></td></tr></table></figure>
+
+<details class="toggle" ><summary class="toggle-button" style="">查看输出结果</summary><div class="toggle-content"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">脱敏后: 客户张*三（身份证号：1101011990****1234）于2024年1月15日</span><br><span class="line">来电咨询，联系电话：138****5678，邮箱：zhangsan@example.com。</span><br><span class="line"></span><br><span class="line">识别实体: [</span><br><span class="line">    Entity(text=&#x27;张三&#x27;, type=PERSON, confidence=0.95),</span><br><span class="line">    Entity(text=&#x27;110101199001011234&#x27;, type=ID_CARD, confidence=1.0),</span><br><span class="line">    Entity(text=&#x27;13812345678&#x27;, type=PHONE, confidence=1.0),</span><br><span class="line">]</span><br></pre></td></tr></table></figure></div></details>
+
+<hr>
+<h2 id="扩展开发"><a href="#扩展开发" class="headerlink" title="扩展开发"></a>扩展开发</h2><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active"><i class="fas fa-plus"></i>添加实体类型</button><button type="button" class="tab"><i class="fas fa-cog"></i>添加脱敏策略</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 在 EntityType 枚举中添加新类型</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">EntityType</span>(<span class="title class_ inherited__">Enum</span>):</span><br><span class="line">    ...</span><br><span class="line">    IP_ADDRESS = <span class="string">&quot;IP地址&quot;</span>  <span class="comment"># 新增</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 在 RegexDesensitizer 中添加正则模式</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">RegexDesensitizer</span>(<span class="title class_ inherited__">BaseDesensitizer</span>):</span><br><span class="line">    PATTERNS = &#123;</span><br><span class="line">        ...</span><br><span class="line">        EntityType.IP_ADDRESS: <span class="string">r&quot;\d&#123;1,3&#125;\.\d&#123;1,3&#125;\.\d&#123;1,3&#125;\.\d&#123;1,3&#125;&quot;</span>,</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 在 MaskStrategy 枚举中添加新策略</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MaskStrategy</span>(<span class="title class_ inherited__">Enum</span>):</span><br><span class="line">    ...</span><br><span class="line">    TRUNCATE = <span class="string">&quot;truncate&quot;</span>  <span class="comment"># 新增：截断策略</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 在 mask_text() 方法中实现</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mask_text</span>(<span class="params">self, text: <span class="built_in">str</span>, entity: Entity</span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">if</span> <span class="variable language_">self</span>.strategy == MaskStrategy.TRUNCATE:</span><br><span class="line">        <span class="keyword">return</span> text[:<span class="number">3</span>] + <span class="string">&quot;...&quot;</span></span><br></pre></td></tr></table></figure></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div>
+
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><div class="note success flat"><h3 id="核心优势"><a href="#核心优势" class="headerlink" title="核心优势"></a>核心优势</h3><ol>
+<li><strong>识别全面</strong>: 覆盖结构化（手机&#x2F;身份证&#x2F;银行卡）和非结构化（人名&#x2F;地名&#x2F;组织）敏感信息</li>
+<li><strong>策略灵活</strong>: 四种脱敏策略适应不同业务场景</li>
+<li><strong>开箱即用</strong>: Gradio Web + Docker 一键部署</li>
+<li><strong>易于扩展</strong>: 基于设计模式的架构，方便添加新类型和策略</li>
+</ol>
+</div>
+
+<h3 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h3><ul>
+<li>企业日志脱敏</li>
+<li>客服对话记录处理</li>
+<li>数据分析报告生成</li>
+<li>合规数据归档</li>
+<li>NLP 训练数据预处理</li>
+</ul>
+<div class="timeline  green"><div class='timeline-item headline'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>未来规划</p>
+</div>
+        </div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>规划中</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><ul>
+<li>支持更多实体类型（车牌号、社保号等）</li>
+<li>支持自定义正则规则配置</li>
+</ul>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>开发中</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><ul>
+<li>支持批量文件处理</li>
+<li>支持 API 服务模式</li>
+</ul>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>优化中</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><ul>
+<li>性能优化（GPU 加速）</li>
+</ul>
+</div>
+      </div></div>
+
+<a class="btn-beautify green larger" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/daojiAnime/sensitive-data-masking" title="Star 项目"><i class="fab fa-github"></i><span>Star 项目</span></a>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.daoji-anime.com">Daoji</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.daoji-anime.com/posts/26158">https://www.daoji-anime.com/posts/26158</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://www.daoji-anime.com" target="_blank">盗计のBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python/">Python</a><a class="post-meta__tags" href="/tags/PaddleNLP/">PaddleNLP</a><a class="post-meta__tags" href="/tags/NLP/">NLP</a><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8/">数据安全</a><a class="post-meta__tags" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/">开源项目</a></div><div class="post-share"><div class="social-share" data-image="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/upgrade_06a0.svg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/posts/38184" title="语音转文字不再是难题：ASRService 让音频处理更简单"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/mobile_prototyping_grmd.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">语音转文字不再是难题：ASRService 让音频处理更简单</div></div><div class="info-2"><div class="info-item-1">引言：你是否也遇到过这些困扰？周一早上，你刚参加完一个 2 小时的项目评审会，录音文件静静躺在手机里。你知道必须整理出会议纪要，但想到要反复听录音、手动打字，就感到头疼… 采访了一位行业专家，1 小时的精彩对话需要转成文字稿。你尝试了几个在线服务，要么收费昂贵，要么识别准确率堪忧，还担心敏感内容被上传到云端… 你正在制作一期播客节目，需要为音频生成字幕。手动听写太慢，找人工转录又超出预算… 这些场景是否似曾相识？语音转文字看似简单，实际上却是很多人的效率瓶颈。今天，我要给大家介绍一个开源免费的解决方案 —— ASRService，让音频处理变得轻松简单。   什么是 ASRService？ASRService 就像一个永不疲倦的智能速记员，它可以自动将音频文件转换成文字。 核心特点 开源免费：完全开源，没有调用次数限制，想用多少次就用多少次 本地部署：数据不出本地，完全掌握在自己手里，再也不用担心隐私泄露 中英文支持：基于 OpenAI 的 Whisper 模型，对中英文识别都有不错的效果 高准确率：在安静环境下，中文普通话识别准确率可达 85%...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/56655" title="Logging用法"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/everywhere_together_bdmn.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-03</div><div class="info-item-2">Logging用法</div></div><div class="info-2"><div class="info-item-1">Logging用法打印所有Logger对象123for name in logging.Logger.manager.loggerDict.keys():       logger = logging.getLogger(name)       print(&#x27;name = %s, logger = %s&#x27; % (name, logger))	  </div></div></div></a><a class="pagination-related" href="/posts/180" title="FastAPI中文教程（一）"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/image_upload_wqh3.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-12</div><div class="info-item-2">FastAPI中文教程（一）</div></div><div class="info-2"><div class="info-item-1">FastAPI系列教程（一）教程资源ChristopherGS的英文教程 pyb4430&#x2F;full-stack-fastapi-postgresql: Full stack, modern web application generator. Using FastAPI, PostgreSQL as database, Docker, automatic HTTPS and more....</div></div></div></a><a class="pagination-related" href="/posts/33210" title="个人免签方案"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/video_streaming_yyld.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-01-16</div><div class="info-item-2">个人免签方案</div></div><div class="info-2"><div class="info-item-1">个人免签方案方案说明介绍个人免签国内主要是解决网银的微信+支付宝支付渠道的对接，这两种方案要进行免签的话，可以通过监听通知消息回写数据库达到转账记录的目的，通过+&#x2F;-0.1 金额进行多笔订单同时转账场景下确保订单一致性。比较符合的就有 V 免签、码支付、彩虹交易等。其中只有 V 免签有良好的开源生态，因此选用 V 免签进行定制化。 方案调研手机监听Android 15 Supported vmq apk PC 监听未开源 PC 端 Linux 虚拟化itchat-uos 架构设计 Api: fastapi + python3.12 SQL DB: Postgres Cache DB: Redis Cron: apscheduler Python Lint: ruff + mypy  设计问题同时多个订单生成，如何区分不同订单支付的通过订单金额不同，以 0.1 步长形成一个梯度去生成订单，同时对 key (price+商户 ID) 使用一个超时异步锁，设置默认 1 分钟超时时间，以订单生成时间字段形成一个锁，每次查询 uid 下最后一个订单，时间超过 1...</div></div></div></a><a class="pagination-related" href="/posts/61390" title="多智能体系统技术架构文档"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/interview_rmcf.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-10-20</div><div class="info-item-2">多智能体系统技术架构文档</div></div><div class="info-2"><div class="info-item-1">Dong8: 面向建筑工程质量管理的多智能体协作系统摘要 (Abstract)本文提出了一种基于多智能体协作的建筑工程质量管理智能系统 Dong8。针对传统建筑质量管理中存在的数据分析效率低、知识检索困难、可视化能力不足等问题，我们设计了一个监督者-执行者（Supervisor-Executor）架构，集成了自然语言处理、混合检索、智能 SQL 生成、代码执行等多项核心技术。系统采用 LangGraph 作为多智能体编排框架，实现了数据分析智能体、知识检索智能体和可视化智能体的协同工作。 关键词：多智能体系统；建筑质量管理；混合检索；自然语言处理；智能 SQL 生成  1. 引言 (Introduction)1.1 研究背景与问题定义建筑工程质量管理是保障工程安全和质量的关键环节。传统质量管理系统主要依赖人工统计和预定义报表，存在以下突出问题： P1: 数据分析效率低下  人工统计耗时长，报表生成效率低 临时性查询需求无法快速响应 缺乏灵活的多维度分析能力  P2: 知识检索困难  技术规范文档查找困难 无法准确定位相关条款 缺乏语义理解能力  P3:...</div></div></div></a><a class="pagination-related" href="/posts/14490" title="通过shell脚本查看python版本并比较"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Credit_card_3ed6.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-05-13</div><div class="info-item-2">通过shell脚本查看python版本并比较</div></div><div class="info-2"><div class="info-item-1">1234567891011121314151617181920212223242526272829303132333435#!/bin/shcheckPython()&#123;    #推荐版本V2.6.5    V1=2    V2=6    V3=5    echo need python version is : $V1.$V2.$V3    #获取本机python版本号。这里2&gt;&amp;1是必须的，python -V这个是标准错误输出的，需要转换    U_V1=`python -V 2&gt;&amp;1|awk &#x27;&#123;print $2&#125;&#x27;|awk -F &#x27;.&#x27; &#x27;&#123;print $1&#125;&#x27;`    U_V2=`python -V 2&gt;&amp;1|awk &#x27;&#123;print $2&#125;&#x27;|awk -F &#x27;.&#x27; &#x27;&#123;print $2&#125;&#x27;`    U_V3=`python...</div></div></div></a><a class="pagination-related" href="/posts/34537" title="30个Python极简代码，10分钟get常用技巧！"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/vr_chat_kq3p.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-28</div><div class="info-item-2">30个Python极简代码，10分钟get常用技巧！</div></div><div class="info-2"><div class="info-item-1">1. 重复元素判定以下方法可以检查给定列表是不是存在重复元素，它会使用 set() 函数来移除所有重复元素。 12345678def all_unique(lst):    return len(lst) == len(set(lst))x = [1,1,2,2,3,2,3,4,5,6]y = [1,2,3,4,5]all_unique(x) # Falseall_unique(y) # True  2. 字符元素组成判定检查两个字符串的组成元素是不是一样的。 1234567from collections import Counterdef anagram(first, second):    return Counter(first) == Counter(second)anagram(&quot;abcd3&quot;, &quot;3acdb&quot;) # True  3. 内存占用下面的代码块可以检查变量 variable 所占用的内存。 1234import sys variable = 30 print(sys.getsizeof(variable)) #...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "/img/loading.gif" data-lazy-src="https://i.imgur.com/6DEulXU.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Daoji</div><div class="author-info-description">探索AI与编程技术的博客，包含深度分析与实用工具解决方案，让学习更有效率。加入我们一起成长！</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">271</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">61</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/daojiAnime"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/daojiAnime" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="tencent://message/?uin=133397418" rel="external nofollow noreferrer" target="_blank" title="QQ"><i class="fab fa-qq" style="color: #12B7F5;"></i></a><a class="social-icon" href="/assets/img/weixin.jpg" target="_blank" title="微信"><i class="fab fa-weixin" style="color: #07C160;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-rss" style="color: #FFA500;"></i></a><a class="social-icon" href="mailto:daoji.chang@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0"><span class="toc-number">2.</span> <span class="toc-text">系统概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E7%89%B9%E6%80%A7"><span class="toc-number">2.1.</span> <span class="toc-text">核心特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84"><span class="toc-number">2.2.</span> <span class="toc-text">技术架构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="toc-number">3.</span> <span class="toc-text">架构设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="toc-number">3.1.</span> <span class="toc-text">设计原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="toc-number">3.2.</span> <span class="toc-text">类结构设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%84%B1%E6%95%8F%E5%99%A8%E7%BB%A7%E6%89%BF%E4%BD%93%E7%B3%BB"><span class="toc-number">3.3.</span> <span class="toc-text">脱敏器继承体系</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text">核心实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%84%B1%E6%95%8F%E5%99%A8"><span class="toc-number">4.1.</span> <span class="toc-text">正则脱敏器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NLP-%E8%84%B1%E6%95%8F%E5%99%A8"><span class="toc-number">4.2.</span> <span class="toc-text">NLP 脱敏器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E5%90%88%E8%84%B1%E6%95%8F%E5%99%A8"><span class="toc-number">4.3.</span> <span class="toc-text">组合脱敏器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%84%B1%E6%95%8F%E7%AD%96%E7%95%A5%E8%AF%A6%E8%A7%A3"><span class="toc-number">5.</span> <span class="toc-text">脱敏策略详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%96%E7%95%A5%E9%80%89%E6%8B%A9%E6%8C%87%E5%8D%97"><span class="toc-number">5.1.</span> <span class="toc-text">策略选择指南</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-%E9%83%A8%E7%BD%B2"><span class="toc-number">6.</span> <span class="toc-text">Docker 部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E9%98%B6%E6%AE%B5%E6%9E%84%E5%BB%BA"><span class="toc-number">6.1.</span> <span class="toc-text">多阶段构建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E9%94%AE%E9%83%A8%E7%BD%B2"><span class="toc-number">6.2.</span> <span class="toc-text">一键部署</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"><span class="toc-number">7.</span> <span class="toc-text">使用示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Python-API"><span class="toc-number">7.1.</span> <span class="toc-text">Python API</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E5%BC%80%E5%8F%91"><span class="toc-number">8.</span> <span class="toc-text">扩展开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">9.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E4%BC%98%E5%8A%BF"><span class="toc-number">9.1.</span> <span class="toc-text">核心优势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">9.2.</span> <span class="toc-text">适用场景</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/26158" title="基于 PaddleNLP 的中文敏感数据智能脱敏系统"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/upgrade_06a0.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基于 PaddleNLP 的中文敏感数据智能脱敏系统"/></a><div class="content"><a class="title" href="/posts/26158" title="基于 PaddleNLP 的中文敏感数据智能脱敏系统">基于 PaddleNLP 的中文敏感数据智能脱敏系统</a><time datetime="2025-12-18T08:09:38.000Z" title="发表于 2025-12-18 16:09:38">2025-12-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/38184" title="语音转文字不再是难题：ASRService 让音频处理更简单"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/mobile_prototyping_grmd.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="语音转文字不再是难题：ASRService 让音频处理更简单"/></a><div class="content"><a class="title" href="/posts/38184" title="语音转文字不再是难题：ASRService 让音频处理更简单">语音转文字不再是难题：ASRService 让音频处理更简单</a><time datetime="2025-12-08T09:59:44.000Z" title="发表于 2025-12-08 17:59:44">2025-12-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/8230" title="Prefect 3.x + Faster-Whisper：构建生产级分布式语音识别服务"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/usability_testing_2xs4.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Prefect 3.x + Faster-Whisper：构建生产级分布式语音识别服务"/></a><div class="content"><a class="title" href="/posts/8230" title="Prefect 3.x + Faster-Whisper：构建生产级分布式语音识别服务">Prefect 3.x + Faster-Whisper：构建生产级分布式语音识别服务</a><time datetime="2025-12-08T09:59:42.000Z" title="发表于 2025-12-08 17:59:42">2025-12-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/61390" title="多智能体系统技术架构文档"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/interview_rmcf.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="多智能体系统技术架构文档"/></a><div class="content"><a class="title" href="/posts/61390" title="多智能体系统技术架构文档">多智能体系统技术架构文档</a><time datetime="2025-10-20T08:22:33.000Z" title="发表于 2025-10-20 16:22:33">2025-10-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/22039" title="矩形检测算法技术方案"><img src= "/img/loading.gif" data-lazy-src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/joyride_hnno.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="矩形检测算法技术方案"/></a><div class="content"><a class="title" href="/posts/22039" title="矩形检测算法技术方案">矩形检测算法技术方案</a><time datetime="2025-10-20T06:09:37.000Z" title="发表于 2025-10-20 14:09:37">2025-10-20</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By Daoji</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const runMermaid = ele => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    ele.forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = `%%{init:{ 'theme':'${theme}'}}%%\n`
+      const mermaidID = `mermaid-${index}`
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+      const renderMermaid = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      // mermaid v9 and v10 compatibility
+      typeof renderFn === 'string' ? renderMermaid(renderFn) : renderFn.then(({ svg }) => renderMermaid(svg))
+    })
+  }
+
+  const codeToMermaid = () => {
+    const codeMermaidEle = document.querySelectorAll('pre > code.mermaid')
+    if (codeMermaidEle.length === 0) return
+
+    codeMermaidEle.forEach(ele => {
+      const preEle = document.createElement('pre')
+      preEle.className = 'mermaid-src'
+      preEle.hidden = true
+      preEle.textContent = ele.textContent
+      const newEle = document.createElement('div')
+      newEle.className = 'mermaid-wrap'
+      newEle.appendChild(preEle)
+      ele.parentNode.replaceWith(newEle)
+    })
+  }
+
+  const loadMermaid = () => {
+    if (true) codeToMermaid()
+    const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+    if ($mermaid.length === 0) return
+
+    const runMermaidFn = () => runMermaid($mermaid)
+    btf.addGlobalFn('themeChange', runMermaidFn, 'mermaid')
+    window.loadMermaid ? runMermaidFn() : btf.getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaidFn)
+  }
+
+  btf.addGlobalFn('encrypt', loadMermaid, 'mermaid')
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://daoji-twikoo.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://daoji-twikoo.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
