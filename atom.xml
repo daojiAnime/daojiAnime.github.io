@@ -218,9 +218,9 @@
     <category term="工具" scheme="https://www.daoji-anime.com/categories/Python/%E5%B7%A5%E5%85%B7/"/>
     
     
-    <category term="Python" scheme="https://www.daoji-anime.com/tags/Python/"/>
-    
     <category term="pydantic" scheme="https://www.daoji-anime.com/tags/pydantic/"/>
+    
+    <category term="Python" scheme="https://www.daoji-anime.com/tags/Python/"/>
     
     <category term="beartype" scheme="https://www.daoji-anime.com/tags/beartype/"/>
     
@@ -264,9 +264,9 @@
     <category term="Python" scheme="https://www.daoji-anime.com/categories/Python/"/>
     
     
-    <category term="Python" scheme="https://www.daoji-anime.com/tags/Python/"/>
-    
     <category term="fastapi" scheme="https://www.daoji-anime.com/tags/fastapi/"/>
+    
+    <category term="Python" scheme="https://www.daoji-anime.com/tags/Python/"/>
     
     <category term="支付接口" scheme="https://www.daoji-anime.com/tags/%E6%94%AF%E4%BB%98%E6%8E%A5%E5%8F%A3/"/>
     
